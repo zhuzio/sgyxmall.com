@@ -38,4 +38,97 @@ yx_mallApp
                 return defer.promise;
             }
         }
-    }]);
+    }]).filter("datatimes",function(){
+
+    return function(num){
+
+        var lens=num.length;
+        var timer1=num.substr(0,4);
+        var timer2=num.substr(4,lens-4);
+
+        return timer1+"-"+timer2;
+
+    };
+})
+.directive('onFinish', function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function () {
+                    scope.$emit('ngRepeatFinished');
+                });
+            }
+        }
+    }}).filter("order_type",function(){
+
+    return function(order_type){
+
+        if(order_type=="offline"){
+            return "联盟购物";
+        }else{
+            return "商城购物";
+        }
+
+
+
+    };
+
+}).filter("order_type1",function(){
+
+    return function(order_type){
+
+        if(order_type=="1"){
+            return "会员转化";
+        }else if(order_type=="2"){
+            return "购物积分奖励";
+        }else{
+            return "市场补贴";
+        }
+
+
+
+    };
+})
+   .filter("imgChange",function(){
+
+        return function(aa){
+
+            if(aa=="1"){
+                return "tre_jf2.png";
+            }else if(aa=="2"){
+                return "tre_jf1.png";
+            }else{
+                return "tre_jf3.png";
+            }
+
+
+
+        };
+    }).filter("shopImg1",function(){
+
+    return function(num){
+        if(num=="冻结中"){
+            return "Frozen.png";
+        }else{
+            return "Conversion.png";
+        }
+
+
+
+
+    };
+}).filter("imgChange1",function(){
+
+    return function(aa){
+
+        if(aa=="offline"){
+            return "hyjl_lm.png";
+        }else{
+            return "hyjl_sc.png";
+        }
+
+
+
+    };
+});

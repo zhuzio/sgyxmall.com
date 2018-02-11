@@ -1,142 +1,270 @@
 <!--会员   财富-->
-<div class="hy" ng-show="1">
+<div class="hy" ng-if="tre.level==1">
 
-    <div class="mc_head">
+<div class="mc_head">
         <a href="javascript:window.history.back(-1)"></a>
         <div class="mc_classify">
-            财富
+                            财富
         </div>
-    </div>
-    <div class="tre_container">
-        <div class="tre_top">
-            <span class="tre_span1" ></span>
-            <span>购物积分</span>
-            <span class="tre_span2"></span>
-        </div>
-        <div class="tre_middle">
-            <div class="tre_middle_fen">
-                <span class="tre_middle_1">当前可用(分)</span> <br />
-                <span>{{tre.fen}}</span>
-            </div>
-
-        </div>
-        <div class="tre_bot">
-            <ul class="tre_ul_1">
-                <li class="tre_li_1">
-                    <span >当前权</span>
-                    <span>{{tre.quan}}</span>
-                </li>
-                <li class="tre_li_1 tre_li_11">
-                    <span >结余积分</span>
-                    <span>{{tre.jyf}}</span>
-                </li>
-                <li class="tre_li_1">
-                    <span >幸福积分</span>
-                    <span>{{tre.xff}}</span>
-                </li>
-
-            </ul>
-
-        </div>
-        <div class="" style="clear: both;"></div>
-
-
-    </div>
-    <!--财富来源-->
-    <div class="tre_cf">
-        <ul class="am_ul_1">
-            <li class="am_li_1" ui-sref="treasureConversion">
-                <!--<span class="img img1"></span>-->
-                <img ng-src="images/myWealth/1_Transfer record.png"   alt="转化记录">
-                <span>转化记录</span>
-            </li>
-            <li class="am_li_1" ui-sref="treasurePay">
-                <img src="images/myWealth/2_Payment record.png" alt="支付记录">
-                <!--<span class="img img2"></span>-->
-                <span>支付记录</span>
-            </li>
-            <li class="am_li_1" ui-sref="treasureGiven">
-                <img src="images/myWealth/3_Bonus points.png" alt="获赠积分">
-                <!--<span class="img img3"></span>-->
-                <span>获赠积分</span>
-            </li>
-            <li class="am_li_1" ui-sref="treasureReward">
-                <img src="images/myWealth/4_Member Award.png" alt="会员奖励">
-                <!--<span class="img img4"></span>-->
-                <span>会员奖励</span>
-            </li>
-        </ul>
-
-
-    </div>
 </div>
+<div class="tre_container">
+  <div class="tre_top">
+  	<!--<span class="tre_span1" ui-sref="treasureBill"></span>-->
+  	<span>购物积分</span>
+  	<span class="tre_span2" ui-sref="treasureNews"></span>
+  </div>	
+  <div class="tre_middle">
+  	 <div class="tre_middle_fen">
+  	 	<span class="tre_middle_1">当前可用(分)</span> <br />
+  	 	<span>{{tre.money}}</span>
+  	 </div>
+  	
+  </div>
+  <div class="tre_bot">
+  	<ul class="tre_ul_1">
+			<li class="tre_li_1" ng-click="jyOk()">
+				<span >当前权</span>
+				<span>{{tre.point_peac}}</span>
+			</li>
+			<li class="tre_li_1 tre_li_11" ng-click="jyOk()">
+				<span >结余积分</span>
+				<span>{{tre.point}}</span>
+			</li>
+			<li class="tre_li_1" ng-click="yxOk()">
+				<span >严选积分</span>
+				<span>{{tre.happiness}}</span>
+			</li>
+			
+		</ul>
+  	
+  </div>
+  <div class="" style="clear: both;"></div>
+  	
+  
+</div>
+<!--财富来源-->	
+	<div class="tre_cf">
+	  <ul class="am_ul_1">
+			<li class="am_li_1" ui-sref="treasureConversion">
+				
+				<img ng-src="images/myWealth/1_Transferrecord.png"   alt="转化记录">
+				<span>转化记录</span>
+			</li>
+			<li class="am_li_1" ui-sref="treasurePay" >
+				<img src="images/myWealth/2_Paymentrecord.png" alt="支付记录">
+				
+				<span>支付记录</span>
+			</li>
+			<li class="am_li_1" ui-sref="treasureGiven">
+				<img src="images/myWealth/3_Bonuspoints.png" alt="获赠积分">
+				
+				<span>获赠积分</span>
+			</li>
+			<li class="am_li_1" ui-sref="treasureReward">
+				<img src="images/myWealth/4_MemberAward.png" alt="会员奖励">
+				
+				<span>会员奖励</span>
+			</li>
+		</ul>
+	  
+	
+	</div>
+<!--结余积分 弹出层-->
+<div class="chose_upgrade_box" ng-if="tre.BalanceIntegral_layer" >
+	
+     <div>
+     	<p style="text-align: left;font-size: 0.2735rem;color: #333333;">当前权</p>
+     	<p style="text-align: left;font-size: 0.2735rem;color: #333333;">当会员账户一次性或累计300积分时，会员才享有一个受赠权，商城根据自身经营状况，开始每天赠送会员购物积分，直到300积分赠送完毕。每个受赠权可以获赠300购物积分，该积分用于本商城或商城内的联盟商家处消费。</p>
+        <p style="text-align: left;font-size: 0.2735rem;color: #333333;">结余积分</p>
+        <p style="text-align: left;font-size: 0.2735rem;color: #333333;">不足300积分的部分列为结余积分，累计300积分后可变为一个受赠权。</p>
+        <p style="font-size: 0.2735rem;color: #333333;" ng-click="jyNo()" >朕知道了</p>
+     </div>
+</div>
+
+<!--严选积分弹出层-->
+<div class="chose_upgrade_box" ng-if="tre.strictIntegral_layer" ng-click="yxNo()">
+	
+     <div>
+     	<p style="text-align: left;font-size: 0.2735rem;color: #333333;">尊敬的会员:</p>
+     	<p style="text-align: left;font-size: 0.2735rem;color: #333333;">您在商城购物所获赠的严选积分，可在苏格严选商城购物时，使用获赠的严选积分，对所购商品进行兑换及相应比例的积分抵扣。</p>
+     	<p style="font-size: 0.2735rem;color: #333333;">祝您购物愉快！</p>
+     </div>
+</div>
+
+
+</div>	
 <!--非会员   财富-->
-<div class="hy" ng-show="0">
+<div class="hy" ng-if="tre.level!=1">
 
-    <div class="mc_head">
+<div class="mc_head">
         <a href="javascript:window.history.back(-1)"></a>
         <div class="mc_classify">
-            财富
+                            财富
         </div>
-    </div>
-    <div class="tre_container">
-        <div class="tre_top">
-            <span class="tre_span1"></span>
-            <span>购物积分</span>
-            <span class="tre_span2"></span>
-        </div>
-        <div class="tre_middle">
-            <div class="tre_middle_fen">
-                <span class="tre_middle_1">当前可用(分)</span> <br />
-                <span>{{jf.fen}}</span>
-            </div>
-
-        </div>
-        <div class="tre_bot">
-            <ul class="tre_ul_1">
-                <li class="tre_li_1">
-                    <span >当前权</span>
-                    <span>{{jf.quan}}</span>
-                </li>
-                <li class="tre_li_1 tre_li_11">
-                    <span >结余积分</span>
-                    <span>{{jf.jyf}}</span>
-                </li>
-                <li class="tre_li_1">
-                    <span >幸福积分</span>
-                    <span>{{jf.jff}}</span>
-                </li>
-
-            </ul>
-
-        </div>
-        <div class="" style="clear: both;"></div>
-
-
-    </div>
-    <!--财富来源-->
-    <div class="tre_cf">
-        <ul class="am_ul_1">
-            <li class="am_li_1">
-                <!--<span class="img img1"></span>-->
-                <img ng-src="images/myWealth/1_Transfer record.png"   alt="转化记录">
-                <span>转化记录</span>
-            </li>
-            <li class="am_li_1" >
-                <img src="images/myWealth/2_Payment record.png" alt="支付记录">
-                <!--<span class="img img2"></span>-->
-                <span>支付记录</span>
-            </li>
-            <li class="am_li_1">
-                <img src="images/myWealth/3_Bonus points.png" alt="获赠积分">
-                <!--<span class="img img3"></span>-->
-                <span>获赠积分</span>
-            </li>
-            <li class="am_li_1">
-                <img src="images/myWealth/4_Member Award.png" alt="会员奖励">
-                <!--<span class="img img4"></span>-->
-                <span>会员奖励</span>
-            </li>
-        </ul>
-    </div>
+   </div>
+<div class="tre_container">
+  <div class="tre_top">
+  	<!--<span class="tre_span1" ui-sref="treasureBill1" ng-show="tre.status_sy"></span>-->
+  	<!--<span class="tre_span1" ui-sref="treasureBill" ng-show="tre.status_gw"></span>-->
+  	<div class="tre_sel">
+  		<span  class="tre_span3  tre_ba" ng-click="change(1)">购物积分</span>
+  		<span class="tre_span4" ng-click="change(2)">推荐奖励</span>
+  	</div>
+  	<span class="tre_span2" ui-sref="treasureNews"></span>
+  </div>	
+  <div class="tre_middle">
+  	 <div class="tre_middle_fen" ng-show="tre.status_gw">
+  	 	<span class="tre_middle_1">当前可用(分)</span> <br />
+  	 	<span>{{tre.money}}</span>
+  	 </div>
+  	 <div class="tre_middle_fen" ng-show="tre.status_sy">
+  	 	<span class="tre_middle_1">当前可提(分)</span> <br />
+  	 	<span>{{tre.earnings}}</span>
+  	 </div>
+  </div>
+  <div class="tre_bot">
+  	<!--购物积分部分-->
+  	<ul class="tre_ul_1" ng-show="tre.status_gw">
+			<li class="tre_li_1" ng-click="jyOk()">
+				<span >当前权</span>
+				<span>{{tre.point_peac}}</span>
+			</li>
+			<li class="tre_li_1 tre_li_11" ng-click="jyOk()">
+				<span >结余积分</span>
+				<span>{{tre.point}}</span>
+			</li>
+			<li class="tre_li_1" ng-click="yxOk()">
+				<span >幸福积分</span>
+				<span>{{tre.happiness}}</span>
+			</li>
+			
+		</ul>
+  <!--收益奖励部分-->
+    <div class="tre_reward" ng-show="tre.status_sy">
+			历史累计转化 (积分)：{{tre.total}}
+	</div>	
+  	
+  </div>
+  <div class="" style="clear: both;"></div>
+  	
+  
 </div>
+<!--财富来源-->	
+	<div class="tre_cf">
+		<!--购物积分模块-->
+	  <ul class="am_ul_1" ng-show="tre.status_gw">
+			<li class="am_li_1" ui-sref="treasureConversion">
+				<img ng-src="images/myWealth/1_Transferrecord.png"   alt="转化记录">
+				<span>转化记录</span>
+			</li>
+			<li class="am_li_1" ui-sref="treasurePay">
+				<img src="images/myWealth/2_Paymentrecord.png" alt="支付记录">
+				<span>支付记录</span>
+			</li>
+			<li class="am_li_1" ui-sref="treasureGiven">
+				<img src="images/myWealth/3_Bonuspoints.png" alt="获赠积分">
+				<span>获赠积分</span>
+			</li>
+			<li class="am_li_1" ui-sref="treasureReward">
+				<img src="images/myWealth/4_MemberAward.png" alt="会员奖励">
+				<span>会员奖励</span>
+			</li>
+		</ul>
+	
+	    <!--收益奖励模块-->
+	    <ul class="am_ul_1" ng-show="tre.status_sy">
+	    	<!--基础功能，具有角色 1会员 2商家 3社区 4 县区 5 市区  6 省区-->
+			<li class="am_li_1" ng-click="zsOk()">
+				<img ng-src="images/myWealth/Investment_income.png"   alt="招商收益">
+				<span>招商收益</span>
+			</li>
+			<!--基础功能，具有角色          4   5 6  7-->
+			<li class="am_li_1" ui-sref="treasurePME"   ng-if="tre.level!=2">
+				<img src="images/myWealth/Membership_revenue.png" alt="辖区会员收益">
+				<span>辖会员收益</span>
+			</li>
+			<!--基础功能，具有角色     4 5 -->
+			<li class="am_li_1" ui-sref="treasureJurisdictionE" ng-if="tre.level==4||tre.level==5">
+				<img src="images/myWealth/Business_profit.png" alt="辖商收益">
+				<span>辖商收益</span>
+			</li>
+			<!--基础功能，具有角色 5 -->
+			<li class="am_li_1" ui-sref="treasureStatisticalReports" ng-if="tre.level==5">
+				<img src="images/myWealth/Statistical_report.png" alt="统计报表">
+				<span>统计报表</span>
+			</li>
+			<!--基础功能，具有角色  5 -->
+			<li class="am_li_1" ng-click="sjOk()" ng-if="tre.level==5">
+				<img src="images/myWealth/Merchant_payment111.png" alt="辖商货款">
+				<span>辖商货款</span>
+			</li>
+			
+		</ul>
+	
+		<div class="tre_withdrawal" ng-show="tre.status_sy" ng-click="txOk()" >
+			提现
+		</div>
+	</div>
+	
+<!--招商收益弹出层-->
+<div class="chose_upgrade_box" ng-if="tre.merchants_layer" >
+	
+     <div ng-click="zsNo()">
+     	<p style="border-bottom: 0.0085rem solid rgba(0, 0, 0, 0.3) ;margin-bottom: .1rem;"">招商收益</p>
+     	<span class="tan_sp">
+     		<img src="images/wealthAll/Business_income.png" ui-sref="treasureBusinessIncome"  />
+     		<img src="images/wealthAll/Agency_reward.png" ui-sref="treasureAgentReward"  />
+     	</span>	
+     	
+     </div>
+</div>
+
+
+
+<!--货款单弹出层-->
+<div class="chose_upgrade_box" ng-if="tre.earnings_layer" >
+     <div ng-click="sjNo()">
+     	<p style="border-bottom: 0.0085rem solid rgba(0, 0, 0, 0.3) ;margin-bottom: .1rem;">辖区商家积分购送明细</p>
+     	<span class="tan_sp">
+     		<img src="images/wealthAll/Merchant_gift.png" ui-sref="treasureMerchantGiving"/>
+     		<img src="images/wealthAll/Merchant_payment.png" ui-sref="treasureMerchantPayment"/>
+     	</span>	
+     	
+     </div>
+</div>
+
+<!--提现弹出层-->
+<div class="chose_upgrade_box" ng-if="tre.withdrawal_layer1" >
+	
+     <div>
+     	<p style="margin-bottom: .1rem;text-align: left;font-size: 0.2735rem;color: #333333;">使用提现功能需绑定一张支持提现的储蓄卡</p>
+     	<span class="tx_sp tx_sp1" ng-click="txNo()">取消</span>
+     	<span class="tx_sp tx_sp2" ui-sref="addBandCard">添加储蓄卡</span>
+     </div>
+</div>
+
+<!--结余积分 弹出层-->
+<div class="chose_upgrade_box" ng-if="tre.BalanceIntegral_layer" >
+	
+     <div>
+     	<p style="text-align: left;font-size: 0.2735rem;color: #333333;">当前权</p>
+     	<p style="text-align: left;font-size: 0.2735rem;color: #333333;">当会员账户一次性或累计300积分时，会员才享有一个受赠权，商城根据自身经营状况，开始每天赠送会员购物积分，直到300积分赠送完毕。每个受赠权可以获赠300购物积分，该积分用于本商城或商城内的联盟商家处消费。</p>
+        <p style="text-align: left;font-size: 0.2735rem;color: #333333;">结余积分</p>
+        <p style="text-align: left;font-size: 0.2735rem;color: #333333;">不足300积分的部分列为结余积分，累计300积分后可变为一个受赠权。</p>
+        <p style="font-size: 0.2735rem;color: #333333;" ng-click="jyNo()" >朕知道了</p>
+     </div>
+</div>
+
+<!--严选积分弹出层-->
+<div class="chose_upgrade_box" ng-if="tre.strictIntegral_layer" ng-click="yxNo()">
+	
+     <div>
+     	<p style="text-align: left;font-size: 0.2735rem;color: #333333;">尊敬的会员:</p>
+     	<p style="text-align: left;font-size: 0.2735rem;color: #333333;">您在商城购物所获赠的严选积分，可在苏格严选商城购物时，使用获赠的严选积分，对所购商品进行兑换及相应比例的积分抵扣。</p>
+     	<p style="font-size: 0.2735rem;color: #333333;">祝您购物愉快！</p>
+     </div>
+</div>
+
+
+</div>
+	

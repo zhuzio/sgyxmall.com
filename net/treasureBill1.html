@@ -1,0 +1,69 @@
+<!--财富    收益账单-->
+<div class="treCon_container">
+	<div class="treCon_score" style="height: auto;">
+		 <div class="tre_top">
+  	        <a href="javascript:window.history.back(-1)" class="treCon_a"></a>
+		  	<div class="tre_sel">
+		  		<span  class="tre_span3  tre_ba" ng-click="change(1)">收益奖励</span>
+		  		<span class="tre_span4" ng-click="change(2)">收益提现</span>
+		  	</div>
+		  </div>	
+	<!--收益奖励-->
+	<div  ng-if="xiaoFei.jl">
+		<div class="treCon_score_top">
+			<div class="treCon_score_top_fen">
+				<span>本月累计奖励(积分)</span>
+				<span> <strong>{{xiaoFei.jlBill.data[0].money}}</strong> </span>
+			</div>
+		</div>
+		<div class="treCon_score_bot">
+			历史累计奖励(积分)：{{xiaoFei.jlBill.arr}}
+		</div>
+		
+	</div >
+		<!--收益提现-->
+		<div ng-if="xiaoFei.tx">
+			<div class="treCon_score_top">
+				<div class="treCon_score_top_fen">
+					<span>本月累计提现(积分)</span>
+					<span> <strong>{{xiaoFei.txBill.data[0].money}}</strong> </span>
+				</div>
+			</div>
+			<div class="treCon_score_bot">
+				历史累计提现(积分)：{{xiaoFei.txBill.arr}}
+			</div>
+			
+		</div>
+	</div>	
+	<p class="am_near_shop_all">账单明细</p>
+	<!--所有信息展示-->
+	<div class="treCon_all_show">
+		
+		<!--奖励-->
+		<div ng-if="xiaoFei.jl">
+		   <div class="treCon_one_show" style="background: #F2F4F3;padding-bottom: .1rem;"  ng-repeat="x in xiaoFei.jlBill.data  "   ui-sref="treasureBillDetail({billId:x.times,billType:2})"> 
+				<div class="treCon_one_top" style="background: #FFFFFF;"  >
+					{{x.times |datatimes}}&nbsp;&nbsp; 总计奖励：{{x.money}} <span class="treCon_imgSp4"></span>
+				</div>
+			
+			</div>
+		</div>
+		<!--提现-->
+		<div ng-if="xiaoFei.tx">
+		   <div class="treCon_one_show" style="background: #F2F4F3;padding-bottom: .1rem;"  ng-repeat="x in xiaoFei.txBill.data  " > 
+				<div class="treCon_one_top" style="background: #FFFFFF;"  >
+					{{x.times|datatimes }}&nbsp;&nbsp; 总计提现：{{x.money}} <span class="treCon_imgSp4"></span>
+				</div>
+			
+			</div>
+		</div>
+			
+		
+	</div>
+
+	
+	
+	
+	
+	
+</div>

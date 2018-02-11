@@ -76,8 +76,8 @@ yx_mallApp
             }
         });
         $scope.sendIG=function () {
-            $scope.sio.psd = true;
-            // $state.go("buyAndSendIntegralDetail")
+            // $scope.sio.psd = true
+            $state.go("buyAndSendIntegralDetail")
         };
         $scope.sendGo=function (psd) {
             var sendGo=appService._postData(URL+"index.php?s=Api/shop_center1/send_point",{
@@ -94,8 +94,7 @@ yx_mallApp
                     console.log(value)
                     $scope.sio.psd = false;
                     if (value.data.ret == "ok"){
-                        alert(value.data.msg);
-                        $state.go("buyAndSendIntegralDetail")
+                        alert(value.data.msg)
                     }else {
                         alert(value.data.msg);
                         return false;

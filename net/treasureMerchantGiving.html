@@ -1,0 +1,74 @@
+<!--商家赠送-->
+<div class="treCon_container">
+	<div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+                            商家赠送
+        </div>
+    </div>
+	<div class="treCon_score" style="height: auto;">
+		<div class="treCon_score_top" >
+			<div class="treCon_score_top_fen">
+				<span>总赠送</span>
+				<span> <strong>{{dan.all}}</strong> </span>
+			</div>
+		</div>
+		
+		
+	</div>
+	<div class="treCon_one_bg"></div>
+	<div class="treCon_enquiries">
+		<div class="treCon_cha">
+			
+			<input type="number" name="cha" id="cha" placeholder="请输入手机号"  value="">
+		</div>
+		<div class="treCon_start">
+			  <input readonly="" type="text" placeholder="起始日期" class="plate_time right" id="appDateTime1" name="appDateTime1" required="">
+	    </div>
+		<div class="treCon_end">
+			  <input readonly="" type="text" placeholder="结束日期" class="plate_time right" id="appDateTime2" name="appDateTime2" required="">
+	    </div>
+	    <div id="treCon_ok" ng-click="query()">
+	    	查找
+	    </div>
+    </div>
+	<div class="treCon_one_bg"></div>
+	
+	<!--所有信息展示-->
+	<div class="treCon_all_show">
+		
+		
+	   <div class="treCon_one_show"  ng-repeat="v in dan.data"> <!--ng-repeat="v in user"-->
+			
+			<div class="treCon_one_bot" > 
+				<div class="treCon_one_1">
+					<div class="treCon_one_left">
+						{{v.seller_name}} {{v.user_name}}
+					</div>
+					<div class="treCon_one_right">
+						{{v.order_amount}}
+					</div>
+				</div>
+			
+				<div class="treCon_one_1" style="letter-spacing: 0px;font-size: .15rem;">
+					<div class="treCon_one_left">
+						{{v.add_time}}
+					</div>
+					<div class="treCon_one_right">
+						赠送积分
+					</div>
+				</div>
+			</div>
+			  <div class="treCon_one_bg"></div>
+		</div>
+			
+	 <div style="width: 100%;text-align: center;font-size: .25rem;margin-top: .2rem;">暂无更多</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+</div>

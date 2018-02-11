@@ -2,12 +2,12 @@
     <!--头部组件-->
     <div class="alliance_merchant_header">
         <div class="alliance-address">
-            南阳
+            {{index.locate}}
         </div>
-        <span class="alliance-drop"></span>
+        <!--<span class="alliance-drop"></span>-->
         <div class="alliance-search" ui-sref="search">
-            <span class="alliance-s"></span>
-            <input type="text" id="search" value="" placeholder="搜索商品" class="alliance-inp"/>
+            <span class="alliance-s"  ></span>
+            <input type="text" id="search" value="" placeholder="搜索商品" class="alliance-inp" />
         </div>
         <span class="alliance-sao"></span>
 
@@ -15,8 +15,7 @@
     <!--轮播图开始-->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class='swiper-slide' ng-repeat="sp in index.swipers"><a href="{{sp.ad_link}}"><img
-                    ng-src='http://www.sgyxmall.com/{{sp.ad_logo}}'></a></div>
+            <div class='swiper-slide' ng-repeat="sp in index.swipers"><a href="{{sp.ad_link}}"><img ng-src='http://www.sgyxmall.com/{{sp.ad_logo}}'></a></div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
@@ -25,22 +24,22 @@
     <div class="alliance_merchant_container">
         <!--分类-->
         <ul class="am_ul_1">
-            <li class="am_li_1">
+            <li class="am_li_1" ui-sref="merchantClassify({classifyId:41})">
                 <span class="img img1"></span>
                 <!--<img ng-src="../images/lianMeng/Food_and_beverage.png"   src="../images/lianMeng/Food_and_beverage.png" alt="餐饮">-->
-                <span>餐饮美食</span>
+                <span>餐饮美食 </span>
             </li>
-            <li class="am_li_1">
+            <li class="am_li_1" ui-sref="merchantClassify({classifyId:1})">
                 <!--<img src="../images/lianMeng/Department_store_shopping.png" alt="财富">-->
                 <span class="img img2"></span>
-                <span>百货购物</span>
+                <span>建筑建材</span>
             </li>
-            <li class="am_li_1">
+            <li class="am_li_1" ui-sref="merchantClassify({classifyId:42})">
                 <!--<img src="../images/lianMeng/entertainment.png" alt="财富">-->
                 <span class="img img3"></span>
-                <span>娱乐休闲</span>
+                <span>西餐酒吧</span>
             </li>
-            <li class="am_li_1" ui-sref="merchantClassify">
+            <li class="am_li_1" ui-sref="merchantClassify({classifyId:1})" >
                 <!--<img src="../images/lianMeng/more.png" alt="财富">-->
                 <span class="img img4"></span>
                 <span>更多分类</span>
@@ -49,27 +48,30 @@
         <!--附近的商家-->
         <div class="am_near_shop">
             <p class="am_near_shop_all">附近的商家</p>
-            <div class="am_near_shows" ng-repeat="x in order.shop ">
+            <div class="am_near_shows"  ng-repeat="x in index.shop " ui-sref="merchantDetail({shopId:x.store_id})">
+
                 <div class="am_near_inf">
                     <div class="am_near_inf_left">
-
-                        <img ng-src="images/picture.png"/>
+                        <img ng-src="http://www.sugemall.com/{{x.store_logo}}"/>
                     </div>
                     <div class="am_near_inf_right">
-                        <div class="am_near_name">{{x.goods}}</div>
-                        <div class="am_near_siez">
-                            <span>{{x.color}}</span>
-                            <span class="fr">{{x.size}}km</span>
-                        </div>
-                        <div class="am_near_integral">
-                            <span>地址：{{x.prices_cash}}</span>
 
+                        <div class="am_near_siez">
+                            <span>{{x.store_name}}</span>
+                            <span class="fr">{{x.juli}}m</span>
                         </div>
+
+                        <div class="am_near_integral">
+                            <span >地址：{{x.address}}</span>
+                        </div>
+                        <div class="am_near_name" >{{x.cate_name}}</div>
                     </div>
                 </div>
 
 
             </div>
+            <!--加载更多-->
+            <p class="addMore"><img ng-src="images/Loading9.gif"/></p>
 
 
         </div>

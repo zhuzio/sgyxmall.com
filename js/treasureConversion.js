@@ -2,30 +2,64 @@
 yx_mallApp
     .controller("treasureConversionController", ["$scope", "appService", "$stateParams", "$state", function ($scope, appService, $stateParams, $state) {
         //    用户转化信息
-        $scope.treasureConversion = {
-            user:[{
-                time: '2018-01',
-                all_score: 666,
-                detail: [{gw: 66, yx: 11, lei: "商城购物", time: "2018-01-11 00:11:12"}, {
-                    gw: 16,
-                    yx: 10,
-                    lei: "商城购物",
-                    time: "2018-01-01 10:31:12"
-                }]
-            }, {
-                time: '2017-11',
-                all_score: 996,
-                detail: [{gw: 656, yx: 110, lei: "商城购物", time: "2017-11-12 00:11:12"}, {
-                    gw: 165,
-                    yx: 120,
-                    lei: "商城购物",
-                    time: "2017-11-21 10:31:12"
-                }]
-            }]
+
+        document.title="转化记录";
+        $scope.arr={
+
+            mouth:[],//月账单
+            dayDetail:[{get_money:66,happiness:11,order_type:"541",createtime:"2018-01-11 00:11:12"},{get_money:16,happiness:10,order_type:"offline",createtime:"2018-01-01 10:31:12"}],
+            selected:-1,//选中展示本月信息，默认选不中
+            current:0,//本月转化，默认为零
+            total:0//累计转化，默认为零
+        };
+
+
+//   初加载请求
+//加载每月记录
+        var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record",{
+            token: localStorage.getItem("tokens"),
+            way:localStorage.getItem("way") });
+        conversion_record.then(function(e){
+            $scope.arr.mouth=e.data.data;
+            $scope.arr.total=e.data.arr;
+            $scope.arr.current=e.data.data[0].money;
+            console.log(e);
+        },function(e){
+            console.log(e);
+        });
+
+
+//   初加载请求
+//  操作ng-repeat生成的dom元素
+
+        $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+            //这里写获取dom的操作，
+            console.log(ngRepeatFinishedEvent);
+
+        });
+
+        //   点击请求加载本月数据
+        $scope.change=function($index,time){
+            //   点击请求加载本月数据
+            $scope.arr.selected=$index;
+            console.log($index);
+            console.log($scope.arr.selected);
+            console.log(time);
+
+            var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record_month",{
+                token: localStorage.getItem("tokens"),
+                way:localStorage.getItem("way"), time:time});
+            conversion_record.then(function(e){
+                $scope.arr.dayDetail=e.data.data;
+
+                console.log(e);
+            },function(e){
+                console.log(e);
+            })
+            //   初加载请求
+
         }
-        $scope.showDetail=function (e) {
-            $(e.target).siblings(".treCon_list").css("display","block");
-            $(e.target).parents(".treCon_one_show").siblings().find(".treCon_list").css("display","none");
-        }
-    }])
+
+
+    }]);
  

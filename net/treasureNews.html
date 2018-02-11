@@ -1,0 +1,60 @@
+<!--消息-->
+<div class="treCon_container">
+	<div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+                            消息
+        </div>
+    </div>
+	<div class="treCon_score">
+		<div class="treCon_score_top">
+			<div class="treCon_score_top_fen">
+				<span>本月累计转化(积分)</span>
+				<span> <strong>6666.00</strong> </span>
+			</div>
+		</div>
+		<div class="treCon_score_bot">
+			历史累计转化 (积分)：999999.00
+		</div>
+		
+	</div>
+	<p class="am_near_shop_all">转化明细</p>
+	<!--所有信息展示-->
+	<div class="treCon_all_show">
+		
+		
+	   <div class="treCon_one_show" ng-repeat="v in user" > 
+			<div class="treCon_one_top" ng-click="change($index)" >
+				{{v.time}} 总计：9999积分
+			</div>
+			<div class="treCon_one_bot" ng-repeat="x in v.detail " ng-show="arr.sh($index)"> 
+				<div class="treCon_one_1">
+					<div class="treCon_one_left">
+						<img src="images/wealthAll/tre_xqjia.png" class="treCon_img1"/>{{x.gw}}购物积分
+					</div>
+					<div class="treCon_one_right">
+						<img src="images/wealthAll/tre_xqjia.png" class="treCon_img1"/>{{x.yx}}严选积分
+					</div>
+				</div>
+				<div class="treCon_one_1">
+					<div class="treCon_one_left">
+						<img src="images/wealthAll/tre_jf3.png" class="treCon_img2"/>{{x.lei}}
+					</div>
+					<div class="treCon_one_right">
+						<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>{{x.time}}
+					</div>
+				</div>
+			</div>
+			
+		</div>
+			
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+</div>

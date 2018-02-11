@@ -54,23 +54,24 @@ yx_mallApp.constant('RouterList_Config',[
             './js/shop_carCtrl.js'
         ]
     },{
-        name:"tabs.alliance",
+        name:"tabs.alliance",  //联盟商家
         url:"_alliance",
         templateUrl:"net/allianceMerchant.html",
         controller:"allianceMerchantController",
         files:[
             './js/allianceMerchant.js'
+
         ]
     },{
-        name:"merchantClassify",
-        url:"/_merchantClassify",
+        name:"merchantClassify",//商家分类
+        url:"/_merchantClassify?classifyId",
         templateUrl:"net/merchantsClassify.html",
         controller:"merchantClassifyController",
         files:[
             './js/merchantClassify.js'
         ]
     },{
-        name:"treasure",
+        name:"treasure",    //财富
         url:"/_treasure",
         templateUrl:"net/treasure.html",
         controller:"treasureController",
@@ -164,13 +165,168 @@ yx_mallApp.constant('RouterList_Config',[
         controller:"",
         files:[]
     },{
-        name:"treasureConversion",
+        name:"treasureConversion", //财富  转化
         url:"/_treasureConversion",
         templateUrl:"net/treasureConversion.html",
         controller:"treasureConversionController",
         files:[
             './js/treasureConversion.js'
         ]
+
+    },{
+            name:"merchantDetail",//商家 详情
+            url:"/_merchantDetail?shopId",
+            templateUrl:"net/merchantsDetail.html",
+            controller:"merchantDetailController",
+            files:[
+                './js/merchantDetail.js'
+            ]
+    },{
+        name:"treasurePay",//支付记录
+        url:"/_treasurePay",
+        templateUrl:"net/treasurePay.html",
+        controller:"treasurePayController",
+        files:[
+            './js/treasurePay.js'
+        ]
+    },{
+        //财富   获赠积分
+        name:  "treasureGiven",
+        url:"/_treasureGiven",
+        templateUrl:"net/treasureGiven.html",
+        controller:"treasureGivenController",
+        files:[
+            './js/treasureGiven.js'
+        ]
+    },{
+        //财富   会员奖励
+        name:  "treasureReward",
+        url:"/treasureReward",
+        templateUrl:"net/treasureReward.html",
+        controller:"treasureRewardController",
+        files:[
+            './js/treasureReward.js'
+        ]
+    },{
+        //财富   购物账单
+        name:  "treasureBill",
+        url:"/treasureBill",
+        templateUrl:"net/treasureBill.html",
+        controller:"treasureBillController",
+        files:[
+            './js/treasureBill.js'
+        ]
+    },{
+        //财富   收益账单
+        name:  "treasureBill1",
+        url:"/treasureBill1",
+        templateUrl:"net/treasureBill1.html",
+        controller:"treasureBill1Controller",
+        files:[
+            './js/treasureBill1.js'
+        ]
+    },{
+        //财富   账单详情
+        name:  "treasureBillDetail",
+        url:"/treasureBillDetail?billId&billType",
+        templateUrl:"net/treasureBillDetail.html",
+        controller:"treasureBillDetailController",
+        files:[
+            './js/treasureBillDetail.js'
+        ]
+    },{
+        //财富   消息
+        name:  "treasureNews",
+        url:"/treasureNews",
+        templateUrl:"net/treasureNews.html",
+        controller:"treasureNewsController",
+        files:[
+            './js/treasureNews.js'
+        ]
+    },{
+        //财富   商家收益
+        name:  "treasureBusinessIncome",
+        url:"/treasureBusinessIncome",
+        templateUrl:"net/treasureBusinessIncome.html",
+        controller:"treasureBusinessIncomeController",
+        files:[
+            './js/treasureBusinessIncome.js'
+        ]
+    },{
+        //财富   代理奖励
+        name:  "treasureAgentReward",
+        url:"/treasureAgentReward",
+        templateUrl:"net/treasureAgentReward.html",
+        controller:"treasureAgentRewardController",
+        files:[
+            './js/treasureAgentReward.js'
+        ]
+    },{
+        //财富   辖区会员收益
+        name:  "treasurePME",
+        url:"/treasurePME",
+        templateUrl:"net/treasurePrecinctME.html",
+        controller:"treasurePMEController",
+        files:[
+            './js/treasurePrecinctME.js'
+        ]
+    },{
+        //财富   辖区商家收益
+        name:  "treasureJurisdictionE",
+        url:"/treasureJurisdictionE",
+        templateUrl:"net/treasureJurisdictionE.html",
+        controller:"treasureJurisdictionEController",
+        files:[
+            './js/treasureJurisdictionE.js'
+        ]
+    },{
+        //财富   统计报表
+        name:  "treasureStatisticalReports",
+        url:"/treasureStatisticalReports",
+        templateUrl:"net/treasureStatisticalReports.html",
+        controller:"treasureStatisticalReportsController",
+        files:[
+            './js/treasureStatisticalReports.js'
+        ]
+    },{
+        //财富   商家货款积分明细
+        name:  "treasureMerchantPayment",
+        url:"/treasureMerchantPayment",
+        templateUrl:"net/treasureMerchantPayment.html",
+        controller:"treasureMerchantPaymentController",
+        files:[
+            './js/treasureMerchantPayment.js'
+        ]
+    },{
+        //财富   商家赠送积分明细
+        name:  "treasureMerchantGiving",
+        url:"/treasureMerchantGiving",
+        templateUrl:"net/treasureMerchantGiving.html",
+        controller:"treasureMerchantGivingController",
+        files:[
+            './js/treasureMerchantGiving.js'
+        ]
+    },{
+        //财富   提现
+        name:  "treasureWithdrawal",
+        url:"/treasureWithdrawal",
+        templateUrl:"net/treasureWithdrawal.html",
+        controller:"treasureWithdrawalController",
+        files:[
+            './js/treasureWithdrawal.js'
+        ]
+    },{
+        //财富   提现明细
+        name:  "treasureWithdrawalDetail",
+        url:"/treasureWithdrawalDetail",
+        templateUrl:"net/treasureWithdrawalDetail.html",
+        controller:"treasureWithdrawalDetailController",
+        files:[
+            './js/treasureWithdrawalDetail.js'
+        ]
+
+
+
     },{
         name:"set",
         url:"/_set",
@@ -264,16 +420,6 @@ yx_mallApp.constant('RouterList_Config',[
         controller:"buyAndSendIntegralDetailController",
         files:[
             './js/buyAndSendIntegralDetailCtrl.js'
-        ]
-    }
-    ,
-    {
-        name:"allianceOrderAudit",
-        url:"/_allianceOrderAudit",
-        templateUrl:"net/allianceOrderAudit.html",
-        controller:"allianceOrderAuditController",
-        files:[
-            './js/allianceOrderAuditCtrl.js'
         ]
     }
 ]);

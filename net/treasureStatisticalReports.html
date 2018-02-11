@@ -1,0 +1,88 @@
+<!--统计报表-->
+<div class="treCon_container">
+	<div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+                            统计报表
+        </div>
+    </div>
+    <div class="treCon_one_bg"></div>
+    <div class="treCon_enquiries">
+		<div class="treCon_end" style="margin-left: 4%;">
+			  <input readonly="" type="text" placeholder="查询时间" class="plate_time right" id="test3"  required="" >
+	    </div>
+	    <div id="treCon_ok" ng-click="qurch()" style="margin-left: 10%;">
+	    	查找
+	    </div>
+	    <div style="display: inline-block;margin-right: .2rem;font-size:.25rem;float: right;margin-top: .3rem;">{{bb.qu}}</div>
+    </div>
+		<!--所有信息展示-->
+	<div class="treCon_all_show" >
+		<div class="treCon_one_bg"></div>
+			
+		<!--单条例子-->
+		
+	   <div class="treCon_one_show"  ng-repeat="v in bb.data "> 
+			<div class="treCon_one_bot border"  > 
+					<div class="treCon_one_1 tac border1">
+						<div class="treCon_one_left ml">
+							总辖区收益
+						</div>
+						<div style="display: inline-block;">
+							日期
+						</div>
+						<div class="treCon_one_right mr">
+							总商家
+						</div>
+					</div>
+					<div class="treCon_one_1  tac border1">
+						<div class="treCon_one_left ml">
+							{{v.total_earning}}
+						</div>
+						<div style="display: inline-block;">
+							{{v.times |datatimes }}
+						</div>
+						<div class="treCon_one_right mr">
+							{{v.totalshopscount}}({{v.activeshopscount}})
+						</div>
+					</div>
+					<div class="treCon_one_1 tac border1">
+						<div class="treCon_one_left ml">
+							总会员
+						</div>
+						<div style="display: inline-block;">
+							总赠送积分
+						</div>
+						<div class="treCon_one_right mr">
+							总货款积分
+						</div>
+					</div>
+					<div class="treCon_one_1 tac">
+						<div class="treCon_one_left ml">
+							{{v.usercount}}({{v.activeusercount}})
+						</div>
+						<div style="display: inline-block;">
+							{{v.totalgivepoint}}
+						</div>
+						<div class="treCon_one_right mr">
+							{{v.totalgivepoint}}
+						</div>
+					</div>
+				</div>
+			
+			<div class="treCon_one_bg"></div>
+		</div>
+			
+	
+	
+	<div style="width: 100%;text-align: center;font-size: .25rem;margin-top: .2rem;">暂无更多</div>
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+</div>

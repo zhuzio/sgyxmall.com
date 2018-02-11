@@ -1,0 +1,75 @@
+<!--财富    账单-->
+<div class="treCon_container">
+	<div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+                            购物账单
+        </div>
+   </div>    	
+   
+	<div class="treCon_score">
+		<div class="treCon_score_top">
+			<div class="treCon_score_top_fen">
+				<span>本月累计消费(积分)</span>
+				<span> <strong>{{xiaoFei.data[0].money}}</strong> </span>
+			</div>
+		</div>
+		<div class="treCon_score_bot">
+			历史累计消费 (积分)：{{xiaoFei.arr}}
+		</div>
+		
+	</div>
+	<p class="am_near_shop_all">账单明细</p>
+	<!--所有信息展示-->
+	<div class="treCon_all_show">
+		
+		<!--转化记录-->
+	   <div class="treCon_one_show" style="background: #F2F4F3;padding-bottom: .1rem;"  ng-repeat="x in xiaoFei.data  "       ui-sref="treasureBillDetail({billId:x.times,billType:1})"> 
+			<div class="treCon_one_top" style="background: #FFFFFF;"  >
+				{{x.times |datatimes}}&nbsp;&nbsp; 总计：{{x.money}} <span class="treCon_imgSp4"></span>
+			</div>
+		
+		</div>
+		
+		
+			
+		<!--支付记录-->
+	    <!--<div class="treCon_one_show" > 
+			<div class="treCon_one_top"  ui-sref="treasureBillDetail{{billId:1}}"> 
+				2018-01 总计：9999积分
+			</div>
+			<div class="treCon_one_bot"  ng-show="1"> 
+				<div class="treCon_one_1">
+					<div class="treCon_one_left">
+						<img src="images/wealthAll/hyjl_dd.png" class="treCon_img1"/>订单号123
+					</div>
+					<div class="treCon_one_right">
+						<img src="images/wealthAll/gwjfj.png" class="treCon_img1"/>255积分
+					</div>
+				</div>
+				<div class="treCon_one_1">
+					<div class="treCon_one_left">
+						<img src="images/wealthAll/tre_jf3.png" class="treCon_img2"/>商家名：null
+					</div>
+					
+				</div>
+				<div class="treCon_one_1">
+				    <div class="treCon_one_right">
+						<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>2018-01-01 11:22:22
+					</div>
+				</div>	
+			</div>
+			
+		</div>
+	
+	
+	-->
+	
+	</div>
+
+	
+	
+	
+	
+	
+</div>

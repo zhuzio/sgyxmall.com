@@ -23,7 +23,7 @@
         <li ui-sref="treasure"><img src="images/myOld/wealth.png" alt="财富"><span>财富</span></li>
         <li><img src="images/myOld/Shopping_mall_order.png" alt="商城订单"><span>商城订单</span></li>
         <li><img src="images/myOld/Alliance_order.png" alt="联盟订单"><span>联盟订单</span></li>
-        <li ng-if="myOld.func.orderAudit" ui-sref="allianceOrderAudit"><img src="images/myOld/Order_audit.png" alt="订单审核"><span>订单审核</span></li>
+        <li ng-if="myOld.func.orderAudit"><img src="images/myOld/Order_audit.png" alt="订单审核"><span>订单审核</span></li>
         <li ng-if="myOld.func.merchantOrder"><img src="images/myOld/Business_order.png" alt="订单审核"><span>商家订单</span></li>
         <li ng-if="myOld.func.merchantAudit" ui-sref="merchantAudit"><img src="images/myOld/Business_audit.png" alt="商家审核"><span>商家审核</span></li>
     </ul>
@@ -33,8 +33,8 @@
     <ul class="mos_function">
         <li><img src="images/myOld/Scan.png" alt="扫一扫"><span>扫一扫</span></li>
         <li ng-if="myOld.service.collection" ng-click="getMerchantQR()"><img src="images/myOld/Receivables.png" alt="收款"><span>收款</span></li>
-        <li ng-if="myOld.service.buyIntegral" ui-sref="buyIntegral"><img src="images/myOld/Purchase_integral.png" alt="购积分" ><span>购积分</span></li>
-        <li ng-if="myOld.service.sendIntegral" ui-sref="sendIntegral"><img src="images/myOld/Hair_integral.png" alt="发积分"><span>发积分</span></li>
+        <li ng-if="myOld.service.buyIntegral"><img src="images/myOld/Purchase_integral.png" alt="购积分" ui-sref="buyIntegral"><span>购积分</span></li>
+        <li ng-if="myOld.service.sendIntegral"><img src="images/myOld/Hair_integral.png" alt="发积分" ui-sref="sendIntegral"><span>发积分</span></li>
         <li ng-if="myOld.service.payment"><img src="images/myOld/Payment_for_goods.png" alt="货款"><span>货款</span></li>
         <li><img src="images/myOld/Member.png" alt="我的会员"><span>我的会员</span></li>
         <li><img src="images/myOld/Receiving_address.png" alt="收货地址"><span>收货地址</span></li>

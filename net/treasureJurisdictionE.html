@@ -1,0 +1,69 @@
+<!--辖区商家收益-->
+<div class="treCon_container">
+	<div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+                            辖区商家收益
+        </div>
+    </div>
+	<div class="treCon_score">
+		<div class="treCon_score_top" style="background: url(images/wealthAll/Frozen.png) no-repeat 90% 20%;background-size:0.9rem auto ;">
+			<div class="treCon_score_top_fen">
+				<span>本月累计收益(积分)</span>
+				<span> <strong>{{arr.current}}</strong> </span>
+			</div>
+		</div>
+		<div class="treCon_score_bot">
+			历史累计收益 (积分)：{{arr.total}}
+		</div>
+		
+	</div>
+	<p class="am_near_shop_all">收益明细</p>
+	<!--所有信息展示-->
+	<div class="treCon_all_show">
+		
+		
+		
+	   <div class="treCon_one_show"  ng-repeat="v in arr.mouth "> <!--ng-repeat="v in user"-->
+			<div class="treCon_one_top"  ng-click="change($index,v.times)"> <!--ng-click="change($index)"-->
+				{{v.times|datatimes}} 总计：{{v.money}}积分<span class="treCon_imgSp0" ng-if="!v.is_clearing">&nbsp;</span> <span ng-if="v.is_clearing" class="treCon_imgSp1">&nbsp;</span> <span ng-if="$index!=arr.selected" class="treCon_imgSp2">&nbsp;</span><span ng-if="$index==arr.selected"  class="treCon_imgSp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</div>
+			<div ng-if="$index==arr.selected" >
+				<div class="treCon_one_bot"  ng-repeat="x in arr.dayDetail " > 
+					<div class="treCon_one_1">
+						<div class="treCon_one_left">
+							<img src="images/wealthAll/hysybz.png" class="treCon_img2"/>会员：{{x.xq_real_name}}
+						</div>
+						<div class="treCon_one_right">
+							<img src="images/wealthAll/tre_xqjia.png" class="treCon_img1"/>{{x.money}}收益
+						</div>
+					</div>
+					<div class="treCon_one_1">
+						<div class="treCon_one_left">
+							<img src="images/wealthAll/tre_jf3.png" class="treCon_img2"/>备注：{{x.classname}}
+						</div>
+						
+					</div>
+					<div class="treCon_one_1" style="letter-spacing: 0px;font-size: .15rem;">
+						<div class="treCon_one_left">
+							<img src="images/wealthAll/hyjl_dd.png" class="treCon_img3"/>订单号：{{x.order_sn}}
+						</div>
+						<div class="treCon_one_right">
+							<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>{{x.createtime}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+	
+	 
+	</div>
+	
+	
+	
+	
+	
+	
+	
+</div>

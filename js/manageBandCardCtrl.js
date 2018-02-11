@@ -7,10 +7,10 @@ yx_mallApp
         };
         $scope.userBCInfo.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         var cardList = appService._postData(URL+"index.php?s=Api/Userset/crad",{token:$scope.userBCInfo.userInfo.token,way:$scope.userBCInfo.userInfo.way});
-            cardList.then(function (value) {
+        cardList.then(function (value) {
                 console.log(value)
-                    $scope.userBCInfo.cardList = value.data.data;
-                },
+                $scope.userBCInfo.cardList = value.data.data;
+            },
             function (reason) {
                 console.log(reason)
             });
@@ -47,16 +47,16 @@ yx_mallApp
                     way: $scope.userBCInfo.userInfo.way,
                     bank_id: eve.bank_id
                 });
-                    deleteBank.then(function (value) {
-                        if (value.data.ret == "success"){
-                            alert(value.data.msg);
-                            $window.location.reload();
-                        }else {
-                            alert(value.data.msg)
-                        }
-                    },function (reason) {
-                        console.log(reason)
-                    })
+                deleteBank.then(function (value) {
+                    if (value.data.ret == "success"){
+                        alert(value.data.msg);
+                        $window.location.reload();
+                    }else {
+                        alert(value.data.msg)
+                    }
+                },function (reason) {
+                    console.log(reason)
+                })
             }else {
                 return false;
             }

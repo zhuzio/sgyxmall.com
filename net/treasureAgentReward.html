@@ -1,0 +1,73 @@
+<!--代理奖励-->
+<div class="treCon_container">
+	<div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+                            代理奖励
+        </div>
+    </div>
+	<div class="treCon_score">
+		<div class="treCon_score_top">
+			<div class="treCon_score_top_fen">
+				<span>本月累计奖励(积分)</span>
+				<span> <strong>{{arr.current}}</strong> </span>
+			</div>
+		</div>
+		<div class="treCon_score_bot">
+			历史累计奖励(积分)：{{arr.total}}
+		</div>
+		
+	</div>
+	<p class="am_near_shop_all">奖励明细</p>
+	<!--所有信息展示-->
+	<div class="treCon_all_show" style="border-top: 1px solid #e9e9e9 ;">
+		
+		
+	   <div class="treCon_one_show"  ng-repeat="v in arr.mouth "> 
+			
+			<div class="treCon_one_bot" ng-click="change($index,v.times)" > <!--ng-repeat="x in v.detail "-->
+				<div class="treCon_one_1">
+					<div class="treCon_one_left">
+						{{v.times|datatimes}}奖励
+					</div>
+					<div class="treCon_one_right">
+						{{v.money}} &nbsp;<img src="images/wealthAll/qiandai.png" class="treCon_img1"/>
+					</div>
+				</div>
+				
+			</div>
+			<div ng-if="$index==arr.selected">
+				<div class="treCon_one_bot" ng-repeat="x in arr.dayDetail " > 
+					<div class="treCon_one_1">
+						<div class="treCon_one_left">
+							您推荐{{x.from_username}}注册为{{v.fromid}}为您增加收益
+						</div>
+						<div class="treCon_one_right">
+						<img src="images/wealthAll/tre_xqjia.png" class="treCon_img1"/>	{{x.money}}积分
+						</div>
+						
+					</div>
+					
+					<div class="treCon_one_1">
+						<div class="treCon_one_right">
+							<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>11{{x.createtime}}
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		   <div class="treCon_one_bg"></div>
+
+			
+		</div>
+			
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+</div>

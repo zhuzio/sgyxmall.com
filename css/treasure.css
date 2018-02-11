@@ -1,4 +1,7 @@
-
+body,html{
+	background: white !important;
+	letter-spacing:.5px;
+}
 .tre_container{
 	width: 100%;
 	height: 4.6324rem;
@@ -12,7 +15,7 @@
     color: #FFFFFF;
     text-align: center;
 }
-.tre_top span{
+.tre_top>span{
 	display: inline-block;
 	line-height: 0.8547rem;
 	 height: 0.3333rem;
@@ -36,7 +39,9 @@
     background: url("../images/myOld/news.png") no-repeat;
     background-size: 100% 100%;
 }
-
+.tre_middle{
+	margin-top: .2rem;
+}
 .tre_middle_fen{
 	width:2.1367rem;
 	height:2.1367rem;
@@ -44,8 +49,13 @@
 	background-size: 100% 100%;
 	margin: 0 auto;
 	text-align: center;
-	
 }
+.tre_middle_b{
+	background:url(../images/myWealth/y_cicle.png)  no-repeat;
+	background-size: 100% 100%;
+}
+
+
 .tre_middle_fen span{
 	
 	display: inline-block;
@@ -88,4 +98,58 @@
 	height: 0.4957rem;
 	margin: 0 auto;
 	margin-top: 0.4273rem;
+}
+
+
+/*非会员两部分页面*/
+.tre_sel{
+	display: inline-block;
+	height: 100%;
+	width: 3rem;
+}
+.tre_sel span{
+	display: inline-block;
+	line-height:0.547rem;
+	padding: 0 .1rem;
+	/*height: 100%;*/
+	width: 1.2rem;
+	border:  0.0085rem solid rgba(255, 255, 255, 0.48);
+	float: left;
+	margin-top: .2rem;
+	
+}
+.tre_ba{
+	background: #FFFFFF;
+	color: #000000;
+}
+.tre_ba1{
+	background: #eecfb2;
+	
+}
+.tre_reward{
+	margin-top: .4rem;
+	width: 100%;
+	height: .9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    font-size: 0.2735rem;
+    color: #FFFFFF;
+    border-top:  0.0085rem solid rgba(255, 255, 255, 0.48);
+}
+.tre_withdrawal{
+	margin: 0 auto;
+	width: 4.2735rem;
+	height:0.6837rem;
+    line-height:0.6837rem;
+    text-align: center;
+    font-size: 0.2564rem;
+    color: #FFFFFF;
+    border-radius:.1rem ;
+    background: #eecfb2;
+	
+}
+
+.tan_sp img{
+	width: 49%;
+	
 }

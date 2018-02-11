@@ -1,138 +1,125 @@
 /*头部*/
-.alliance_merchant_header {
-    width: 100%;
-    height: 0.8547rem;
-    background: #FFFFFF;
-    vertical-align: middle;
-    position: relative;
+.alliance_merchant_header{
+	width: 100%;
+	height:0.8547rem;
+	background: #FFFFFF;
+	vertical-align: middle;
+	position: relative;
+}
+.alliance_merchant_header .alliance-address{
+	height:0.8547rem;
+	line-height: 0.8547rem;
+	margin-left: 2.7%;
+	font-size: 0.2735rem;
+	color: #333333;
+	/*display: inline-block;*/
+	float: left;
+}
+.alliance-drop{
+		float: left;
+	display: inline-block;
+	width:.29rem;
+	height: .135rem;
+	margin-top:.35rem;
+	margin-left: .05rem;
+	background: url(../images/lianMeng/drop.png) no-repeat;
+		background-size: 100% 100%;
 }
 
-.alliance_merchant_header .alliance-address {
-    height: 0.8547rem;
-    line-height: 0.8547rem;
-    margin-left: 2.7%;
-    font-size: 0.2735rem;
-    color: #333333;
-    /*display: inline-block;*/
-    float: left;
-}
 
-.alliance-drop {
-    float: left;
-    display: inline-block;
-    width: .29rem;
-    height: .135rem;
-    margin-top: .35rem;
-    margin-left: .05rem;
-    background: url(../images/lianMeng/drop.png) no-repeat;
-    background-size: 100% 100%;
-}
-
-.alliance_merchant_header .alliance-search {
-    bam_near-radius: .1rem;
-    margin-top: 0.188rem;
-    margin-left: .2rem;
-    height: 0.4786rem;
-    width: 66%;
-    line-height: 100%;
-    font-size: 0.222rem;
-    color: #5c5c5c;
-    float: left;
-    background: #ededed;
-    position: relative;
+.alliance_merchant_header .alliance-search{
+	bam_near-radius:.1rem ;
+	margin-top: 0.188rem;
+	margin-left: .2rem;
+	height: 0.4786rem;
+	width: 66%;
+	line-height: 100%;
+	font-size: 0.222rem;
+	color: #5c5c5c;
+	float: left;
+	background: #ededed;
+	position: relative;
 }
 
 .alliance-s {
-    display: inline-block;
-    width: 0.2564rem;
-    height: 0.2735rem;
-
-    position: absolute;
-    left: .2rem;
-    top: .1rem;
-    background: url(../images/lianMeng/Search.png) no-repeat;
-    background-size: 100% 100%;
+	display: inline-block;
+	width: 0.2564rem;
+	height: 0.2735rem;
+	
+	position: absolute;
+	left: .2rem;
+	top: .1rem;
+	background: url(../images/lianMeng/Search.png) no-repeat;
+	background-size: 100% 100%;
 }
-
 .alliance-inp {
-    display: inline-block;
-    width: 70%;
-    height: 80%;
-    font-size: 0.2222rem;
-    position: absolute;
-    left: .7rem;
-    top: .05rem;
-    border: none;
-    background: #ededed;
+	display: inline-block;
+	width: 70%;
+	height:80%;
+	font-size: 0.2222rem;
+	position: absolute;
+	left: .7rem;
+	top: .05rem;
+	border: none;
+	background: #ededed;
 }
-
 .alliance-sao {
-    display: inline-block;
-    width: .325rem;
-    height: .307rem;
-    position: absolute;
-    right: .2rem;
-    top: .27rem;
-    background: url(../images/lianMeng/Scan.png) no-repeat;
-    background-size: 100% 100%;
+	display: inline-block;
+	width: .325rem;
+	height: .307rem;
+	position: absolute;
+	right: .2rem;
+	top: .27rem;
+	background: url(../images/lianMeng/Scan.png) no-repeat;
+	background-size: 100% 100%;
 }
-
 /*分类*/
-.alliance_merchant_container {
-    width: 100%;
-    overflow: hidden;
+.alliance_merchant_container{
+	width: 100%;
+	overflow: hidden;
 }
-
-.am_ul_1 {
-    width: 100%;
+.am_ul_1{
+	width: 100%;
     height: auto;
     overflow: hidden;
     background: #FFFFFF;
 }
-
-.am_li_1 {
-    width: 25%;
+.am_li_1{
+	width: 25%;
     float: left;
     height: 2.1794rem;
 }
-
-.am_li_1 img {
-    display: block;
+.am_li_1 img{
+	display: block;
     width: auto;
     height: 0.9401rem;
     margin: 0 auto;
 }
-
-.img {
-
-    display: block;
-    width: 0.9401rem;
+.img{
+	
+	display: block;
+    width:0.9401rem;
     height: 0.9401rem;
     margin: 0 auto;
 }
-
-.img1 {
-    background: url(../images/lianMeng/Food_and_beverage.png) no-repeat;
-    background-size: 100%;
+.img1{
+	background: url(../images/lianMeng/Food_and_beverage.png) no-repeat;
+	background-size: 100%;
 }
-
-.img2 {
-    background: url(../images/lianMeng/Department_store_shopping.png) no-repeat;
-    background-size: 100%;
+.img2{
+	background: url(../images/lianMeng/Department_store_shopping.png) no-repeat;
+	background-size: 100%;
 }
-
-.img3 {
-    background: url(../images/lianMeng/entertainment.png) no-repeat;
-    background-size: 100%;
+.img3{
+	background: url(../images/lianMeng/entertainment.png) no-repeat;
+	background-size: 100%;
 }
-
-.img4 {
-    background: url(../images/lianMeng/more.png) no-repeat;
-    background-size: 100%;
+.img4{
+	background: url(../images/lianMeng/more.png) no-repeat;
+	background-size: 100%;
 }
-
-.am_li_1 span {
-    display: block;
+.am_li_1 span{
+	display: block;
     text-align: center;
     font-size: 0.2393rem;
     color: #333;
@@ -140,15 +127,14 @@
 }
 
 /*附近商家*/
-.am_near_shop {
-    width: 100%;
-    margin-top: .2rem;
-    background: #FFFFFF;
-
+.am_near_shop{
+	width: 100%;
+	margin-top: .2rem;
+	background: #FFFFFF;
+	
 }
-
-.am_near_shop_all {
-    width: 100%;
+ .am_near_shop_all{
+	width: 100%;
     height: .6rem;
     background: url(../images/title_line.png) no-repeat center;
     text-align: center;
@@ -156,62 +142,56 @@
     background-size: 50% 3px;
     font-size: .28rem;
     padding: .15rem 0;
-
+	
 }
 
 /*////////*/
 /*一个商家信息*/
-.am_near_shows {
-    margin-top: 0.08rem;
-    width: 100%;
-    /*padding: 0 2.7%;*/
+.am_near_shows{
+	margin-top: 0.08rem;
+	width: 100%;
+	/*padding: 0 2.7%;*/
 }
 
-.am_near_inf {
-    width: 92%;
-    padding: 0 4%;
-    height: 1.4529rem;
-    margin-top: 0.1538rem;
-    margin-bottom: 0.1538rem;
-    font-size: 0.2051rem;
-    color: #1D1D1D;
+.am_near_inf{
+	width: 92%;
+	padding: 0 4%;
+	height:1.4529rem;
+	margin-top: 0.1538rem ;
+	margin-bottom: 0.1538rem ;
+	font-size: 0.2051rem;
+	color: #1D1D1D;
 }
-
-.am_near_inf .am_near_inf_left {
-    width: 22.7%;
-    float: left;
-    height: 100%;
+.am_near_inf .am_near_inf_left{
+	width:22.7%;
+	float: left;
+	height: 100% ;
 }
-
-.am_near_inf .am_near_inf_left img {
-    width: 100%;
-
+.am_near_inf .am_near_inf_left img{
+	width: 100%;
+	
 }
-
-.am_near_inf .am_near_inf_right {
-    width: 77%;
-    float: right;
-    height: 100%;
-
+.am_near_inf .am_near_inf_right{
+	width:77% ;
+	float: right;
+	height: 100%;
+	
 }
-
-.am_near_name, .am_near_integral, .am_near_siez {
-    height: 0.4273rem;
-    line-height: 0.4273rem;
-    padding-left: 0.2564rem;
-    font-size: 0.2222rem;
-    color: #666666;
+.am_near_name,.am_near_integral,.am_near_siez{
+	height: 0.4273rem;
+	line-height: 0.4273rem;
+	padding-left: 0.2564rem;
+	font-size: 0.2222rem;
+	color: #666666;
 }
-
-.am_near_integral {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.am_near_integral{
+overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
 }
-
-.am_near_name {
-    font-size: 0.2735rem;
-    color: #333333;
+.am_near_name{
+	font-size: 0.2735rem;
+	color: #333333;
 }
 
 
