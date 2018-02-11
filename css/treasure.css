@@ -1,0 +1,91 @@
+
+.tre_container{
+	width: 100%;
+	height: 4.6324rem;
+	background: #8cb0be;
+	
+}
+.tre_top{
+	width: 100%;
+    height: 0.8547rem;
+    font-size: 0.2905rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+.tre_top span{
+	display: inline-block;
+	line-height: 0.8547rem;
+	 height: 0.3333rem;
+	
+	
+}
+.tre_top .tre_span1{
+	margin-top: .281rem;
+	float: left;
+	width: 0.2905rem;
+	margin-left: 0.2564rem;
+    background: url("../images/myWealth/6_bill.png") no-repeat;
+    background-size: 100% 100%;
+    
+}
+.tre_top .tre_span2{
+	margin-top: .281rem;
+	float: right;
+	width: 0.3333rem;
+    margin-right:  0.2564rem;
+    background: url("../images/myOld/news.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.tre_middle_fen{
+	width:2.1367rem;
+	height:2.1367rem;
+	background:url(../images/myWealth/5_cicle.png)  no-repeat;
+	background-size: 100% 100%;
+	margin: 0 auto;
+	text-align: center;
+	
+}
+.tre_middle_fen span{
+	
+	display: inline-block;
+	font-size: 0.2735rem;
+	color: #1c3d50;
+}
+.tre_middle_1{
+	margin-top:.7rem ;
+	margin-bottom: .1rem;
+	color: #666666 !important;
+}
+.tre_ul_1{
+	width: 100%;
+    height: auto;
+    margin-top: 0.35rem;
+    overflow: hidden;
+}
+.tre_li_1{
+	width: 33%;
+    float: left;
+    height: 0.9rem;
+}
+.tre_li_11{
+	border-left:0.0085rem solid rgba(255, 255, 255, 0.48)  ;
+	border-right:0.0085rem solid rgba(255, 255, 255, 0.48)  ;
+}
+.tre_li_1 span{
+	display: block;
+    text-align: center;
+    font-size: 0.2393rem;
+    color: #FFFFFF;
+    margin:.05rem 0 0.1rem;
+}
+.tre_li_1 span:nth-child(2){
+	margin-top:.2rem ;
+}
+.tre_cf img{
+	display: block;
+	width: 0.4786rem;
+	height: 0.4957rem;
+	margin: 0 auto;
+	margin-top: 0.4273rem;
+}

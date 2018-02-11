@@ -1,0 +1,63 @@
+<div class="module_head" style="position: fixed ;top: 0;left: 0">
+    <a href="javascript:window.history.go(-1)"></a>
+    联盟订单审核
+</div>
+<div class="aoaContainer">
+    <div class="aoaHead">
+        <div ng-class="{'aoaHeadOn':aoa.isAudit}" ng-click="changeAoAMo(1)">未审核</div>
+        <div ng-class="{'aoaHeadOn':aoa.isPass}" ng-click="changeAoAMo(2)">已通过</div>
+        <div ng-class="{'aoaHeadOn':aoa.isReject}" ng-click="changeAoAMo(3)">已驳回</div>
+    </div>
+    <div class="aoaSearch" ng-if="aoa.isSearchMo">
+        <input type="text" placeholder="商家账号" ng-model="aoa.merchantAccount">
+        <input type="text" placeholder="店铺名称" ng-model="aoa.shopName">
+        <input type="text" placeholder="买家账号" ng-model="aoa.buyerAccount">
+        <button ng-click="searchAud()">搜索</button>
+    </div>
+    <div class="aoaCenter">
+        <div ng-if="aoa.isAuditMo">
+            <div class="eachAoAList" ng-repeat="waitAudit in aoa.waitAudit">
+                <p class="aoaTitle">订单编号：{{waitAudit.order_sn}}</p>
+                <p class="aoaCon">商家名称：{{waitAudit.seller_name}}</p>
+                <p class="aoaCon">商品名称：{{waitAudit.classname}}</p>
+                <p class="aoaCon">消费金额：<span>{{waitAudit.order_amount}} ({{waitAudit.payment_name}})</span></p>
+                <p class="aoaCon">赠送积分：<span>{{waitAudit.point}}</span></p>
+                <p class="aoaCon">用户电话：{{waitAudit.user_name}}</p>
+                <p class="aoaCon">下单时间：{{waitAudit.add_time}}</p>
+                <div class="aoaAudit">
+                    <span class="aoaRes" ng-if="aoa.isBtn" ng-click="aoaReject(2,waitAudit.order_sn,$event)">驳回</span>
+                    <span class="aoaAgr" ng-if="aoa.isBtn" ng-click="aoaReject(1,waitAudit.order_sn,$event)">通过</span>
+                    <p style="color: #e79e56" class="Tong">已通过</p>
+                    <p style="color: #999999" class="boH">已驳回</p>
+                </div>
+            </div>
+            <p class="aoaAddMore" ng-click="aoaAddMore(1)" ng-if="aoa.more_aud">点击加载更多</p>
+        </div>
+        <div ng-if="aoa.isPassMo" class="aoaPas">
+            <div class="eachAoAList" ng-repeat="havePass in aoa.havePass">
+                <p class="aoaTitle">订单编号：{{havePass.order_sn}}</p>
+                <p class="aoaCon">商家名称：{{havePass.seller_name}}</p>
+                <p class="aoaCon">商品名称：{{havePass.classname}}</p>
+                <p class="aoaCon">消费金额：<span>{{havePass.order_amount}}({{havePass.payment_name}})</span></p>
+                <p class="aoaCon">赠送积分：<span>{{havePass.point}}</span></p>
+                <p class="aoaCon">用户电话：{{havePass.user_name}}</p>
+                <p class="aoaCon">下单时间：{{havePass.add_time}}</p>
+                <p class="aoaCon">审核时间：{{havePass.check_time}}</p>
+            </div>
+            <p class="aoaAddMore" ng-click="aoaAddMore(2)" ng-if="aoa.more_pas">点击加载更多</p>
+        </div>
+        <div ng-if="aoa.isRejectMo" class="aoaRej">
+            <div class="eachAoAList" ng-repeat="haveReject in aoa.haveReject">
+                <p class="aoaTitle">订单编号：{{haveReject.order_sn}}</p>
+                <p class="aoaCon">商家名称：{{haveReject.seller_name}}</p>
+                <p class="aoaCon">商品名称：{{haveReject.classname}}</p>
+                <p class="aoaCon">消费金额：<span>{{haveReject.order_amount}}({{haveReject.payment_name}})</span></p>
+                <p class="aoaCon">赠送积分：<span>{{haveReject.point}}</span></p>
+                <p class="aoaCon">用户电话：{{haveReject.user_name}}</p>
+                <p class="aoaCon">下单时间：{{haveReject.add_time}}</p>
+                <p class="aoaCon">审核时间：{{haveReject.check_time}}</p>
+            </div>
+            <p class="aoaAddMore" ng-click="aoaAddMore(3)" ng-if="aoa.more_rej">点击加载更多</p>
+        </div>
+    </div>
+</div>

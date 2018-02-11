@@ -1,0 +1,127 @@
+<style type="text/css">
+    .set_head_container{
+        width: 100%;
+        height: .8rem;
+        background: white;
+        text-align: center;
+        position: relative;
+        line-height: .8rem;
+        font-size: .3rem;
+    }
+    .set_head_container >a{
+        position: absolute;
+        display: block;
+        width: .4rem;
+        height: .4rem;
+        left: .2rem;
+        top: .2rem;
+        background: url("images/back.png") no-repeat center;
+        background-size: auto .4rem;
+    }
+    .each_bandCard{
+        width: 94%;
+        height: 2rem;
+        background: white;
+        margin: .2rem auto;
+        border-radius: .15rem;
+    }
+    .each_bandCard >div{
+        float: left;
+        height: 100%;
+    }
+    .bcImg{
+        width: 20%;
+    }
+    .bcImg >img{
+        display: block;
+        width: .75rem;
+        margin: .3rem auto 0;
+    }
+    .bcInfo{
+        width: 50%;
+    }
+    .bcName{
+        height: 65%;
+        line-height: 1rem;
+        font-size: .26rem;
+    }
+    .bcNum{
+        font-size: .25rem;
+    }
+    .bcDo{
+        width: 30%;
+        color: #666;
+        font-size: .25rem;
+    }
+    .bcDo input[type=checkbox]{
+        display: none;
+        width: .4rem;
+    }
+    .bcDo input[type="checkbox"]:checked+label::before {
+        background: url("images/set/ba_select.png") no-repeat center;
+        background-size: contain;
+    }
+    .bcDo label::before {
+        content: "";
+        display: inline-block;
+        width: .35rem;
+        height: .35rem;
+        background: url("images/set/ba_no_select.png") no-repeat center;
+        background-size: contain;
+        vertical-align: middle!important;
+        -webkit-border-radius: 50%;
+        -webkit-box-sizing: border-box;
+
+    }
+    .bcDet{
+        width: 40%;
+        height: 60%;
+        margin-left: 60%;
+        background: url("images/set/delete.png") no-repeat left 40%;
+        background-size: .35rem auto;
+        margin-bottom: 5%;
+    }
+    .addBC{
+        width: 100%;
+        height: 2rem;
+        background: url("images/set/Plus.png") no-repeat center;
+        background-size: auto;
+        line-height: 4rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: .27rem;
+        letter-spacing: 2px;
+        color: #c1c1c1;
+    }
+</style>
+<div class="set_head_container">
+    <a href="javascript:window.history.go(-1)"></a>
+    银行卡管理
+</div>
+<div class="bandCard_container">
+    <div class="each_bandCard" ng-repeat="bankCard in userBCInfo.cardList">
+        <div class="bcImg">
+            <img ng-src="http://www.sgyxmall.com{{bankCard.bank_img}}" alt="{{bankCard.bank_name}}">
+        </div>
+        <div class="bcInfo">
+            <p class="bcName">{{bankCard.bank_name}}</p>
+            <p class="bcNum">{{bankCard.bank_num}}</p>
+        </div>
+        <div class="bcDo">
+            <div class="bcDet" ng-click="deleteBank(bankCard)"></div>
+            <div class="bcSetDef">
+                <!--
+                bankCard.status
+                        为 0  是默认
+                        为 1  不是默认
+
+                -->
+                <input type="checkbox" id="bc{{bankCard.bank_id}}" ng-checked="bankCard.status == 0">
+                <label for="bc{{bankCard.bank_id}}"  ng-click="setDefBank(bankCard)">&nbsp;&nbsp;设为默认</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="addBC" ui-sref="addBandCard">
+    添加银行卡
+</div>

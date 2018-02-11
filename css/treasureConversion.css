@@ -1,0 +1,89 @@
+.treCon_container{
+	background: #FFFFFF;
+}
+.treCon_score{
+	width: 100%;
+	height: 2.188rem;
+	background: #e5c2ae;
+	
+}
+.treCon_score_top{
+	width: 100%;
+	height:1.4529rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.48)  ;
+}
+.treCon_score_top_fen{
+	width: 2.1367rem;
+	height:1.4529rem;
+	text-align: center;
+	margin: 0 auto;
+}
+.treCon_score_top_fen span{
+	color: #FFFFFF;
+}
+.treCon_score_top_fen span:nth-child(1){
+	font-size:0.2051rem ;
+	line-height: .8rem;
+}
+.treCon_score_top_fen span:nth-child(2){
+	font-size:0.2735rem ;
+	line-height: .5rem;
+}
+.treCon_score_bot{
+	width: 96%;
+	line-height: 0.6837rem;
+	margin-left: 4%;
+	font-size:0.2051rem ;
+	color: #60341a;
+}
+.treCon_one_top{
+	width: 92%;
+	height: 0.641rem;
+	line-height:0.641rem;
+	padding: 0 4%;
+	font-size:0.2222rem;
+	color: #666666;
+	background: #f2f4f3;
+}
+.treCon_list{
+	display: none;
+}
+.treCon_one_bot{
+	width: 92%;
+	height: 1.282rem;
+	margin: 0 4%;
+	font-size:0.2222rem;
+	color: #666666;
+	border-bottom: 1px solid #e9e9e9 ;
+}
+.treCon_one_bot .treCon_one_1{
+	/*width: 92%;*/
+	height: .641rem;
+	line-height:.641rem;
+	margin: 0 4%;
+	font-size:0.2222rem;
+	color: #666666;
+	
+}
+.treCon_one_show{
+	margin-bottom: .1rem;
+}
+.treCon_one_left{
+	float: left;
+}
+.treCon_one_right{
+	float: right;
+}
+.treCon_one_1 img{
+	vertical-align: middle;
+	margin-right: .1rem;
+}
+.treCon_img2{
+	width: 0.3675rem;
+}
+.treCon_img3{
+	width: 0.2478rem;
+}
+.treCon_img1{
+	width: 0.2rem;
+}

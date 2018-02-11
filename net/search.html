@@ -1,0 +1,28 @@
+<div class="search_container">
+    <div class="search_head_container">
+        <a href="javascript:window.history.back(-1)" class='search_head_back fl'></a>
+        <div class="search_box_con fl">
+            <input type="text" placeholder="搜索商品" ng-model="search.txt" ng-change="getTxt()" ng-focus=""><button class="search_button" ng-click="searchNow()">搜索</button>
+        </div>
+    </div>
+    <!--历史搜索-->
+    <div class="history_search other_search" ng-if="search.h_s0">
+        <p>历史记录</p>
+        <div class="h_s">
+            <span ng-repeat="hs in search.historySearch" ui-sref="searchDetail({goodsClass:hs.search})">{{hs.search}}</span>
+        </div>
+    </div>
+    <!--热门搜索-->
+    <div class="hot_search other_search" ng-if="search.h_s">
+        <p>热门搜索</p>
+        <div class="t_s">
+            <span ui-sref="searchDetail({goodsClass:'真艾宝'})">真艾宝</span>
+            <span ui-sref="searchDetail({goodsClass:'羽绒服'})">羽绒服</span>
+            <span ui-sref="searchDetail({goodsClass:'棉袄'})">棉袄</span>
+        </div>
+    </div>
+    <!--搜索匹配-->
+    <div class="s_p"  ng-if="search.s_p">
+        <p ng-repeat="name in search.goodsName | filter: search.txt" ui-sref="searchDetail({goodsClass:name.goods_name})">{{name.goods_name}}</p>
+    </div>
+</div>

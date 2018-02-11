@@ -1,0 +1,26 @@
+<div class="classify_container">
+    <!--搜索-->
+    <div class="class_search">
+       <div class="search_jump">搜索商品</div>
+    </div>
+   <div class="classify_center">
+       <div class="classify_left fl">
+           <ul>
+               <li ng-repeat="classiftList in classify.classList" class="each_classify" ng-class={'each_classify_on':classify.idx==$index} ng-click="getClassify($index,classiftList)">
+                   {{classiftList.cate_name}}
+               </li>
+           </ul>
+       </div>
+       <div class="classify_right fl">
+           <div>
+               <img ng-src="http://www.sgyxmall.com/{{classify.classImg}}" alt="" class="classifyImg">
+               <ul class="each_classify_list">
+                   <li ng-repeat="ec in classify.classBox" ui-sref="classifyDetail({classifyId:ec.cate_id})">
+                       <img ng-src="http://www.sgyxmall.com/{{ec.cate_logo}}" alt="{{ec.cate_name}}">
+                       <p>{{ec.cate_name}}</p>
+                   </li>
+               </ul>
+           </div>
+       </div>
+   </div>
+</div>

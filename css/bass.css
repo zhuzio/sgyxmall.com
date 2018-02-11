@@ -1,0 +1,291 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dd,
+dl,
+dt,
+li,
+ol,
+ul,
+fieldset,
+form,
+label,
+legend {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+img {
+    border: none;
+}
+p {
+    margin-bottom: 0;
+}
+body{
+    background-color: #f3f3f3;
+}
+body,
+a,
+input,
+button {
+    font-family: "Microsoft Yahei", "Droid Sans Fallback", "Arial", "Helvetica", "sans-serif", "宋体";
+    font-size: 14px;
+    outline: none;
+    color: #000;
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    color: black;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.02);
+}
+a:hover {
+    text-decoration: none;
+}
+table {
+    text-align: center;
+    vertical-align: middle;
+}
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+/*媒体查询条件*/
+
+@media (max-width: 1442px) {
+    html {
+        font-size: 225px;
+    }
+}
+@media (max-width: 1282px) {
+    html {
+        font-size: 200px;
+    }
+}
+@media (max-width: 1026px) {
+    html {
+        font-size: 160px;
+    }
+}
+@media (max-width: 962px) {
+    html {
+        font-size: 150px;
+    }
+}
+@media (max-width: 952px) {
+    html {
+        font-size: 148.4375px;
+    }
+}
+@media (max-width: 902px) {
+    html {
+        font-size: 140.625px;
+    }
+}
+@media (max-width: 802px) {
+    html {
+        font-size: 125px;
+    }
+}
+@media (max-width: 775px) {
+    html {
+        font-size: 120.78125px;
+    }
+}
+@media (max-width: 770px) {
+    html {
+        font-size: 120px;
+    }
+}
+@media (max-width: 738px) {
+    html {
+        font-size: 115px;
+    }
+}
+@media (max-width: 734px) {
+    html {
+        font-size: 114.375px;
+    }
+}
+@media (max-width: 733px) {
+    html {
+        font-size: 114.21875px;
+    }
+}
+@media (max-width: 669px) {
+    html {
+        font-size: 104.21875px;
+    }
+}
+@media (max-width: 642px) {
+    html {
+        font-size: 100px;
+    }
+}
+@media (max-width: 602px) {
+    html {
+        font-size: 93.75px;
+    }
+}
+@media (max-width: 570px) {
+    html {
+        font-size: 88.75px;
+    }
+}
+@media (max-width: 535px) {
+    html {
+        font-size: 83.28125px;
+    }
+}
+@media (max-width: 437px) {
+    html {
+        font-size: 67.96875px;
+    }
+}
+@media (max-width: 416px) {
+    html {
+        font-size: 64.6875px;
+    }
+}
+@media (max-width: 413px) {
+    html {
+        font-size: 64.21875px;
+    }
+}
+@media (max-width: 386px) {
+    html {
+        font-size: 60px;
+    }
+}
+@media (max-width: 377px) {
+    html {
+        font-size: 58.59375px;
+    }
+}
+@media (max-width: 362px) {
+    html {
+        font-size: 56.25px;
+    }
+}
+@media (max-width: 322px) {
+    html {
+        font-size: 50px;
+    }
+}
+/*通用*/
+.clear{
+    clear: both;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+/*清除数字输入框箭头*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input[type=submit]{
+    -webkit-appearance: none;
+
+}
+input[type=button],
+input[type=submit],
+input[type=file],
+input[type=checkbox],
+input[type=radio],
+button {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.module_head{
+    width: 100%;
+    height: .8rem;
+    background: white;
+    text-align: center;
+    position: relative;
+    line-height: .8rem;
+    font-size: .3rem;
+}
+.module_head >a{
+    position: absolute;
+    display: block;
+    width: .4rem;
+    height: .4rem;
+    left: .2rem;
+    top: .2rem;
+    background: url("../images/back.png") no-repeat center;
+    background-size: auto .4rem;
+}
+/*
+    黑色弹出层
+*/
+
+.mAGContainer{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    z-index: 9999;
+}
+.mAGContainerY {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+
+.mAGContainerY .mAGCenter {
+    -webkit-transform: scale(1);
+}

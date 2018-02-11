@@ -1,0 +1,117 @@
+<div>
+    <!--搜索栏-->
+    <header>
+        <div class="header_shoppingCar">
+            <span class="z-goucount">1</span>
+        </div>
+        <div class="header_search_container">
+            <input type="search" placeholder="搜索商品" ui-sref="search">
+        </div>
+        <div class="header_news">
+            <a href="newscentre.html"></a>
+        </div>
+    </header>
+    <!--产品分类-->
+   <!-- <div class="goods_class_container">
+        <div class="goods_center">
+            <span>推荐</span>
+        </div>
+    </div>-->
+    <!--轮播图开始-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class='swiper-slide' ng-repeat="sp in index.swipers"><a href="{{sp.ad_link}}"><img ng-src='http://www.sgyxmall.com/{{sp.ad_logo}}'></a></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <!--轮播图结束-->
+    <!--好物甄选-->
+    <div class="excellent_goods_chose_container">
+        <p class="egc_title"><span><a href="">好物甄选</a></span></p>
+        <div class="egc_goods">
+            <div ng-repeat="egoods in index.egoods">
+                <a href="http://sugemall.com/{{egoods.ad_link}}">
+                    <img ng-src="http://www.sgyxmall.com/{{egoods.ad_logo}}" alt="{{egoods.ad_name}}">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--人气推荐·好物精选-->
+    <div class="popularity_recommend_container">
+        <p class="pr_title">人气推荐·好物精选</p>
+        <div class="pr_center_container pr_center_container1">
+            <ul class="pr_center">
+                <p class="pr_more">显示更多</p>
+                <li class="each_pr" ng-repeat="pr in index.pr" ui-sref="detail({goodsId:pr.goods_id})">
+                    <img ng-src="http://www.sgyxmall.com/{{pr.default_img}}" alt="{{pr.goods_name}}">
+                    <p class="each_pr_name">{{pr.goods_name}}</p>
+                    <div class="sold_price">
+                        <p>¥<span>{{pr.default_market}}</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--严选精品·物美价优-->
+    <div class="strict_filter_container">
+        <p class="pr_title">严选精品·物美价优</p>
+        <!--这是女装-->
+        <div class="pr_main_img"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[0].ad_logo}}" alt="{{index.fe_male_img[0].ad_name}}" class="female_img"></div>
+        <div class="pr_center_container pr_center_container2">
+            <ul class="pr_center">
+                <p class="pr_more">显示更多</p>
+                <li class="each_pr" ng-repeat="female in index.female">
+                    <img ng-src="http://www.sgyxmall.com/{{female.default_img}}" alt="{{female.goods_name}}">
+                    <p class="each_pr_name">{{female.goods_name}}</p>
+                    <div class="sold_price">
+                        <p>¥<span>{{female.default_market}}</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--这是皮鞋-->
+        <div class="pr_main_img"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[1].ad_logo}}" alt="{{index.fe_male_img[1].ad_name}}" class="male_img"></div>
+        <div class="pr_center_container pr_center_container3">
+            <ul class="pr_center">
+                <p class="pr_more">显示更多</p>
+                <li class="each_pr" ng-repeat="male in index.male">
+                    <img ng-src="http://www.sgyxmall.com/{{male.default_img}}" alt="{{male.goods_name}}">
+                    <p class="each_pr_name">{{male.goods_name}}</p>
+                    <div class="sold_price">
+                        <p>¥<span>{{male.default_market}}</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--猜你喜欢-->
+    <div class="guess_favorite_container">
+        <p class="egc_title"><span><a href="">猜你喜欢</a></span></p>
+        <div class="gf_center">
+            <div class="gf_cen">
+                <div class="each_gf" ng-repeat="guessLike in index.guessLike">
+                    <div class="each_gf_left">
+                        <img ng-src="http://www.sgyxmall.com/{{guessLike.default_img}}" alt="{{guessLike.goods_name}}">
+                    </div>
+                    <div class="each_gf_right">
+                        <p class="each_gf_name">{{guessLike.goods_name}}</p>
+                        <p class="each_gf_price">¥<span>{{guessLike.default_market}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--今日首发·天天新款-->
+    <div class="day_update_container">
+        <p class="pr_title">今日首发·天天新款</p>
+        <div class="du_center">
+            <div class="each_du" ng-repeat="dayUpdata in index.dayUpdate" ui-sref="detail({goodsId:dayUpdata.goods_id})">
+                <img ng-src="http://www.sgyxmall.com/{{dayUpdata.default_img}}" alt="{{dayUpdata.goods_name}}">
+                <p class="each_du_name">{{dayUpdata.goods_name}}</p>
+                <p class="each_du_price">¥<span>{{dayUpdata.default_market}}</span></p>
+            </div>
+        </div>
+    </div>
+    <!--加载更多-->
+    <p class="addMore"><img ng-src="images/Loading9.gif"/></p>
+</div>

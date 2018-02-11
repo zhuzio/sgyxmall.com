@@ -1,0 +1,82 @@
+<div class="myOld_head_container">
+    <div class="moh_set_box">
+        <div class="moh_set fl" ui-sref="set"></div>
+        <div class="moh_msg fr"></div>
+    </div>
+    <div class="moh_info_box ">
+        <div class="moh_head_img fl">
+            <img src="images/head.png" alt="">
+        </div>
+        <div class="moh_head_name fl">
+            <p class="moh_user_name">{{myOld.userInfo.real_name}}</p>
+            <span class="moh_user_deg">{{myOld.deg}}</span>
+            <img src="images/myOld/update.png" alt="" ng-click="choseUp()" ng-if="myOld.upGrade">
+        </div>
+        <div class="moh_head_QR_code fr" ng-click="bigQRcode()">
+            <img src="images/myOld/qrCode.png" alt="">
+        </div>
+    </div>
+</div>
+<div class="myOld_treasure_container">
+    <div class="mot_title">财富/订单</div>
+    <ul class="mot_function">
+        <li ui-sref="treasure"><img src="images/myOld/wealth.png" alt="财富"><span>财富</span></li>
+        <li><img src="images/myOld/Shopping_mall_order.png" alt="商城订单"><span>商城订单</span></li>
+        <li><img src="images/myOld/Alliance_order.png" alt="联盟订单"><span>联盟订单</span></li>
+        <li ng-if="myOld.func.orderAudit" ui-sref="allianceOrderAudit"><img src="images/myOld/Order_audit.png" alt="订单审核"><span>订单审核</span></li>
+        <li ng-if="myOld.func.merchantOrder"><img src="images/myOld/Business_order.png" alt="订单审核"><span>商家订单</span></li>
+        <li ng-if="myOld.func.merchantAudit" ui-sref="merchantAudit"><img src="images/myOld/Business_audit.png" alt="商家审核"><span>商家审核</span></li>
+    </ul>
+</div>
+<div class="myOld_service_container">
+    <div class="mot_title">我的服务</div>
+    <ul class="mos_function">
+        <li><img src="images/myOld/Scan.png" alt="扫一扫"><span>扫一扫</span></li>
+        <li ng-if="myOld.service.collection" ng-click="getMerchantQR()"><img src="images/myOld/Receivables.png" alt="收款"><span>收款</span></li>
+        <li ng-if="myOld.service.buyIntegral" ui-sref="buyIntegral"><img src="images/myOld/Purchase_integral.png" alt="购积分" ><span>购积分</span></li>
+        <li ng-if="myOld.service.sendIntegral" ui-sref="sendIntegral"><img src="images/myOld/Hair_integral.png" alt="发积分"><span>发积分</span></li>
+        <li ng-if="myOld.service.payment"><img src="images/myOld/Payment_for_goods.png" alt="货款"><span>货款</span></li>
+        <li><img src="images/myOld/Member.png" alt="我的会员"><span>我的会员</span></li>
+        <li><img src="images/myOld/Receiving_address.png" alt="收货地址"><span>收货地址</span></li>
+        <li><img src="images/myOld/Wu_select.png" alt="物流查询"><span>物流查询</span></li>
+        <li ng-if="myOld.service.shopSet"><img src="images/myOld/Shop_setting.png" alt="店铺设置"><span>店铺设置</span></li>
+    </ul>
+</div>
+<div class="my_user_my about_us">
+    <p>关于我们</p>
+</div>
+<div class="service_tel my_user_my">
+    <p style="background: none">客服电话<a href="tel:400-6203777" class="s_tel">400-6203777</a></p>
+</div>
+<div class="my_user_quite_logo" ng-click="quitLogin()" style="margin-bottom: 1.5rem">
+    退出登录
+</div>
+<!--注册二维码-->
+<div class="big_QR_code" ng-if="myOld.bigQR" ng-click="disappearQR(1)">
+    <img src="images/myOld/qrCode.png" alt="">
+</div>
+<!--商家收款二维码-->
+<div class="big_QR_code" ng-if="myOld.merchantQR" ng-click="disappearQR(2)">
+    <div class="merchant_getMoney_code">
+        <div class="merchant_getMoney_info">
+            <div class="merchant_getMoney_img fl"></div>
+            <p>{{myOld.userInfo.real_name}}</p>
+            <p>商家收款码</p>
+        </div>
+        <img ng-src="http://www.sgyxmall.com/{{myOld.merchantQRUrl}}" alt="">
+    </div>
+
+</div>
+<div class="chose_upgrade_box" ng-if="myOld.chose_up">
+    <div>
+        <p>升级选项</p>
+        <ul>
+            <li style="background: #898fd9" ui-sref="upToMerchant">商家</li>
+            <li style="background: #74b2ed">区域代理</li>
+            <li style="background: #79d7bc">县区代理</li>
+            <li style="background: #fac24b">市区代理</li>
+            <li style="background: #f89d8a">省区代理</li>
+            <li style="background: #ccc" ng-click="cancelUp()">取消</li>
+        </ul>
+    </div>
+</div>

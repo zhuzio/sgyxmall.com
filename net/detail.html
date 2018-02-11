@@ -1,0 +1,97 @@
+<div class="goods_detail_container">
+    <div class="gd_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="detail_scroll">
+            <span class="gd_goods" style="border-right: 1px solid #ccc" ng-class={'scroll_on':goodsDetail.g_g} ng-click="scrollNow(0)">商品</span>
+            <span class="gd_detail" ng-class={'scroll_on':goodsDetail.g_d} ng-click="scrollNow(1)">详情</span>
+        </div>
+    </div>
+    <div class="goods_detail_swiper">
+        <!--轮播图开始-->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class='swiper-slide'ng-repeat="img in goodsDetail.goods.img_carousel" ><img ng-src='http://www.sgyxmall.com/{{img}}' alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!--轮播图结束-->
+    </div>
+    <div class="gd_info">
+        <p class="gdi_name">{{goodsDetail.goods.goods_name}}</p>
+        <p class="gdi_price">
+            <span class="rmb">结算价：</span>¥
+            <span class="esc_rmb">{{goodsDetail.goods.default_ready}}</span>
+            <span class="p_add">+</span>
+            <span class="esc_int">{{goodsDetail.goods.default_point}}</span>
+        </p>
+    </div>
+    <div class="chose_tn" ng-click="choseType(1)">选择数量规格</div>
+    <div class="gdi_img">
+        <p class="gdi_img_title">商品详情</p>
+        <div class="gdi_img_box">
+            <img ng-src='http://www.sgyxmall.com/{{img}}' alt="{{goodsDetail.goods.goods_name}}" ng-repeat="img in goodsDetail.goods.img_desc">
+        </div>
+    </div>
+    <div class="chose_box_container">
+        <div class="shopCar_link fl"><span ng-show="goodsDetail.is_shopCarCount">{{goodsDetail.shopCarCount}}</span></div>
+        <div class="gd_do fl">
+            <div class="join_shopCar fl"  ng-click="choseType(2)">加入购物车</div>
+            <div class="buy_now fl" ng-click="choseType(3)">立即购买</div>
+        </div>
+    </div>
+    <div class="chose_type_container">
+        <div class="chose_type_center">
+            <div class="chose_type">
+                <!--商品信息-->
+                <div class="chose_type_con">
+                    <div class="ct_goods_info">
+                        <div class="cti_box fl">
+                            <div>
+                                <img ng-src="http://www.sgyxmall.com/{{goodsDetail.goods.default_img}}" alt="{{goodsDetail.goods.goods_name}}">
+                            </div>
+                        </div>
+                        <div class="cti_info fl">
+                            <p class="cti_price">
+                                <span class="rmb">结算价：</span>¥
+                                <span class="cti_rmb">{{goodsDetail.t_price}}</span>
+                                <span class="cti_adds">+</span>
+                                <span class="cti_int">{{goodsDetail.t_integral}}</span>
+                            </p>
+                            <p class="cti_ku">库存：<span>{{goodsDetail.stock}}</span></p>
+                        </div>
+                        <div class="cti_close" ng-click="colseAlerts()"></div>
+                    </div>
+                    <div class="ct_type">
+                        <div class="ct_color" ng-if="goodsDetail.isColor">
+                            <p class="ct_type_title">颜色分类</p>
+                            <div class="each_ct">
+                                <span ng-repeat="color in goodsDetail.goods_color" ng-click="choseColor($index,color.spec_desc1)" ng-class={'type_on':goodsDetail.colorIdx==$index}>{{color.spec_desc1}}</span>
+                            </div>
+                        </div>
+                        <div class="ct_size">
+                            <p class="ct_type_title">尺寸规格</p>
+                            <div class="each_ct">
+                                <span ng-repeat="size in goodsDetail.goods_size track by $index" ng-click="choseSize($index,size)" ng-class={'type_on':goodsDetail.sizeIdx==$index}>{{size}}</span>
+                                <!--<span ng-repeat="sizes in goodsDetail.goods_size"></span>-->
+                            </div>
+                        </div>
+                        <div class="ct_size" style="border-bottom: none">
+                            <p class="ct_type_title">数量</p>
+                            <div class="esc_count cti_count">
+                                <p class="cti_sub fl" ng-click="goodsDetail.numSub()">-</p>
+                                <input type="number" class="cti_number fl" readonly value="{{goodsDetail.finalNum}}">
+                                <p class="cti_add fl" ng-click="goodsDetail.numAdd()">+</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--选项-->
+                <div class="chose_do" ng-show="goodsDetail.way">
+                    <div class="join_shopCar fl" ng-click="alertDo(0)">加入购物车</div>
+                    <div class="buy_now fl" ng-click="alertDo(1)">立即购买</div>
+                </div>
+                <div class="chose_confirm" ng-show="goodsDetail.confrim" ng-click="goodsConfrim()">确定</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,170 @@
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    升级为商家
+</div>
+<div class="upMContainer">
+    <div class="eachUM">
+        <p class="eachUMTitle">店铺名称<span>*</span></p>
+        <input type="text" class="eachUMCon" placeholder="请输入店铺名称" ng-model="upToMerchant.merchantName">
+    </div>
+    <div class="eachUM eachUMC">
+        <p class="eachUMTitle" id="J_Address" >店铺位置<span>*</span></p>
+        <input type="text" class="eachUMCon" placeholder="请选择省、市、区" ng-focus="addArea()" ng-model="area.address">
+    </div>
+    <div class="eachUM">
+        <p class="eachUMTitle">详细信息<span>*</span></p>
+        <input type="text" class="eachUMCon" placeholder="请输入详细位置" ng-focus="getBaiDuMap()" ng-model="upToMerchant.merchantArea">
+    </div>
+    <div class="eachUM eachUMC">
+        <p class="eachUMTitle">店铺分类<span>*</span></p>
+        <input type="text" class="eachUMCon" placeholder="请选择店铺分类" ng-focus="getMClass()" ng-model="upToMerchant.merchantClass">
+    </div>
+    <div class="eachUM">
+        <p class="eachUMTitle">联系电话<span>*</span></p>
+        <input type="text" class="eachUMCon" placeholder="请输入您的联系电话" ng-model="upToMerchant.merchantsTel">
+    </div>
+    <div class="eachUM">
+        <p class="eachUMTitle">验证码<span>*</span></p>
+        <input type="text" class="eachUMCon z_eachUMCon" placeholder="请输入验证码" ng-model="upToMerchant.ZCode">
+        <button class="getMCode">获取验证码</button>
+    </div>
+    <div class="eachUMPic">
+        <p class="eachUMTitle eachUMTitlePic">营业执照<span>*</span></p>
+        <p class="eachUMTitle eachUMTitlePic">店铺标志<span>*</span></p>
+        <div class="merchantSinglePic">
+            <div class="merchantLicense fl M_pic" id="licBox">
+                <p class="m_pic_dis">点击上传店铺营业执照</p>
+                <img src="" alt="" id="license">
+                <input type="file" onchange="angular.element(this).scope().upMPic(this.files,1)">
+            </div>
+            <div class="merchantLogo fr M_pic" id="logoBox">
+                <p class="m_pic_dis">点击上传店铺标志</p>
+                <img src="" alt="" id="logo">
+                <input type="file" onchange="angular.element(this).scope().upMPic(this.files,2)">
+            </div>
+        </div>
+    </div>
+    <div class="eachUMPic">
+        <p class="eachUMTitle eachUMTitlePic">铺营展示图<span>*</span></p>
+        <div class="merchantSinPic">
+            <div class="merchantLicense M_pic" id="si1">
+                <p class="m_pic_dis">点击上传店铺营展示图1</p>
+                <img src="" alt="" id="single1">
+                <input type="file" onchange="angular.element(this).scope().upMPic(this.files,3)" >
+            </div>
+            <div class="merchantLogo  M_pic" id="si2">
+                <p class="m_pic_dis">点击上传店铺营展示图2</p>
+                <img src="" alt="" id="single2">
+                <input type="file" onchange="angular.element(this).scope().upMPic(this.files,4)">
+            </div>
+            <div class="merchantLogo  M_pic" id="si3">
+                <p class="m_pic_dis">点击上传店铺营展示图3</p>
+                <img src="" alt="" id="single3">
+                <input type="file" onchange="angular.element(this).scope().upMPic(this.files,5)" >
+            </div>
+        </div>
+    </div>
+    <div class="eachUMPic">
+        <p class="eachUMTitle eachUMTitlePic">铺营简介</p>
+        <textarea class="mProduct" ng-focus="writePro(1)" ng-model="upToMerchant.mProduct"></textarea>
+    </div>
+    <div class="eachUMPic">
+        <p class="eachUMTitle eachUMTitlePic" >铺营活动</p>
+        <textarea class="mActive" ng-model="upToMerchant.mActive" ng-focus="writePro(2)"></textarea>
+    </div>
+    <!--协议-->
+    <div class="uMAgreement">
+        <input type="checkbox" id="uMA" ng-model="upToMerchant.weaAgreementY">
+        <label for="uMA"> 我已阅读并同意</label><span ng-click="readAgreement()">店铺协议</span>
+    </div>
+    <button class="upToMerchantSub" ng-click="upToMerchantSub()" ng-disabled="upToMerchant.HaveSub">{{upToMerchant.subTxt}}</button>
+</div>
+<!--三级城市联动-->
+<div class="area_container" style="z-index: 999999">
+    <div class="area_cancel" ng-click="cancels()"></div>
+    <div class="area_box">
+        <p class="a_title">所在地区</p>
+        <p class="a_chose">
+            <span ng-click="moves(1)" ng-class="{area_on:area.cls}">{{area.choseProvince}}</span>
+            <span ng-click="moves(2)" ng-class="{area_on:area.cls1}">{{area.choseCity}}</span>
+            <span ng-click="moves1(area.choseDistrict)" ng-class="{area_on:area.cls2}">{{area.choseDistrict}}</span>
+        </p>
+        <div class="area_center">
+            <div class="area_con">
+                <!--省-->
+                <div class="area_province">
+                    <p class="item" ng-repeat="provinces in area.province" ng-click="changeProvince($index,provinces)"  ng-class="{'act':procinceIdx===$index}" >{{provinces.name}}</p>
+                </div>
+                <!--市-->
+                <div class="area_city">
+                    <p ng-repeat="citys in area.city" ng-click="changeCity($index,citys)" ng-class="{'act':cityIdx===$index}" >{{citys.name}}</p>
+                </div>
+                <!--县-->
+                <div class="area_district">
+                    <p ng-repeat="districts in area.district" ng-click="changeDistrict($index,districts)" ng-class="{'act':districtIdx===$index}">{{districts.name}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--商铺分类-->
+<div class="choseBankContainer" ng-if="upToMerchant.weaMC" style="z-index: 9999999999">
+    <div class="MClassList">
+        <div class="eachMClass" ng-repeat="merchantClass in upToMerchant.merchantArr" ng-click="getMerchantClass(merchantClass)">{{merchantClass.cate_name}}</div>
+    </div>
+</div>
+<!--调用地图-->
+<div class="maps_container">
+    <div>
+       <div style="margin-top: .2rem">
+           <p class="MapSearch">要查询的地址：<input id="text_" type="text" value="" /></p>
+           <p style="display: none">查询结果(经纬度)：<input id="result_" type="text" /></p>
+           <input type="button" value="查询" ng-click="searchByStationName();" class="MapSearchButton"/>
+       </div>
+        <div id="container"></div>
+        <div class="btn" ng-click="getDeailAddress()">确定</div>
+    </div>
+</div>
+<!--店铺协议内容-->
+<div class="choseBankContainer" style="z-index: 9999;" ng-if="upToMerchant.weaUMAgreement">
+    <div class="uMATxt">
+        <h3 class="uMATxtTitle">使用本公司服务所须遵守的条款和条件</h3>
+        <h3 class="uMATxtSTitle">1.用户资格</h3>
+       <p> 本公司的服务仅向适用法律下能够签订具有法律约束力的合同的个人提供并仅由其使用。在不限制前述规定的前提下，
+           本公司的服务不向18周岁以下或被临时或无限期中止的用户提供。如您不合资格，请勿使用本公司的服务。此外，您的
+           帐户（包括信用评价）和用户名不得向其他方转让或出售。另外，本公司保留根据其意愿中止或终止您的帐户的权利。</p>
+        <h3 class="uMATxtSTitle">2.您的资料</h3>（包括但不限于所添加的任何商品）不得：
+       <p> *具有欺诈性、虚假、不准确或具误导性；</p>
+        <p>*侵犯任何第三方著作权、专利权、商标权、商业秘密或其他专有权利或发表权或隐私权；</p>
+        <p>*违反任何适用的法律或法规（包括但不限于有关出口管制、消费者保护、不正当竞争、刑法、反歧视或贸易惯例/公平贸易法律的法律或法规）；</p>
+        <p>*有侮辱或者诽谤他人，侵害他人合法权益的内容；</p>
+        <p>*有淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的内容；</p>
+        <p>*包含可能破坏、改变、删除、不利影响、秘密截取、未经授权而接触或征用任何系统、数据或个人资料的任何病毒、特洛依木马、蠕虫、</p>
+        <p>定时炸弹、删除蝇、复活节彩蛋、间谍软件或其他电脑程序；</p>
+        <h3 class="uMATxtSTitle">3.违约</h3>
+       <p> 如发生以下情形，本公司可能限制您的活动、立即删除您的商品、向本公司社区发出有关您的行为的警告、发出警告通知、暂时中止、无限期地中止
+           或终止您的用户资格及拒绝向您提供服务：</p>
+        <p>(a)您违反本协议或纳入本协议的文件；</p>
+        <p>(b)本公司无法核证或验证您向本公司提供的任何资料；</p>
+        <p>(c)本公司相信您的行为可能对您、本公司用户或本公司造成损失或法律责任</p>
+
+        <h3 class="uMATxtSTitle">4.责任限制</h3>
+        <p>
+            本公司、本公司的关联公司和相关实体或本公司的供应商在任何情况下均不就因本公司的网站、本公司的服务或本协
+            议而产生或与之有关的利润损失或任何特别、间接或后果性的损害（无论以何种方式产生，包括疏忽）承担任何责任。您同意您
+            就您自身行为之合法性单独承担责任。您同意，本公司和本公司的所有关联公司和相关实体对本公司用户的行为的合法性及产生的任何结果不承担责任。
+        </p>
+
+        <h3 class="uMATxtSTitle">5.无代理关系</h3>
+       <p>
+           用户和本公司是独立的合同方，本协议无意建立也没有创立任何代理、合伙、合营、雇员与雇主或特许经营关系。
+           本公司也不对任何用户及其网上交易行为做出明示或默许的推荐、承诺或担保。
+       </p>
+
+        <h3 class="uMATxtSTitle">6.一般规定</h3>
+            <p>
+                本协议在所有方面均受中华人民共和国法律管辖。本协议的规定是可分割的，如本协议任何规定被裁定为无效或不可执行，该规定可被删除而其余条款应予以执行。
+            </p>
+        <button class="uMAY" ng-click="uMAY()">朕知道了</button>
+    </div>
+</div>

@@ -1,0 +1,217 @@
+.myOld_head_container{
+    width: 100%;
+    height: 2.67rem;
+    background-color: #1d1d1d;
+}
+.moh_set_box{
+    width: 90%;
+    height: .37rem;
+    padding: .2rem 0 0.16rem;
+    margin: 0 auto;
+}
+.moh_set{
+    width: 0.37rem;
+    height: 0.37rem;
+    background:url("../images/myOld/Set_up.png")no-repeat center;
+    background-size: 100% auto;
+}
+.moh_msg{
+    width: 0.34rem;
+    height: 0.34rem;
+    background:url("../images/myOld/news.png")no-repeat center;
+    background-size: 100% auto;
+}
+.moh_info_box{
+    width: 80%;
+    height: 1.8rem;
+    margin: .1rem auto 0;
+}
+.moh_head_img{
+    width: 1.26rem;
+    height: 1.26rem;
+    overflow: hidden;
+}
+.moh_head_img >img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.moh_head_name{
+    width: 2rem;
+    height: 1.26rem;
+    color: white;
+}
+.moh_user_name{
+    font-size: .25rem;
+    padding-left: .15rem;
+    margin-top: .3rem;
+}
+.moh_user_deg{
+    font-size: .23rem;
+    margin-left: .1rem ;
+    margin-top: .1rem;
+    display: inline-block;
+    padding: .03rem .15rem;
+    background-color: #bea47f;
+    border-radius: 0.09rem;
+}
+.moh_head_name >img{
+    display: block;
+    float: right;
+    width: auto;
+    height: .38rem;
+    margin: .1rem 0 0 0;
+}
+.moh_head_QR_code{
+    width: 0.86rem;
+    height: 0.86rem;
+    margin-top: .2rem;
+    background: white;
+}
+.moh_head_QR_code >img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.myOld_treasure_container,
+.myOld_service_container{
+    width: 90%;
+    height: auto;
+    background: white;
+    padding: 0 5%;
+    overflow: hidden;
+    margin-bottom: .2rem;
+}
+.mot_title{
+    width: 100%;
+    border-bottom: 1px solid #e4e4e4;
+    font-size: .26rem;
+    color: #333333;
+    letter-spacing: 1px;
+    padding: 0.25rem 0;
+    font-weight: 600;
+}
+.mot_function,
+.mos_function{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: .3rem 0;
+}
+.mos_function{
+    padding-bottom: 0;
+}
+.mot_function >li{
+    width: 20%;
+    float: left;
+    height: .9rem;
+
+}
+.mos_function >li{
+    width: 25%;
+    float: left;
+    height: .9rem;
+    margin-bottom: .3rem;
+}
+.mot_function >li >img,
+.mos_function >li >img{
+    display: block;
+    width: auto;
+    height: .47rem;
+    margin: 0 auto;
+}
+.mot_function >li >span,
+.mos_function >li >span{
+    display: block;
+    text-align: center;
+    font-size: .22rem;
+    color: #000;
+    margin-top: .15rem;
+}
+.about_us{
+    margin-top: 1px;
+    background: white url("../images/myOld/about.png") no-repeat .15rem center;
+    background-size: auto .4rem;
+}
+.big_QR_code,
+.chose_upgrade_box{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.46);
+    z-index: 999999999;
+}
+.big_QR_code >img{
+    display: block;
+    width: 65%;
+    height: auto;
+}
+.chose_upgrade_box{
+
+}
+.chose_upgrade_box p{
+    text-align: center;
+    font-size: .25rem;
+    padding: .2rem 0;
+}
+.chose_upgrade_box div{
+    width: 4rem;
+    height: auto;
+    padding:0 .3rem .25rem ;
+    overflow: hidden;
+    background: white;
+    border-radius: .3rem;
+}
+.chose_upgrade_box ul li{
+    float: left;
+    width: 1.2rem;
+    height: 1.2rem;
+    text-align: center;
+    line-height: 1.2rem;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin-top: .2rem;
+    font-size: .24rem;
+    color: white;
+}
+.chose_upgrade_box ul li:nth-child(3n-1){
+    margin:.2rem .2rem 0 !important;
+}
+.merchant_getMoney_code{
+    width: 80%;
+    height: 60%;
+    background: white;
+    border-radius: .154rem;
+}
+.merchant_getMoney_info{
+    width: 70%;
+    height: 1rem;
+    margin: .8rem auto .5rem;
+}
+.merchant_getMoney_info >.merchant_getMoney_img{
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: url("../images/sgyx_logo.png") no-repeat;
+    background-size: 2.5rem;
+    background-position: 0 0 ;
+}
+.merchant_getMoney_info >p{
+    font-size: .27rem;
+    float: left;
+    margin-left: .2rem;
+    line-height: .5rem;
+}
+.merchant_getMoney_code >img{
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}

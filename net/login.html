@@ -1,0 +1,27 @@
+<div class="login_container" style="height: {{login._height}}px">
+    <div class="login_head"></div>
+    <div class="login_center">
+        <div class="chose_method_login">
+            <p ng-click="changLogin(1)" ng-class={'default_login':login.yl}>苏格时代登录</p>
+            <p ng-click="changLogin(2)" ng-class={'default_login':login.sl}>苏格优品登录</p>
+        </div>
+        <div class="chose_login">
+            <div class="login_list" ng-show="login.yl">
+                <div><span>账号：</span><input type="text" placeholder="请输入账号" ng-model="login.name" ng-focus="login.errorShow=false" ng-change="testTel()"></div>
+                <span class="loginError" ng-if="login.errorShow">{{login.errorMsg}}</span>
+                <div><span>密码：</span><input type="password" placeholder="请输入密码" ng-model="login.psd" ng-change="rmoDis()" ng-disabled="login.psdDis"></div>
+                <button class="login_btn" ng-click="loginMall(0)" ng-disabled="login.dsb">{{login.btnTxt}}</button>
+            </div>
+            <div class="login_list" ng-show="login.sl">
+                <div><span>账号：</span><input type="text" placeholder="请输入账号" ng-model="login.name" ng-focus="login.errorShow=false" ng-change="testTel()"></div>
+                <span class="loginError" ng-if="login.errorShow">{{login.errorMsg}}</span>
+                <div><span>密码：</span><input type="password" placeholder="请输入密码" ng-model="login.psd" ng-change="rmoDis()" ng-disabled="login.psdDis"></div>
+                <button class="login_btn" ng-click="loginMall(1)"ng-disabled="login.dsb">{{login.btnTxt}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="login_ajax_container">
+
+</div>

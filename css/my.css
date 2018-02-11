@@ -1,0 +1,95 @@
+header.my_header{
+    width: 100%;
+    height: 2.5rem;
+    background: rgb(29,29,29);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header_container{
+    width: 50%;
+    height: 1.3rem;
+    /*background: white;*/
+}
+.user_head_img{
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.user_head_img >img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.my_user_info{
+    width: auto;
+    height: .8rem;
+    float: left;
+    margin-top: .25rem;
+}
+.my_user_info >p{
+    height: 0.35rem;
+    line-height: 0.35rem;
+    font-size: .28rem;
+    letter-spacing: 1px;
+}
+.my_user_name{
+    color: white;
+    margin-top: 0.05rem;
+    padding-left: .2rem;
+}
+.my_user_integral{
+    color: rgb(190,164,127);
+    padding-left: .45rem;
+    background: url("../images/my_score.png") no-repeat left center;
+    background-size: .35rem auto;
+    margin-top: .1rem;
+    margin-left: .2rem;
+}
+.my_user_my{
+    height: 1rem;
+    background: white;
+    font-size: .27rem;
+    line-height: 1rem
+}
+.my_user_my >p{
+    width: 90%;
+    padding-left: 10%;
+    background: url("../images/right.png") no-repeat 97% center;
+    background-size: auto .3rem;
+}
+.my_user_order{
+    background: white url("../images/menu.png") no-repeat .15rem center;
+    background-size:  auto .4rem;
+}
+.my_user_address{
+    margin-top: 1px;
+    background: white url("../images/address.png") no-repeat .15rem center;
+    background-size:  auto .4rem;
+}
+.service_tel{
+    margin-top: .3rem;
+    background: white url("../images/people.png") no-repeat .15rem center;
+    background-size:  auto .4rem;
+}
+.s_tel{
+    float: right;
+    padding-right: .35rem;
+    font-size: .27rem;
+}
+.my_user_quite_logo{
+    font-size: .3rem;
+    text-align: center;
+    height: 1rem;
+    line-height: 1rem;
+    background: white;
+    margin-top: .3rem;
+}
+
+
+

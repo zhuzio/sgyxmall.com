@@ -1,0 +1,67 @@
+.merchant_classify_container{
+	width: 100%;
+}
+.mc_head{
+	width: 100%;
+	height: 0.8547rem;
+	background: #FFFFFF;
+	font-size: 0.2905rem;
+	color: #333333;
+	position: relative;
+}
+
+.mc_head a{
+	display: block;
+   position: absolute;
+   left: .1rem;
+   top:.15rem ;
+    width: .5rem;
+    height: .5rem;
+    background: url(../images/back.png) no-repeat center;
+    background-size: auto .4rem;
+}
+.mc_classify{
+	width: 100%;
+	height: 0.8547rem;
+	text-align: center;
+	line-height: 0.8547rem;
+}
+/*商家分类*/
+.mc_container{
+	width: 100%;
+    border-top: 0.0085rem solid #7F7F7F;
+     background: white;
+}
+.mc_center1{
+	
+    width: 100%;
+    overflow-x: scroll;
+}
+.mc_center{
+	overflow: hidden;
+   padding: .2rem 0;
+}
+.mc_center1::-webkit-scrollbar{
+	display: none !important;
+}
+.mc_pr{
+	
+    width: 1.3675rem;
+    float: left;
+    margin: 0 0 0 .2rem;
+    background: white;
+    padding: .1rem;
+    text-align: center;
+   
+}
+.mc_prbb{
+	 border-bottom: 0.0085rem solid #FD3422;
+}
+.am_near_ts{
+	 width: 100%;
+	 height: 0.8547rem;
+	 line-height: 0.8547rem;
+	 text-align: center;
+	 font-size: 0.2735rem;
+	 border-top: 1px solid gainsboro; 
+}

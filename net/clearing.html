@@ -1,0 +1,39 @@
+<div class="clear_order_container">
+    <div class="clear_order_head">
+        <a href="javascript:window.history.back(-1)"></a>
+       填写订单
+    </div>
+    <!--用户收货地址信息-->
+    <div class="clear_address_container" ui-sref="address">
+        <p class="receiver_name fl">{{clear.user_name}}</p>
+        <div class="receiver_address_container fl">
+            <p class="receiver_phone">{{clear.user_phone}}</p>
+            <p class="receiver_address">{{clear.address}}</p>
+        </div>
+    </div>
+    <!--订单信息-->
+    <div class="clear_order_list_container">
+        <div class="each_order_list" ng-repeat="goods in clear.goods">
+           <div class="eol_img fl">
+               <img ng-src="http://www.sgyxmall.com/{{goods.goods_img}}" alt="{{goods.goods_name}}">
+           </div>
+            <div class="eol_info fl">
+                <p class="eol_name">{{goods.goods_name}}</p>
+                <p class="eol_type">{{goods.goods_types}}</p>
+                <p class="eol_enc">¥ <span class="eol_price">{{goods.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{goods.goods_point}}</span></p>
+            </div>
+            <span>X {{goods.goods_count}}</span>
+        </div>
+    </div>
+    <!--订单总量-->
+    <div class="clear_money_container">
+        <div>商品总金额：<span>{{clear.total}}</span></div>
+        <div>商品总数量：<span>{{clear.number}}</span></div>
+        <div>运费：<span></span></div>
+    </div>
+    <!--去支付-->
+    <div class="went_apply">
+        <div class="apple_total fl">应支付：{{clear.total}}</div>
+        <div class="go_apply fl" ng-click="goApply()">去支付</div>
+    </div>
+</div>

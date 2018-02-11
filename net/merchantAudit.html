@@ -1,0 +1,216 @@
+<style type="text/css">
+    /*::-webkit-datetime-edit { padding: 1px; background: url(/study/image/selection.gif); }*/
+    ::-webkit-datetime-edit-fields-wrapper { background-color: #eee; }
+    ::-webkit-datetime-edit-text { color: #4D90FE;}
+    ::-webkit-datetime-edit-year-field { color: purple; }
+    ::-webkit-datetime-edit-month-field { color: blue; }
+    ::-webkit-datetime-edit-day-field { color: green; }
+    ::-webkit-inner-spin-button { visibility: hidden; }
+    ::-webkit-calendar-picker-indicator {
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        box-shadow: inset 0 1px #fff, 0 1px #eee;
+        background-color: #eee;
+        background-image: -webkit-linear-gradient(top, #f0f0f0, #e6e6e6);
+        color: #666;
+    }
+    /*----------用来移除向下箭头----------*/
+   /* input[type="date"]::-webkit-calendar-picker-indicator {
+        !*display: none;*!
+        opacity: 0;
+    }
+*/
+    /*----------用来移除叉叉按钮----------*/
+    input[type="date"]::-webkit-clear-button{
+        display:none;
+    }
+    .mcAdHeadSearch{
+        width: 100%;
+        height: .6rem;
+        line-height: .8rem;
+        background: white;
+        border-top: 1px #e5e5e5 solid;
+        padding: .1rem 0 .2rem;
+    }
+    .mcAdHeadSearch >input{
+        display: inline-block;
+        height: .5rem;
+        border-radius: .1rem;
+        border: 1px #e5e5e5 solid;
+        font-size: .22rem;
+
+    }
+    .searchCount{
+        width: 30%;
+        margin-left: 2%;
+        padding-left: .15rem;
+    }
+    .searchDate{
+        width: 22%;
+    }
+    .searchBtn{
+        display: inline-block;
+        width: 15%;
+        border: none;
+        background: #e79e56;
+        height: .5rem;
+        border-radius: .1rem;
+        color: white;
+        font-size: .23rem;
+    }
+    .mcAdList{
+        width: 94%;
+        height: auto;
+        background: white;
+        padding: .1rem 3%;
+        margin-top: .2rem;
+        font-size: .26rem;
+    }
+    .mcAdTitle{
+        height: .7rem;
+        line-height: .7rem;
+        border-bottom: 1px #e5e5e5 solid;
+        margin-bottom: .15rem;
+    }
+    .mcAdCon{
+        color: #666;
+        line-height: .5rem;
+        padding-left: .15rem;
+    }
+    .mcAdDo{
+        width: 100%;
+        text-align: right;
+        height: .8rem;
+        line-height: .8rem;
+        border-top: 1px #e5e5e5 solid;
+        margin-top: .2rem;
+    }
+    .mcAdDo button{
+        display: inline-block;
+        width: 1.3rem;
+        height: .6rem;
+        border: none;
+        font-size: .26rem;
+        border-radius: .15rem;
+    }
+    .mcAdRefuse{
+        background: #ccc;
+        color: white;
+    }
+    .mcAdAgree{
+        background: #e79e56;
+        color: white;
+    }
+    .waitAd{
+        color: #e79e56;
+    }
+    .haveAd{
+        color: #00ae00;
+    }
+    .refAd{
+        color: #ccc;
+    }
+    .mcAdGivePower{
+        border-top: 1px #e5e5e5 solid;
+        padding-top: .2rem;
+        margin-top: .2rem;
+    }
+    .mcAdGivePower input[type=radio]{
+        display: none;
+        width: .4rem;
+
+    }
+    .mcAdGivePower input[type=radio]:checked+label::before {
+        background: url("images/set/ba_select.png") no-repeat center;
+        background-size: contain;
+        /*margin-right: .3rem;*/
+    }
+    .mcAdGivePower label::before {
+        content: "";
+        display: inline-block;
+        width: .35rem;
+        height: .35rem;
+        background: url("images/set/ba_no_select.png") no-repeat center;
+        background-size: contain;
+        vertical-align: middle!important;
+        -webkit-border-radius: 50%;
+        -webkit-box-sizing: border-box;
+    }
+    .mcADInfoAddMore{
+        width: 100%;
+        height: .6rem;
+        background: url("images/Loading9.gif") no-repeat center;
+        background-size: .35rem auto;
+        text-align: center;
+        line-height: .6rem;
+        font-size: .24rem;
+        color: #a5a5a5;
+    }
+    .mcADInfoAddMore p{
+        width: 100%;
+        height: 100%;
+        background: #f3f3f3;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    商家审核
+</div>
+<div class="mcAdHeadSearch">
+    <input type="text" class="searchCount" placeholder="请输入查询账号" ng-model="mcAd.account">
+    <input type="date" class="searchDate" ng-model="mcAd.beginTime">
+    <input type="date" class="searchDate" ng-model="mcAd.endTime">
+    <button class="searchBtn" ng-click="mcAdSearch()">查找</button>
+</div>
+<div class="mcAdContainer">
+    <div class="mcAdList" ng-repeat="mcInfo in mcAd.mcAdList">
+        <p class="mcAdTitle">申请时间：{{mcInfo.add_time}}
+            <!--
+                   0: 未审核
+                   1：已审核
+                   2：已驳回
+
+            -->
+            <span class="mcAdStatus fr waitAd" ng-if="mcInfo.state == '0'">待审核</span>
+            <span class="mcAdStatus fr haveAd" ng-if="mcInfo.state == '1'">已审核</span>
+            <span class="mcAdStatus fr refAd" ng-if="mcInfo.state == '2'">已驳回</span>
+        </p>
+        <p class="mcAdCon">商家名称：{{mcInfo.store_name}}</p>
+        <p class="mcAdCon">商家电话：{{mcInfo.user_name}}</p>
+        <p class="mcAdCon">营业执照：<span ng-if="mcInfo.store_banner">已上传</span><span ng-if="!mcInfo.store_banner">未上传</span></p>
+        <p class="mcAdCon">注册地址：{{mcInfo.region_name}}</p>
+        <p class="mcAdCon">店铺地址：{{mcInfo.address}}</p>
+        <p class="mcAdCon" ng-if="mcInfo.state != '0'">审核时间：{{mcInfo.apply_time}}</p>
+
+        <div class="mcAdDo" ng-if="mcInfo.state == '0'">
+            <button class="mcAdRefuse" ng-click="mcAdAgree(2,mcInfo.store_id)">驳回</button>
+            <button class="mcAdAgree" ng-click="mcAdAgree(1,mcInfo.store_id)">通过</button>
+        </div>
+
+        <div class="mcAdGivePower" ng-if="mcInfo.state == '1'">
+            <p class="mcAdCon">是否优质商家：
+                <input type="radio" name="isGood{{mcInfo.store_id}}" id="isGood_Y{{mcInfo.store_id}}" ng-checked="mcInfo.is_good == '1'" ng-click="mcAdIs(0,1,mcInfo.store_id)">
+                <label for="isGood_Y{{mcInfo.store_id}}" style="margin-right: .2rem">&nbsp;是</label>
+                <input type="radio" name="isGood{{mcInfo.store_id}}" id="isGood_N{{mcInfo.store_id}}" ng-checked="mcInfo.is_good == '0'" ng-click="mcAdIs(0,0,mcInfo.store_id)">
+                <label for="isGood_N{{mcInfo.store_id}}">&nbsp;否</label>
+            </p>
+            <p class="mcAdCon">是否允许交易：
+                <input type="radio" name="isTrade{{mcInfo.store_id}}" id="isTrade_Y{{mcInfo.store_id}}" ng-checked="mcInfo.is_trade == '1'" ng-click="mcAdIs(1,1,mcInfo.store_id)">
+                <label for="isTrade_Y{{mcInfo.store_id}}" style="margin-right: .2rem">&nbsp;是</label>
+                <input type="radio" name="isTrade{{mcInfo.store_id}}" id="isTrade_N{{mcInfo.store_id}}" ng-checked="mcInfo.is_trade == '0'" ng-click="mcAdIs(1,0,mcInfo.store_id)">
+                <label for="isTrade_N{{mcInfo.store_id}}">&nbsp;否</label>
+            </p>
+            <p class="mcAdCon">店铺是否展示：
+                <input type="radio" name="isShow{{mcInfo.store_id}}" id="isShow_Y{{mcInfo.store_id}}" ng-checked="mcInfo.is_show == '1'" ng-click="mcAdIs(2,1,mcInfo.store_id)">
+                <label for="isShow_Y{{mcInfo.store_id}}" style="margin-right: .2rem">&nbsp;是</label>
+                <input type="radio" name="isShow{{mcInfo.store_id}}" id="isShow_N{{mcInfo.store_id}}" ng-checked="mcInfo.is_show == '0'" ng-click="mcAdIs(2,0,mcInfo.store_id)">
+                <label for="isShow_N{{mcInfo.store_id}}">&nbsp;否</label>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="mcADInfoAddMore">
+    <p ng-click="addBaseMore(1)" ng-if="mcAd.benginMore">点击加载更多......</p>
+    <p ng-if="mcAd.moreTxt">没有更多了......</p>
+    <p ng-click="addBaseMore(2)" ng-if="mcAd.seaMore">点击加载更多......</p>
+</div>

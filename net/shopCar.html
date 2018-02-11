@@ -1,0 +1,49 @@
+<div class="shopCarContainers">
+    <div class="shop_car_container" ng-show="shopCar.haveShop">
+        <div class="each_shop_container" ng-repeat="shopName in shopCar.shopName">
+            <p class="shop_name">
+                <input type="checkbox" id="ckall{{shopName.store_id}}" ng-model="shopName.isCheckstoreAll" ng-click="CheckstoreAll(shopName)">
+                <label for="ckall{{shopName.store_id}}"> &nbsp;&nbsp;{{shopName.store_name}}</label>
+                <span></span>
+            </p>
+            <div class="each_shop_center">
+                <div class="each_shop_list" ng-repeat="goods in shopName.goods_info">
+                    <div class="each_shop_check fl">
+                        <input type="checkbox" id="esc_goods{{goods.sc_id}}" ng-model="goods.isCheckOneGoods" ng-click="CheckOneGoods(goods,shopName)">
+                        <label for="esc_goods{{goods.sc_id}}"></label>
+                    </div>
+                    <div class="each_shop_info fl">
+                        <img ng-src="http://www.sgyxmall.com/{{goods.default_img}}" alt="{{goods.goods_name}}" class="ecs_img fl">
+                        <div class="ecs_info fl">
+                            <p class="ecs_name">{{goods.goods_name}}</p>
+                            <p class="ecs_type">{{goods.goods_types}} </p>
+                            <div class="esc_count">
+                                <p class="esc_sub fl" ng-click="addCount(goods,false)">-</p>
+                                <input type="number" class="esc_number fl" readonly value="{{goods.goods_count}}">
+                                <p class="esc_add fl" ng-click="addCount(goods,true)">+</p>
+                            </div>
+                            <p class="ecs_price">¥ <span class="esc_rmb">{{goods.goods_price}}</span><span class="p_add">+</span><span class="esc_int">{{goods.goods_point}}</span></p>
+                            <span class="ecs_delete" ng-click="delete(shopName,$index)">删除</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="shop_car_clearing_container" ng-show="shopCar.haveShop">
+        <div class="all_shop_check fl">
+            <input type="checkbox" id="esc_goods1" ng-click="selectAllGoods()" ng-model="selectGoodsAll">
+            <label for="esc_goods1"> 全选</label>
+        </div>
+        <div class="all_shop_total fl">
+            <p>合计：<span>{{totalPrice}}</span>元<span class="p_add">+</span>{{totalStock}}<span></span>积分</p>
+        </div>
+        <div class="go_cleaning" ng-click="goClear()">
+            结算
+        </div>
+    </div>
+    <div class="no_goods" ng-if="shopCar.noShop">
+        <img src="images/nodata.png" alt="">
+    </div>
+</div>

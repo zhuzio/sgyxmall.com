@@ -1,0 +1,48 @@
+<div class="ad_container">
+    <div class="a_head_box">
+        <div class="a_head_back">
+            <a href="javascript:window.history.back(-1)"></a>
+        </div>
+        <div class="a_head_title">添加收货地址</div>
+        <div class="a_head_msg">
+        </div>
+    </div>
+    <div class="ad_ads">
+        <div class="form">
+            <div class="info_list"><span class="info_title">收货人</span><input type="text" name="s_consignee" placeholder="请输入收货人姓名" required class="ad_name" ng-model="info.name"></div>
+            <div class="info_list"><span class="info_title">联系电话</span><input type="number" name="s_phone" placeholder="请输入手机号" required class="ad_tel" ng-model="info.tel"></div>
+            <div class="info_list"><span class="info_title">选择地区</span><input type="text" name="s_addr" placeholder="请选择地区信息"  readonly required id="J_Address" ng-focus="addArea()" class="ad_addr" value="{{area.address}}"></div>
+            <div class="info_list"><span class="info_title">详细地址</span><input type="text" name="s_address" placeholder="请输入详细地址" required class="ad_add_d" ng-model="info.d_address"></div>
+            <div class="info_list"><span class="info_title">邮编</span><input type="number" name="s_address" placeholder="请输入邮编" required class="ad_add_d" ng-model="info.mail_num"></div>
+            <div class="setDefAds"><input type="checkbox" id="setDefAds" ng-model="info.isDef"><label for="setDefAds" > 设置为默认地址</label></div>
+            <input type="submit" value="确认增加" class="submit" ng-click="submitData()">
+        </div>
+    </div>
+    <div class="area_container">
+        <div class="area_cancel" ng-click="cancels()"></div>
+        <div class="area_box">
+            <p class="a_title">所在地区</p>
+            <p class="a_chose">
+                <span ng-click="moves(1)" ng-class="{area_on:area.cls}">{{area.choseProvince}}</span>
+                <span ng-click="moves(2)" ng-class="{area_on:area.cls1}">{{area.choseCity}}</span>
+                <span ng-click="moves1(area.choseDistrict)" ng-class="{area_on:area.cls2}">{{area.choseDistrict}}</span>
+            </p>
+            <div class="area_center">
+                <div class="area_con">
+                    <!--省-->
+                    <div class="area_province">
+                        <p class="item" ng-repeat="provinces in area.province" ng-click="changeProvince($index,provinces.name)"  ng-class="{'act':procinceIdx===$index}" >{{provinces.name}}</p>
+                    </div>
+                    <!--市-->
+                    <div class="area_city">
+                        <p ng-repeat="citys in area.city" ng-click="changeCity($index,citys.name)" ng-class="{'act':cityIdx===$index}" >{{citys.name}}</p>
+                    </div>
+                    <!--县-->
+                    <div class="area_district">
+                        <p ng-repeat="districts in area.district" ng-click="changeDistrict($index,districts)" ng-class="{'act':districtIdx===$index}">{{districts}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

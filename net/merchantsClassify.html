@@ -1,0 +1,60 @@
+<div class="merchant_classify_container">
+	<div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+                            商家分类
+        </div>
+   </div>
+   <!--商家分类-->
+   <div class="mc_container">
+   	    <!--<div class="pr_center_container pr_center_container1">
+            <ul class="pr_center">
+                <li class="each_pr" ng-repeat="pr in index.pr" >
+                  <p class="each_pr_name">{{pr.goods_name}}</p>
+                </li>
+            </ul>
+        </div>-->
+   	        <div class="mc_center1 mc_center11">
+   	        	<ul class="mc_center">
+	                <li class="mc_pr" ng-repeat="v in shop" ng-click="change($index,v.shopName)">
+	                   {{v.shopName}}
+	                </li>
+                </ul>
+   	        </div>
+            
+        </div> 
+
+<!--附近的商家-->
+		<div class="am_near_shop">
+			<p class="am_near_shop_all">餐饮美食</p>
+			<div class="am_near_shows" ui-sref="" ng-repeat="x in order.shop " >	
+				
+				<div class="am_near_inf">
+					<div class="am_near_inf_left">
+						
+						<img ng-src="images/picture.png"/>
+					</div>
+					<div class="am_near_inf_right">
+						<div class="am_near_name" >{{x.goods}}</div>
+						<div class="am_near_siez">
+							<span>{{x.color}}</span>
+							<span class="fr">{{x.size}}km</span>
+						</div>	
+						<div class="am_near_integral">
+							<span >地址：{{x.prices_cash}}</span>
+							
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+	        <div class="am_near_ts" ng-if="$scope.num">
+	        	暂无商家
+	        </div>
+	
+			
+		</div>
+		
+		
+</div>

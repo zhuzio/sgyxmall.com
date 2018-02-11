@@ -1,0 +1,129 @@
+.ads_head_box {
+    width: 100%;
+    height: .86rem;
+    border: 1px solid white;
+    box-sizing: border-box;
+    background-color: white;
+}
+.address_box {
+    width: 100%;
+    height: auto;
+    margin-top: .2rem;
+    background: white;
+    margin-bottom: .9rem;
+}
+.ads_head {
+    width: 100%;
+    height: .344rem;
+    margin-top: .26rem;
+}
+.ads_head >div {
+    width: 33.3%;
+    height: 100%;
+    float: left;
+}
+.ads_title {
+    text-align: center;
+    font-size: .3rem;
+}
+.ads_msg {
+    position: relative;
+}
+.ads_msg >input{
+    display: block !important;
+}
+.ads_msg >span {
+    float: right;
+    margin-right: .2rem;
+    font-size: .26rem;
+    color: #999;
+    line-height: .43rem;
+}
+.edit {
+    position: absolute;
+    display: block;
+    width: .4rem;
+    height: .4rem;
+    right: .2rem;
+    opacity: 0;
+}
+.ads_head_back >a {
+    display: block;
+    width: .4rem;
+    height: 100%;
+    background: url(../images/back.png) no-repeat center;
+    margin-left: .3rem;
+    background-size: auto 98%;
+}
+.ads_list {
+    width: 94%;
+    height: 1.15rem;
+    margin: 0 auto;
+    padding: .2rem 0;
+    border-bottom: 1px dashed #e4e4e4;
+    background: url(../images/right.png) no-repeat 98% center;
+    background-size: auto .3rem;
+    overflow: hidden;
+    position: relative;
+}
+.ads_list >a {
+    display: block;
+    width: 85%;
+    float: left;
+}
+.ads_name_tel {
+    line-height: .5rem;
+    font-size: .27rem;
+}
+.ads_ads {
+    font-size: .24rem;
+    color: #999;
+    /*display: block;*/
+    width: 85%;
+}
+.ads_delete {
+    float: left;
+    width: 15%;
+    height: 94%;
+    background: #fb6400 url(../images/delect.png) no-repeat center ;
+    background-size: 60% auto;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: -20%;
+}
+
+.ads_add {
+    position: fixed;
+    width: 100%;
+    height: .86rem;
+    left: 0;
+    bottom: 0;
+    background: #fb6400;
+}
+.ads_add >a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: .3rem;
+    text-align: center;
+    line-height: .86rem;
+}
+.ads_delete >span {
+    display: block;
+    line-height: 1.8rem;
+    color: white;
+    text-align: center;
+    font-size: .27rem;
+}
+.ads_df_ads .ads_default {
+    display: inline-block !important;
+}
+.ads_ads .ads_default {
+    display: none;
+}
+.ads_default {
+    color: red !important;
+    margin-right: .15rem;
+}

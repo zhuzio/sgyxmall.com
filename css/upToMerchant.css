@@ -1,0 +1,264 @@
+.upMContainer{
+    width: 94%;
+    height: auto;
+    padding: 0 3% 1rem;
+    background: white;
+    margin-top: .2rem;
+
+}
+.eachUM{
+    width: 100%;
+    height: .8rem;
+    border-bottom: 1px solid #e5e5e5;
+    line-height: .8rem;
+    font-size: .26rem;
+}
+.eachUMC{
+    background: url("../images/right.png") no-repeat right center;
+    background-size: auto .25rem;
+}
+.eachUMTitle{
+    display: inline-block;
+    width: 22%;
+    padding-left: 2%;
+}
+.eachUMTitle >span{
+    color: #e79e56;
+    padding-left: 2px;
+}
+.eachUMCon{
+    width: 65%;
+    border: none;
+    height: 85%;
+    font-size: .26rem;
+}
+.z_eachUMCon{
+    width: 40%;
+}
+.getMCode{
+    display: inline-block;
+    width: 30%;
+    height: 70%;
+    background: none;
+    color: #e79e56;
+    border: 1px #e79e56 solid;
+    border-radius: .15rem;
+    font-size: .24rem;
+}
+.MClassList{
+    width: 80%;
+    height: 60%;
+    background: white;
+    border-radius: .25rem;
+    overflow: scroll;
+    padding: .25rem 0;
+    display: block !important;
+}
+.MClassList >div{
+    width: 94%;
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .26rem;
+    text-align: center;
+    margin: 0 auto;
+    border-bottom: 1px solid #e5e5e5;
+}
+.eachUMTitlePic{
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .26rem;
+    width: 42%;
+}
+.merchantSinglePic,
+.merchantSinPic{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.merchantSinglePic >div{
+    width: 45%;
+    height: 2.3rem;
+    background: #eeeeee url("../images/m_picture.png") no-repeat center .3rem;
+    background-size: auto 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.merchantSinPic >div{
+    width: 31%;
+    height: 2rem;
+    background: #eeeeee url("../images/m_picture.png") no-repeat center .2rem;
+    background-size: auto 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    float: left;
+}
+.merchantSinPic >div:nth-child(2){
+    margin: 0 2.1%;
+}
+.M_pic >img{
+    max-width: 100%;
+    height: auto;
+    z-index: 9;
+}
+.M_pic >input[type=file]{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+.m_pic_dis{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    font-size: .24rem;
+    bottom: .3rem;
+    text-align: center;
+    color: #c3c3c3;
+}
+.merchantSinPic .m_pic_dis{
+    position: absolute;
+    width: 80%;
+    height: auto;
+    font-size: .22rem;
+    bottom: .2rem;
+    text-align: center;
+    color: #c3c3c3;
+}
+.mProduct,
+.mActive{
+    display: block;
+    width: 75%;
+    height: 1.3rem;
+    margin: 0 auto;
+    padding: .25rem .3rem;
+    outline: none;
+    font-size: .25rem;
+    font-family: "Microsoft Yahei", "Droid Sans Fallback", "Arial", "Helvetica", "sans-serif", "宋体";
+}
+.upToMerchantSub{
+    width: 90%;
+    height: .8rem;
+    font-size: .26rem;
+    color: white;
+    background: #e79e56;
+    border-radius: .25rem;
+    font-weight: 600;
+    letter-spacing: .15rem;
+    border: none;
+    display: block;
+    margin: .5rem auto;
+}
+.maps_container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    background-color: #CBE1FF;
+    z-index: 999;
+}
+#container {
+    position: absolute;
+    width: 100%;
+    height: 7rem;
+    top: .86rem;
+    left: 0;
+    border: none;
+    overflow: hidden;
+}
+.btn {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    margin: 5px auto 0;
+    background-color: #98c0ff;
+    border-radius: 20px;
+    font-size: 20px;
+    line-height: 40px;
+    position: absolute;
+    bottom: .5rem;
+    left: 30%;
+}
+.MapSearch{
+    display: inline-block;
+}
+.tangram-suggestion-main{
+    z-index: 9999;
+}
+.MapSearchButton{
+    background: white;
+    padding: 0 .15rem;
+}
+.uMAgreement{
+    width: 85%;
+    height: auto;
+    margin: 0.2rem auto 0;
+    font-size: .25rem;
+}
+.uMAgreement span{
+    color: #e79e56;
+    padding-left: .1rem;
+}
+.uMAgreement input[type=checkbox] {
+    display: none;
+    width: .4rem;
+}
+.uMAgreement input[type="checkbox"]:checked+label::before {
+    background: url("../images/set/ba_select.png") no-repeat center;
+    background-size: contain;
+}
+.uMAgreement label::before {
+    content: "";
+    display: inline-block;
+    width: .35rem;
+    height: .35rem;
+    background: url("../images/set/ba_no_select.png") no-repeat center;
+    background-size: contain;
+    vertical-align: middle!important;
+    -webkit-border-radius: 50%;
+    -webkit-box-sizing: border-box;
+}
+.uMATxt{
+    width: 90%;
+    height: 100%;
+    padding: 0 5%;
+    background: white;
+    display: block !important;
+    overflow-y: scroll;
+}
+.uMATxtTitle{
+    text-align: center;
+    font-size: .27rem;
+    margin-top: .5rem;
+}
+.uMATxt p{
+    width: 95%;
+    margin: 0 auto;
+    line-height: .4rem;
+    letter-spacing: 1px;
+}
+.uMATxtSTitle{
+    margin-top: .35rem;
+    margin-bottom: .2rem;
+}
+.uMAY{
+    display: block;
+    width: 90%;
+    height: .8rem;
+    color: white;
+    background: #e79e56;
+    border-radius: .2rem;
+    margin: .5rem auto 1rem;
+    border: none;
+    font-size: .3rem;
+    letter-spacing: 2px;
+}

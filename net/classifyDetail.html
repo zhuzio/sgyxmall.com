@@ -1,0 +1,15 @@
+<div class="cd_search_container">
+    <a href="javascript:window.history.back(-1)"></a>
+    <div class="cd_search">
+        <input type="text" placeholder="请输入搜索内容" ng-model="classifyDetail.search">
+    </div>
+</div>
+<div class="cd_list_container">
+    <div class="each_cd_list" ng-repeat="cd_detail in classifyDetail.detail | filter :classifyDetail.search" ui-sref="detail({goodsId:cd_detail.goods_id})">
+        <img ng-src="http://www.sgyxmall.com/{{cd_detail.default_img}}" alt="{{cd_detail.goods_name}}" class="cd_img fl" >
+        <div class="cd_info fl">
+            <p class="cd_name">{{cd_detail.goods_name}}</p>
+            <p class="cd_price">¥ <span>{{cd_detail.default_market}}</span></p>
+        </div>
+    </div>
+</div>

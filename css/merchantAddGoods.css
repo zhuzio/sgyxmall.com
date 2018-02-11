@@ -1,0 +1,99 @@
+.meAdGoodsContainer{
+    width: 94%;
+    height: auto;
+    padding: 0 3%;
+    background: white;
+    font-size: .27rem;
+    line-height: .8rem;
+    margin-top: .2rem;
+}
+.mAGList{
+    width: 100%;
+    height: .8rem;
+    border-bottom: 1px #e5e5e5 solid;
+}
+.mAGList >div{
+    height: 100%;
+}
+.mAGLName{
+    width: 90%;
+    text-indent: 1em;
+}
+.mAGLDel{
+    width: 10%;
+    background: url("../images/delete.png") no-repeat center;
+    background-size: auto .4rem;
+}
+.mABtn{
+    width: 50%;
+    height: 1.6rem;
+    background:url("../images/merchantAdd.png") no-repeat center;
+    background-size: 1.3rem auto;
+    margin: .5rem auto;
+}
+/*.mAGContainer{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    z-index: 9999;
+}
+.mAGContainerY{
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+}*/
+.mAGCenter{
+    position: relative;
+    width: 75%;
+    margin: 40% auto;
+    height: 2rem;
+    background: #FFF;
+    border-radius: .1rem;
+    text-align: center;
+    box-shadow: 0 0 .1rem rgba(0, 0, 0, 0.2);
+    -webkit-transform: scale(1.2);
+    /*-webkit-backface-visibility: hidden;*/
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 0.3s;
+    padding: .3rem 0 0 ;
+}
+/*.mAGContainerY .mAGCenter{
+    -webkit-transform: scale(1);
+}*/
+.mAGCenter input{
+    display: block;
+    width: 80%;
+    height: .5rem;
+    margin: 0 auto 0;
+    border: none;
+    border-bottom: 1px #e5e5e5 solid;
+    text-align: center;
+    font-size: .25rem;
+}
+.mAGCenter p{
+    text-align: center;
+    margin-top: .25rem;
+}
+.mAGCenter span{
+    display: inline-block;
+    width: 1.2rem;
+    height: .6rem;
+    line-height: .6rem;
+    border-radius: .1rem;
+    font-size: .25rem;
+    color: white;
+}
+.mAGCancel{
+    background: #b4b4b4;
+    margin-right: .3rem;
+}
+.mAGConform{
+    background: #ffc600;
+    margin-left: .3rem;
+}

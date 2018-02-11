@@ -1,0 +1,23 @@
+<header class="ads_head_box">
+    <div class="ads_head">
+        <div class="ads_head_back"><a href="javascript:window.history.back(-1)"></a></div>
+        <div class="ads_title">我的收货地址</div>
+        <div class="ads_msg"><span>{{address.txt}}</span> <input type="checkbox" class="edit" ng-model="isCheck" ng-click="checkis(this)"></div>
+    </div>
+</header>
+<div class="address_box">
+    <div class="ads_list" ng-repeat="ads in address.addressInfo">
+            <p class="ads_name_tel">
+                <span class="ads_name">{{ads.name}}</span>
+                <span class="ads_tel">{{ads.tel}}</span>
+            </p>
+            <p class="ads_ads ads_df_ads">
+                <span class="ads_default" ng-if="ads.defaults == 1">[默认]</span>
+                <span class="ads_con">{{ads.address}}</span>
+            </p>
+        <div class="ads_delete" ng-click="deleteAddress(address.addressInfo,$index)"></div>
+    </div>
+</div>
+<div class="ads_add">
+    <a ui-sref="addAddress">新增收货地址</a>
+</div>

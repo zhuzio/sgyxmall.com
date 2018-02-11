@@ -1,0 +1,142 @@
+<!--会员   财富-->
+<div class="hy" ng-show="1">
+
+    <div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+            财富
+        </div>
+    </div>
+    <div class="tre_container">
+        <div class="tre_top">
+            <span class="tre_span1" ></span>
+            <span>购物积分</span>
+            <span class="tre_span2"></span>
+        </div>
+        <div class="tre_middle">
+            <div class="tre_middle_fen">
+                <span class="tre_middle_1">当前可用(分)</span> <br />
+                <span>{{tre.fen}}</span>
+            </div>
+
+        </div>
+        <div class="tre_bot">
+            <ul class="tre_ul_1">
+                <li class="tre_li_1">
+                    <span >当前权</span>
+                    <span>{{tre.quan}}</span>
+                </li>
+                <li class="tre_li_1 tre_li_11">
+                    <span >结余积分</span>
+                    <span>{{tre.jyf}}</span>
+                </li>
+                <li class="tre_li_1">
+                    <span >幸福积分</span>
+                    <span>{{tre.xff}}</span>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="" style="clear: both;"></div>
+
+
+    </div>
+    <!--财富来源-->
+    <div class="tre_cf">
+        <ul class="am_ul_1">
+            <li class="am_li_1" ui-sref="treasureConversion">
+                <!--<span class="img img1"></span>-->
+                <img ng-src="images/myWealth/1_Transfer record.png"   alt="转化记录">
+                <span>转化记录</span>
+            </li>
+            <li class="am_li_1" ui-sref="treasurePay">
+                <img src="images/myWealth/2_Payment record.png" alt="支付记录">
+                <!--<span class="img img2"></span>-->
+                <span>支付记录</span>
+            </li>
+            <li class="am_li_1" ui-sref="treasureGiven">
+                <img src="images/myWealth/3_Bonus points.png" alt="获赠积分">
+                <!--<span class="img img3"></span>-->
+                <span>获赠积分</span>
+            </li>
+            <li class="am_li_1" ui-sref="treasureReward">
+                <img src="images/myWealth/4_Member Award.png" alt="会员奖励">
+                <!--<span class="img img4"></span>-->
+                <span>会员奖励</span>
+            </li>
+        </ul>
+
+
+    </div>
+</div>
+<!--非会员   财富-->
+<div class="hy" ng-show="0">
+
+    <div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+            财富
+        </div>
+    </div>
+    <div class="tre_container">
+        <div class="tre_top">
+            <span class="tre_span1"></span>
+            <span>购物积分</span>
+            <span class="tre_span2"></span>
+        </div>
+        <div class="tre_middle">
+            <div class="tre_middle_fen">
+                <span class="tre_middle_1">当前可用(分)</span> <br />
+                <span>{{jf.fen}}</span>
+            </div>
+
+        </div>
+        <div class="tre_bot">
+            <ul class="tre_ul_1">
+                <li class="tre_li_1">
+                    <span >当前权</span>
+                    <span>{{jf.quan}}</span>
+                </li>
+                <li class="tre_li_1 tre_li_11">
+                    <span >结余积分</span>
+                    <span>{{jf.jyf}}</span>
+                </li>
+                <li class="tre_li_1">
+                    <span >幸福积分</span>
+                    <span>{{jf.jff}}</span>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="" style="clear: both;"></div>
+
+
+    </div>
+    <!--财富来源-->
+    <div class="tre_cf">
+        <ul class="am_ul_1">
+            <li class="am_li_1">
+                <!--<span class="img img1"></span>-->
+                <img ng-src="images/myWealth/1_Transfer record.png"   alt="转化记录">
+                <span>转化记录</span>
+            </li>
+            <li class="am_li_1" >
+                <img src="images/myWealth/2_Payment record.png" alt="支付记录">
+                <!--<span class="img img2"></span>-->
+                <span>支付记录</span>
+            </li>
+            <li class="am_li_1">
+                <img src="images/myWealth/3_Bonus points.png" alt="获赠积分">
+                <!--<span class="img img3"></span>-->
+                <span>获赠积分</span>
+            </li>
+            <li class="am_li_1">
+                <img src="images/myWealth/4_Member Award.png" alt="会员奖励">
+                <!--<span class="img img4"></span>-->
+                <span>会员奖励</span>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+.login_container{
+    width: 100%;
+    height: auto;
+    background: url("../images/bg_login.png") no-repeat center;
+    background-size: 100%;
+}
+.login_head{
+    width: 100%;
+    height: 3.8rem;
+    background: url("../images/sgyx_logo.png") no-repeat center;
+    background-size: 60% auto;
+}
+.login_center{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+.chose_method_login{
+    width: 100%;
+    height: .8rem;
+    overflow: hidden;
+}
+.chose_method_login >p{
+    text-align: center;
+    font-size: .28rem;
+    width: 50%;
+    float: left;
+    height: .6rem;
+    line-height: .6rem;
+}
+.default_login{
+    border-bottom: 3px solid #fb6400;
+    color: #fb6400;
+}
+.chose_login{
+    width: 100%;
+    height: auto;
+}
+.login_list{
+    width: 100%;
+    height: auto;
+}
+.login_list >div{
+    width: 100%;
+    height: .8rem;
+    border-bottom: 1px solid #ccc;
+    line-height: .8rem;
+}
+.login_list >div >span{
+    display: inline-block;
+    width: 20%;
+    float: left;
+    font-size: .25rem;
+    text-align: center;
+}
+.login_list >div >input{
+    height: 90%;
+    width: 70%;
+    border: none;
+    font-size: .26rem;
+    letter-spacing: 1px;
+    background: none !important;
+}
+.login_btn{
+    display: block;
+    width: 95%;
+    height: .8rem;
+    margin: .3rem auto 0;
+    border: none;
+    font-size: .27rem;
+    color: white;
+    background: #ccc;
+    border-radius: .2rem;
+    letter-spacing: 1px;
+}
+.loginError{
+    font-size: .2rem;
+    padding-left: .25rem;
+    color: red;
+}
+.login_ajax_container{
+    position: fixed;
+    bottom:100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(0, 0, 0, 0.7) url("../images/Loading9.gif") no-repeat center;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.login_ajax{
+    width: 60%;
+    height: 20%;
+}
+.login_ajax >img{
+    display: block;
+    margin: 0 auto;
+}
+.login_ajax >p{
+    text-align: center;
+    font-size: .24rem;
+    color: white;
+}

@@ -1,0 +1,169 @@
+.basDetail{
+    width: 100%;
+    height: auto;
+}
+.IDCHead{
+    width: 100%;
+    height: 3rem;
+    padding-top: .2rem;
+}
+.butIntegralDetailContainer .IDCHead{
+    background: #8db1bf;
+}
+
+.sendIntegralDetailContainer .IDCHead{
+    background: #e79e56;
+}
+.IDCModuleCtrl{
+    width: 100%;
+    height: .6rem;
+    line-height: .6rem;
+    text-align: center;
+}
+.IDCModuleCtrl >span{
+    display: inline-block;
+    width: 1.3rem;
+    height: 100%;
+    border: 1px white solid;
+    color: white;
+    font-size: .26rem;
+}
+.IDC_Buy{
+    border-radius: .12rem 0 0 .12rem;
+}
+.IDC_send{
+    border-radius:0 .12rem .12rem 0;
+}
+.butIntegralDetailContainer .IDC_Buy,
+.sendIntegralDetailContainer .IDC_send{
+    background: white;
+    color: black;
+}
+.INow{
+    color: white;
+    text-align: center;
+    height: 1rem;
+    margin-top: .35rem;
+    font-size: .26rem;
+}
+.INow >p{
+    margin-top: .3rem;
+    font-size: .35rem;
+    font-family: Arial;
+    letter-spacing: 1px;
+}
+.IDetail{
+    width: 94%;
+    height: .7rem;
+    line-height: .7rem;
+    border-top: 1px rgba(255, 255, 255, 0.5) solid;
+    margin-top: .2rem;
+    padding: 0 3%;
+}
+.IDetail >span{
+    color: white;
+    font-size: .2rem;
+}
+.IDList{
+    width: 100%;
+    height: auto;
+    margin-top: .2rem;
+}
+.eachID{
+    width: 100%;
+    height: auto;
+    background: white;
+    font-size: .26rem;
+    margin-top: .2rem;
+}
+.eachIDTitle{
+    width: 94%;
+    height: .8rem;
+    line-height: .8rem;
+    padding: 0 3%;
+    border-bottom: 1px #e5e5e5 solid;
+    color: #666;
+    font-size: .28rem;
+    position: relative;
+}
+.icon{
+    position: absolute;
+    display: block;
+    width: .3rem;
+    height: .3rem;
+    right: 0.2rem;
+    top: .25rem;
+    background: url("../images/right.png ")no-repeat center;
+    background-size: auto .3rem;
+}
+.eachIDCenter{
+    width: 94%;
+    padding: .2rem 3%;
+    color: #666;
+}
+.eachIDCTitle{
+    width: 100%;
+    height: .6rem;
+    line-height: .6rem;
+    text-indent: 1.8em;
+}
+.EID_order{
+    width: 100%;
+    height: .8rem;
+    line-height: .8rem;
+    overflow: hidden;
+    font-size: .2rem;
+}
+.eachIDCenter_buy i{
+    color: red;
+    font-style: normal;
+}
+.eachIDCenter_send .eachIDCTitle span{
+    color: red;
+}
+.EIDBuy_buy{
+    background: url("../images/merchantIntegral/Business_gift.png") no-repeat left center;
+    background-size: .35rem auto;
+}
+.EIDBuy_total{
+    background: url("../images/merchantIntegral/Money.png") no-repeat left center;
+    background-size: .35rem auto;
+}
+.EIDSend_com{
+    background: url("../images/merchantIntegral/Platform.png") no-repeat left center;
+    background-size: .35rem auto;
+}
+.EIDSend_mer{
+    background: url("../images/merchantIntegral/Business_gift.png") no-repeat left center;
+    background-size: .35rem auto;
+}
+.EIDSend_meb{
+    background: url("../images/merchantIntegral/Members_1.png") no-repeat left center;
+    background-size:  auto .35rem;
+}
+.EIDSend_tel{
+    background: url("../images/merchantIntegral/Phone.png") no-repeat .05rem center;
+    background-size: auto .35rem ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

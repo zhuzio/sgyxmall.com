@@ -1,0 +1,346 @@
+.goods_detail_container{
+    width: 100%;
+    height: auto;
+}
+.gd_head{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: .8rem;
+    background: white;
+    z-index: 999;
+}
+.gd_head >a{
+    display: block;
+    float: left;
+    width: .5rem;
+    height: .5rem;
+    margin: .15rem .1rem;
+    background: url("../images/back.png") no-repeat center;
+    background-size: auto .4rem ;
+}
+.detail_scroll{
+    width: 2.23rem;
+    height: .56rem;
+    margin: .12rem auto 0;
+    border: 1px solid #ccc;
+    border-radius: .15rem;
+    overflow: hidden;
+}
+.detail_scroll >span{
+    display: block;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    font-size: .28rem;
+    text-align: center;
+    line-height: .56rem;
+}
+.scroll_on{
+    background: #7f7f7f;
+    color: white;
+}
+.goods_detail_swiper{
+    width: 100%;
+    height: auto;
+    margin-top: .8rem;
+}
+.goods_detail_swiper img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.gd_info{
+    width: 94%;
+    height: auto;
+    padding: .15rem 3%;
+    background: white;
+}
+.gdi_name{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    font-size: .27rem;
+    /*text-indent: 1em;*/
+    padding-bottom: .05rem;
+}
+.gdi_price{
+    color: #fb6400;
+    font-size: .27rem;
+}
+.rmb{
+    font-size: .22rem;
+    color: #9999;
+}
+.chose_tn{
+    font-size: .27rem;
+    text-indent: 1em;
+    background:white url("../images/right.png") no-repeat 95% center;
+    background-size: auto .3rem;
+    height: .9rem;
+    line-height: .9rem;
+    margin-top: .2rem;
+}
+.gdi_img{
+    margin-top: .2rem;
+    background: white;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.gdi_img_title{
+    text-align: center;
+    font-size: .27rem;
+    width: 100%;
+    height: .77rem;
+    line-height: .77rem;
+    background: url("../images/title_line.png") no-repeat center;
+    background-size: 40% 2px;
+}
+.chose_box_container{
+    position: fixed;
+    width: 100%;
+    height: .95rem;
+    background: white;
+    bottom:0;
+    left: 0;
+}
+.shopCar_link{
+    width: 15%;
+    height: 100%;
+    background: url("../images/shopping.png") no-repeat center;
+    background-size: .33rem auto;
+    position: relative;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.shopCar_link >span{
+    display: block;
+    width: .3rem;
+    height: .3rem;
+    text-align: center;
+    line-height: .3rem;
+    font-size: .2rem;
+    color: white;
+    background: #fb6400;
+    top: .15rem;
+    left: .6rem;
+    position: absolute;
+    border-radius: 50%;
+}
+.gd_do{
+    width: 85%;
+    height: 100%;
+}
+.gd_do >div{
+    width: 50%;
+    height: 100%;
+    font-size: .3rem;
+    text-align: center;
+    line-height: .95rem;
+}
+.join_shopCar{
+    background: white;
+}
+.buy_now{
+    background: #fb6400;
+    color: white;
+}
+.gdi_img_box{
+    width: 100%;
+    height: auto;
+}
+.gdi_img_box >img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.chose_type_container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999999;
+    display: none;
+}
+.chose_type_center{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.chose_type{
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: white;
+}
+.chose_type_con{
+    width: 94%;
+    padding:0 3%;
+}
+.ct_goods_info{
+    width: 100%;
+    height: 1.3rem;
+    border-bottom: 1px solid #ccc;
+    padding: .26rem 0;
+    position: relative;
+}
+.cti_close{
+    position: absolute;
+    width: .3rem;
+    height: .3rem;
+    right: -0.2rem;
+    top: 0.1rem;
+    background: white;
+    font-size: .3rem;
+    text-align: center;
+    line-height: .3rem;
+    background: url("../images/close.png") no-repeat center;
+    background-size: 80%;
+}
+.cti_box{
+    position: relative;
+    width: 2.09rem;
+    height: 100%;
+}
+.cti_box >div{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2.09rem;
+    height: 2.09rem;
+    border: 1px solid #ccc;
+    border-radius: .15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: white;
+}
+.cti_box >div >img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.cti_info{
+    width: 3.5rem;
+    height: 100%;
+    margin-left: .2rem;
+}
+.cti_price{
+    font-size: .24rem;
+    color: #fb6400;
+}
+.cti_rmb{
+    font-size: .27rem;
+}
+.cti_adds{
+    font-size: .35rem;
+}
+.cti_int{
+    font-size: .27rem;
+    padding-left: .35rem;
+    background: url("../images/sxore_orange.png") no-repeat left center;
+    background-size: auto .35rem;
+}
+.cti_ku{
+    font-size: .22rem;
+    color: #ccc;
+    margin-top: .15rem;
+}
+.cti_ku >span{
+    font-size: .26rem;
+    color: black;
+}
+.ct_type{
+    width: 100%;
+    height: auto;
+}
+.ct_type >div{
+    height: auto;
+    border-bottom: 1px solid #ccc;
+}
+.ct_type_title{
+    font-size: .25rem;
+    padding: .2rem;
+
+}
+.each_ct{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: .2rem;
+    max-height: 1.3rem;
+    overflow-y: scroll;
+}
+.each_ct >span{
+    display: inline-block;
+    padding: .1rem .15rem;
+    border: 1px solid #ccc;
+    border-radius: .15rem;
+    margin-bottom: .15rem;
+    margin-right: .1rem;
+}
+.cti_count{
+    margin:0  0 .2rem .2rem;
+    height: .5rem !important;
+    width: 1.85rem;
+    border: 1px solid #ccc;
+    border-radius: .1rem;
+}
+.cti_sub{
+    width: 30%;
+    border-right: 1px solid #cccc;
+    font-size: .3rem;
+}
+.cti_number{
+    border: none;
+    height: 100%;
+    font-size: .25rem;
+    width: 40%;
+}
+.cti_add{
+    border-left: 1px solid #cccc;
+    font-size: .3rem;
+    width: 30%;
+}
+.cti_sub, .cti_number, .cti_add {
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: .5rem;
+}
+.type_on{
+    background: #fb6400;
+    color: white;
+}
+.chose_do{
+    width: 100%;
+    height: .8rem;
+    overflow: hidden;
+    margin-top: .25rem;
+    border-top: 1px solid #ccc;
+}
+.chose_do >div{
+    width: 50%;
+    height: 100%;
+    line-height: .8rem;
+    text-align: center;
+    font-size: .3rem;
+}
+.chose_confirm{
+    width: 100%;
+    height: .8rem;
+    text-align: center;
+    line-height: .8rem;
+    margin-top: .25rem;
+    border-top: 1px solid #ccc;
+    font-size: .3rem;
+    color: #fb6400;
+}

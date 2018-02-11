@@ -1,0 +1,15 @@
+<div ui-view style="margin-bottom: 1rem">
+
+</div>
+<!--底部栏-->
+<div class="footer" ng-if="tab.YP">
+    <div ng-repeat="item in tabsConfig" ui-sref="{{item.sref}}">
+        <img ng-src="{{item.img}}" alt="">
+    </div>
+</div>
+<!--底部栏-->
+<div class="foot" ng-if="tab.SD">
+    <div ng-repeat="item in tabConfig" ui-sref="{{item.sref}}">
+        <img ng-src="{{item.img}}" alt="">
+    </div>
+</div>

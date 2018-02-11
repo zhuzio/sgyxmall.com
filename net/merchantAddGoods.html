@@ -1,0 +1,23 @@
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    选择商品名称
+</div>
+<div class="meAdGoodsContainer">
+    <div class="mAGList" ng-repeat="mAGs in mAG.haveMAG">
+        <div class="mAGLName fl" ng-click="getMAG(mAGs)">{{mAGs.name}}</div>
+        <div class="mAGLDel fr" ng-click="mAGLDel(mAGs)"></div>
+    </div>
+</div>
+<!--添加商品按钮-->
+<div class="mABtn" ng-click="mAGBtn(1)"></div>
+
+<div class="mAGContainer" ng-class="{'mAGContainerY':mAG.anCls}">
+    <div class="mAGCenter">
+        <input type="text" placeholder="请输入所要添加商品的名称" ng-model="mAG.mAGName">
+        <p>
+            <span class="mAGCancel" ng-click="mAGBtn(2)" >取消</span>
+            <span class="mAGConform" ng-click="mAGBtn(3)">确定</span>
+        </p>
+    </div>
+
+</div>

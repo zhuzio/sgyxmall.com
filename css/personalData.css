@@ -1,0 +1,64 @@
+.personalDataContainer{
+    width: 94%;
+    height: auto;
+    margin-top: .2rem;
+    padding: 0 3%;
+    background: white;
+}
+.eachPD{
+    width: 100%;
+    height: .8rem;
+    line-height: .8rem;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: .256rem;
+}
+.PDTitle{
+    display: inline-block;
+    width: 20%;
+    padding-left: 2%;
+}
+.PDInfo{
+    display: inline-block;
+    width: 70%;
+    text-align: right;
+    color: #666;
+}
+#PDHeadImg{
+    padding: .2rem 0;
+}
+#PDHeadImg .PDInfo{
+    float: right;
+    position: relative;
+}
+#PDHeadImg .PDInfo img{
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    float: right;
+    margin-right: .35rem;
+}
+.personalDataCon .eachPD{
+    background: url("../images/right.png") no-repeat 98% center;
+    background-size: auto .25rem;
+}
+.personalDataCon .PDInfo{
+    width: 67%;
+}
+.Qr{
+    background: url("../images/set/QRcode_s.png") no-repeat right center;
+    background-size: .3rem auto;
+}
+.upHead{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0.35rem;
+    width: .8rem;
+    height: .8rem;
+    overflow: hidden;
+    opacity: 0;
+}
+
+
+

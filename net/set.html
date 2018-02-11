@@ -1,0 +1,59 @@
+<style type="text/css">
+    .set_head_container{
+        width: 100%;
+        height: .8rem;
+        background: white;
+        text-align: center;
+        position: relative;
+        line-height: .8rem;
+        font-size: .3rem;
+    }
+    .set_head_container >a{
+        position: absolute;
+        display: block;
+        width: .4rem;
+        height: .4rem;
+        left: .2rem;
+        top: .2rem;
+        background: url("images/back.png") no-repeat center;
+        background-size: auto .4rem;
+    }
+    .set_list{
+        width: 100%;
+        height: auto;
+        background: white;
+        margin-top: .2rem;
+    }
+    .set_list >div{
+        width: 94%;
+        height: .8rem;
+        line-height: .8rem;
+        padding: 0 3%;
+        border-bottom: 1px solid #e3e3e3;
+        font-size: .26rem;
+        background: url("images/right.png") no-repeat 96% center;
+        background-size: auto .4rem;
+
+    }
+</style>
+<div class="set_head_container">
+    <a href="javascript:window.history.go(-1)"></a>
+    设置
+</div>
+<div class="set_list">
+    <div ui-sref="personalData">个人资料</div>
+    <div ui-sref="manageBandCard">银行卡管理</div>
+</div>
+<div class="set_list">
+    <div>更改登录密码</div>
+    <div>更改支付密码</div>
+</div>
+<div class="set_list">
+    <div>反馈与意见</div>
+</div>
+<script>
+    $(function () {
+        document.title = "设置"
+    })
+
+</script>

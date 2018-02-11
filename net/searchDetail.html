@@ -1,0 +1,36 @@
+<div class="sd_container">
+    <a href="JavaScript:window.history.back(-1)"></a>
+    <p>{{searchDetail.searchTitle}}</p>
+</div>
+<div class="have_goods" ng-if="searchDetail.haveGoods">
+    <div class="sd_select">
+        <!--按照价格排序-->
+        <div class="orderBy">
+            <p ng-click="showOrderBy(0)">{{searchDetail.orderByPrice}}</p>
+            <div class="orderBy_list ob_price" ng-if="searchDetail.p_show">
+                <p ng-click="orderByName('价格从低到高',0)">价格从低到高</p>
+                <p ng-click="orderByName('价格从高到低',0)">价格从高到低</p>
+            </div>
+        </div>
+        <!--按照销量排序-->
+        <div class="orderBy">
+            <p ng-click="showOrderBy(1)">{{searchDetail.orderBySell}}</p>
+            <div class="orderBy_list ob_sell" ng-if="searchDetail.s_show">
+                <p ng-click="orderByName('销量从高到低',1)">销量从高到低</p>
+                <p ng-click="orderByName('销量从低到高',1)">销量从低到高</p>
+            </div>
+        </div>
+    </div>
+    <div class="sg_container">
+        <div class="du_center">
+            <div class="each_du" ng-repeat="sGoods in searchDetail.sGoods" ui-sref="detail({goodsId:sGoods.goods_id})">
+                <img ng-src="http://www.sgyxmall.com/{{sGoods.default_img}}" alt="{{sGoods.goods_name}}">
+                <p class="each_du_name">{{sGoods.goods_name}}</p>
+                <p class="each_du_price">¥<span>{{sGoods.default_market}}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="no_goods" ng-if="searchDetail.noGoods">
+    <img src="images/nodata.png" alt="">
+</div>

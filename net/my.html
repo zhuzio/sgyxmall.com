@@ -1,0 +1,32 @@
+<div>
+    <header class="my_header">
+        <div class="header_container">
+            <div class="user_head_img fl">
+                <!--用户头像-->
+                <img ng-src="{{my.userHeadImg}}" alt="" >
+            </div>
+            <div class="my_user_info">
+                <!--用户名字-->
+                <p class="my_user_name">{{my.userInfo.real_name}}</p>
+                <!--用户积分-->
+                <p class="my_user_integral">{{my.userInfo.money}}</p>
+            </div>
+        </div>
+    </header>
+    <!--我的订单-->
+    <div class="my_user_order my_user_my" ui-sref="myOrder">
+        <p>我的订单</p>
+    </div>
+    <!--收货地址-->
+    <div class="my_user_address my_user_my" ui-sref="address">
+        <p>收货地址</p>
+    </div>
+    <!--客服电话-->
+    <div class="service_tel my_user_my">
+        <p style="background: none">客服电话<a href="tel:400-6203777" class="s_tel">400-6203777</a></p>
+    </div>
+    <!--退出登录-->
+    <div class="my_user_quite_logo" ng-click="quitLogin()">
+        退出登录
+    </div>
+</div>

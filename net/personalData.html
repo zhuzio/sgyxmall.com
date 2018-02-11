@@ -1,0 +1,52 @@
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    个人资料
+</div>
+<div class="personalDataContainer">
+    <div class="eachPD" id="PDHeadImg">
+        <span class="PDTitle">头像</span>
+        <p class="PDInfo">
+            <img ng-src="http://www.sgyxmall.com/{{PDSet.baseInfo.portrait}}" alt="">
+            <input type="file" class="upHead" accept="image/*" onchange="angular.element(this).scope().setHeadImg(this.files)">
+        </p>
+    </div>
+    <div class="eachPD">
+        <span class="PDTitle">姓名</span>
+        <p class="PDInfo">{{PDSet.baseInfo.real_name}}</p>
+    </div>
+    <div class="eachPD">
+        <span class="PDTitle">账号</span>
+        <p class="PDInfo">{{PDSet.baseInfo.user_name}}</p>
+    </div>
+    <div class="eachPD">
+        <span class="PDTitle">地区</span>
+        <p class="PDInfo">{{PDSet.baseInfo.province+" "+PDSet.baseInfo.city+" "+PDSet.baseInfo.area}}</p>
+    </div>
+    <div class="eachPD">
+        <span class="PDTitle">会员类型</span>
+        <p class="PDInfo">{{PDSet.baseInfo.type_sn}}</p>
+    </div>
+</div>
+<div class="personalDataContainer personalDataCon">
+    <div class="eachPD">
+        <span class="PDTitle">二维码</span>
+        <p class="PDInfo Qr">　</p>
+    </div>
+    <div class="eachPD">
+        <span class="PDTitle">性别</span>
+        <p class="PDInfo">{{PDSet.baseInfo.gender}}</p>
+    </div>
+    <div class="eachPD">
+        <span class="PDTitle">生日</span>
+        <p class="PDInfo">{{PDSet.baseInfo.birthday}}</p>
+    </div>
+    <div class="eachPD">
+        <span class="PDTitle">邮箱</span>
+        <p class="PDInfo">{{PDSet.baseInfo.email}}</p>
+    </div>
+    <div class="eachPD">
+        <span class="PDTitle">QQ号</span>
+        <p class="PDInfo">{{PDSet.baseInfo.im_qq}}</p>
+    </div>
+</div>
+<!--<div class="choseBankContainer"></div>-->

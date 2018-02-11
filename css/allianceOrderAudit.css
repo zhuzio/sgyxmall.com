@@ -1,0 +1,140 @@
+.aoaContainer{
+    width: 100%;
+    height: auto;
+    border-top: 1px #e5e5e5 solid;
+
+}
+.aoaHead{
+    height: .8rem;
+    width: 100%;
+    line-height: .8rem;
+    background: white;
+    position: fixed;
+    top: .8rem;
+    left: 0;
+    border-top: 1px #e5e5e5 solid;
+    /*border-bottom: 1px #e5e5e5 solid;*/
+}
+.aoaSearch{
+    position: fixed;
+    top: 1.62rem;
+    left: 0;
+    width: 94%;
+    height: .6rem;
+    line-height: .6rem;
+    background: white;
+    padding: .2rem 3%;
+    border-top: 1px #e5e5e5 solid;
+    border-bottom: 1px #e5e5e5 solid;
+    line-height: .6rem;
+}
+.aoaSearch >input{
+    width: 25%;
+    border: none;
+    border-bottom: 1px #e5e5e5 solid;
+    background: none;
+    text-align: center;
+    margin-right: .1rem;
+
+}
+.aoaSearch >button{
+    width: 15%;
+    border: none;
+    background: #e79e56;
+    font-size: .23rem;
+    color: white;
+    border-radius: .1rem;
+    padding: .1rem 0;
+}
+.aoaHead >div{
+    float: left;
+    height: 100%;
+    width: 33.33%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: .28rem;
+}
+.aoaHead >div.aoaHeadOn{
+    border-bottom: 4px #e79e56 solid;
+    color: #e79e56;
+}
+.aoaCenter{
+    width: 100%;
+    height: auto;
+    margin-top: 2.8rem;
+}
+.aoaCenter >div{
+    width: 100%;
+    height: auto;
+}
+.eachAoAList{
+    width: 95%;
+    height: auto;
+    padding: .2rem 2.5%;
+    margin-bottom: .2rem;
+    background: white;
+}
+.aoaPas .eachAoAList{
+    background:white url("../images/merchantIntegral/Adoption.png") no-repeat 90% center;
+    background-size: 1.5rem auto;
+}
+.aoaRej .eachAoAList{
+    background:white url("../images/merchantIntegral/Rejected.png") no-repeat 90% center;
+    background-size: 1.5rem auto;
+}
+.aoaTitle{
+    font-size: .25rem;
+    height: .6rem;
+    line-height: .6rem;
+    font-weight: bolder;
+    font-family: Arial;
+    border-bottom: 1px #e5e5e5 solid;
+    text-indent: 1em;
+}
+.aoaCon{
+    font-size: .26rem;
+    width: 100%;
+    height: .6rem;
+    line-height: .6rem;
+    text-indent: 1em;
+    color: #666;
+}
+.aoaCon span{
+    color: #ffc600;
+}
+.aoaAudit{
+    width: 100%;
+    height: auto;
+    border-top: 1px #e5e5e5 solid;
+    text-align: right;
+    padding-top: .2rem;
+    font-size: .26rem;
+}
+.aoaAudit p{
+    display: none;
+}
+.aoaAudit span{
+    display: inline-block;
+    width: 1.3rem;
+    line-height: .6rem;
+    height: .6rem;
+    text-align: center;
+    border-radius: .15rem;
+    color: white;
+}
+.aoaRes{
+    background: #ccc;
+    margin-right: .2rem;
+}
+.aoaAgr{
+    background: #e79e56;
+}
+.aoaAudit p{
+    text-align: center;
+}
+.aoaAddMore{
+    text-align: center;
+    padding: .1rem 0;
+    font-size: .27rem;
+    color: #ccc;
+}

@@ -1,0 +1,92 @@
+<style type="text/css">
+    .showIntegral{
+        width: 94%;
+        height: .6rem;
+        padding: .1rem 3%;
+        background: #e6c2b6;
+        font-size: .27rem;
+        color: white;
+        line-height: .6rem;
+    }
+    .goBuyIntegral{
+        display: inline-block;
+        width: 1.2rem;
+        height: .5rem;
+        line-height: .5rem;
+        margin-top: .05rem;
+        background: white;
+        border-radius: .1rem;
+        text-align: center;
+        color: #e6c2b6;
+    }
+    .sendICenter{
+        width: 100%;
+        height: auto;
+        margin-top: .2rem;
+        font-size: .26rem;
+    }
+    .sendIList{
+        width: 94%;
+        height: .8rem;
+        line-height: .8rem;
+        padding: 0 3%;
+        background: white;
+        border-bottom:1px #e5e5e5 solid;
+    }
+    .sendITitle{
+        display: inline-block;
+        width: 20%;
+
+    }
+    .sendICon{
+        border: none;
+        height: .65rem;
+        width: 65%;
+        font-size: .26rem;
+    }
+    .goApply{
+        display: block;
+        width: 94%;
+        height: .8rem;
+        background: #e79e56;
+        border-radius: .1rem;
+        font-size: .3rem;
+        letter-spacing: 2px;
+        margin: 1rem auto;
+        border: none;
+        color: white;
+    }
+    .addGoods{
+        background:white url("images/right.png") no-repeat 96% center;
+        background-size: auto .25rem;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    发积分
+</div>
+<div class="showIntegral">
+    可用积分 <span>{{sendInfo.merchantPoint}}</span>
+    <span class="goBuyIntegral fr">购买</span>
+</div>
+<div class="sendICenter">
+    <div class="sendIList">
+        <span class="sendITitle">买家账号</span>
+        <input type="text" class="sendICon" placeholder="请输入买家账号" ng-model="sendInfo.buyerName">
+    </div>
+    <div class="sendIList">
+        <span class="sendITitle">赠送积分</span>
+        <input type="text" class="sendICon" placeholder="请输入赠送积分" ng-model="sendInfo.sendIntegralNum">
+    </div>
+    <div class="sendIList">
+        <span class="sendITitle">成交金额</span>
+        <input type="text" class="sendICon" placeholder="请输入成交金额" ng-model="sendInfo.dealMoney">
+    </div>
+    <div class="sendIList addGoods" style="margin-top: .2rem">
+        <span class="sendITitle">商品名称</span>
+        <input type="text" class="sendICon" placeholder="请选择商品名称" ng-readonly="true" ng-click="goChoseGoods()" ng-model="sendInfo.sendGoodsName">
+    </div>
+</div>
+<button class="goApply" ng-click="goConformSendOrder()">确定</button>
+
+
