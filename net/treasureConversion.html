@@ -10,11 +10,11 @@
 		<div class="treCon_score_top">
 			<div class="treCon_score_top_fen">
 				<span>本月累计转化(积分)</span>
-				<span> <strong>{{arr.current}}</strong> </span>
+				<span> <strong>{{treasureConversion.current}}</strong> </span>
 			</div>
 		</div>
 		<div class="treCon_score_bot">
-			历史累计转化 (积分)：{{arr.total}}
+			历史累计转化 (积分)：{{treasureConversion.total}}
 		</div>
 		
 	</div>
@@ -23,31 +23,39 @@
 	<div class="treCon_all_show">
 		
 		
-	   <div class="treCon_one_show" ng-repeat="v in treasureConversion.user" >
-			<div class="treCon_one_top" ng-click="showDetail($event)">
-				{{v.time}} 总计：{{v.all_score}}积分
+	   <div class="treCon_one_show" ng-repeat="v in treasureConversion.month" >
+			<div class="treCon_one_top"  ng-click="change($index,v.times)">
+				{{v.times|datatimes}} 总计：{{v.money}}积分<span ng-if="$index!=treasureConversion.selected" class="treCon_imgSp2">&nbsp;</span><span ng-if="$index==treasureConversion.selected"  class="treCon_imgSp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 			</div>
-			<div class="treCon_list">
-				<div class="treCon_one_bot" ng-repeat="x in v.detail ">
+		   <div ng-if="$index==treasureConversion.selected" >
+
+			   <div class="treCon_list">
+				<div class="treCon_one_bot" ng-repeat="x in treasureConversion.dayDetail">
 					<div class="treCon_one_1">
 						<div class="treCon_one_left">
-							<img src="images/wealthAll/tre_xqjia.png" class="treCon_img1"/>{{x.gw}}购物积分
+							<img src="images/wealthAll/tre_xqjia.png" class="treCon_img1"/>{{x.get_money}}购物积分
 						</div>
 						<div class="treCon_one_right">
-							<img src="images/wealthAll/tre_xqjia.png" class="treCon_img1"/>{{x.yx}}严选积分
+							<img src="images/wealthAll/tre_xqjia.png" class="treCon_img1"/>{{x.happiness}}严选积分
 						</div>
 					</div>
 					<div class="treCon_one_1">
 						<div class="treCon_one_left">
-							<img src="images/wealthAll/tre_jf3.png" class="treCon_img2"/>{{x.lei}}
+							<img src="images/wealthAll/tre_mobile.png" class="treCon_img3"/>{{x.phone}}
+						</div>
+
+					</div>
+					<div class="treCon_one_1">
+						<div class="treCon_one_left">
+							<img src="images/wealthAll/tre_jf3.png" class="treCon_img2"/>{{x.order_type|order_type}}
 						</div>
 						<div class="treCon_one_right">
-							<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>{{x.time}}
+							<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>{{x.createtime}}
 						</div>
 					</div>
 				</div>
 			</div>
-			
+		   </div>
 		</div>
 			
 	

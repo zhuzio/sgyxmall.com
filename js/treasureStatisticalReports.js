@@ -8,16 +8,17 @@ yx_mallApp
 	 
 	});
          $scope.bb={
-         	startTime:"",
-         	data:[],
-         	dq:""
+         	startTime:"",//时间
+         	data:[],//数据
+         	dq:"",//地区
+			 page:1,//页数
          };
 	
-	
+	// 初加载
 	var baoBiao=appService._postData(URL+"index.php?s=/Api/wealth/report_statistics",{
 		token: localStorage.getItem("tokens"),
-             way:localStorage.getItem("way")
-             
+		way:localStorage.getItem("way"),
+        page:$scope.bb.page
 	});
 	baoBiao.then(function(e){
 			console.log(e);
@@ -27,26 +28,58 @@ yx_mallApp
 		},function(e){
 			console.log(e);
 		});
+
 	$scope.qurch=function(){
 		
 		var baoBiao=appService._postData(URL+"index.php?s=/Api/wealth/report_statistics",{
 		token: localStorage.getItem("tokens"),
              way:localStorage.getItem("way"),
-             startTime:$("#test3").val()
+             startTime:$("#test3").val(),
+			page:$scope.bb.page
 	});
 		baoBiao.then(function(e){
 			console.log(e);
 			$scope.bb.data=	e.data.data;
-		   $scope.bb.qu=	e.data.arr.area;
+		     $scope.bb.qu=	e.data.arr.area;
 		},function(e){
 			console.log(e);
 		})
 		
 		
 	}
-	
-	
-	
-	
-	
-}]);
+
+
+        //加载更多
+        $scope.more=function () {
+            $scope.bb.page=$scope.bb.page+1;
+
+            var moreLike=appService._postData(URL+"index.php?s=/Api/wealth/report_statistics",{
+                token: localStorage.getItem("tokens"),
+                way:localStorage.getItem("way"),
+                startTime:$("#test3").val(),
+                page:$scope.bb.page
+            });
+            moreLike.then(function (e) {
+                if(e.data.data == "" ){
+                    $(".more").html("没有更多了...")
+                }else {
+                    $scope.bb.data= $scope.bb.data.concat(e.data.data);
+
+
+                }
+
+            },function (e) {
+                console.log(e)
+            })
+
+
+
+
+        };
+
+
+
+
+
+
+    }]);

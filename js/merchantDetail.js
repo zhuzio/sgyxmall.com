@@ -7,7 +7,7 @@ yx_mallApp.controller("merchantDetailController",["$scope","appService","$stateP
         document.title="商家详情";
 
         $scope.index={
-
+             b:"",
             arr3:[],//商家数据
             swipers:[] //商家详情轮播图
         };
@@ -22,6 +22,12 @@ yx_mallApp.controller("merchantDetailController",["$scope","appService","$stateP
             $scope.index.swipers.push(e.data.data.image_2);
             $scope.index.swipers.push(e.data.data.image_3);
             console.log($scope.index.swipers);
+            if(!$scope.index.arr3.description){
+                $scope.index.arr3.description="暂无介绍";
+            }
+            if(!$scope.index.arr3.activity){
+                $scope.index.arr3.activity="暂无介绍";
+            }
         },function(e){
 
             console.log(e);

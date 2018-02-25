@@ -89,6 +89,27 @@ yx_mallApp
 
 
     };
+
+})
+    .filter("km",function(){
+
+    return function(num){
+
+        if(parseInt(num)<1000){
+            return num+"m";
+        }else if(parseInt(num)<100000) {
+            var a= parseFloat(num)/1000;
+
+               return  a+ "km";
+        }else {
+            var a= parseInt(parseInt(num)/1000)  ;
+
+            return a + "km";
+        }
+
+
+
+    };
 })
    .filter("imgChange",function(){
 

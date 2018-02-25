@@ -1,0 +1,37 @@
+<div class="merchant_classify_container">
+	<div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+                            商家详情
+        </div>
+   </div>
+   <!--轮播图开始-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class='swiper-slide' ng-repeat="sp in index.swipers"><a href="#"><img ng-src='http://www.sgyxmall.com/{{sp}}'></a></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <!--轮播图结束-->
+    <div class="treCon_one_top" style="background: #FFFFFF;font-size: 0.2735rem;color: #1D1D1D;">
+    	{{index.arr3.store_name}}
+    </div>
+    <div class="treCon_one_bg"></div>
+   <div class="treCon_one_top" style="background: #FFFFFF;border-bottom: 1px solid #f2f4f3;font-size: 0.2393rem;color: #333333;"> <!--ng-click="change($index)"-->
+		<span class="treCon_imgSp6" >&nbsp;</span>&nbsp;	<span class="shop_detailS">{{index.arr3.address}}</span> <span class="treCon_imgSp2">&nbsp;</span>
+	</div>
+	<div class="treCon_one_bg"></div>
+   <div class="treCon_one_top" style="background: #FFFFFF;border-bottom: 1px solid #f2f4f3;"> <!--ng-click="change($index)"-->
+		<a href="tel:index.arr3.tel" style="display :inline-block;width: 100%;font-size: .24rem;"></span><span class="treCon_imgSp5">&nbsp;</span >&nbsp;&nbsp;{{index.arr3.tel}}<span class="treCon_imgSp2">&nbsp;</span></a>
+	</div>
+	<div class="treCon_one_bg"></div>
+   <p class="am_near_shop_all">店铺简介</p>
+   <div class="treCon_one_top" style="background: #FFFFFF;font-size: 0.2564rem;color: #333333;height: auto;line-height: .35rem;padding-bottom: .1rem;">
+    	{{index.arr3.description}}
+   </div>
+    <div class="treCon_one_bg"></div>
+	<p class="am_near_shop_all">店铺活动</p>
+	<div class="treCon_one_top" style="background: #FFFFFF;font-size: 0.2564rem;color: #333333;height: auto;line-height: .35rem;">
+    	{{index.arr3.activity}}
+   </div>	
+</div>

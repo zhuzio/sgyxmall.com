@@ -2,7 +2,7 @@
 <div class="hy" ng-if="tre.level==1">
 
 <div class="mc_head">
-        <a href="javascript:window.history.back(-1)"></a>
+        <a ui-sref="tabs.myOld"></a>
         <div class="mc_classify">
                             财富
         </div>
@@ -97,12 +97,12 @@
 <div class="hy" ng-if="tre.level!=1">
 
 <div class="mc_head">
-        <a href="javascript:window.history.back(-1)"></a>
+        <a ui-sref="tabs.myOld"></a>
         <div class="mc_classify">
                             财富
         </div>
    </div>
-<div class="tre_container">
+<div class="tre_container" data-ng-init="load()">
   <div class="tre_top">
   	<!--<span class="tre_span1" ui-sref="treasureBill1" ng-show="tre.status_sy"></span>-->
   	<!--<span class="tre_span1" ui-sref="treasureBill" ng-show="tre.status_gw"></span>-->
@@ -207,10 +207,10 @@
 	</div>
 	
 <!--招商收益弹出层-->
-<div class="chose_upgrade_box" ng-if="tre.merchants_layer" >
+<div class="chose_upgrade_box" ng-if="tre.merchants_layer" ng-click="zsNo()">
 	
-     <div ng-click="zsNo()">
-     	<p style="border-bottom: 0.0085rem solid rgba(0, 0, 0, 0.3) ;margin-bottom: .1rem;"">招商收益</p>
+     <div >
+     	<p style="border-bottom: 0.0085rem solid rgba(0, 0, 0, 0.3) ;margin-bottom: .1rem;">招商收益</p>
      	<span class="tan_sp">
      		<img src="images/wealthAll/Business_income.png" ui-sref="treasureBusinessIncome"  />
      		<img src="images/wealthAll/Agency_reward.png" ui-sref="treasureAgentReward"  />
@@ -222,8 +222,8 @@
 
 
 <!--货款单弹出层-->
-<div class="chose_upgrade_box" ng-if="tre.earnings_layer" >
-     <div ng-click="sjNo()">
+<div class="chose_upgrade_box" ng-if="tre.earnings_layer" ng-click="sjNo()">
+     <div >
      	<p style="border-bottom: 0.0085rem solid rgba(0, 0, 0, 0.3) ;margin-bottom: .1rem;">辖区商家积分购送明细</p>
      	<span class="tan_sp">
      		<img src="images/wealthAll/Merchant_gift.png" ui-sref="treasureMerchantGiving"/>

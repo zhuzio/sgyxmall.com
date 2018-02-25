@@ -14,9 +14,12 @@
         console.log(ngRepeatFinishedEvent);
         if($stateParams.classifyId==1){
             $(".mc_pr").eq(0).addClass("mc_prbb");
-        }else if($stateParams.classifyId==41){
+            $scope.arr.shopType="建修建材";
+        }else if($stateParams.classifyId==43){
+            $scope.arr.shopType="家具家电";
             $(".mc_pr").eq(1).addClass("mc_prbb");
         }else if($stateParams.classifyId==42){
+            $scope.arr.shopType="餐饮美食";
             $(".mc_pr").eq(2).addClass("mc_prbb");
         }
 
@@ -54,56 +57,6 @@
 
 
 
-//		 分类商家数据
-    $scope.order={
-
-        shop:[{
-
-            goods:"复古元素条纹女式外套",//商品名字
-            color:"酒红色",//颜色
-            size:"0.1",//大小
-            prices_cash:99,//现金
-            prices_integral:99,//积分
-            num:1,//数量
-
-        },{
-
-            goods:"复古元素条纹复古风女式外套",//商品名字
-            color:"紫色",//颜色
-            size:"0.4",//大小
-            prices_cash:999,//现金
-            prices_integral:199,//积分
-            num:1,//数量
-
-        },{
-
-            goods:"复古元素条纹女式外套",//商品名字
-            color:"酒红色",//颜色
-            size:"0.5",//大小
-            prices_cash:99,//现金
-            prices_integral:99,//积分
-            num:1,//数量
-
-        },{
-
-            goods:"复古元素条纹女式外套",//商品名字
-            color:"酒红色",//颜色
-            size:"2",//大小
-            prices_cash:"啥都好说掉了尽快送圣诞快乐电视柜ID覅噢地方山东省考了掉了掉了及山东省地",//现金
-            prices_integral:99,//积分
-            num:1,//数量
-
-        }]
-
-
-
-    };
-
-    if($scope.order){
-        $scope.num=false;
-    }else{
-        $scope.num=true;
-    }
 
 //请求页面初加载  店铺分类数据
     var  detail=appService._postData(URL+"index.php?s=/Api/store/nearby_shops_cate",{cate_id:$stateParams.classifyId,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")});
@@ -121,7 +74,7 @@
 
     console.log($(".mc_pr").eq(0));
     $scope.change=function($index,name,id){
-
+         $scope.arr.shopType=name;
         $(".mc_pr").removeClass("mc_prbb");
         $(".mc_pr").eq($index).addClass("mc_prbb");
         //请求店铺分类数据
@@ -137,6 +90,14 @@
         })
 
     }
+
+
+
+
+
+
+
+
 
 
 }])

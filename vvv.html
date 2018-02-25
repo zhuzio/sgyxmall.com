@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jquery.1.7.2.min.js"></script>
+</head>
+<body>
+<form id="imgForm">
+    <input type="file" class="addBorder" onchange="loadImg(this)">
+    <br/>
+    <!--<button type="button" onclick="loadImg()">获取图片</button>-->
+</form>
+
+<div class="addBorder" id="imgDiv">
+    <img id="imgContent">
+</div>
+</body>
+<script>
+    function loadImg(files){
+        console.log(files)
+        //获取文件
+        var file = $("#imgForm").find("input")[0].files[0];
+        console.log(file)
+
+        //创建读取文件的对象
+        var reader = new FileReader();
+
+        //创建文件读取相关的变量
+        var imgFile;
+
+        //为文件读取成功设置事件
+        reader.onload=function(e) {
+            // alert('文件读取完成');
+            imgFile = e.target.result;
+            console.log(imgFile);
+            // $("#imgContent").attr('src', imgFile);
+        };
+
+        //正式读取文件
+        reader.readAsDataURL(file);
+    }
+</script>
+</html>
+<!--
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+    var result=document.getElementById("result");
+    var file=document.getElementById("file");
+
+    //判断浏览器是否支持FileReader接口
+    if(typeof FileReader == 'undefined'){
+        result.InnerHTML="<p>你的浏览器不支持FileReader接口！</p>";
+        //使选择控件不可操作
+        file.setAttribute("disabled","disabled");
+    }
+
+    function readAsDataURL(){
+        //检验是否为图像文件
+        var file = document.getElementById("file").files[0];
+        if(!/image\/\w+/.test(file.type)){
+            alert("看清楚，这个需要图片！");
+            return false;
+        }
+        var reader = new FileReader();
+        //将文件以Data URL形式读入页面
+        reader.readAsDataURL(file);
+        reader.onload=function(e){
+            var result=document.getElementById("result");
+            //显示文件
+            result.innerHTML='<img src="' + this.result +'" alt="" />';
+        }
+    }
+
+    function readAsBinaryString(){
+        var file = document.getElementById("file").files[0];
+        var reader = new FileReader();
+        //将文件以二进制形式读入页面
+        reader.readAsBinaryString(file);
+        reader.onload=function(f){
+            var result=document.getElementById("result");
+            //显示文件
+            result.innerHTML=this.result;
+        }
+    }
+
+    function readAsText(){
+        var file = document.getElementById("file").files[0];
+        var reader = new FileReader();
+        //将文件以文本形式读入页面
+        reader.readAsText(file);
+        reader.onload=function(f){
+            var result=document.getElementById("result");
+            //显示文件
+            result.innerHTML=this.result;
+        }
+    }
+</script>
+<p>
+    <label>请选择一个文件：</label>
+    <input type="file" id="file" />
+    <input type="button" value="读取图像" onclick="readAsDataURL()" />
+    <input type="button" value="读取二进制数据" onclick="readAsBinaryString()" />
+    <input type="button" value="读取文本文件" onclick="readAsText()" />
+</p>
+<div id="result" name="result"></div>
+</body>
+</html>
+-->

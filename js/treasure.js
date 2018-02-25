@@ -23,7 +23,8 @@
           withdrawal_layer:false, //提现没有绑定银行卡时弹出层
           withdrawal_layer1:false, //关闭提现弹出层
           BalanceIntegral_layer:false, //结余积分提示弹出层
-          strictIntegral_layer:false //严选积分弹出层
+          strictIntegral_layer:false ,//严选积分弹出层
+
       };
       //   权限等级
       $scope.tre.userInfo=JSON.parse(localStorage.getItem("userInfo"));
@@ -77,13 +78,14 @@
       //非会员   两个页面的操作
       $scope.change=function(a){
 //   	判断显示收益奖励还是购物积分
-          console.log(a);
+
+          localStorage.setItem("status111",a);
           if(a==1){
               $(".tre_container").removeClass("tre_ba1");
               $(".tre_middle_fen").removeClass("tre_middle_b");
               $(".tre_span3").addClass("tre_ba");
               $(".tre_span4").removeClass("tre_ba");
-
+              console.log(a);
               $scope.tre.status_gw=true;
               $scope.tre.status_sy=false;
 
@@ -94,11 +96,21 @@
               $(".tre_span4").addClass("tre_ba");
               $scope.tre.status_gw=false;
               $scope.tre.status_sy=true;
-
+              console.log(typeof a );
+              console.log($(".tre_container"));
           }
 
 
       };
+       //保存状态
+      $scope.load = function() {
+
+          $scope.change(   parseInt(localStorage.getItem("status111"))   );
+          console.log(localStorage.getItem("status111"));
+      };
+
+
+
 
       $scope.zs= true;
 
@@ -124,7 +136,7 @@
           if(!$scope.tre.withdrawal_layer){
               $scope.tre.withdrawal_layer1 = true;
           }else{
-              $state.go("treasureWithdrawal");
+              $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
           }
 
 

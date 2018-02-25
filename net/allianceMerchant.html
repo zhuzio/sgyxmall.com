@@ -1,3 +1,17 @@
+<style>
+    .more {
+        width: 20%;
+        text-align: center;
+        height: .6rem;
+        line-height: .6rem;
+         margin: 0 auto;
+        font-size: .25rem;
+        border: 1px solid black ;
+        margin-bottom: .2rem;
+        color: #FFFFFF;
+        background: gray;
+    }
+</style>
 <div>
     <!--头部组件-->
     <div class="alliance_merchant_header">
@@ -24,7 +38,7 @@
     <div class="alliance_merchant_container">
         <!--分类-->
         <ul class="am_ul_1">
-            <li class="am_li_1" ui-sref="merchantClassify({classifyId:41})">
+            <li class="am_li_1" ui-sref="merchantClassify({classifyId:42})">
                 <span class="img img1"></span>
                 <!--<img ng-src="../images/lianMeng/Food_and_beverage.png"   src="../images/lianMeng/Food_and_beverage.png" alt="餐饮">-->
                 <span>餐饮美食 </span>
@@ -34,10 +48,10 @@
                 <span class="img img2"></span>
                 <span>建筑建材</span>
             </li>
-            <li class="am_li_1" ui-sref="merchantClassify({classifyId:42})">
+            <li class="am_li_1" ui-sref="merchantClassify({classifyId:43})">
                 <!--<img src="../images/lianMeng/entertainment.png" alt="财富">-->
                 <span class="img img3"></span>
-                <span>西餐酒吧</span>
+                <span>家具家电</span>
             </li>
             <li class="am_li_1" ui-sref="merchantClassify({classifyId:1})" >
                 <!--<img src="../images/lianMeng/more.png" alt="财富">-->
@@ -58,7 +72,7 @@
 
                         <div class="am_near_siez">
                             <span>{{x.store_name}}</span>
-                            <span class="fr">{{x.juli}}m</span>
+                            <span class="fr">{{x.juli|km  }}</span>
                         </div>
 
                         <div class="am_near_integral">
@@ -71,8 +85,8 @@
 
             </div>
             <!--加载更多-->
-            <p class="addMore"><img ng-src="images/Loading9.gif"/></p>
-
+            <!--<p class="addMore"><img ng-src="images/Loading9.gif"/></p>-->
+            <p class="more" ng-click="more()">加载更多</p>
 
         </div>
 

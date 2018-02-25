@@ -105,7 +105,7 @@
 
 }}" alt="{{bankCard.bank_name}}">
         </div>
-        <div class="bcInfo">
+        <div class="bcInfo" ng-click="selected(bankCard.bank_id,bankCard.bank_name,bankCard.bank_num)">
             <p class="bcName">{{bankCard.bank_name}}</p>
             <p class="bcNum">{{bankCard.bank_num}}</p>
         </div>
