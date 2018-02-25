@@ -319,7 +319,7 @@ yx_mallApp.constant('RouterList_Config',[
     },{
         //财富   提现
         name:  "treasureWithdrawal",
-        url:"/treasureWithdrawal",
+        url:"/treasureWithdrawal?id&name&num",
         templateUrl:"net/treasureWithdrawal.html",
         controller:"treasureWithdrawalController",
         files:[
@@ -334,6 +334,44 @@ yx_mallApp.constant('RouterList_Config',[
         files:[
             './js/treasureWithdrawalDetail.js'
         ]
+
+    },{
+        //忘记登陆密码1
+        name:  "forgetPW1",
+        url:"/forgetPW1",
+        templateUrl:"net/forgetPW1.html",
+        controller:"forgetPW1Controller",
+        files:[
+            './js/forgetPW1.js'
+        ]
+    },{
+        //忘记登陆密码2
+        name:  "forgetPW2",
+        url:"/forgetPW2",
+        templateUrl:"net/forgetPW2.html",
+        controller:"forgetPW2Controller",
+        files:[
+            './js/forgetPW2.js'
+        ]
+    },{
+        //忘记支付密码1
+        name:  "forgetPWPay1",
+        url:"/forgetPWPay1",
+        templateUrl:"net/forgetPWPay1.html",
+        controller:"forgetPWPay1Controller",
+        files:[
+            './js/forgetPWPay1.js'
+        ]
+    },{
+        //忘记支付密码2
+        name:  "forgetPWPay2",
+        url:"/forgetPWPay2",
+        templateUrl:"net/forgetPWPay2.html",
+        controller:"forgetPWPay2Controller",
+        files:[
+            './js/forgetPWPay2.js'
+        ]
+
     },{
         name:"set",
         url:"/_set",

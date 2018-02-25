@@ -18,17 +18,17 @@ yx_mallApp
    
 //   初加载请求
 //加载每月记录
-//     var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/bonus_points",{
-// 		    token: localStorage.getItem("tokens"),
-//             way:localStorage.getItem("way") }) ;
-// 	conversion_record.then(function(e){
-// 		$scope.arr.mouth=e.data.data;
-//         $scope.arr.total=e.data.arr;
-//         $scope.arr.current=e.data.data[0].money;
-// 	    console.log(e);
-// 	},function(e){
-// 		console.log(e);
-// 	});
+    var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/bonus_points",{
+		    token: localStorage.getItem("tokens"),
+            way:localStorage.getItem("way") }) ;
+	conversion_record.then(function(e){
+		$scope.arr.mouth=e.data.data;
+        $scope.arr.total=e.data.arr;
+        $scope.arr.current=e.data.data[0].money;
+	    console.log(e);
+	},function(e){
+		console.log(e);
+	});
 
 	
 //   初加载请求 

@@ -9,6 +9,7 @@ yx_mallApp
 	$scope.dan={
 		all:0,
 		data:[],
+		page:1,
 	}
 	
 	
@@ -31,7 +32,7 @@ yx_mallApp
         }  
           
        
-        if(!(/^1[34578]\d{9}$/.test($("#cha").val()-0)))  
+        if(!(/^1[345789]\d{9}$/.test($("#cha").val()-0)))
         {  
             alert('请输入有效的手机号码！');  
             return false;  
@@ -40,7 +41,8 @@ yx_mallApp
 		var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
 			 token: localStorage.getItem("tokens"),
              way:localStorage.getItem("way"),
-			add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:9
+			add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:9,
+            num:$scope.dan.page,
 		})
 		
 		  chaxun.then(function(e){
@@ -53,25 +55,25 @@ yx_mallApp
 		  	
 		  	console.log(e);
 		  })
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	}
+
+
+
+
+
+
+
+
+
+
+
+    }
 	
-	
+	//初加载
 	var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
 		     token: localStorage.getItem("tokens"),
              way:localStorage.getItem("way"), 
-		add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:9})
+		add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:9, num:$scope.dan.page});
+
 		
 		  chaxun.then(function(e){
 		  	console.log(e);
@@ -82,12 +84,40 @@ yx_mallApp
 		  	
 		  	
 		  	console.log(e);
-		  })  
-	
-	
-	
-	
-	
-	
-	
-}])
+		  })
+//加载更多
+    $scope.more=function () {
+        $scope.dan.page=$scope.dan.page+1;
+
+        var moreLike=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
+            token: localStorage.getItem("tokens"),
+            way:localStorage.getItem("way"),
+            add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:9,
+            num:$scope.dan.page,
+        });
+        moreLike.then(function (e) {
+            if(e.data.data.total_amount_jiu == "" ){
+                $(".more").html("没有更多了...")
+            }else {
+                $scope.dan.data= $scope.dan.data.concat(e.data.data.total_amount_jiu);
+
+                console.log(e);
+            }
+
+        },function (e) {
+            console.log(e)
+        })
+
+
+
+
+    };
+
+
+
+
+
+
+
+
+}]);

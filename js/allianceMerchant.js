@@ -110,41 +110,28 @@ yx_mallApp
         console.log(e)
     });
 
+    $scope.more=function () {
+
+                        $scope.index.page=$scope.index.page+1;
+                        var moreLike=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")})
+                        moreLike.then(function (e) {
+                            if(e.data.data == "" ){
+                                $(".more").html("没有更多了...")
+                            }else {
+                                $scope.index.shop= $scope.index.shop.concat(e.data.data);
+
+                                console.log(e);
+                            }
+
+                        },function (e) {
+                            console.log(e)
+                        })
 
 
-    function scrollFn(){
-        //真实内容的高度
-        var pageHeight = Math.max(document.body.scrollHeight,document.body.offsetHeight);
-        //视窗的高度
-        var viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
-        //隐藏的高度
-        var scrollHeight = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        if( pageHeight - viewportHeight - scrollHeight <= 10){	//如果满足触发条件，执行
-            $(".addMore").css("display","block");
-            if ($scope.index.more){
-                $scope.index.more = false;
-                $scope.index.page=$scope.index.page+1;
-                var moreLike=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")})
-                moreLike.then(function (e) {
-                    if(e.data.data == "" ){
-                        $(".addMore").html("没有更多了...")
-                    }else {
-                        for (var i in e.data.data){
-                            console.log(e);
-                            $scope.index.shop.push((e.data.data)[i]);
-                        }
-                        $scope.index.more=true;
-                    }
 
-                },function (e) {
-                    console.log(e)
-                })
-            }
 
-        }
-    }
+    };
 
-    $(window).bind("scroll",scrollFn);	//绑定滚动事件
 
 
 

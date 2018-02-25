@@ -7,7 +7,8 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 	
 	$scope.dan={
 		all:0,
-		data:[]
+		data:[],
+		page:1
 	};
 	
 	
@@ -37,13 +38,14 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 		var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
 			 token: localStorage.getItem("tokens"),
              way:localStorage.getItem("way"),
-			add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:3
+			add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:3,
+            num:$scope.dan.page
 		});
 		
 		  chaxun.then(function(e){
 		  
 		  	   $scope.dan.all =e.data.data.give_count;
-		  	    $scope.dan.data =e.data.data.total_amount_jiu;
+		  	    $scope.dan.data =e.data.data.total_amount_san;
 		  	
 		  },function(e){
 		  	
@@ -53,27 +55,60 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 		
 	};
 	
-	
+	//初加载
 	var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
 		     token: localStorage.getItem("tokens"),
              way:localStorage.getItem("way"), 
-		add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:3})
+		add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:3,
+	      num:$scope.dan.page
+	});
 		
 		  chaxun.then(function(e){
 		  	console.log(e);
 		  	    $scope.dan.all =e.data.data.give_count;
-		  	    $scope.dan.data =e.data.data.total_amount_jiu;
+		  	    $scope.dan.data =e.data.data.total_amount_san;
 		  	
 		  },function(e){
 		  	
 		  	
 		  	console.log(e);
-		  })  
-	
-	
-	
-	
-	
-	
-	
+		  });
+
+
+
+    //加载更多
+    $scope.more=function () {
+        $scope.dan.page=$scope.dan.page+1;
+
+        var moreLike=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
+            token: localStorage.getItem("tokens"),
+            way:localStorage.getItem("way"),
+            add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:3,
+            num:$scope.dan.page,
+        });
+        moreLike.then(function (e) {
+            if(e.data.data.total_amount_san == "" ){
+                $(".more").html("没有更多了...")
+            }else {
+                $scope.dan.data= $scope.dan.data.concat(e.data.data.total_amount_san);
+
+                console.log(e);
+            }
+
+        },function (e) {
+            console.log(e)
+        })
+
+
+
+
+    };
+
+
+
+
+
+
+
+
 }]);

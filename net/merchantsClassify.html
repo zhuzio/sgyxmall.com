@@ -1,3 +1,8 @@
+<style>
+	.mc_container .mc_pr{
+		font-size: .25rem;
+	}
+</style>
 <div class="merchant_classify_container">
 	<div class="mc_head">
 		<a href="javascript:window.history.back(-1)"></a>
@@ -10,7 +15,7 @@
 
 		<div class="mc_center1 mc_center11">
 			<ul class="mc_center">
-				<li class="mc_pr" ng-class="{}" ng-repeat="v in arr.arr2" ng-click="change($index,v.cate_name,v.cate_id)"  on-finish>
+				<li class="mc_pr " ng-class="{}" ng-repeat="v in arr.arr2" ng-click="change($index,v.cate_name,v.cate_id)"  on-finish>
 					{{v.cate_name}}
 				</li>
 			</ul>
@@ -31,7 +36,7 @@
 
 					<div class="am_near_siez">
 						<span>{{x.store_name}}</span>
-						<span class="fr">{{x.juli}}m</span>
+						<span class="fr">{{x.juli|km}}</span>
 					</div>
 
 					<div class="am_near_integral">
@@ -44,11 +49,11 @@
 
 		</div>
 		<!--加载更多-->
-		<p class="addMore"><img ng-src="images/Loading9.gif"/></p>
 
 
-		<div class="am_near_ts" ng-if="$scope.num">
-			暂无商家
+
+		<div class="am_near_ts" >
+			暂无更多商家
 		</div>
 
 

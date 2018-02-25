@@ -4,9 +4,9 @@ yx_mallApp
         //    用户转化信息
 
         document.title="转化记录";
-        $scope.arr={
+        $scope.treasureConversion={
 
-            mouth:[],//月账单
+            month:[],//月账单
             dayDetail:[{get_money:66,happiness:11,order_type:"541",createtime:"2018-01-11 00:11:12"},{get_money:16,happiness:10,order_type:"offline",createtime:"2018-01-01 10:31:12"}],
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月转化，默认为零
@@ -20,9 +20,9 @@ yx_mallApp
             token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way") });
         conversion_record.then(function(e){
-            $scope.arr.mouth=e.data.data;
-            $scope.arr.total=e.data.arr;
-            $scope.arr.current=e.data.data[0].money;
+            $scope.treasureConversion.month=e.data.data;
+            $scope.treasureConversion.total=e.data.arr;
+            $scope.treasureConversion.current=e.data.data[0].money;
             console.log(e);
         },function(e){
             console.log(e);
@@ -41,16 +41,16 @@ yx_mallApp
         //   点击请求加载本月数据
         $scope.change=function($index,time){
             //   点击请求加载本月数据
-            $scope.arr.selected=$index;
+            $scope.treasureConversion.selected=$index;
             console.log($index);
-            console.log($scope.arr.selected);
+            console.log($scope.treasureConversion.selected);
             console.log(time);
 
             var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record_month",{
                 token: localStorage.getItem("tokens"),
                 way:localStorage.getItem("way"), time:time});
             conversion_record.then(function(e){
-                $scope.arr.dayDetail=e.data.data;
+                $scope.treasureConversion.dayDetail=e.data.data;
 
                 console.log(e);
             },function(e){

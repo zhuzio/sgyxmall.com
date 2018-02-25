@@ -25,7 +25,7 @@
 		
 	   <div class="treCon_one_show"   ng-repeat="v in arr.mouth"> <!--ng-repeat="v in user"-->
 			<div class="treCon_one_top"  ng-click="change($index,v.times)"> <!--ng-click="change($index)"-->
-				{{v.times| datatimes}} 总计：{{v.money}}&nbsp;&nbsp;&nbsp;<span class="treCon_imgSp4"></span>
+				{{v.times| datatimes}} 总计：{{v.money}}&nbsp;&nbsp;&nbsp;<span class="treCon_imgSp4"></span><span ng-if="$index!=arr.selected" class="treCon_imgSp2">&nbsp;</span><span ng-if="$index==arr.selected"  class="treCon_imgSp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 			</div>
 			<div  ng-if="$index==arr.selected">
 				<div class="treCon_one_bot"  ng-repeat="x in arr.dayDetail "> 

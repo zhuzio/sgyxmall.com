@@ -1,0 +1,111 @@
+<!--忘记支付密码-->
+<style>
+.wj_lc{
+    width: 100%;
+    height: .6rem;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+.wj_lc span{
+    width: 49%;
+    height: .6rem;
+    font-size: .3rem;
+    display: inline-block;
+    text-align: center;
+    line-height: .6rem;
+}
+.wj_lc span:nth-child(1){
+    color: #70bbb4;
+    background: url("images/wealthAll/password_bg.png") no-repeat;
+    background-size:100% 100% ;
+}
+.wj_all{
+    width: 92%;
+    height: auto;
+    margin: .2rem 4%;
+
+}
+    .treCon_one_1{
+        letter-spacing: 0px;font-size: .15rem; border-bottom: 1px solid #e9e9e9;overflow: hidden;
+        margin: .3rem auto;
+        line-height: .6rem;
+    }
+#yzm{
+    border: 1px solid red;
+    padding: .1rem;
+    height: 0.5982rem;
+    border-radius: .1rem;
+    font-size: .25rem;
+    margin-right: 0;
+    color: red;
+
+}
+  .iut{
+      border: none;
+      letter-spacing: 1px;
+      font-size: .2rem;
+  }
+.next{
+    margin: 0 auto;
+    width: 4.2735rem;
+    height: 0.6837rem;
+    line-height: 0.6837rem;
+    text-align: center;
+    font-size: 0.2564rem;
+    color: #FFFFFF;
+    border-radius: .1rem;
+    background: #eecfb2;
+    margin-top: .6rem;
+}
+
+
+
+</style>
+<div class="wj_head_container">
+    <div class="mc_head">
+        <a href="javascript:window.history.back(-1)"></a>
+        <div class="mc_classify">
+            修改密码
+        </div>
+    </div>
+
+    <div class="wj_body">
+        <div class="wj_lc">
+            <span>1验证身份</span>
+            <span>2重置支付密码</span>
+        </div>
+        <div class="wj_all">
+            <div class="treCon_one_1" >
+                <!--<div class="treCon_one_left"> </div>-->
+                    <strong style="font-size:0.28rem;color: #333333;">手机号</strong>&nbsp;&nbsp;<input type="number"  placeholder="请输入手机号" class="iut" id="phone"  ng-model="user.phone" ng-change="jianCe(user.phone)" />
+                     <span style="color: red;margin-left: 1rem;font-size:0.2rem;" ng-if="user.err">手机号格式不对</span>
+
+
+            </div>
+            <div class="treCon_one_1" >
+                <!--<div class="treCon_one_left"></div>-->
+                    <strong style="font-size:0.28rem;color: #333333;">验证码</strong>&nbsp;&nbsp;<input type="number" placeholder="请输入验证码"  class="iut" id="ma"   value="" />
+                    <span id="yzm" ng-click="yzm()">{{user.yzm}}</span>
+
+
+            </div>
+
+
+
+        </div>
+        <div class="next" ng-click="next()">
+            下一步
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+</div>

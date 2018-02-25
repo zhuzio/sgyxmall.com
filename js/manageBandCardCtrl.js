@@ -61,4 +61,17 @@ yx_mallApp
                 return false;
             }
         }
+
+    // 选择提现卡
+       $scope.selected=function (a,b,c) {
+
+           $state.go("treasureWithdrawal",{id:a,name:b,num:c});
+       }
+
+
+
+
+
+
+
     }])
