@@ -21,9 +21,9 @@
     <div class="mot_title">财富/订单</div>
     <ul class="mot_function">
         <li ui-sref="treasure"><img src="images/myOld/wealth.png" alt="财富"><span>财富</span></li>
-        <li><img src="images/myOld/Shopping_mall_order.png" alt="商城订单"><span>商城订单</span></li>
+        <li ui-sref="myOrder"><img src="images/myOld/Shopping_mall_order.png" alt="商城订单"><span>商城订单</span></li>
         <li><img src="images/myOld/Alliance_order.png" alt="联盟订单"><span>联盟订单</span></li>
-        <li ng-if="myOld.func.orderAudit"><img src="images/myOld/Order_audit.png" alt="订单审核"><span>订单审核</span></li>
+        <li ng-if="myOld.func.orderAudit" ui-sref="allianceOrderAudit"><img src="images/myOld/Order_audit.png" alt="订单审核"><span>订单审核</span></li>
         <li ng-if="myOld.func.merchantOrder"><img src="images/myOld/Business_order.png" alt="订单审核"><span>商家订单</span></li>
         <li ng-if="myOld.func.merchantAudit" ui-sref="merchantAudit"><img src="images/myOld/Business_audit.png" alt="商家审核"><span>商家审核</span></li>
     </ul>

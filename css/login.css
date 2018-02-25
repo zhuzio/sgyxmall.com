@@ -103,3 +103,10 @@
     font-size: .24rem;
     color: white;
 }
+.goToRegister{
+    font-size: .2rem;
+    margin: .5rem auto 0;
+    text-align: center;
+    width: 90%;
+
+}

@@ -164,6 +164,16 @@ yx_mallApp.constant('RouterList_Config',[
         templateUrl:"net/upgrade.html",
         controller:"",
         files:[]
+    },
+    {
+        //联盟订单 审核
+        name:"allianceOrderAudit",
+        url:"/_allianceOrderAudit",
+        templateUrl:"net/allianceOrderAudit.html",
+        controller:"allianceOrderAuditController",
+        files:[
+            './js/allianceOrderAuditCtrl.js'
+        ]
     },{
         name:"treasureConversion", //财富  转化
         url:"/_treasureConversion",
@@ -174,13 +184,13 @@ yx_mallApp.constant('RouterList_Config',[
         ]
 
     },{
-            name:"merchantDetail",//商家 详情
-            url:"/_merchantDetail?shopId",
-            templateUrl:"net/merchantsDetail.html",
-            controller:"merchantDetailController",
-            files:[
-                './js/merchantDetail.js'
-            ]
+        name:"merchantDetail",//商家 详情
+        url:"/_merchantDetail?shopId",
+        templateUrl:"net/merchantsDetail.html",
+        controller:"merchantDetailController",
+        files:[
+            './js/merchantDetail.js'
+        ]
     },{
         name:"treasurePay",//支付记录
         url:"/_treasurePay",
@@ -324,9 +334,6 @@ yx_mallApp.constant('RouterList_Config',[
         files:[
             './js/treasureWithdrawalDetail.js'
         ]
-
-
-
     },{
         name:"set",
         url:"/_set",
@@ -420,6 +427,15 @@ yx_mallApp.constant('RouterList_Config',[
         controller:"buyAndSendIntegralDetailController",
         files:[
             './js/buyAndSendIntegralDetailCtrl.js'
+        ]
+    },
+    {
+        name:"register",
+        url:"/_registerController",
+        templateUrl:"net/register.html",
+        controller:"registerController",
+        files:[
+            './js/registerCtrl.js'
         ]
     }
 ]);
