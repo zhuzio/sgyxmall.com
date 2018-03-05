@@ -1,0 +1,97 @@
+<style type="text/css">
+    .saContainer{
+        width: 100%;
+        height: auto;
+    }
+    .saContainer >div{
+        width: 94%;
+        height: 1rem;
+        padding: 0 3%;
+        line-height: 1rem;
+        font-size: .26rem;
+    }
+    .saContainer >div >span{
+        display: inline-block;
+        width: 20%;
+    }
+    .saContainer >div >input{
+        border: none;
+        width: 65%;
+        height: 80%;
+        background: none;
+        font-size: .265rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+    }
+    .saIntegral{
+        background: #e79e56;
+        color: white;
+        margin-bottom: .2rem;
+    }
+    .saShop{
+        background: white;
+        border-top: 1px #e5e5e5 solid;
+    }
+    .saGoods{
+        background: white url("images/right.png") no-repeat 95% center;
+        background-size: auto .3rem;
+        margin-top: .2rem;
+    }
+    .mAGContainer{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+    .goodsContainer{
+        width: 72%;
+        max-height: 60%;
+        margin: 20% auto;
+        background: white;
+        border-radius: .2rem;
+        text-align: center;
+        overflow: scroll;
+        padding: .3rem 0;
+        -webkit-transform: scale(1.2);
+    }
+    .goodsContainer >p{
+        font-size: .26rem;
+        height: .6rem;
+        border-bottom: 1px #e5e5e5 solid;
+        line-height: .6rem;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .mAGContainerY .goodsContainer{
+        -webkit-transform: scale(1);
+    }
+    .sc_btn{
+        width: 90%;
+        height: .9rem;
+        margin: 1rem auto 0;
+        background: #e79e56;
+        color: white;
+        text-align: center;
+        line-height: .9rem;
+        border-radius: .2rem;
+        font-size: .3rem;
+
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    付款详情
+</div>
+<div class="saContainer">
+    <div class="saIntegral"><span>可用积分</span>{{scan.userInt.current}}</div>
+    <div class="saShop"><span>商家信息</span>{{scan.shopName}}</div>
+    <div class="saShop"><span>订单金额</span><input type="number" placeholder="请输入订单金额" ng-model="scan.payMoney"></div>
+    <div class="saGoods"><span>商品名称</span><input type="text" placeholder="请选择" onfocus="this.blur()" ng-readonly="true" ng-model="scan.goodsName" ng-click="sc_cg()"></div>
+    <p class="sc_btn">确定</p>
+</div>
+<div class="mAGContainer" ng-class={'mAGContainerY':scan.back}>
+    <div class="goodsContainer">
+        <p ng-repeat="goods in scan.goodsInfo" ng-click="choseGoods(goods)">{{goods.name}}</p>
+    </div>
+</div>

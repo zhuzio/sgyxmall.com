@@ -85,7 +85,7 @@ yx_mallApp
             })
         };
         var select=appService._postData(URL+"index.php?s=Api/address/address",{});
-        select.then(function (e) {
+            select.then(function (e) {
 
             $scope.area.province=e.data.data;
             $scope.changeProvince=function (index,province) {

@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+  <component name="ChangeListManager">
+    <list default="true" id="46575802-1249-46a3-a901-66378b4067a1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/css/allianceOrderAudit.css" afterPath="$PROJECT_DIR$/css/allianceOrderAudit.css" />
+      <change beforePath="$PROJECT_DIR$/css/login.css" afterPath="$PROJECT_DIR$/css/login.css" />
+      <change beforePath="$PROJECT_DIR$/css/treasure.css" afterPath="$PROJECT_DIR$/css/treasure.css" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/js/allianceOrderAuditCtrl.js" afterPath="$PROJECT_DIR$/js/allianceOrderAuditCtrl.js" />
+      <change beforePath="$PROJECT_DIR$/js/routerList.js" afterPath="$PROJECT_DIR$/js/routerList.js" />
+      <change beforePath="$PROJECT_DIR$/js/upToMerchantCtrl.js" afterPath="$PROJECT_DIR$/js/upToMerchantCtrl.js" />
+      <change beforePath="$PROJECT_DIR$/net/allianceOrderAudit.html" afterPath="$PROJECT_DIR$/net/allianceOrderAudit.html" />
+      <change beforePath="$PROJECT_DIR$/net/login.html" afterPath="$PROJECT_DIR$/net/login.html" />
+      <change beforePath="$PROJECT_DIR$/net/my_suge.html" afterPath="$PROJECT_DIR$/net/my_suge.html" />
+    </list>
+=======
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/css/merchantAddGoods.css" line="54" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="56f2e847-f988-42a8-8421-7f4b450b82e2" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/wealthAll/Adoption.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/wealthAll/Audit.png" />
@@ -79,6 +95,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/net/treasureWithdrawal.html" afterPath="$PROJECT_DIR$/net/treasureWithdrawal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/net/treasureWithdrawalDetail.html" afterPath="$PROJECT_DIR$/net/treasureWithdrawalDetail.html" />
     </list>
+=======
+    <list default="true" id="56f2e847-f988-42a8-8421-7f4b450b82e2" name="Default" comment="" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -91,6 +111,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="treasureGiven.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/net/treasureGiven.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -99,10 +120,27 @@
               <folding>
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
               </folding>
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+=======
+      <file leaf-file-name="forgetPWPay2.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/forgetPWPay2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-250">
+              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+              <folding />
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="treasureReward.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/net/treasureReward.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -111,10 +149,27 @@
               <folding>
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
               </folding>
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="bass.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/bass.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="277" column="14" lean-forward="false" selection-start-line="277" selection-start-column="14" selection-end-line="277" selection-end-column="14" />
+=======
+      <file leaf-file-name="treasureMerchantGiving.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/treasureMerchantGiving.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+              <folding />
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="treasureReward.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/treasureReward.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -124,10 +179,32 @@
                 <element signature="e#1250#2066#0" expanded="false" />
                 <element signature="e#2096#2680#0" expanded="false" />
               </folding>
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="allianceOrderAudit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/allianceOrderAudit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="80" column="22" lean-forward="false" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+              <folding>
+                <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
+              </folding>
+=======
+      <file leaf-file-name="allianceMerchant.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/allianceMerchant.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="597">
+              <caret line="118" column="59" lean-forward="true" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
+              <folding />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="treasurePrecinctME.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/treasurePrecinctME.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -136,22 +213,84 @@
               <folding>
                 <element signature="e#2071#2722#0" expanded="false" />
               </folding>
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/net/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="760">
+              <caret line="257" column="6" lean-forward="false" selection-start-line="257" selection-start-column="6" selection-end-line="257" selection-end-column="6" />
+              <folding>
+                <element signature="n#div#1;n#!!top" expanded="false" />
+              </folding>
+=======
+      <file leaf-file-name="treasureNews.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/treasureNews.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="treasureJurisdictionE.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/treasureJurisdictionE.js">
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="upToMerchantCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/upToMerchantCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="477">
+              <caret line="190" column="10" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="190" selection-end-column="10" />
+              <folding>
+                <element signature="e#1330#1930#0" expanded="false" />
+                <element signature="e#2047#2140#0" expanded="false" />
+                <element signature="e#2262#5396#0" expanded="false" />
+                <element signature="e#5410#5421#0" expanded="false" />
+                <element signature="e#5459#6134#0" expanded="false" />
+                <element signature="e#6190#6559#0" expanded="false" />
+                <element signature="e#6850#8624#0" expanded="false" />
+                <element signature="e#8677#9149#0" expanded="false" />
+                <element signature="e#9205#9301#0" expanded="false" />
+                <element signature="e#9454#9520#0" expanded="false" />
+                <element signature="e#9578#10331#0" expanded="false" />
+                <element signature="e#10889#12309#0" expanded="false" />
+                <element signature="e#12367#12433#0" expanded="false" />
+                <element signature="e#12482#12549#0" expanded="false" />
+                <element signature="e#12606#16323#0" expanded="false" />
+              </folding>
+=======
+      <file leaf-file-name="treasureMerchantPayment.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/treasureMerchantPayment.html">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
               <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="treasureBusinessIncome.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/net/treasureBusinessIncome.html">
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="my_suge.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/my_suge.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="880">
+              <caret line="40" column="55" lean-forward="false" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+              <folding />
+=======
+      <file leaf-file-name="treasureMerchantGiving.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/treasureMerchantGiving.js">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1300">
               <caret line="74" column="67" lean-forward="false" selection-start-line="74" selection-start-column="67" selection-end-line="74" selection-end-column="67" />
@@ -160,48 +299,139 @@
                 <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
               </folding>
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="treasureAgentReward.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/net/treasureAgentReward.html">
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" column="97" lean-forward="false" selection-start-line="13" selection-start-column="97" selection-end-line="13" selection-end-column="97" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+=======
+      <file leaf-file-name="treasureMerchantPayment.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/treasureMerchantPayment.js">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
               <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
+<<<<<<< HEAD
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+=======
+                <element signature="e#1944#2690#0" expanded="false" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="treasureBusinessIncome.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/treasureBusinessIncome.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1850">
               <caret line="74" column="35" lean-forward="true" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/login.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2398">
+              <caret line="109" column="12" lean-forward="false" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
+=======
+      <file leaf-file-name="treasureStatisticalReports.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/treasureStatisticalReports.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="725">
+              <caret line="53" column="44" lean-forward="true" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="treasureAgentReward.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/treasureAgentReward.js">
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="registerCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/registerCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+              <folding>
+                <element signature="e#778#1699#0" expanded="false" />
+                <element signature="e#1738#2338#0" expanded="false" />
+                <element signature="e#2536#5600#0" expanded="false" />
+                <element signature="e#5614#5625#0" expanded="false" />
+                <element signature="e#5666#6291#0" expanded="false" />
+                <element signature="e#6958#7041#0" expanded="false" />
+                <element signature="e#7114#7195#0" expanded="false" />
+                <element signature="e#7274#7358#0" expanded="false" />
+                <element signature="e#7439#7522#0" expanded="false" />
+                <element signature="e#7603#7686#0" expanded="false" />
+                <element signature="e#7767#7850#0" expanded="false" />
+                <element signature="e#7925#8006#0" expanded="false" />
+                <element signature="e#8057#8136#0" expanded="false" />
+                <element signature="e#8198#8281#0" expanded="false" />
+                <element signature="e#8334#8417#0" expanded="false" />
+              </folding>
+=======
+      <file leaf-file-name="treasureStatisticalReports.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/treasureStatisticalReports.html">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="328">
               <caret line="63" column="16" lean-forward="true" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
               <folding />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
               <folding />
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="upToMerchant.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/upToMerchant.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="518">
+              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="108" selection-end-column="6" />
+              <folding>
+                <element signature="n#div#2;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#!!top" expanded="false" />
+=======
+      <file leaf-file-name="allianceMerchant.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/allianceMerchant.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="769">
+              <caret line="88" column="54" lean-forward="true" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="54" />
+              <folding>
+                <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#ul#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+              </folding>
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
             </state>
           </provider>
         </entry>
@@ -211,7 +441,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+<<<<<<< HEAD
+=======
         <option value="CSS File" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
         <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
@@ -219,6 +452,33 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+      <find>allianceO</find>
+      <find>myOrder</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/css/treasure.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/allianceOrderAudit.css" />
+        <option value="$PROJECT_DIR$/net/allianceOrderAudit.html" />
+        <option value="$PROJECT_DIR$/js/allianceOrderAuditCtrl.js" />
+        <option value="$PROJECT_DIR$/js/register.js" />
+        <option value="$PROJECT_DIR$/js/routerList.js" />
+        <option value="$PROJECT_DIR$/css/login.css" />
+        <option value="$PROJECT_DIR$/net/login.html" />
+        <option value="$PROJECT_DIR$/net/my_suge.html" />
+        <option value="$PROJECT_DIR$/demo.html" />
+        <option value="$PROJECT_DIR$/js/upToMerchantCtrl.js" />
+        <option value="$PROJECT_DIR$/css/bass.css" />
+        <option value="$PROJECT_DIR$/js/registerCtrl.js" />
+        <option value="$PROJECT_DIR$/net/register.html" />
+=======
       <find>cls</find>
       <find>writePro</find>
       <find>getPoi</find>
@@ -273,6 +533,7 @@
         <option value="$PROJECT_DIR$/js/treasureWithdrawal.js" />
         <option value="$PROJECT_DIR$/net/myGoodsWithdrawal.html" />
         <option value="$PROJECT_DIR$/js/routerList.js" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/lx.html" />
         <option value="$PROJECT_DIR$/css/allianceMerchant.css" />
         <option value="$PROJECT_DIR$/js/myIntegralDetail.js" />
@@ -297,6 +558,18 @@
         <option value="$PROJECT_DIR$/net/treasureAgentReward.html" />
         <option value="$PROJECT_DIR$/js/treasureBusinessIncome.js" />
         <option value="$PROJECT_DIR$/js/treasureAgentReward.js" />
+=======
+        <option value="$PROJECT_DIR$/net/set.html" />
+        <option value="$PROJECT_DIR$/js/forgetPWPay1.js" />
+        <option value="$PROJECT_DIR$/js/forgetPWPay2.js" />
+        <option value="$PROJECT_DIR$/net/treasureMerchantGiving.html" />
+        <option value="$PROJECT_DIR$/js/treasureMerchantGiving.js" />
+        <option value="$PROJECT_DIR$/net/treasureMerchantPayment.html" />
+        <option value="$PROJECT_DIR$/js/treasureMerchantPayment.js" />
+        <option value="$PROJECT_DIR$/net/treasureStatisticalReports.html" />
+        <option value="$PROJECT_DIR$/js/treasureStatisticalReports.js" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       </list>
     </option>
   </component>
@@ -327,8 +600,79 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope">
         <subPane subId="Project Files">
+=======
+<<<<<<< HEAD
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="sgyxmall.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sgyxmall.com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sgyxmall.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sgyxmall.com" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sgyxmall.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sgyxmall.com" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sgyxmall.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sgyxmall.com" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="set" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sgyxmall.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sgyxmall.com" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sgyxmall.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sgyxmall.com" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+=======
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgyxmall1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgyxmall1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgyxmall1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgyxmall1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
               <option name="myItemId" value="" />
@@ -383,12 +727,43 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scratches" />
+=======
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="sgyxmall1">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="F:/wap" />
+=======
+<<<<<<< HEAD
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WWW\sugemall\sgyxmall\sgyxmall1\sgyxmall.com\css" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../wap" />
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -401,9 +776,16 @@
       <recent name="F:\Git\sgyxmall.com\net" />
       <recent name="C:\Users\Administrator\Desktop\年货\1\sgyxmall1\net" />
       <recent name="C:\Users\Administrator\Desktop\年货\1\sgyxmall1\js" />
+<<<<<<< HEAD
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WWW\sugemall\sgyxmall\sgyxmall\js" />
+=======
+      <recent name="C:\Users\Administrator\Desktop\年货\1\sgyxmall1\images\wealthAll" />
+      <recent name="C:\Users\Administrator\Desktop\年货\1\sgyxmall1\css" />
+      <recent name="C:\Users\Administrator\Desktop\年货\1\sgyxmall1\images" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
     </key>
   </component>
   <component name="RunDashboard">
@@ -418,6 +800,8 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+=======
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
@@ -486,6 +870,7 @@
       <method />
     </configuration>
   </component>
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
@@ -494,6 +879,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
+      <changelist id="46575802-1249-46a3-a901-66378b4067a1" name="Default" comment="" />
+      <created>1518338208744</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518338208744</updated>
+      <workItem from="1518338210736" duration="2296000" />
+      <workItem from="1518404542561" duration="2167000" />
+      <workItem from="1519261161513" duration="4501000" />
+      <workItem from="1519345996547" duration="6093000" />
+      <workItem from="1519371908383" duration="4225000" />
+      <workItem from="1519432758831" duration="21932000" />
+      <workItem from="1519518809351" duration="11864000" />
+=======
       <changelist id="56f2e847-f988-42a8-8421-7f4b450b82e2" name="Default" comment="" />
       <created>1517559594484</created>
       <option name="number" value="Default" />
@@ -519,17 +918,43 @@
       <workItem from="1519433431370" duration="315000" />
       <workItem from="1519433767723" duration="27083000" />
       <workItem from="1519519487536" duration="9513000" />
+<<<<<<< HEAD
       <workItem from="1519541585525" duration="6310000" />
       <workItem from="1519608236322" duration="21041000" />
       <workItem from="1519692593779" duration="12695000" />
       <workItem from="1519779546250" duration="11300000" />
       <workItem from="1519865796464" duration="21402000" />
       <workItem from="1519975717248" duration="334000" />
+=======
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="385927000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="53078000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14739583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+=======
+    <option name="totallyTimeSpent" value="312845000" />
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -541,11 +966,21 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+=======
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -578,12 +1013,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+<<<<<<< HEAD
+      <option name="time" value="1" />
+=======
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/loginCtrl.js</url>
@@ -591,12 +1030,97 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
+<<<<<<< HEAD
       <option name="time" value="18" />
+=======
+      <option name="time" value="17" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/js/treasureWithdrawalDetail.js">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/net/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="97" lean-forward="false" selection-start-line="13" selection-start-column="97" selection-end-line="13" selection-end-column="97" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2398">
+          <caret line="109" column="12" lean-forward="false" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/registerCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding>
+            <element signature="e#778#1699#0" expanded="false" />
+            <element signature="e#1738#2338#0" expanded="false" />
+            <element signature="e#2536#5600#0" expanded="false" />
+            <element signature="e#5614#5625#0" expanded="false" />
+            <element signature="e#5666#6291#0" expanded="false" />
+            <element signature="e#6958#7041#0" expanded="false" />
+            <element signature="e#7114#7195#0" expanded="false" />
+            <element signature="e#7274#7358#0" expanded="false" />
+            <element signature="e#7439#7522#0" expanded="false" />
+            <element signature="e#7603#7686#0" expanded="false" />
+            <element signature="e#7767#7850#0" expanded="false" />
+            <element signature="e#7925#8006#0" expanded="false" />
+            <element signature="e#8057#8136#0" expanded="false" />
+            <element signature="e#8198#8281#0" expanded="false" />
+            <element signature="e#8334#8417#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/allianceOrderAuditCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4488">
+          <caret line="204" column="38" lean-forward="false" selection-start-line="204" selection-start-column="38" selection-end-line="204" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/my_suge.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="62" lean-forward="false" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tabCtrl.js">
+=======
+    <entry file="file://$PROJECT_DIR$/js/treasureAgentReward.js">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
@@ -653,14 +1177,117 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/js/forgetPWPay2.js">
+=======
+    <entry file="file://$PROJECT_DIR$/js/treasurePay.js">
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/js/routerList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3630">
+          <caret line="168" column="17" lean-forward="false" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/allianceOrderAudit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="32" column="54" lean-forward="false" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/allianceOrderAudit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="48" column="35" lean-forward="false" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/my_suge.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="62" lean-forward="false" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tabCtrl.js">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1175">
           <caret line="47" column="47" lean-forward="false" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/net/forgetPW1.html">
+=======
+    <entry file="file://$PROJECT_DIR$/js/routerList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3696">
+          <caret line="168" column="17" lean-forward="false" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/allianceOrderAuditCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1892">
+          <caret line="86" column="37" lean-forward="true" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="39" column="116" lean-forward="false" selection-start-line="39" selection-start-column="116" selection-end-line="39" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/my_suge.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="62" lean-forward="false" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tabCtrl.js">
+=======
+    <entry file="file://$PROJECT_DIR$/net/treasureReward.html">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
@@ -737,6 +1364,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/js/routerList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4675">
@@ -745,6 +1373,46 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/treasure.js">
+=======
+    <entry file="file://$PROJECT_DIR$/js/treasureBillDetail.js">
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/js/routerList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/treasure.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/my_suge.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="46" column="6" lean-forward="true" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
+=======
+    <entry file="file://$PROJECT_DIR$/net/ceshi.html" />
+    <entry file="file://$PROJECT_DIR$/net/treasureWithdrawalDetail.html">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2025">
           <caret line="81" column="4" lean-forward="true" selection-start-line="81" selection-start-column="4" selection-end-line="106" selection-end-column="8" />
@@ -768,12 +1436,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/net/treasure.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="225">
           <caret line="112" column="2" lean-forward="false" selection-start-line="112" selection-start-column="2" selection-end-line="121" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/allianceMerchant.js">
+=======
+        <state relative-caret-position="75">
+          <caret line="3" column="52" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="52" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="40" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/treasure.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/my_suge.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="65" lean-forward="true" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
+=======
+    <entry file="file://$PROJECT_DIR$/css/treasureConversion.css">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="78" column="17" lean-forward="true" selection-start-line="72" selection-start-column="16" selection-end-line="78" selection-end-column="17" />
@@ -789,12 +1489,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/net/allianceMerchant.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="300">
           <caret line="12" column="5" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="12" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/myIncomeDetail.js">
+=======
+        <state relative-caret-position="75">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="8" selection-end-column="6" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/css/treasure.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2178">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tabCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/allianceOrderAudit.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="173" column="37" lean-forward="false" selection-start-line="173" selection-start-column="37" selection-end-line="173" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/allianceOrderAuditCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="141" lean-forward="false" selection-start-line="1" selection-start-column="104" selection-end-line="1" selection-end-column="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2398">
+          <caret line="109" column="12" lean-forward="false" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="97" lean-forward="false" selection-start-line="13" selection-start-column="97" selection-end-line="13" selection-end-column="97" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/vvv.html">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1250">
           <caret line="83" column="77" lean-forward="true" selection-start-line="83" selection-start-column="77" selection-end-line="83" selection-end-column="77" />
@@ -831,6 +1594,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/net/myIncomeDetail.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="750">
           <caret line="75" column="68" lean-forward="true" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="68" />
         </state>
@@ -844,6 +1608,67 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/treasureConversion.js">
+=======
+        <state relative-caret-position="213">
+          <caret line="74" column="32" lean-forward="true" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#strong#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#1742#1748#0" expanded="true" />
+            <element signature="e#1748#1754#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#2193#2199#0" expanded="true" />
+            <element signature="e#2199#2205#0" expanded="true" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/net/allianceOrderAudit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="80" column="22" lean-forward="false" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
+=======
+    <entry file="file://$PROJECT_DIR$/net/forgetPW2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#strong#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#1669#1675#0" expanded="true" />
+            <element signature="e#1675#1681#0" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#1914#1920#0" expanded="true" />
+            <element signature="e#1920#1926#0" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#div#2;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#2161#2167#0" expanded="true" />
+            <element signature="e#2167#2173#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#2;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/js/myOrderCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/myOrder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/net/forgetPWPay1.html">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="96" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
@@ -852,26 +1677,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/net/treasurePrecinctME.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="350">
           <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+=======
+        <state relative-caret-position="75">
+          <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+          <folding />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/treasurePay.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1580">
           <caret line="73" column="104" lean-forward="false" selection-start-line="73" selection-start-column="104" selection-end-line="73" selection-end-column="104" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="419">
+          <caret line="159" column="9" lean-forward="true" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/my_suge.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="40" column="55" lean-forward="false" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+=======
+        <state relative-caret-position="275">
+          <caret line="346" column="28" lean-forward="false" selection-start-line="346" selection-start-column="16" selection-end-line="346" selection-end-column="28" />
+          <folding />
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/treasureGiven.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="636">
           <caret line="88" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/net/treasureJurisdictionE.html">
+=======
+        <state relative-caret-position="491">
+          <caret line="48" column="33" lean-forward="false" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/images/set/ba_select.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/set/ba_no_select.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/merchantAudit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="129" column="30" lean-forward="true" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="54" column="22" lean-forward="true" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+=======
+    <entry file="file://$PROJECT_DIR$/js/forgetPWPay1.js">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
@@ -883,13 +1766,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/treasureJurisdictionE.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="400">
           <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/net/treasureReward.html">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/net/merchantAddGoods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/addAddress.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="107" column="1" lean-forward="false" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="1" />
+=======
+    <entry file="file://$PROJECT_DIR$/net/allianceMerchant.html">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1225">
           <caret line="74" column="67" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="67" />
@@ -901,6 +1808,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/net/treasureBusinessIncome.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1300">
           <caret line="74" column="67" lean-forward="false" selection-start-line="74" selection-start-column="67" selection-end-line="74" selection-end-column="67" />
           <folding>
@@ -912,15 +1820,42 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/net/treasureGiven.html">
+=======
+        <state relative-caret-position="-250">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/net/upToMerchant.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="108" selection-end-column="6" />
+          <folding>
+            <element signature="n#div#2;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#!!top" expanded="false" />
+=======
+    <entry file="file://$PROJECT_DIR$/js/treasureMerchantGiving.js">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="17" column="5" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="17" selection-end-column="5" />
           <folding>
+<<<<<<< HEAD
             <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+=======
+            <element signature="e#1264#1386#0" expanded="false" />
+            <element signature="e#2020#2766#0" expanded="false" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/net/treasureAgentReward.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -932,24 +1867,120 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/treasurePrecinctME.js">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1725">
-          <caret line="87" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding>
-            <element signature="e#2071#2722#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/treasureBusinessIncome.js">
+        <state relative-caret-position="220">
+          <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+=======
+    <entry file="file://$PROJECT_DIR$/js/allianceMerchant.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1850">
-          <caret line="74" column="35" lean-forward="true" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+        <state relative-caret-position="597">
+          <caret line="118" column="59" lean-forward="true" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/js/upToMerchantCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="190" column="10" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="190" selection-end-column="10" />
+          <folding>
+            <element signature="e#1330#1930#0" expanded="false" />
+            <element signature="e#2047#2140#0" expanded="false" />
+            <element signature="e#2262#5396#0" expanded="false" />
+            <element signature="e#5410#5421#0" expanded="false" />
+            <element signature="e#5459#6134#0" expanded="false" />
+            <element signature="e#6190#6559#0" expanded="false" />
+            <element signature="e#6850#8624#0" expanded="false" />
+            <element signature="e#8677#9149#0" expanded="false" />
+            <element signature="e#9205#9301#0" expanded="false" />
+            <element signature="e#9454#9520#0" expanded="false" />
+            <element signature="e#9578#10331#0" expanded="false" />
+            <element signature="e#10889#12309#0" expanded="false" />
+            <element signature="e#12367#12433#0" expanded="false" />
+            <element signature="e#12482#12549#0" expanded="false" />
+            <element signature="e#12606#16323#0" expanded="false" />
+=======
+    <entry file="file://$PROJECT_DIR$/js/treasureMerchantPayment.js">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1725">
+          <caret line="87" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding>
+<<<<<<< HEAD
+            <element signature="e#2071#2722#0" expanded="false" />
+=======
+            <element signature="e#1944#2690#0" expanded="false" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/js/treasureBusinessIncome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1850">
+          <caret line="74" column="35" lean-forward="true" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/css/bass.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="277" column="14" lean-forward="false" selection-start-line="277" selection-start-column="14" selection-end-line="277" selection-end-column="14" />
+=======
+    <entry file="file://$PROJECT_DIR$/net/treasureMerchantGiving.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/js/treasureReward.js">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/js/registerCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+          <folding>
+            <element signature="e#778#1699#0" expanded="false" />
+            <element signature="e#1738#2338#0" expanded="false" />
+            <element signature="e#2536#5600#0" expanded="false" />
+            <element signature="e#5614#5625#0" expanded="false" />
+            <element signature="e#5666#6291#0" expanded="false" />
+            <element signature="e#6958#7041#0" expanded="false" />
+            <element signature="e#7114#7195#0" expanded="false" />
+            <element signature="e#7274#7358#0" expanded="false" />
+            <element signature="e#7439#7522#0" expanded="false" />
+            <element signature="e#7603#7686#0" expanded="false" />
+            <element signature="e#7767#7850#0" expanded="false" />
+            <element signature="e#7925#8006#0" expanded="false" />
+            <element signature="e#8057#8136#0" expanded="false" />
+            <element signature="e#8198#8281#0" expanded="false" />
+            <element signature="e#8334#8417#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="257" column="6" lean-forward="false" selection-start-line="257" selection-start-column="6" selection-end-line="257" selection-end-column="6" />
+          <folding>
+            <element signature="n#div#1;n#!!top" expanded="false" />
+          </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/net/treasureMerchantPayment.html">
+>>>>>>> c2d89f42ba54719cecde13f44bcde1caf9b27045
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
           <caret line="87" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
@@ -973,6 +2004,7 @@
         <state relative-caret-position="75">
           <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
           <folding />
+>>>>>>> d97f4ea7ac9e9275fbcaa4e2011eacb77246cc09
         </state>
       </provider>
     </entry>

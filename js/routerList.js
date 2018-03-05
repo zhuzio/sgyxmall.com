@@ -164,6 +164,16 @@ yx_mallApp.constant('RouterList_Config',[
         templateUrl:"net/upgrade.html",
         controller:"",
         files:[]
+    },
+    {
+        //联盟订单 审核
+        name:"allianceOrderAudit",
+        url:"/_allianceOrderAudit",
+        templateUrl:"net/allianceOrderAudit.html",
+        controller:"allianceOrderAuditController",
+        files:[
+            './js/allianceOrderAuditCtrl.js'
+        ]
     },{
         name:"myGoodsWithdrawal", //我的货款提现
         url:"/_myGoodsWithdrawal?id&name&num",
@@ -208,13 +218,13 @@ yx_mallApp.constant('RouterList_Config',[
             './js/treasureConversion.js'
         ]
     },{
-            name:"merchantDetail",//商家 详情
-            url:"/_merchantDetail?shopId",
-            templateUrl:"net/merchantsDetail.html",
-            controller:"merchantDetailController",
-            files:[
-                './js/merchantDetail.js'
-            ]
+        name:"merchantDetail",//商家 详情
+        url:"/_merchantDetail?shopId",
+        templateUrl:"net/merchantsDetail.html",
+        controller:"merchantDetailController",
+        files:[
+            './js/merchantDetail.js'
+        ]
     },{
         name:"treasurePay",//支付记录
         url:"/_treasurePay",
@@ -358,6 +368,7 @@ yx_mallApp.constant('RouterList_Config',[
         files:[
             './js/treasureWithdrawalDetail.js'
         ]
+
     },{
         //忘记登陆密码1
         name:  "forgetPW1",
@@ -394,6 +405,7 @@ yx_mallApp.constant('RouterList_Config',[
         files:[
             './js/forgetPWPay2.js'
         ]
+
     },{
         name:"set",
         url:"/_set",
@@ -487,6 +499,51 @@ yx_mallApp.constant('RouterList_Config',[
         controller:"buyAndSendIntegralDetailController",
         files:[
             './js/buyAndSendIntegralDetailCtrl.js'
+        ]
+    },
+    {
+        name:"register",
+        url:"/_registerController",
+        templateUrl:"net/register.html",
+        controller:"registerController",
+        files:[
+            './js/registerCtrl.js'
+        ]
+    },
+    {
+        name:"myMember",//我的会员
+        url:"/_myMember",
+        templateUrl:"net/myMember.html",
+        controller:"myMemberController",
+        files:[
+            './js/myMemberCtrl.js'
+        ]
+    },
+    {
+        name:"scanApply",//扫码支付
+        url:"/_scanApply",
+        templateUrl:"net/scanApply.html",
+        controller:"scanApplyController",
+        files:[
+            './js/scanApplyCtrl.js'
+        ]
+    },
+    {
+        name:"allianceOrder",//联盟订单
+        url:"/_allianceOrder",
+        templateUrl:"net/allianceOrder.html",
+        controller:"allianceOrderController",
+        files:[
+            './js/allianceOrderCtrl.js'
+        ]
+    },
+    {
+        name:"applyReturnGoods",//申请退货
+        url:"/_applyReturnGoods",
+        templateUrl:"net/applyReturnGoods.html",
+        controller:"applyReturnGoodsController",
+        files:[
+            './js/applyReturnGoodsCtrl.js'
         ]
     }
 ]);

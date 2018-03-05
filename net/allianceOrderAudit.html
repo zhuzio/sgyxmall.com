@@ -1,6 +1,7 @@
 <div class="module_head" style="position: fixed ;top: 0;left: 0">
     <a href="javascript:window.history.go(-1)"></a>
     联盟订单审核
+   <p id="aoaCheckAll1"ng-click="aoaCheckAll()" ng-if="aoa.aoaCA">批量操作</p>
 </div>
 <div class="aoaContainer">
     <div class="aoaHead">
@@ -60,4 +61,29 @@
             <p class="aoaAddMore" ng-click="aoaAddMore(3)" ng-if="aoa.more_rej">点击加载更多</p>
         </div>
     </div>
+</div>
+<div class="aoaCAContainer" ng-if="aoa.doAll">
+
+    <div class="aoaCACenter aoaCACenter_c" ng-show="aoa.choseDo">
+        <p ng-click="whatDo(1)">全部通过</p>
+        <p ng-click="whatDo(2)">全部驳回</p>
+        <p ng-click="whatDo(0)" style="color: #ccc">取消</p>
+    </div>
+
+    <div class="aoaCACenter" ng-show="aoa.passAll">
+        <p>确认全部通过？</p>
+        <div class="aoaCABtn">
+            <span class="aoaCAP" ng-click="whatDo(0)">取消</span>
+            <span class="aoaCAC" ng-click="whatDo(3)">确认</span>
+        </div>
+    </div>
+
+    <div class="aoaCACenter" ng-show="aoa.rejAll">
+        <p>确认全部驳回？</p>
+        <div class="aoaCABtn">
+            <span class="aoaCAP" ng-click="whatDo(0)">取消</span>
+            <span class="aoaCAC" ng-click="whatDo(4)">确认</span>
+        </div>
+    </div>
+
 </div>

@@ -31,32 +31,46 @@
         background: white;
         border-top: 1px #e5e5e5 solid;
         padding: .1rem 0 .2rem;
+        position: relative;
     }
     .mcAdHeadSearch >input{
-        display: inline-block;
+        display:block;
         height: .5rem;
         border-radius: .1rem;
         border: 1px #e5e5e5 solid;
         font-size: .22rem;
-
+        -webkit-appearance: none;
+        position: absolute;
+        top: .1rem;
     }
     .searchCount{
-        width: 30%;
+        width: 1.6rem;
         margin-left: 2%;
         padding-left: .15rem;
+        left: 0;
     }
     .searchDate{
-        width: 22%;
+        width: 1.5rem;
+    }
+    .searchDate1{
+        left: 2rem;
+    }
+    .searchDate2{
+        left: 3.6rem;
     }
     .searchBtn{
         display: inline-block;
-        width: 15%;
-        border: none;
+        width: 1.1rem;
+        /*border: none;*/
         background: #e79e56;
+        border: 1px #e79e56 solid;
         height: .5rem;
         border-radius: .1rem;
         color: white;
         font-size: .23rem;
+        position: absolute;
+        top: .1rem;
+        right: 0;
     }
     .mcAdList{
         width: 94%;
@@ -158,8 +172,8 @@
 </div>
 <div class="mcAdHeadSearch">
     <input type="text" class="searchCount" placeholder="请输入查询账号" ng-model="mcAd.account">
-    <input type="date" class="searchDate" ng-model="mcAd.beginTime">
-    <input type="date" class="searchDate" ng-model="mcAd.endTime">
+    <input type="date" class="searchDate searchDate1" ng-model="mcAd.beginTime">
+    <input type="date" class="searchDate searchDate2" ng-model="mcAd.endTime">
     <button class="searchBtn" ng-click="mcAdSearch()">查找</button>
 </div>
 <div class="mcAdContainer">

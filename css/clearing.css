@@ -76,7 +76,7 @@
     height: 1.6rem;
     overflow: hidden;
     padding: .2rem 0;
-    border-bottom: 1px solid #ececec;
+    border-top: 1px solid #ececec;
     position: relative;
 }
 .each_order_list >span{

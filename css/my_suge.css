@@ -76,10 +76,10 @@
 }
 .myOld_treasure_container,
 .myOld_service_container{
-    width: 90%;
+    width: 94%;
     height: auto;
     background: white;
-    padding: 0 5%;
+    padding: 0 3%;
     overflow: hidden;
     margin-bottom: .2rem;
 }
@@ -132,7 +132,7 @@
 .about_us{
     margin-top: 1px;
     background: white url("../images/myOld/about.png") no-repeat .15rem center;
-    background-size: auto .4rem;
+    background-size: auto .35rem;
 }
 .big_QR_code,
 .chose_upgrade_box{
@@ -186,9 +186,10 @@
 }
 .merchant_getMoney_code{
     width: 80%;
-    height: 60%;
+    height: auto;
     background: white;
     border-radius: .154rem;
+    padding-bottom: .5rem;
 }
 .merchant_getMoney_info{
     width: 70%;

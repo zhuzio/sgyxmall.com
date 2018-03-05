@@ -1,5 +1,5 @@
 yx_mallApp
-    .controller("allianceOrderAuditController",["$scope","appService","$state","$stateParams",function ($scope,appService,$state,$stateParams) {
+    .controller("allianceOrderAuditController",["$scope","appService","$state","$window",function ($scope,appService,$state,$window) {
         document.title = "联盟订单审核";
         $scope.aoa={
             userInfo:[],
@@ -39,6 +39,18 @@ yx_mallApp
             TAudPage:0,
             TPasTPage:0,
             TRejTPage:0,
+            // 批量操作
+            aoaCA:true,
+            //选择操作
+            choseDo:true,
+            //全部通过
+            passAll:false,
+            //全部驳回
+            rejAll:false,
+            //批量操作弹出层
+            doAll:false
+
+
         };
         $scope.aoa.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         //tab 切换
@@ -47,41 +59,65 @@ yx_mallApp
                 case 1:
                     $scope.aoa.isAudit = true;
                     $scope.aoa.isAuditMo= true;
+
                     $scope.aoa.isPass = false;
                     $scope.aoa.isPassMo = false;
+
                     $scope.aoa.isReject = false;
                     $scope.aoa.isRejectMo = false;
+
                     $scope.aoa.isSearchMo = true;
                     $scope.aoa.is_check = 0;
+
+                    $scope.aoa.audPage=1;
+
+                    $scope.aoa.aoaCA = true;
+
                     $scope.getDatas(idx,$scope.aoa.is_check);
                     $(".aoaCenter").css("margin-top","2.8rem");
                     break;
                 case 2:
                     $scope.aoa.isAudit = false;
                     $scope.aoa.isAuditMo= false;
+
                     $scope.aoa.isPass = true;
                     $scope.aoa.isPassMo = true;
+
                     $scope.aoa.isReject = false;
+                    $scope.aoa.isRejectMo = false;
+
                     $scope.aoa.isSearchMo = false;
                     $scope.aoa.is_check = 1;
+
+                    $scope.aoa.pasPage=1;
+
+                    $scope.aoa.aoaCA = false;
+
                     $scope.getDatas(idx,$scope.aoa.is_check);
                     $(".aoaCenter").css("margin-top","1.8rem");
                     break;
                 case 3:
                     $scope.aoa.isAudit = false;
                     $scope.aoa.isAuditMo= false;
+
                     $scope.aoa.isPass = false;
                     $scope.aoa.isPassMo = false;
+
                     $scope.aoa.isReject = true;
                     $scope.aoa.isRejectMo = true;
+
                     $scope.aoa.isSearchMo = false;
                     $scope.aoa.is_check = 2;
+
+                    $scope.aoa.rejPage=1;
+
+                    $scope.aoa.aoaCA = false;
+
                     $scope.getDatas(idx,$scope.aoa.is_check);
                     $(".aoaCenter").css("margin-top","1.8rem");
                     break;
             }
         };
-
         // 请求数据
         $scope.getDatas=function(idx,is_check) {
             /*
@@ -101,7 +137,6 @@ yx_mallApp
                     case 1:
                         $scope.aoa.waitAudit = value.data.data;
                         $scope.aoa.TAudPage = value.data.totalpage;
-                        console.log($scope.aoa.TAudPage) ;
                         if ($scope.aoa.TAudPage > 1){
                             $scope.aoa.more_aud = true;
                         }
@@ -109,10 +144,16 @@ yx_mallApp
                     case 2:
                         $scope.aoa.havePass = value.data.data;
                         $scope.aoa.TPasTPage = value.data.totalpage;
+                        if ($scope.aoa.TPasTPage > 1){
+                            $scope.aoa.more_pas = true;
+                        }
                         break;
                     case 3:
                         $scope.aoa.haveReject = value.data.data;
                         $scope.aoa.TRejTPage = value.data.totalpage;
+                        if ($scope.aoa.TRejTPage > 1){
+                            $scope.aoa.more_rej = true;
+                        }
                         break;
                 }
             },function (reason) {
@@ -122,7 +163,6 @@ yx_mallApp
         $scope.getDatas(1,0);
         //  通过/驳回申请
         $scope.aoaReject=function (sta,orderId,eve) {
-            console.log()
 
             var aoaReject = appService._postData(URL+"index.php?s=Api/shop_center1/check_order",{
                 token:$scope.aoa.userInfo.token,
@@ -138,7 +178,8 @@ yx_mallApp
                             // 审核驳回
                             case 2:
                                 $(eve.target).parents(".aoaAudit").find(".boH").css("display","block");
-                                $scope.aoa.isBtn = false;
+                                // $scope.aoa.isBtn = false;
+                                this.$scope.aoa.isBtn = false;
                                 break;
                             // 审核通过
                             case 1:
@@ -180,7 +221,19 @@ yx_mallApp
                 is_check:is_check
             });
                 addMoreData.then(function (value) {
-                    console.log(value);
+                    if (value.data.data == ""){
+                        switch (idx){
+                            case 1:
+                                $scope.aoa.more_aud = false;
+                                break;
+                            case 2:
+                                $scope.aoa.more_pas = false;
+                                break;
+                            case 3:
+                                $scope.aoa.more_rej = false;
+                                break;
+                        }
+                    };
                     for (var i in value.data.data){
                         switch (idx){
                             case 1:
@@ -198,9 +251,9 @@ yx_mallApp
                     console.log(reason)
                 })
         };
-        console.log($scope.aoa.audPage);
         // 点击加载更多
         $scope.aoaAddMore=function (idx) {
+            console.log(idx)
             switch (idx){
                 case 1:
                     $scope.aoa.audPage+=1;
@@ -214,6 +267,81 @@ yx_mallApp
                     $scope.aoa.rejPage+=1;
                     $scope.addMoreData(idx,$scope.aoa.rejPage,2);
                     break;
+            }
+        };
+        // 批量操作 弹出层
+        $scope.aoaCheckAll=function () {
+           $scope.aoa.doAll = true;
+        };
+        $scope.whatDo=function (idx) {
+            /*
+            * 0 :取消操作
+            * 1 ：全部通过按钮
+            * 2 ：全部驳回按钮
+            * 3 ：全部通过操作
+            * 4 ：全部驳回操作
+            *
+            * */
+            switch (idx){
+                case 0:
+                    $scope.aoa.doAll = false;
+                    $scope.aoa.choseDo = true;
+                    $scope.aoa.passAll = false;
+                    $scope.aoa.rejAll = false;
+                    break;
+                case 1:
+                    $scope.aoa.choseDo = false;
+                    $scope.aoa.passAll = true;
+                    $scope.aoa.rejAll = false;
+                    break;
+                case 2:
+                    $scope.aoa.choseDo = false;
+                    $scope.aoa.passAll = false;
+                    $scope.aoa.rejAll = true;
+                    break;
+                case 3:
+                    var buyArr = [];
+                    for (var i in $scope.aoa.waitAudit){
+                        buyArr.push(($scope.aoa.waitAudit)[i].order_sn)
+                    };
+                    var allPass=appService._postData(URL+"index.php?s=Api/shop_center1/check_order",{
+                        token:$scope.aoa.userInfo.token,
+                        way:$scope.aoa.userInfo.way,
+                        order_sn:buyArr,
+                        is_check:1,
+                        order_type:"offline"
+                    });
+                        allPass.then(function (value) {
+                            if(value.data.ret="success"){
+                                alert(value.data.msg);
+                                $window.location.reload()
+                            }
+                        },function (reason) {
+                            console.log(reason)
+                        })
+                    break;
+                case 4:
+                    var buyArr = [];
+                    for (var i in $scope.aoa.waitAudit){
+                        buyArr.push(($scope.aoa.waitAudit)[i].order_sn)
+                    };
+                    var allPass=appService._postData(URL+"index.php?s=Api/shop_center1/check_order",{
+                        token:$scope.aoa.userInfo.token,
+                        way:$scope.aoa.userInfo.way,
+                        order_sn:buyArr,
+                        is_check:2,
+                        order_type:"offline"
+                    });
+                    allPass.then(function (value) {
+                        if(value.data.ret="success"){
+                            alert(value.data.msg);
+                            $window.location.reload()
+                        }
+                    },function (reason) {
+                        console.log(reason)
+                    })
+                    break;
+
             }
         }
 

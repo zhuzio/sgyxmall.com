@@ -7,7 +7,7 @@ header.my_header{
     align-items: center;
 }
 .header_container{
-    width: 50%;
+    width: 60%;
     height: 1.3rem;
     /*background: white;*/
 }
@@ -75,7 +75,7 @@ header.my_header{
 .service_tel{
     margin-top: .3rem;
     background: white url("../images/people.png") no-repeat .15rem center;
-    background-size:  auto .4rem;
+    background-size:  auto .35rem;
 }
 .s_tel{
     float: right;
