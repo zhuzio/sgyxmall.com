@@ -43,6 +43,7 @@ yx_mallApp
             merchantQR:false,
             //商家收款二维码图片路径
             merchantQRUrl:"",
+            returnTxt:[],
 
         };
 
@@ -119,7 +120,7 @@ yx_mallApp
         $scope.quitLogin=function () {
             localStorage.clear();
             $state.go("login")
-        }
+        };
         //放大二维码
         $scope.bigQRcode=function () {
             $scope.myOld.bigQR = true;
@@ -162,6 +163,101 @@ yx_mallApp
                 },function (reason) {
                     console.log(reason)
                 })
+        };
+        //扫一扫
+        var getSingPackage=appService._postData(URL+"index.php?s=Api/shop_center1/getSignPackge",{
+            way:$scope.myOld.userInfo.way,
+            url:"wap/index.html#/tabs_myOld"
+        });
+            getSingPackage.then(function (value) {
+                //console.log(value.data.msg);
+                $scope.wxInit=function () {
+                    wx.config({
+                        debug: false,
+                        appId: value.data.msg.appId,
+                        timestamp: value.data.msg.timestamp,
+                        nonceStr: value.data.msg.nonceStr,
+                        signature: value.data.msg.signature,
+                        jsApiList:[
+                            'scanQRCode',
+                        ]
+                    });
+                    wx.ready(function () {
+                        // 在这里调用 API
+                        /*wx.checkJsApi({
+                            jsApiList: ['scanQRCode'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+                            success: function (res) {
+                                //alert("aaaaa")
+                                // 以键值对的形式返回，可用的api值true，不可用为false
+                                // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+                            }
+                        });
+                        wx.onMenuShareAppMessage({
+                            title: f_title,
+                            desc: f_desc,
+                            link: link,
+                            imgUrl: f_img,//自定义图片地址
+                            trigger: function (res) {
+                                alert('用户点击发送给朋友');
+                            },
+                            success: function (res) {
+                                alert('已分享');
+                            },
+                            cancel: function (res) {
+                                alert('已取消');
+                            },
+                            fail: function (res) {
+                                alert(JSON.stringify(res));
+                            }
+                        });
+                         wx.error(function(res){
+
+                        alert(res.errMsg);
+                         });*/
+                    });
+                   
+                };
+                $scope.wxInit();
+            },function (reason) {
+                console.log(reason)
+            });
+        $scope.wxScrn=function () {
+            wx.scanQRCode({
+                needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                success: function (res) {
+                    if (res.errMsg === "scanQRCode:ok"){
+                       var scan=appService._postData(res.resultStr,{way:$scope.myOld.userInfo.way});
+                            scan.then(function (value) {
+                                $scope.myOld.returnTxt = value;
+                                if(value.data.ret == "ok"){
+                                    localStorage.setItem("weChatScan",JSON.stringify(value.data.data));
+                                    $state.go("scanApply");
+                                }else {
+                                    alert(value.data.msg);
+                                    return false;
+                                }
+                            },function (reason) {
+                                console.log(reason)
+                            })
+                    }
+
+
+
+                    /*
+                    var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                    if(result.data.url == 'saoyisao.html'){
+                        localStorage.setItem('sys_data',JSON.stringify(result.data));
+                        location.href = result.data.url;
+                    }
+                    */
+                },
+                error:function (e) {
+                    alert('调用失败')
+                }
+            });
         }
+
+
 
     }])

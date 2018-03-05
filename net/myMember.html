@@ -1,0 +1,63 @@
+<style type="text/css">
+    .myMemberContainer{
+        width: 100%;
+        height: auto;
+    }
+    .myMemberSearchHead{
+        width: 94%;
+        height: .8rem;
+        padding: .1rem 3%;
+        background: #fff;
+        border-top: 1px #e5e5e5 solid;
+    }
+    .myMemberSearchHead >div{
+        float: left;
+        line-height: .8rem;
+    }
+    .mmPullDownList{
+        width: 25%;
+        height: 100%;
+        position: relative;
+        font-size: .26rem;
+    }
+    .mmpTxt{
+        width: 75%;
+        text-align: center;
+    }
+    .mmIcon{
+        position: absolute;
+        width: .3rem;
+        height: .3rem;
+        display: block;
+        background: url("images/more_unfold.png") no-repeat center;
+        background-size: .3rem auto;
+        right: 0;
+        top: .25rem;
+
+    }
+    .mmIcon_on{
+        transform: rotate(180deg) ;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    我的会员
+</div>
+<div class="myMemberContainer">
+    <!--搜索头部-->
+    <div class="myMemberSearchHead">
+        <!--下拉列表-->
+        <div class="mmPullDownList">
+            <p class="mmpTxt">所有推荐</p>
+            <i class="mmIcon"></i>
+            <div class="mmPullDown">
+
+            </div>
+        </div>
+        <!--搜索框-->
+        <div class="mmSearch">
+
+        </div>
+
+    </div>
+</div>

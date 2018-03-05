@@ -475,5 +475,41 @@ yx_mallApp.constant('RouterList_Config',[
         files:[
             './js/registerCtrl.js'
         ]
+    },
+    {
+        name:"myMember",//我的会员
+        url:"/_myMember",
+        templateUrl:"net/myMember.html",
+        controller:"myMemberController",
+        files:[
+            './js/myMemberCtrl.js'
+        ]
+    },
+    {
+        name:"scanApply",//扫码支付
+        url:"/_scanApply",
+        templateUrl:"net/scanApply.html",
+        controller:"scanApplyController",
+        files:[
+            './js/scanApplyCtrl.js'
+        ]
+    },
+    {
+        name:"allianceOrder",//联盟订单
+        url:"/_allianceOrder",
+        templateUrl:"net/allianceOrder.html",
+        controller:"allianceOrderController",
+        files:[
+            './js/allianceOrderCtrl.js'
+        ]
+    },
+    {
+        name:"applyReturnGoods",//申请退货
+        url:"/_applyReturnGoods",
+        templateUrl:"net/applyReturnGoods.html",
+        controller:"applyReturnGoodsController",
+        files:[
+            './js/applyReturnGoodsCtrl.js'
+        ]
     }
 ]);

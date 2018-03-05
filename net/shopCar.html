@@ -16,7 +16,7 @@
                         <img ng-src="http://www.sgyxmall.com/{{goods.default_img}}" alt="{{goods.goods_name}}" class="ecs_img fl">
                         <div class="ecs_info fl">
                             <p class="ecs_name">{{goods.goods_name}}</p>
-                            <p class="ecs_type">{{goods.goods_types}} </p>
+                            <p class="ecs_type" style="width: 3.5rem;overflow: hidden;height: 0.3rem;">{{goods.goods_types}} </p>
                             <div class="esc_count">
                                 <p class="esc_sub fl" ng-click="addCount(goods,false)">-</p>
                                 <input type="number" class="esc_number fl" readonly value="{{goods.goods_count}}">

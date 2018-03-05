@@ -6,13 +6,14 @@
         width: 100%;
         height: auto;
         background: white;
+        margin-top: .3rem;
     }
     .regList{
         width: 94%;
-        height: .8rem;
+        height: .9rem;
         margin: 0 auto;
         border-bottom: 1px #e5e5e5 solid;
-        line-height: .8rem;
+        line-height: .9rem;
         font-size: .26rem;
         position: relative;
     }
@@ -20,11 +21,21 @@
         display: inline-block;
         width: 20%;
     }
+    .imgCode{
+        position: absolute;
+        width: 1.7rem;
+        height: .6rem;
+        right: 0rem;
+        top: .15rem;
+        border: 1px #e5e5e5 solid;
+        border-radius: .1rem;
+    }
     .regList input{
-        width: 75%;
-        height: 85%;
+        width: 65%;
+        height: 80%;
         border: none;
         font-size: .26rem;
+        background: none;
     }
     .reg_getCode{
         width: 30% !important;
@@ -35,10 +46,10 @@
         height: auto;
         display: inline-block;
         right: 0;
-        top: .15rem;
+        top: .18rem;
         border-radius: .15rem;
         line-height: normal !important;
-        padding: .1rem .15rem;
+        padding: .12rem .175rem;
         color: #ccc;
         border: 1px #ccc solid;
     }
@@ -89,7 +100,7 @@
         background: #e79e56;
         color: white;
         line-height: .8rem;
-        margin: 0.5rem auto;
+        margin: 1rem auto;
         text-align: center;
         font-size: .3rem;
         border-radius: .2rem;
@@ -128,10 +139,16 @@
 <div class="registerContainer">
     <div class="regList">
         <span class="regTitle">手机号</span>
-        <input type="number" placeholder="请输入手机号" ng-model="reg.regTel"></div>
+        <input type="number" placeholder="请输入手机号" ng-model="reg.regTel">
+    </div>
     <div class="regList">
-        <span class="regTitle">验证码</span>
-        <input type="number" placeholder="请输入验证码" class="reg_getCode" ng-model="reg.regCode">
+        <span class="regTitle">图片验证</span>
+        <input type="text" placeholder="请输入图片验证码" ng-model="reg.imgCodeNum" ng-change="judgeImgCode()">
+        <img ng-src="{{reg.imgCodeSrc}}" alt="" class="imgCode" ng-click="changeImg()">
+    </div>
+    <div class="regList">
+        <span class="regTitle">手机验证</span>
+        <input type="number" placeholder="请输入手机验证码" class="reg_getCode" ng-model="reg.regCode">
         <span class="regGetCodeBtn GCB_on" ng-click="getMessageCode()" ng-class={'GCB_on':reg.clickSta}>{{reg.getMsgTxt}}</span>
     </div>
     <div class="regList">
@@ -148,16 +165,16 @@
     </div>
     <div class="regList">
         <span class="regTitle">真实姓名</span>
-        <input type="text" placeholder="请输入您的真实姓名" ng-model="reg.regRealName">
+        <input type="text" placeholder="请输入您的真实姓名" ng-model="reg.regRealName" ng-focus="reg.realName = true" ng-blur="reg.realName = false">
     </div>
-    <p class="regSmall">*请输入您的真实姓名，一经提交不可更改</p>
+    <p class="regSmall" ng-show="reg.realName">*请输入您的真实姓名，一经提交不可更改</p>
     <div class="regList">
         <span class="regTitle">注册地</span>
-        <input type="text" placeholder="请选择省 市 县" ng-model="area.address" ng-focus="reg.regCity = true">
+        <input type="text" placeholder="请选择省 市 县" ng-model="area.address" ng-click="reg.regCity = true" ng-readonly="true">
     </div>
     <p class="theReg">
         <input type="checkbox" id="agree" ng-model="reg.regAgreement">
-        <label for="agree"> 我已阅读并同意</label>
+        <label for="agree" style="color: #666"> 我已阅读并同意</label>
         <span ng-click="reg.regAgreementCon = true">用户协议</span></p>
     <p class="regBtn" ng-click="userRegister()">提交</p>
 </div>

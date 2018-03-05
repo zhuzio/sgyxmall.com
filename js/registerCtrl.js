@@ -1,5 +1,6 @@
 yx_mallApp
     .controller("registerController",["$scope","appService","$state","$interval",function ($scope,appService,$state,$interval) {
+        document.title = "会员注册";
         $scope.reg={
             //短信计时器
             clickSta:true,
@@ -23,18 +24,32 @@ yx_mallApp
             //三级城市连选
             regCity:false,
             //协议内容
-            regAgreementCon:false
+            regAgreementCon:false,
+            //真是姓提示
+            realName:false,
+            //图片验证码路径
+            imgCodeSrc:"http://www.sgyxmall.com/index.php?s=Api/user/code",
+            //图片验证码
+            imgCodeNum:"",
+            //返回的短信ID
+            msgID:"",
+            //图片验证码的正确活错误
+            watherImgCode:false
 
         };
+
         //获取短信验证码
         $scope.getMessageCode=function () {
-            console.log($scope.reg.regTel)
             var z_tel= /^1(3|4|5|7|8|9)\d{9}$/;
             if ($scope.reg.regTel == ""){
                 alert("请输入电话号码！！！");
                 return false;
             }else if(z_tel.test($scope.reg.regTel) == false){
                 alert("电话号码格式错误！！！");
+                return false;
+            };
+            if (!$scope.reg.watherImgCode){
+                alert("您的图片验证码错误，请重新输入");
                 return false;
             };
             if($scope.reg.clickSta){
@@ -50,9 +65,41 @@ yx_mallApp
                             $scope.reg.getMsgTxt =num+ "s后重发";
                         }
                     },1000);
+                //请求发送短信
+                var msgCode = appService._postData(URL+"index.php?s=api/user/send_code",{
+                    phone:$scope.reg.regTel,
+                    type:"register"
+                });
+                    msgCode.then(function (value) {
+
+                        if (value.data.ret == "ok"){
+                            $scope.reg.msgID = value.data.data.id;
+                        }
+                    },function (reason) {
+                        console.log(reason)
+                    })
 
             }
         };
+        //获取图片验证码
+        $scope.changeImg=function () {
+            var time = new Date().getTime();
+            $scope.reg.imgCodeSrc = "http://www.sgyxmall.com/index.php?s=Api/user/code/"+time
+        };
+        //判断图片验证码
+        $scope.judgeImgCode=function () {
+            // console.log($scope.reg.imgCodeNum.length)
+            if ($scope.reg.imgCodeNum.length == 4){
+                var judegImgCode = appService._postData(URL+"index.php?s=Api/User/check_verify",{code:$scope.reg.imgCodeNum});
+                    judegImgCode.then(function (value) {
+
+                       $scope.reg.watherImgCode = value.data.msg;
+                    },function (reason) {
+                        console.log(reason)
+                    })
+            }
+        }
+
         //三级城市联线
         $scope.area={
             //初始化省份
@@ -191,20 +238,14 @@ yx_mallApp
         //提交注册信息
         $scope.userRegister=function () {
             var w_num=/^[0-9]*$/;
-           /* console.log(w_num.test($scope.reg.regApplyPsd))
-            console.log($scope.reg.regApplyPsd.length);
-            console.log($scope.reg.regTel);
-            console.log($scope.reg.regCode);
-            console.log($scope.reg.regRecCode);
-            console.log($scope.reg.regLoginPsd);
-            console.log($scope.reg.regApplyPsd);
-            console.log($scope.reg.regRealName);
-            console.log($scope.reg.regLocation);
-            console.log($scope.reg.regAgreement);*/
             if ($scope.reg.regTel == "" || $scope.reg.regTel == null){
                 alert("电话号码不能为空！！！");
                 return false;
             };
+            if ($scope.reg.imgCodeNum == "" || $scope.reg.imgCodeNum == null){
+                alert("图片验证码不能为空！！！");
+                return false;
+            }
             if ($scope.reg.regCode == "" || $scope.reg.regCode == null){
                 alert("请输入验证码！！！");
                 return false;
@@ -241,6 +282,31 @@ yx_mallApp
                alert("支付密码只能为6位数字！！！");
                return false;
            };
+            var   register=appService._postData(URL+"index.php?s=Api/user/register",{
+                phone:$scope.reg.regTel,//注册用户手机号
+                code:$scope.reg.regCode,//短信验证码
+                code_id:$scope.reg.msgID,//短信验证码的ID
+                tjphone:$scope.reg.regRecCode,//推荐人的手机号码
+                password:$scope.reg.regLoginPsd,//设置的登录密码
+                zfpw:$scope.reg.regApplyPsd,//设置的支付密码
+                real_name:$scope.reg.regRealName,//注册用户的真是姓名
+                province:$scope.area.proNum,//省份
+                city:$scope.area.cityNum,//市区
+                area:$scope.area.disNum//地区
+            });
+                register.then(function (value) {
+                    console.log(value);
+                    if (value.data.ret=="success"){
+                        alert(value.data.msg);
+                        $state.go("login");
+                    }else {
+                        alert(value.data.msg);
+                        return false;
+                    }
+                },function (reason) {
+                    console.log(reason)
+                })
+
         };
 
 

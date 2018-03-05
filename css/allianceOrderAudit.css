@@ -37,13 +37,13 @@
     line-height: .6rem;
 }
 .aoaSearch >input{
-    width: 25%;
+    width: 20%;
     border: none;
     border-bottom: 1px #e5e5e5 solid;
     background: none;
     text-align: center;
     margin-right: .1rem;
-
+    -webkit-appearance: none;
 }
 .aoaSearch >button{
     width: 15%;
@@ -53,6 +53,7 @@
     color: white;
     border-radius: .1rem;
     padding: .1rem 0;
+    -webkit-appearance: none;
 }
 .aoaHead >div{
     float: left;
@@ -158,7 +159,7 @@
 .aoaCACenter{
     position: absolute;
     width: 100%;
-    height: 2rem;
+    height: auto;
     background: white;
     left: 0;
     bottom: 0;
