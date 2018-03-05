@@ -64,12 +64,15 @@
           userInfo:[]
       };
       $scope.userBCInfo.userInfo = JSON.parse(localStorage.getItem("userInfo"));
-      var cardList = appService._postData(URL+"index.php?s=Api/Userset/crad",{token:$scope.userBCInfo.userInfo.token,way:$scope.userBCInfo.userInfo.way});
+      var cardList = appService._postData(URL+"index.php?s=Api/Userset/crad",{
+          token:$scope.userBCInfo.userInfo.token,way:$scope.userBCInfo.userInfo.way});
       cardList.then(function (e) {
-             if(e.data.data){
+             if(e.data.data.length){
+                 // console.log(e.data.data)
                  $scope.tre.withdrawal_layer=true;
              }
-
+              // console.log(e)
+          console.log("123");
           },
           function (reason) {
               console.log(reason)
@@ -106,7 +109,7 @@
       $scope.load = function() {
 
           $scope.change(   parseInt(localStorage.getItem("status111"))   );
-          console.log(localStorage.getItem("status111"));
+          // console.log(localStorage.getItem("status111"));
       };
 
 
@@ -134,9 +137,10 @@
       //提现弹出层
       $scope.txOk=function () {
           if(!$scope.tre.withdrawal_layer){
-              $scope.tre.withdrawal_layer1 = true;
+              $scope.tre.withdrawal_layer1 = true;//没有绑定银行卡
           }else{
-              $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
+
+              $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});//绑定了银行卡
           }
 
 

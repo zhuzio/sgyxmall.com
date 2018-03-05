@@ -48,7 +48,49 @@ yx_mallApp
 //			$scope.index.locate=myCache1.get("city");
 //		}
     if(sessionStorage.getItem("city")){
+        // 有定位
         $scope.index.locate=sessionStorage.getItem("city");
+
+        //附近商家数据 数据请求
+        var shop=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")});
+        shop.then(function (e) {
+            console.log(e);
+            $scope.index.shop=e.data.data;
+            setTimeout(function () {   },0)
+
+
+
+        },function (e) {
+            console.log(e)
+        });
+//加载更多
+
+        $scope.more=function () {
+
+            $scope.index.page=$scope.index.page+1;
+            var moreLike=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")})
+            moreLike.then(function (e) {
+                if(e.data.data == "" ){
+                    $(".more").html("暂无更多")
+                }else {
+                    $scope.index.shop= $scope.index.shop.concat(e.data.data);
+
+                    console.log(e);
+                }
+
+            },function (e) {
+                console.log(e)
+            })
+
+
+
+
+        };
+
+
+
+
+
     }else{
 
 
@@ -92,45 +134,47 @@ yx_mallApp
 
             console.log($scope.index.lon);
 
+            //附近商家数据 数据请求
+            var shop=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")});
+            shop.then(function (e) {
+                console.log(e);
+                $scope.index.shop=e.data.data;
+                setTimeout(function () {   },0)
+
+
+
+            },function (e) {
+                console.log(e)
+            });
+
+            $scope.more=function () {
+
+                $scope.index.page=$scope.index.page+1;
+                var moreLike=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")})
+                moreLike.then(function (e) {
+                    if(e.data.data == "" ){
+                        $(".more").html("暂无更多")
+                    }else {
+                        $scope.index.shop= $scope.index.shop.concat(e.data.data);
+
+                        console.log(e);
+                    }
+
+                },function (e) {
+                    console.log(e)
+                })
+
+
+
+
+            };
+
+
         }
 
 
     }
 
-    //附近商家数据 数据请求
-    var shop=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")});
-    shop.then(function (e) {
-        console.log(e);
-        $scope.index.shop=e.data.data;
-        setTimeout(function () {   },0)
-
-
-
-    },function (e) {
-        console.log(e)
-    });
-
-    $scope.more=function () {
-
-                        $scope.index.page=$scope.index.page+1;
-                        var moreLike=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")})
-                        moreLike.then(function (e) {
-                            if(e.data.data == "" ){
-                                $(".more").html("没有更多了...")
-                            }else {
-                                $scope.index.shop= $scope.index.shop.concat(e.data.data);
-
-                                console.log(e);
-                            }
-
-                        },function (e) {
-                            console.log(e)
-                        })
-
-
-
-
-    };
 
 
 
@@ -139,5 +183,4 @@ yx_mallApp
 
 
 
-
-}])
+}]);

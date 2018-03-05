@@ -7,13 +7,13 @@ yx_mallApp
         document.title="修改密码";
 
                     $scope.user={
-                        oldpw:"",
+
                         newpw1:"",
                         newpw2:"",
 
 
                     };
-
+console.log(typeof JSON.parse(localStorage.getItem("userInfo")).user_name)
                      $scope.submit=function () {
 
                          if($scope.user.newpw1!=$scope.user.newpw2){
@@ -21,14 +21,18 @@ yx_mallApp
                          }
 
 
-                         var ma=appService._postData(URL+"index.php?s=/Api/wealth/user_deposit",{
-                             token: localStorage.getItem("tokens"),
-                             way:localStorage.getItem("way"),
+                         var ma=appService._postData(URL+"index.php?s=/Api/Password/update_login_password",{
+                             user_name:JSON.parse(localStorage.getItem("userInfo")).user_name,
                              password:$scope.user.newpw1,
 
                          });
                          ma.then(function (e) {
-                               console.log(e);
+                               if(e.data.ret="success"){
+                                   alert(e.data.msg);
+                                 $state.go("set");
+                               }else {
+                                   alert(e.data.msg);
+                               }
                          },function (e) {
                              console.log(e);
                          });

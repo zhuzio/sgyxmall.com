@@ -35,7 +35,7 @@
         <li ng-if="myOld.service.collection" ng-click="getMerchantQR()"><img src="images/myOld/Receivables.png" alt="收款"><span>收款</span></li>
         <li ng-if="myOld.service.buyIntegral"><img src="images/myOld/Purchase_integral.png" alt="购积分" ui-sref="buyIntegral"><span>购积分</span></li>
         <li ng-if="myOld.service.sendIntegral"><img src="images/myOld/Hair_integral.png" alt="发积分" ui-sref="sendIntegral"><span>发积分</span></li>
-        <li ng-if="myOld.service.payment"><img src="images/myOld/Payment_for_goods.png" alt="货款"><span>货款</span></li>
+        <li ng-if="myOld.service.payment" ui-sref="myGoodsWithdrawal({id:'1',name:'1',num:'1'})"><img src="images/myOld/Payment_for_goods.png" alt="货款"><span>货款</span></li>
         <li><img src="images/myOld/Member.png" alt="我的会员"><span>我的会员</span></li>
         <li><img src="images/myOld/Receiving_address.png" alt="收货地址"><span>收货地址</span></li>
         <li><img src="images/myOld/Wu_select.png" alt="物流查询"><span>物流查询</span></li>

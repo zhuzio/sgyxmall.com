@@ -7,28 +7,48 @@ yx_mallApp
         document.title="修改支付密码";
 
                     $scope.user={
-                        oldpw:"",
+
                         newpw1:"",
                         newpw2:"",
+                        typeName:false,
+                        z_tel:/[0-9]{6}/,
+                    };
+
+                    $scope.ckecked=function (e) {
+                        console.log(e)
+                           if(!$scope.user.z_tel.test(e-0)||e.length!=6){
+                               $scope.user.typeName=true;
+
+                           }else {
+                               $scope.user.typeName=false;
+                           }
+
 
 
                     };
+
 
                      $scope.submit=function () {
 
                          if($scope.user.newpw1!=$scope.user.newpw2){
                              return false;
                          }
+                         if($scope.user.typeName){
+                             return false;
+                         }
 
-
-                         var ma=appService._postData(URL+"index.php?s=/Api/wealth/user_deposit",{
-                             token: localStorage.getItem("tokens"),
-                             way:localStorage.getItem("way"),
+                         var ma=appService._postData(URL+"index.php?s=/Api/password/update_pay_password",{
+                             user_name:JSON.parse(localStorage.getItem("userInfo")).user_name,
                              password:$scope.user.newpw1,
 
                          });
                          ma.then(function (e) {
-                               console.log(e);
+                             if(e.data.ret="success"){
+                                 alert(e.data.msg);
+                                 $state.go("set");
+                             }else {
+                                 alert(e.data.msg);
+                             }
                          },function (e) {
                              console.log(e);
                          });

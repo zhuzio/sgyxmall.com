@@ -1,0 +1,116 @@
+<!--我的提现明细-->
+<style>
+	body, html {
+		background: white !important;
+		letter-spacing: .5px;
+	}
+	.more {
+		width: 20%;
+		text-align: center;
+		height: .6rem;
+		line-height: .6rem;
+		margin: 0 auto;
+		font-size: .25rem;
+		border: 1px solid black ;
+		margin-bottom: .2rem;
+		color: #FFFFFF;
+		background: gray;
+	}
+</style>
+<div class="treCon_container">
+	<div class="mc_head">
+		<a href="javascript:window.history.back(-1)"></a>
+		<div class="mc_classify">
+			我的提现明细
+		</div>
+	</div>
+	<div class="treCon_score">
+		<div class="treCon_score_top">
+			<div class="treCon_score_top_fen">
+				<span>本月累计提现(积分)</span>
+				<span> <strong>{{Withdrawal.current}}</strong> </span>
+			</div>
+		</div>
+		<div class="treCon_score_bot">
+			历史累计提现 (积分)：{{Withdrawal.total}}
+		</div>
+
+	</div>
+	<p class="am_near_shop_all">提现明细</p>
+	<!--所有信息展示-->
+	<div class="treCon_all_show">
+
+
+		<div class="treCon_one_show" ng-repeat="v in Withdrawal.month" >
+			<div class="treCon_one_top"  ng-click="change($index,v.months)">
+				{{v.months|datatimes}} 总计：{{v.order_amount}}积分<span ng-if="$index!=Withdrawal.selected" class="treCon_imgSp2">&nbsp;</span><span ng-if="$index==Withdrawal.selected"  class="treCon_imgSp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</div>
+			<div ng-if="$index==Withdrawal.selected" >
+				<div class="treCon_one_show" ng-repeat="w in Withdrawal.dayDetail"> <!--ng-repeat="v in user" -->
+
+					<div class="treCon_one_bot"  >
+						<div class="treCon_one_1" >
+							<div class="treCon_one_left">
+								<img src="images/wealthAll/qiandai.png" class="treCon_img2"/>提现金额
+							</div>
+							<div style="display: inline-block;margin-left: 1rem;">
+								{{w.money}}
+							</div>
+							<div class="treCon_one_right">
+								<span ng-if="w.ip==0"><img src="images/wealthAll/w_dsh.jpg" class="treCon_img2"/>待审核</span>
+								<span ng-if="w.ip==1"><img src="images/wealthAll/w_tno.png" class="treCon_img2"/>已到账</span>
+								<span ng-if="w.ip==2"><img src="images/wealthAll/w_tok.png" class="treCon_img2"/>已驳回</span>
+							</div>
+						</div>
+						<div class="treCon_one_1" >
+							<div class="treCon_one_left">
+								<img src="images/wealthAll/w_ttime.png" class="treCon_img2"/>申请时间
+							</div>
+							<div style="display: inline-block;margin-left: 1rem;">
+								{{w.createtime}}
+							</div>
+							<div class="treCon_one_right">
+
+							</div>
+						</div>
+						<div class="treCon_one_1">
+							<div class="treCon_one_left">
+								<img src="images/wealthAll/w_tcard.png" class="treCon_img2"/>到账银行卡
+							</div>
+							<div style="display: inline-block;margin-left: .7rem;">
+								{{w.bank_code}}
+							</div>
+							<div class="treCon_one_right">
+
+							</div>
+						</div>
+						<div class="treCon_one_1" >
+							<div class="treCon_one_left">
+								<img src="images/wealthAll/w_ttime.png" class="treCon_img2"/>到账时间
+							</div>
+							<div style="display: inline-block;margin-left: 1rem;">
+								{{w.operatortime}}
+							</div>
+							<div class="treCon_one_right">
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<p class="more"  ng-click="more(v.months)" >加载更多</p>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+</div>

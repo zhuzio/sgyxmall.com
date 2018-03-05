@@ -1,4 +1,22 @@
 <!--代理奖励-->
+<style>
+	body, html {
+		background: white !important;
+		letter-spacing: .5px;
+	}
+	.more {
+		width: 20%;
+		text-align: center;
+		height: .6rem;
+		line-height: .6rem;
+		margin: 0 auto;
+		font-size: .25rem;
+		border: 1px solid black ;
+		margin-bottom: .2rem;
+		color: #FFFFFF;
+		background: gray;
+	}
+</style>
 <div class="treCon_container">
 	<div class="mc_head">
         <a href="javascript:window.history.back(-1)"></a>
@@ -27,12 +45,13 @@
 			
 			<div class="treCon_one_bot" ng-click="change($index,v.times)" > <!--ng-repeat="x in v.detail "-->
 				<div class="treCon_one_1">
-					<div class="treCon_one_left">
-						{{v.times|datatimes}}奖励
-					</div>
-					<div class="treCon_one_right">
-						{{v.money}} &nbsp;<img src="images/wealthAll/qiandai.png" class="treCon_img1"/>
-					</div>
+					<!--<div class="treCon_one_left"></div>-->
+						{{v.times|datatimes}}奖励{{v.money}} &nbsp;<img src="images/wealthAll/qiandai.png" class="treCon_img1"/>
+
+					<!--<div class="treCon_one_right"></div>-->
+					<span ng-if="$index!=arr.selected" class="treCon_imgSp2">&nbsp;</span><span ng-if="$index==arr.selected"  class="treCon_imgSp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+
 				</div>
 				
 			</div>
@@ -54,7 +73,7 @@
 						</div>
 					</div>
 				</div>
-			
+				<p class="more"  ng-click="more(v.times)" >加载更多</p>
 			</div>
 		   <div class="treCon_one_bg"></div>
 

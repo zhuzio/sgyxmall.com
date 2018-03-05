@@ -1,0 +1,154 @@
+<!--收入明细-->
+<style>
+	body, html {
+		background: white !important;
+		letter-spacing: .5px;
+	}
+	.bg{
+		background:#8cb0be;
+	}
+
+	.more {
+		width: 20%;
+		text-align: center;
+		height: .6rem;
+		line-height: .6rem;
+		margin: 0 auto;
+		font-size: .25rem;
+		border: 1px solid black;
+		margin-bottom: .2rem;
+		margin-top: .2rem;
+		color: #FFFFFF;
+		background: gray;
+	}
+</style>
+<div class="treCon_container">
+	<div class="mc_head">
+		<a href="javascript:window.history.back(-1)"></a>
+		<div class="mc_classify">
+			发购积分明细
+		</div>
+	</div>
+
+
+	<div class="treCon_score" style="height: auto;">
+		<div class="tre_top">
+
+			<div class="tre_sel">
+				<span  class="tre_span3  tre_ba" ng-click="show1(1)">发积分</span>
+				<span class="tre_span4" ng-click="show1(2)">购积分</span>
+			</div>
+
+		</div>
+
+		<div class="treCon_score_top">
+			<div class="treCon_score_top_fen">
+				<span>当前积分</span>
+				<span> <strong>{{Withdrawal.current}}</strong> </span>
+			</div>
+		</div>
+		<div class="treCon_score_bot" ng-if="Withdrawal.status_fa">
+			    累计发(积分)：{{Withdrawal.fa_total}}
+		</div>
+
+
+		<div class="treCon_score_bot" ng-if="Withdrawal.status_gou">
+			累计购(积分)：{{Withdrawal.gou_total}}
+		</div>
+
+	</div>
+
+	<!--所有信息展示-->
+	<div class="treCon_all_show">
+
+             <!--发积分-->
+		<div class="treCon_one_show" ng-if="Withdrawal.status_fa" ng-repeat="v in Withdrawal.fa_month" >
+			<div class="treCon_one_top"  ng-click="change($index,v.months)">
+				{{v.months}} 总计：{{v.point}}积分<span ng-if="$index!=Withdrawal.selected" class="treCon_imgSp2">&nbsp;</span><span ng-if="$index==Withdrawal.selected"  class="treCon_imgSp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</div>
+			<div ng-if="$index==Withdrawal.fa_selected" >
+
+				<div class="treCon_list">
+					<div class="treCon_one_bot" ng-repeat="x in Withdrawal.fa_dayDetail">
+						<div class="treCon_one_1">
+							<div class="treCon_one_left">
+								<img src="images/wealthAll/z-1000.png" class="treCon_img3"/> 平台赠送:{{x.system_point}}
+							</div>
+
+						</div>
+						<div class="treCon_one_1">
+							<div class="treCon_one_left">
+								<img src="images/wealthAll/z-z20.png" class="treCon_img3"/>商家赠送:{{x.shops_point}}
+							</div>
+							<div class="treCon_one_right">
+								<img src="images/wealthAll/{{x.is_pass|txImg }}" style="width: .95rem"/>
+							</div>
+						</div>
+						<div class="treCon_one_1">
+							<div class="treCon_one_left">
+								<img src="images/wealthAll/Members.png" class="treCon_img3"/>会员:{{x.real_name}}
+							</div>
+							<div class="treCon_one_right">
+								<img src="images/wealthAll/tre_mobile.png" class="treCon_img3"/>{{x.user_name}}
+							</div>
+						</div>
+						<div class="treCon_one_1">
+							<div class="treCon_one_left">
+								商城订单:{{x.order_sn}}
+							</div>
+							<div class="treCon_one_right">
+								<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>{{x.time}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<p class="more" ng-if="Withdrawal.status_fa" ng-click="more(v.months)" >加载更多</p>
+			</div>
+		</div>
+		     <!--购积分-->
+		<div class="treCon_one_show" ng-if="Withdrawal.status_gou" ng-repeat="v in Withdrawal.gou_month" >
+			<div class="treCon_one_top"  ng-click="change($index,v.months)">
+				{{v.months}} 总计：{{v.point}}积分<span ng-if="$index!=Withdrawal.selected" class="treCon_imgSp2">&nbsp;</span><span ng-if="$index==Withdrawal.selected"  class="treCon_imgSp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</div>
+			<div ng-if="$index==Withdrawal.gou_selected" >
+
+				<div class="treCon_list">
+					<div class="treCon_one_bot" ng-repeat="x in Withdrawal.gou_dayDetail">
+						<div class="treCon_one_1">
+							<div class="treCon_one_left">
+								<img src="images/wealthAll/z-z20.png" class="treCon_img3"/> 购入积分:{{x.num}}
+							</div>
+							<div class="treCon_one_right">
+								每积分:{{x.price}}
+							</div>
+						</div>
+						<div class="treCon_one_1">
+							<div class="treCon_one_left">
+								<img src="images/wealthAll/z-z41.png" class="treCon_img3"/>共计:{{x.amount}}
+							</div>
+
+						</div>
+						<div class="treCon_one_1">
+							<div class="treCon_one_left">
+								订单号:{{x.orderid}}
+							</div>
+							<div class="treCon_one_right">
+								<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>{{x.time}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<p class="more" ng-if="Withdrawal.status_gou" ng-click="more(v.months)" >加载更多</p>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+</div>

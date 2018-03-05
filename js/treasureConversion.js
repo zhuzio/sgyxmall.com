@@ -10,7 +10,9 @@ yx_mallApp
             dayDetail:[{get_money:66,happiness:11,order_type:"541",createtime:"2018-01-11 00:11:12"},{get_money:16,happiness:10,order_type:"offline",createtime:"2018-01-01 10:31:12"}],
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月转化，默认为零
-            total:0//累计转化，默认为零
+            total:0,//累计转化，默认为零
+            oldselected:-2,
+            page:1,
         };
 
 
@@ -41,10 +43,15 @@ yx_mallApp
         //   点击请求加载本月数据
         $scope.change=function($index,time){
             //   点击请求加载本月数据
+            $scope.treasureConversion.oldselected=$scope.treasureConversion.selected;
+
             $scope.treasureConversion.selected=$index;
-            console.log($index);
-            console.log($scope.treasureConversion.selected);
-            console.log(time);
+            if($scope.treasureConversion.oldselected==$scope.treasureConversion.selected){
+                $scope.treasureConversion.oldselected=-2;
+                $scope.treasureConversion.selected=-1;
+                $scope.treasureConversion.dayDetail=[];
+                return false;
+            }
 
             var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record_month",{
                 token: localStorage.getItem("tokens"),
@@ -59,6 +66,41 @@ yx_mallApp
             //   初加载请求
 
         }
+
+
+
+
+
+        $scope.more=function(e){
+            $scope.treasureConversion.page=$scope.treasureConversion.page+1;
+            var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record_month",{
+                token: localStorage.getItem("tokens"),
+                way:localStorage.getItem("way"), time:e,page:$scope.treasureConversion.page});
+            conversion_record.then(function(e){
+                if(e.data.data == "" ){
+                    $(".more").html("暂无更多")
+                }else {
+                   $scope.treasureConversion.dayDetail.concat(e.data.data);
+
+                }
+                console.log(e);
+            },function(e){
+                console.log(e);
+            })
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
     }]);

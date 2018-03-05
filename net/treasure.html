@@ -1,5 +1,11 @@
 <!--会员   财富-->
-<div class="hy" ng-if="tre.level==1">
+<style>
+	body, html {
+		background: white !important;
+		letter-spacing: .5px;
+	}
+</style>
+<div class="hy" ng-if="tre.level==1||tre.level==2">
 
 <div class="mc_head">
         <a ui-sref="tabs.myOld"></a>
@@ -7,9 +13,10 @@
                             财富
         </div>
 </div>
+
 <div class="tre_container">
   <div class="tre_top">
-  	<!--<span class="tre_span1" ui-sref="treasureBill"></span>-->
+  	<span class="tre_span1" style="visibility: hidden" ui-sref="treasureBill"></span>
   	<span>购物积分</span>
   	<span class="tre_span2" ui-sref="treasureNews"></span>
   </div>	
@@ -94,7 +101,7 @@
 
 </div>	
 <!--非会员   财富-->
-<div class="hy" ng-if="tre.level!=1">
+<div class="hy" ng-if="tre.level!=1&&tre.level!=2">
 
 <div class="mc_head">
         <a ui-sref="tabs.myOld"></a>
@@ -104,13 +111,14 @@
    </div>
 <div class="tre_container" data-ng-init="load()">
   <div class="tre_top">
-  	<!--<span class="tre_span1" ui-sref="treasureBill1" ng-show="tre.status_sy"></span>-->
-  	<!--<span class="tre_span1" ui-sref="treasureBill" ng-show="tre.status_gw"></span>-->
+  	<!--<span class="tre_span1" ui-sref="treasureBill1" ng-show="tre.status_sy">ng-show="tre.status_gw"</span>-->
+  	<span class="tre_span1" style="visibility: hidden" ui-sref="treasureBill" ></span>
   	<div class="tre_sel">
   		<span  class="tre_span3  tre_ba" ng-click="change(1)">购物积分</span>
-  		<span class="tre_span4" ng-click="change(2)">推荐奖励</span>
+  		<span class="tre_span4" ng-click="change(2)">收益奖励</span>
   	</div>
-  	<span class="tre_span2" ui-sref="treasureNews"></span>
+  	<!--<span class="tre_span2" ui-sref="myGoodsWithdrawal"></span>-->
+	  <span class="tre_span2" ui-sref="treasureNews"></span>
   </div>	
   <div class="tre_middle">
   	 <div class="tre_middle_fen" ng-show="tre.status_gw">
@@ -174,7 +182,7 @@
 	    <!--收益奖励模块-->
 	    <ul class="am_ul_1" ng-show="tre.status_sy">
 	    	<!--基础功能，具有角色 1会员 2商家 3社区 4 县区 5 市区  6 省区-->
-			<li class="am_li_1" ng-click="zsOk()">
+			<li class="am_li_1" ng-if="tre.level==4" ng-click="zsOk()">
 				<img ng-src="images/myWealth/Investment_income.png"   alt="招商收益">
 				<span>招商收益</span>
 			</li>

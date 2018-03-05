@@ -11,6 +11,12 @@
 	<div class="treCon_all_show">
 	 
 	 <!--购物积分的账单-->
+		<style>
+			body, html {
+				background: white !important;
+				letter-spacing: .5px;
+			}
+		</style>
 		 <div ng-if="detail.billtype=='1'" ng-repeat="v in detail.data ">
 			<!--      type===1 ：  会员转化 2 ：购物积分奖励      其他 ：    市场补贴-->
 		   <div class="treCon_one_show"  ng-if="v.type!='9'" > 

@@ -1,5 +1,11 @@
 <!--提现-->
 <style>
+
+	body, html {
+		background: white !important;
+		letter-spacing: .5px;
+	}
+
 	.mima{
 		position: fixed;
 		top: 0;
@@ -151,7 +157,7 @@
 			</div>
 			<div style="margin:.5rem .3rem ;overflow: hidden">
 				<span class="fl" ng-if="Withdrawal.zf_no" style="font-size: .3rem;color: red">警告: 密码错误 </span>
-				<span class="fr"  style="font-size: .3rem;color: #007aff;">忘记密码</span>
+				<span class="fr"  style="font-size: .3rem;color: #007aff;" ui-sref="forgetPWPay1">忘记支付密码</span>
 			</div>
 			<ul>
 				<li>

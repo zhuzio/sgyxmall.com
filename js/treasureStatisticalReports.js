@@ -61,7 +61,7 @@ yx_mallApp
             });
             moreLike.then(function (e) {
                 if(e.data.data == "" ){
-                    $(".more").html("没有更多了...")
+                    $(".more").html("暂无更多")
                 }else {
                     $scope.bb.data= $scope.bb.data.concat(e.data.data);
 

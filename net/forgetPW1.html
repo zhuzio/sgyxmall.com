@@ -1,5 +1,9 @@
 <!--忘记登陆密码-->
 <style>
+    body, html {
+        background: white !important;
+        letter-spacing: .5px;
+    }
 .wj_lc{
     width: 100%;
     height: .6rem;
@@ -9,7 +13,7 @@
 .wj_lc span{
     width: 49%;
     height: .6rem;
-    font-size: .3rem;
+    font-size: .27rem;
     display: inline-block;
     text-align: center;
     line-height: .6rem;
@@ -31,19 +35,20 @@
         line-height: .6rem;
     }
 #yzm{
+    display: inline-block;
     border: 1px solid red;
-    padding: .1rem;
+    padding:0 .1rem;
     height: 0.5982rem;
     border-radius: .1rem;
     font-size: .25rem;
-    margin-right: 0;
+    float: right;
     color: red;
 
 }
   .iut{
       border: none;
       letter-spacing: 1px;
-      font-size: .2rem;
+      font-size: .24rem;
   }
 .next{
     margin: 0 auto;
@@ -58,7 +63,9 @@
     margin-top: .6rem;
 }
 
-
+iuput{
+    background: #FFFFFF;
+}
 
 </style>
 <div class="wj_head_container">
@@ -77,14 +84,14 @@
         <div class="wj_all">
             <div class="treCon_one_1" >
                 <!--<div class="treCon_one_left"> </div>-->
-                    <strong style="font-size:0.28rem;color: #333333;">手机号</strong>&nbsp;&nbsp;<input type="number"  placeholder="请输入手机号" class="iut" id="phone"  ng-model="user.phone" ng-change="jianCe(user.phone)" />
-                     <span style="color: red;margin-left: 1rem;font-size:0.2rem;" ng-if="user.err">手机号格式不对</span>
+                    <span    style="font-size:0.24rem;color: #333333;">手机号</span>&nbsp;&nbsp;<input type="number" readonly placeholder="请输入手机号" class="iut" id="phone"  ng-model="user.phone" ng-change="jianCe(user.phone)" />
+                     <span style="color: red;font-size:0.2rem;" ng-if="user.err">手机号格式不对</span>
 
 
             </div>
             <div class="treCon_one_1" >
                 <!--<div class="treCon_one_left"></div>-->
-                    <strong style="font-size:0.28rem;color: #333333;">验证码</strong>&nbsp;&nbsp;<input type="number" placeholder="请输入验证码"  class="iut" id="ma"   value="" />
+                    <span    style="font-size:0.24rem;color: #333333;">验证码</span>&nbsp;&nbsp;<input type="number" placeholder="请输入验证码"  class="iut" id="ma"  ng-model="user.code" />
                     <span id="yzm" ng-click="yzm()">{{user.yzm}}</span>
 
 

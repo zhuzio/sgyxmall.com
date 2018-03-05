@@ -97,10 +97,12 @@ yx_mallApp
         });
         moreLike.then(function (e) {
             if(e.data.data.total_amount_jiu == "" ){
-                $(".more").html("没有更多了...")
+                $(".more").html("暂无更多")
             }else {
                 $scope.dan.data= $scope.dan.data.concat(e.data.data.total_amount_jiu);
+                  if(e.data.data.total_amount_jiu){
 
+                  }
                 console.log(e);
             }
 

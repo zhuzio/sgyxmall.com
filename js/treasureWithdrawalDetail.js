@@ -14,6 +14,9 @@ yx_mallApp
         });
         uesr.then(function (e) {
             $scope.wo.data=e.data.data;
+            if(!e.data.data.length){
+                $(".more").html("暂无更多")
+            }
             console.log(e);
         },function (e) {
             console.log(e);
@@ -26,7 +29,7 @@ yx_mallApp
                 way:localStorage.getItem("way")});
             moreLike.then(function (e) {
                 if(e.data.data == "" ){
-                    $(".more").html("没有更多了...")
+                    $(".more").html("暂无更多")
                 }else {
                     $scope.wo.data= $scope.wo.data.concat(e.data.data);
 

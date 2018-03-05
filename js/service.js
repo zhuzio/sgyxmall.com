@@ -110,6 +110,21 @@ yx_mallApp
 
 
     };
+}).filter("txImg",function(){
+
+    return function(num){
+        if(num=="0"){
+            return "Audit.png";
+        }else if(num=="1"){
+            return "Adoption.png";
+        }else {
+            return "Rejected.png";
+        }
+
+
+
+
+    };
 })
    .filter("imgChange",function(){
 

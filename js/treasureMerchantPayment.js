@@ -88,7 +88,7 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
         });
         moreLike.then(function (e) {
             if(e.data.data.total_amount_san == "" ){
-                $(".more").html("没有更多了...")
+                $(".more").html("暂无更多")
             }else {
                 $scope.dan.data= $scope.dan.data.concat(e.data.data.total_amount_san);
 

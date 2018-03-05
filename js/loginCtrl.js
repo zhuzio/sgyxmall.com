@@ -105,6 +105,7 @@ yx_mallApp
                     localStorage.setItem("userInfo",JSON.stringify(e.data.data));
                     localStorage.setItem('tokens', e.data.data.token);
                     localStorage.setItem("way",e.data.data.way);
+                    // localStorage.setItem("type",e.data.data.way);
                     alert("登录成功");
                     $state.go("tabs.index");
                 }

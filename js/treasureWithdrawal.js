@@ -6,7 +6,7 @@ yx_mallApp
 	    password:false,
 	    money:0,
         bank_id:"",//卡id
-        bank_name:"",//卡类型
+        bank_name:"请选择卡",//卡类型
         bank_num:"",//卡号
         zf_password:[],//密码收集
         zf_ok:[],//密码位数
@@ -22,9 +22,11 @@ yx_mallApp
         way:localStorage.getItem("way")
     });
 	uesr.then(function (e) {
+	    console.log(e);
         $scope.Withdrawal.money=e.data.data.maxMoney;
         // 默认的卡号
         if($stateParams.name=="1"){
+
             $scope.Withdrawal.bank_id=e.data.data.default_card.bank_id;
             $scope.Withdrawal.bank_name=e.data.data.default_card.bank_name;
             $scope.Withdrawal.bank_num=e.data.data.default_card.bank_num;
@@ -37,7 +39,7 @@ yx_mallApp
 
         }
 
-        console.log(e);
+
     },function (e) {
         console.log(e);
     });
@@ -105,7 +107,9 @@ $scope.maxMoney=function (e) {
         };
         //添加
         $scope.select1=function (e) {
-
+            $scope.Withdrawal.zf_password.push(e);
+            $scope.Withdrawal.zf_ok.push("*");
+            // console.log($scope.Withdrawal.zf_password);
             if($scope.Withdrawal.zf_password.length==6){
                 var pw=$scope.Withdrawal.zf_password.join("");
                 console.log(pw);
@@ -123,15 +127,16 @@ $scope.maxMoney=function (e) {
                     console.log(e);
                     //成功后处理
 
-                    if(0){ //  密码正确
-                        $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
-                    }else { //  密码错误
+                    if(e.data.ret=="err"){ //  密码错误
                         $scope.Withdrawal.zf_no=true;
                         $timeout(function () {
                             $scope.Withdrawal. zf_password=[];
                             $scope.Withdrawal. zf_ok=[];
                             $scope.Withdrawal.zf_no=false;
                         },1500);
+                    }else { //  密码正确
+                        alert(e.data.msg);
+                        $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
                     }
 
 
@@ -140,9 +145,7 @@ $scope.maxMoney=function (e) {
                 })
                 return false;
             }
-            $scope.Withdrawal.zf_password.push(e);
-            $scope.Withdrawal.zf_ok.push("*");
-            console.log($scope.Withdrawal.zf_password);
+
         };
 
 

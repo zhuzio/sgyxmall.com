@@ -1,5 +1,9 @@
 <!--忘记登陆密码-->
 <style>
+    body, html {
+        background: white !important;
+        letter-spacing: .5px;
+    }
     .wj_lc{
         width: 100%;
         height: .6rem;
@@ -9,7 +13,7 @@
     .wj_lc span{
         width: 49%;
         height: .6rem;
-        font-size: .3rem;
+        font-size: .27rem;
         display: inline-block;
         text-align: center;
         line-height: .6rem;
@@ -34,7 +38,7 @@
     .iut{
         border: none;
         letter-spacing: 1px;
-        font-size: .2rem;
+        font-size: .24rem;
     }
     .next{
         margin: 0 auto;
@@ -48,7 +52,9 @@
         background: #eecfb2;
         margin-top: .6rem;
     }
-
+    iuput{
+        background: #FFFFFF;
+    }
 
 
 </style>
@@ -66,24 +72,22 @@
             <span>2重置登陆密码</span>
         </div>
         <div class="wj_all">
+            <!--<div class="treCon_one_1" >-->
+
+                <!--<span    style="font-size:0.24rem;color: #333333;">原密码</span>&nbsp;&nbsp;<input type="password"  placeholder="请输入原密码" class="iut" id="pw1"  ng-model="user.oldpw" />-->
+
+            <!--</div>-->
             <div class="treCon_one_1" >
 
-                <strong style="font-size:0.28rem;color: #333333;">原密码</strong>&nbsp;&nbsp;<input type="password"  placeholder="请输入原密码" class="iut" id="pw1"  ng-model="user.oldpw" />
+                <span    style="font-size:0.24rem;color: #333333;">新密码</span>&nbsp;&nbsp;<input type="password"  placeholder="请输入新密码" class="iut" id="pw2"  ng-model="user.newpw1" />
 
 
 
             </div>
             <div class="treCon_one_1" >
 
-                <strong style="font-size:0.28rem;color: #333333;">新密码</strong>&nbsp;&nbsp;<input type="password"  placeholder="请输入新密码" class="iut" id="pw2"  ng-model="user.newpw1" />
-
-
-
-            </div>
-            <div class="treCon_one_1" >
-
-                <strong style="font-size:0.28rem;color: #333333;">确认密码</strong>&nbsp;&nbsp;<input type="password"  placeholder="确认新密码" class="iut" id="pw3"  ng-model="user.newpw2" />
-                <span style="color: red;margin-left: .5rem;font-size:0.2rem;" ng-if="user.newpw1!=user.newpw2">密码不一致</span>
+                <span    style="font-size:0.24rem;color: #333333;">确认密码</span>&nbsp;&nbsp;<input type="password"  placeholder="确认新密码" class="iut" id="pw3"  ng-model="user.newpw2" />
+                <span style="color: red;font-size:0.2rem;" ng-if="user.newpw1!=user.newpw2">密码不一致</span>
 
 
             </div>
@@ -91,7 +95,7 @@
 
 
         </div>
-        <div class="next">
+        <div class="next" ng-click="submit()">
             确认修改
         </div>
 

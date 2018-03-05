@@ -165,6 +165,41 @@ yx_mallApp.constant('RouterList_Config',[
         controller:"",
         files:[]
     },{
+        name:"myGoodsWithdrawal", //我的货款提现
+        url:"/_myGoodsWithdrawal?id&name&num",
+        templateUrl:"net/myGoodsWithdrawal.html",
+        controller:"myGoodsWithdrawalController",
+        files:[
+            './js/myGoodsWithdrawal.js'
+        ]
+    },{
+        //我的  货款 提现明细
+        name:  "myWithdrawalDetail",
+        url:"/myWithdrawalDetail",
+        templateUrl:"net/myWithdrawalDetail.html",
+        controller:"myWithdrawalDetailController",
+        files:[
+            './js/myWithdrawalDetail.js'
+        ]
+    },{
+        //我的  积分发送明细
+        name:  "myIntegralDetail",
+        url:"/myIntegralDetail",
+        templateUrl:"net/myIntegralDetail.html",
+        controller:"myIntegralDetailController",
+        files:[
+            './js/myIntegralDetail.js'
+        ]
+    },{
+        //我的  货款 收入明细
+        name:  "myIncomeDetail",
+        url:"/myIncomeDetail",
+        templateUrl:"net/myIncomeDetail.html",
+        controller:"myIncomeDetailController",
+        files:[
+            './js/myIncomeDetail.js'
+        ]
+    },{
         name:"treasureConversion", //财富  转化
         url:"/_treasureConversion",
         templateUrl:"net/treasureConversion.html",
@@ -172,7 +207,6 @@ yx_mallApp.constant('RouterList_Config',[
         files:[
             './js/treasureConversion.js'
         ]
-
     },{
             name:"merchantDetail",//商家 详情
             url:"/_merchantDetail?shopId",

@@ -1,0 +1,247 @@
+<!--提现-->
+<style>
+
+	body, html {
+		background: white !important;
+		letter-spacing: .5px;
+	}
+
+	.mima{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		background: rgba(0, 0, 0, 0.46);
+		z-index: 999999999;
+	}
+	.mima ul{
+		width: 100%;
+		height: auto;
+		/*padding: 0 .3rem .25rem;*/
+		overflow: hidden;
+		background: white;
+		/*border-radius: .3rem;*/
+	}
+	.mima ul li{
+		width: 100%;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+	}
+	.mima ul li:nth-child(1){
+
+		border-top: 1px solid rgba(0,0,0,0.1);
+	}
+	.mima ul li span{
+		display: inline-block;
+		width: 32%;
+		height: 1rem;
+		text-align: center;
+	    line-height:1rem;
+		font-size: .3rem;
+	}
+	.mima ul li span:nth-child(2){
+		border-left: 1px solid rgba(0,0,0,0.1) ;
+		border-right: 1px solid rgba(0,0,0,0.1) ;
+	}
+  .import{
+
+	  width: 84%;
+	  height: .6rem;
+
+	  margin: .4rem auto;
+  }
+	.import input{
+		width: 14%;
+		display: inline-block;
+		font-size: .6rem;
+	    height: 100%;
+       line-height: 100%;
+		text-align: center;
+		-webkit-appearance: textfield;
+
+	}
+	.import span{
+		width: 14%;
+		display: inline-block;
+		font-size: .6rem;
+		height: 100%;
+		/*line-height: 100%;*/
+		text-align: center;
+        border: 1px solid rgba(0,0,0,0.3) ;
+		vertical-align: middle;
+	}
+	.mima_top{
+		height: .5rem;
+		margin:.2rem auto ;
+		font-size: .3rem;
+		text-align: center;
+		line-height: .5rem;
+	}
+	.bg1{
+		background: #ead9c8;
+	}
+	.bg2{
+          background: #ef8b27;
+	}
+	.tre_container {
+		width: 100%;
+		height: 3.8rem;
+		background: #eecfb2;;
+	}
+	.tre_li_1{
+		text-align: center;
+		height: auto;
+	}
+	.tx_img1{
+		width: .4rem;
+
+	}
+
+
+</style>
+<div class="treCon_container">
+	<div class="mc_head">
+        <a  ui-sref="tabs.myOld"></a>
+        <div class="fr treCon_mx" style="visibility: hidden" ui-sref="treasureWithdrawalDetail">
+        	提现明细
+        </div>
+        <div class="mc_classify" style="text-indent:5em ;">
+                            货款提现
+        </div>
+        
+    </div>
+
+
+	<div class="tre_container">
+
+		<div class="tre_middle" style="padding-top: .2rem">
+			<div class="tre_middle_fen tre_middle_b">
+				<span class="tre_middle_1">当前可用(分)</span> <br />
+				<span>{{Withdrawal.current_money}}</span>
+			</div>
+
+		</div>
+		<div class="tre_bot">
+			<ul class="tre_ul_1">
+				<li class="tre_li_1" ui-sref="myIntegralDetail" >
+
+					<img ng-src="images/wealthAll/Purchase_points.png" class="tx_img1" src="" alt="">
+
+					<span>购积分明细</span>
+				</li>
+				<li class="tre_li_1 tre_li_11" ui-sref="myIncomeDetail">
+
+					<img ng-src="images/wealthAll/Income_breakdown.png" class="tx_img1" src="" alt="">
+					<span>货款收入明细</span>
+
+				</li>
+				<li class="tre_li_1" ui-sref="myWithdrawalDetail">
+
+					<img ng-src="images/wealthAll/Presentation_Details.png" class="tx_img1" src="" alt="">
+					<span>货款提现明细</span>
+				</li>
+
+			</ul>
+
+		</div>
+		<div class="" style="clear: both;"></div>
+
+
+	</div>
+
+
+
+	<div class="treCon_one_bg"></div>
+	<div class="treCon_one_bg"></div>
+	<div class="treCon_all_show">
+		
+		
+	   <div class="treCon_one_show"  > <!--ng-repeat="v in user"-->
+			<div class="treCon_one_top" style="background: #F8F8F8;"  ui-sref="manageBandCard"> <!--ng-click="change($index)"-->
+				到账银行卡 &nbsp;&nbsp;&nbsp;<span style="color: #8CB0BE;">{{Withdrawal.bank_name}}(尾号{{Withdrawal.bank_num}})  </span>     <span class="treCon_imgSp2">&nbsp;</span>
+			</div>
+			<div class="treCon_one_bot" style=" border-bottom:0;"> 
+				<div class="treCon_one_1">
+					<div class="treCon_one_left" style="font-size:0.2393rem;color: #666666;">
+						提现金额
+					</div>
+					
+				</div>
+				<div class="treCon_one_1" style="letter-spacing: 0px;font-size: .15rem; border-bottom: 1px solid #e9e9e9;">
+					<div class="treCon_one_left">
+						<strong style="font-size:0.4273rem;color: #333333;">￥</strong>&nbsp;&nbsp;<input type="number" class="moneyt" id="moneyt" ng-change="inp()" ng-model="Withdrawal.tq_money" value="" />
+					</div>
+					
+				</div>
+				<div class="treCon_one_1" >
+					<div class="treCon_one_left" style="font-size: 0.2393rem;clear:both ">
+						<span class="color9">可提现余额</span><span class="color6">{{Withdrawal.money}}</span>,<span class="color8c" ng-click="maxMoney(Withdrawal.money)">全部提现</span>
+					</div>
+					
+				</div>
+				<div class="treCon_one_1 tx bg1"   style="font-size:0.3393rem;color: #FFFFFF;overflow: hidden;text-align: center;width: 92%;" >
+                          确认提现
+				</div>
+
+			</div>
+
+
+
+
+		</div>
+
+
+	
+	</div>
+	
+	<div class="mima" ng-show="Withdrawal.password" >
+		<div></div>
+		<div style="background: #FFFFFF;width: 100%">
+			<div class="mima_top">请输入支付密码</div>
+			<div class="import">
+
+				<span>{{Withdrawal.zf_ok[0]}}</span>
+				<span>{{Withdrawal.zf_ok[1]}}</span>
+				<span>{{Withdrawal.zf_ok[2]}}</span>
+				<span>{{Withdrawal.zf_ok[3]}}</span>
+				<span>{{Withdrawal.zf_ok[4]}}</span>
+				<span>{{Withdrawal.zf_ok[5]}}</span>
+			</div>
+			<div style="margin:.5rem .3rem ;overflow: hidden">
+				<span class="fl" ng-if="Withdrawal.zf_no" style="font-size: .3rem;color: red">警告: 密码错误 </span>
+				<span class="fr"  style="font-size: .3rem;color: #007aff;" ui-sref="forgetPWPay1">忘记支付密码</span>
+			</div>
+			<ul>
+				<li>
+					<span ng-click="select1(1)">1</span>
+					<span ng-click="select1(2)">2</span>
+					<span ng-click="select1(3)">3</span>
+				</li>
+				<li>
+					<span ng-click="select1(4)">4</span>
+					<span ng-click="select1(5)">5</span>
+					<span ng-click="select1(6)">6</span>
+				</li>
+				<li>
+					<span ng-click="select1(7)">7</span>
+					<span ng-click="select1(8)">8</span>
+					<span ng-click="select1(9)">9</span>
+				</li>
+				<li>
+					<span ng-click="del()">删除</span>
+					<span ng-click="select1(0)">0</span>
+					<span ng-click="maNo()">取消</span>
+				</li>
+			</ul>
+
+		</div>
+
+	</div>
+	
+	
+	
+	
+</div>

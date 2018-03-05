@@ -5,6 +5,12 @@ yx_mallApp
             cardList:[],
             userInfo:[]
         };
+
+        if(!localStorage.getItem("tokens")){
+            $state.go("login");
+        }
+
+
         $scope.userBCInfo.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         var cardList = appService._postData(URL+"index.php?s=Api/Userset/crad",{token:$scope.userBCInfo.userInfo.token,way:$scope.userBCInfo.userInfo.way});
         cardList.then(function (value) {
@@ -64,8 +70,12 @@ yx_mallApp
 
     // 选择提现卡
        $scope.selected=function (a,b,c) {
+           if($scope.userBCInfo.userInfo.type=="2"){
+               $state.go("myGoodsWithdrawal",{id:a,name:b,num:c});
+           }else {
+               $state.go("treasureWithdrawal",{id:a,name:b,num:c});
+           }
 
-           $state.go("treasureWithdrawal",{id:a,name:b,num:c});
        }
 
 

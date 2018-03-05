@@ -56,6 +56,7 @@
 	font-size:0.2222rem;
 	color: #666666;
 	border-bottom: 1px solid #e9e9e9 ;
+	overflow: hidden;
 }
 .treCon_one_bot .treCon_one_1{
 	/*width: 92%;*/

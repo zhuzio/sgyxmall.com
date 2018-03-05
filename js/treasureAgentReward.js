@@ -13,12 +13,14 @@ yx_mallApp
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月收益，默认为零
             total:0,//累计收益，默认为零
+			   oldselected:-2,
+               page:1,
            };
            
    
 //   初加载请求
 //加载每月记录
-    var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/shop_earing_month",{
+    var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/commission_month",{
 		    token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way"), })         
 	conversion_record.then(function(e){
@@ -28,7 +30,7 @@ yx_mallApp
 	    console.log(e);
 	},function(e){
 		console.log(e);
-	})
+	});
 
 	
 //   初加载请求 
@@ -37,12 +39,17 @@ yx_mallApp
         //   点击请求加载本月数据
        $scope.change=function($index,time){
      	          //   点击请求加载本月数据
-     	          $scope.arr.selected=$index;
-     	          console.log($index);
-     	          console.log($scope.arr.selected);
-     	          console.log(time);
-     	          
-				    var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/shop_earing_info",{
+           $scope.arr.oldselected=$scope.arr.selected;//记录上次选中
+           $scope.arr.selected=$index;      //保存当前选中
+
+
+           if($scope.arr.oldselected==$scope.arr.selected){
+               $scope.arr.oldselected=-2;
+               $scope.arr.selected=-1;
+               $scope.arr.dayDetail=[];
+               return false;
+           }
+				    var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/commission_month_info",{
 						    token: localStorage.getItem("tokens"),
 				            way:localStorage.getItem("way"), time:time})         
 					     conversion_record.then(function(e){
@@ -55,8 +62,32 @@ yx_mallApp
 				//   初加载请求 
      	    
                }
-             
-	
-	
-	
-}])
+
+
+
+    $scope.more=function(e){
+        $scope.arr.page=$scope.arr.page+1;
+        var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/commission_month_info",{
+            token: localStorage.getItem("tokens"),
+            way:localStorage.getItem("way"), time:e,page:$scope.arr.page});
+        conversion_record.then(function(e){
+            console.log(e);
+            if(e.data.data == "" ){
+                $(".more").html("暂无更多")
+            }else {
+                $scope.arr.dayDetail=$scope.arr.dayDetail.concat(e.data.data);
+
+            }
+
+        },function(e){
+            console.log(e);
+        })
+
+
+    }
+
+
+
+
+
+}]);
