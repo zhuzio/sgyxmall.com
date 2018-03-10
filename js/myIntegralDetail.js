@@ -50,14 +50,18 @@ yx_mallApp
 //   初加载请求
 
 //加载每月记录        购买积分请求
-        var Integral=appService._postData(URL+"index.php?s=/Api/wealth/shop_point_month",{
+        var Integral1=appService._postData(URL+"index.php?s=/Api/wealth/shop_point_month",{
             token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way") });
-        Integral.then(function(e){
+        Integral1.then(function(e){
+            console.log(e);
+            if(!e.data){
+              return false;
+            }
             $scope.Withdrawal.gou_month=e.data.data.data;
             $scope.Withdrawal.gou_total=e.data.data.total_money;//累计购买总积分
             $scope.Withdrawal.current=e.data.data.new_money;//当前积分
-            console.log(e);
+
         },function(e){
             console.log(e);
         });
@@ -66,10 +70,14 @@ yx_mallApp
             token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way") });
         Integral.then(function(e){
+            console.log(e);
+            if(!e.data){
+                return false;
+            }
             $scope.Withdrawal.fa_month=e.data.data.data;
             $scope.Withdrawal.fa_total=e.data.data.total_money;//累计购买总积分
             $scope.Withdrawal.current=e.data.data.new_money;//当前积分
-            console.log(e);
+
         },function(e){
             console.log(e);
         });
