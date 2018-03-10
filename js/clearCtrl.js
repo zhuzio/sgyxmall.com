@@ -57,6 +57,7 @@ yx_mallApp
                 phone_tell:$scope.clear.user_phone
             });
             order.then(function (e) {
+                console.log(e)
                 if(e.data.ret == "ok"){
                     $state.go("applyWay",{
                         OrderID:e.data.data,

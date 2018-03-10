@@ -9,36 +9,44 @@
 <div class="order_list_container">
 
     <div class="order_allOrder" ng-if="shopOrder.allOrderMo">
-        <div ng-repeat="allGoods in shopOrder.allOrder">
-            <div class="each_myOrder_list" ng-repeat="eg in allGoods.order.goods">
-                <p class="shopName">店家1 <span class="fr">已付款</span></p>
-                <div class="each_order_list">
-                    <div class="eol_img fl">
-                        <img ng-src="http://www.sgyxmall.com/{{eg.default_img}}" alt="{{}}">
-                    </div>
-                    <div class="eol_info fl">
-                        <p class="eol_name">{{eg.goods_name}}</p>
-                        <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{eg.goods_types}}</p>
-                        <p class="eol_enc">¥ <span class="eol_price">{{eg.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{eg.goods_point}}</span></p>
-                    </div>
-                    <span>X {{eg.goods_count}}</span>
+        <div class="each_myOrder_list" ng-repeat="eg in shopOrder.allOrder" >
+            <p class="shopName">{{eg.store_name}}
+                <span class="fr DFK" ng-if="eg.switch_status==2">待付款</span>
+                <span class="fr DFH" ng-if="eg.switch_status==3">待发货</span>
+                <span class="fr YFH" ng-if="eg.switch_status==4">已发货</span>
+                <span class="fr YWC" ng-if="eg.switch_status==3">已完成</span>
+                <span class="fr TK" ng-if="eg.switch_status==3">退款</span>
+            </p>
+            <div class="each_order_list">
+                <div class="eol_img fl">
+                    <img ng-src="http://www.sgyxmall.com/{{eg.default_img}}" alt="{{}}">
                 </div>
-                <div class="myOrderInfo">
-                    <p><span>订单编号：{{eg.order_sn}}</span></p>
-                    <p><span>下单时间：{{eg.add_time}}</span></p>
-                    <p><span>商品合计：{{eg.goods_price}}元+{{eg.goods_point}}积分</span></p>
-                    <p><span>支付方式：</span></p>
-                    <p><span>运　　费：</span></p>
+                <div class="eol_info fl">
+                    <p class="eol_name">{{eg.goods_name}}</p>
+                    <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{eg.goods_types}}</p>
+                    <p class="eol_enc">¥ <span class="eol_price">{{eg.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{eg.goods_point}}</span></p>
                 </div>
-                <div class="myOrder_receive">
-                    <div class="or_left fl"></div>
-                    <div class="or_right fl">
-                        <p><span>收货人：</span>{{eg.buy_name}} <span class="fr" style="color: black">{{eg.phone_tell}}</span></p>
-                        <p><span>收货地址：</span>{{eg.address}}</p>
-                    </div>
-                </div>
-                <p class="applyTui"><span class="fr" ui-sref="applyReturnGoods">申请退款</span></p>
+                <span>X {{eg.goods_count}}</span>
             </div>
+            <div class="myOrderInfo">
+                <p><span>订单编号：{{eg.order_sn}}</span></p>
+                <p><span>下单时间：{{eg.add_time}}</span></p>
+                <p><span>商品合计：{{eg.goods_price}}元+{{eg.goods_point}}积分</span></p>
+                <p><span>支付方式：</span></p>
+                <p><span>运　　费：{{eg.shipping_money}}</span></p>
+            </div>
+            <div class="myOrder_receive">
+                <div class="or_left fl"></div>
+                <div class="or_right fl">
+                    <p><span>收货人：</span>{{eg.buy_name}} <span class="fr" style="color: black">{{eg.phone_tell}}</span></p>
+                    <p><span>收货地址：</span>{{eg.address}}</p>
+                </div>
+            </div>
+            <p class="applyTui">
+                <span class="fr" ui-sref="applyReturnGoods" ng-if="eg.switch_status==2">取消订单</span>
+                <span class="fr" ng-if="eg.switch_status==2" ng-click="orderApply(eg)">去支付</span>
+                <span class="fr" ui-sref="applyReturnGoods" ng-if="eg.switch_status==4 || eg.switch_status==3">申请退款</span>
+            </p>
         </div>
     </div>
     <div class="order_waitApply" ng-if="shopOrder.waitApplyMo">

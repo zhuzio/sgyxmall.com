@@ -39,19 +39,8 @@ yx_mallApp
             way:$scope.shopOrder.userInfo.way
         });
             allOrder.then(function (value) {
-                console.log(value.data.data);
-               /* var arr=[];
-                for(var j=0;j<value.data.data.length;j++){
-                    // console.log(value.data.data[j])
-                    /!*for (var i in value.data.data[j]){
-                        arr.push(i);
-                    };
-*!/
-                }
-
-
-                // console.log(arr)*/
-                $scope.shopOrder.allOrder = value.data.data
+                console.log(value.data.data.orderInfo);
+                $scope.shopOrder.allOrder = value.data.data.orderInfo
             },function (reason) {
                 console.log(reason)
             })
@@ -67,5 +56,9 @@ yx_mallApp
             * 5：退货
             * */
         };
+        //去支付
+        $scope.orderApply=function (ele) {
+            console.log(ele)
+        }
 
     }]);

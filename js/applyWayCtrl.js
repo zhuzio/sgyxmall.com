@@ -149,18 +149,22 @@ yx_mallApp
         var userIn=appService._postData(URL+"index.php?s=/Api/Order/surplus_point",{token:localStorage.getItem("tokens"),
             way:localStorage.getItem("way")});
         userIn.then(function (e) {
+            console.log(e.data.data);
+            console.log(Math.floor($scope.apply.surplusIn).toFixed(2))
+            console.log(Math.floor($scope.apply.surplusIn).toFixed(2) < Math.floor(e.data.data).toFixed(2))
             if(Math.floor($scope.apply.surplusIn).toFixed(2) > e.data.data){
                 $scope.apply.isIn = false;
             }
             if( Math.floor($scope.apply.fullMoney).toFixed(2) > e.data.data){
                 $scope.apply.isAllIn = false;
             }
-            if($scope.apply.fullMoney == e.data.data){
+            if($scope.apply.fullMoney <= e.data.data){
                 $scope.apply.isIn = true;
                 $scope.apply.isAllIn = true;
             }
         },function (e) {
             console.log(e)
         })
+
 
     }])

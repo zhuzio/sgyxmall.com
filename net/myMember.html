@@ -1,4 +1,14 @@
 <style type="text/css">
+    .module_head{
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .myMemberSearchHead{
+        position: fixed;
+        top: .8rem;
+        left: 0;
+    }
     .myMemberContainer{
         width: 100%;
         height: auto;
@@ -9,6 +19,7 @@
         padding: .1rem 3%;
         background: #fff;
         border-top: 1px #e5e5e5 solid;
+        border-bottom: 1px #e5e5e5 solid;
     }
     .myMemberSearchHead >div{
         float: left;
@@ -19,6 +30,43 @@
         height: 100%;
         position: relative;
         font-size: .26rem;
+    }
+    .mmPullDown{
+        position: absolute;
+        top:0.9rem;
+        left: -180%;
+        width: 112%;
+        height: auto;
+        border: 1px #e5e5e5 dashed;
+        background: white;
+        opacity: 0;
+    }
+    .mmIcon_on i{
+        transform: rotate(-180deg) ;
+        transition: all 0.5s;
+    }
+    .mmPullDown >p{
+        text-align: center;
+        border-bottom: 1px #e5e5e5 solid;
+    }
+    .mmSearch{
+        width: 65%;
+        padding-left: .25rem;
+    }
+    .mmSearch input{
+        border: none;
+        background: #eeeeee url("images/search.png") no-repeat .2rem center;
+        background-size: auto .3rem;
+        width: 62%;
+        height: .45rem;
+        padding-left: .554rem;
+        font-size: .23rem;
+        border-radius: .15rem;
+    }
+    .mmSearch span{
+        color: #666;
+        font-size: .25rem;
+        padding-left: .24rem;
     }
     .mmpTxt{
         width: 75%;
@@ -33,10 +81,94 @@
         background-size: .3rem auto;
         right: 0;
         top: .25rem;
-
+        transform: rotate(0deg) ;
+        transition: all 0.5s;
     }
-    .mmIcon_on{
-        transform: rotate(180deg) ;
+
+    .mmList{
+        width: 94%;
+        height: auto;
+        padding: .2rem 3%;
+        background: white;
+        margin-top: 2rem;
+    }
+    .each_mmList_container{
+        width: 100%;
+        height: auto;
+    }
+    .each_mmList_title{
+        width: 100%;
+        height: .5rem;
+        line-height: .5rem;
+        background: url("images/title_line.png") no-repeat center;
+        background-size: 45% auto;
+        text-align: center;
+        font-size: .25rem;
+        letter-spacing: .1rem;
+    }
+    .each_mmList{
+        width: 100%;
+        height: auto;
+        border-bottom: 1px #e5e5e5 solid;
+        padding: .2rem 0;
+        overflow: hidden;
+    }
+    .each_mmList >div{
+        float: left;
+        height: 1.5rem;
+    }
+    .emlLeft{
+        width: 23%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .emlLeft >img{
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+    }
+    .emlCenter{
+        width: 60%;
+    }
+    .emlCenter >p{
+        height: .5rem;
+        padding-left: .15rem;
+        font-size: .24rem;
+    }
+    .emName{
+        line-height: .6rem;
+    }
+    .emTel{
+        line-height: .5rem;
+    }
+    .emlRight{
+        width: 17%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .emlRight a{
+        display: block;
+        width: .6rem;
+        height: .8rem;
+        background: url("images/phone.png") no-repeat center;
+        background-size: .5rem auto;
+    }
+    .em_member{
+        color: #ff853e;
+    }
+    .em_merchant{
+        color: skyblue;
+    }
+    .em_agency{
+        color: #e79e56;
+    }
+    .em_area_member{
+        color: darkseagreen;
+    }
+    .em_area_merchant{
+        color: #500050;
     }
 </style>
 <div class="module_head">
@@ -47,17 +179,112 @@
     <!--搜索头部-->
     <div class="myMemberSearchHead">
         <!--下拉列表-->
-        <div class="mmPullDownList">
-            <p class="mmpTxt">所有推荐</p>
+        <div class="mmPullDownList" >
+            <p class="mmpTxt" ng-click="getPullList()">{{member.selectTxt}}</p>
             <i class="mmIcon"></i>
             <div class="mmPullDown">
-
+                <p ng-click="getFilterType(0,'所有推荐')">所有推荐</p>
+                <p ng-click="getFilterType(1,'会员')">会员</p>
+                <p ng-click="getFilterType(2,'商家')">商家</p>
+                <p ng-click="getFilterType(3,'代理')">代理</p>
+                <p ng-click="getFilterType(4,'辖区会员')">辖区会员</p>
+                <p ng-click="getFilterType(5,'辖区商家')">辖区商家</p>
             </div>
         </div>
         <!--搜索框-->
         <div class="mmSearch">
-
+            <input type="text" placeholder="搜索姓名或电话">
+            <span>搜索</span>
         </div>
-
+    </div>
+    <div class="mmList">
+        <div class="each_mmList_container">
+            <p class="each_mmList_title">所有推荐</p>
+            <div class="each_mmList">
+                <div class="emlLeft">
+                    <img src="images/head.png" alt="">
+                </div>
+                <div class="emlCenter">
+                    <p class="emName">香港新界代表<span class="em_member">【会员】</span></p>
+                    <p class="emTel">15513132205</p>
+                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                </div>
+                <div class="emlRight">
+                    <a href=""></a>
+                </div>
+            </div>
+            <div class="each_mmList">
+                <div class="emlLeft">
+                    <img src="images/head.png" alt="">
+                </div>
+                <div class="emlCenter">
+                    <p class="emName">香港新界代表<span class="em_merchant">【商家】</span></p>
+                    <p class="emTel">15513132205</p>
+                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                </div>
+                <div class="emlRight">
+                    <a href=""></a>
+                </div>
+            </div>
+            <div class="each_mmList">
+                <div class="emlLeft">
+                    <img src="images/head.png" alt="">
+                </div>
+                <div class="emlCenter">
+                    <p class="emName">香港新界代表<span class="em_agency">【代理】</span></p>
+                    <p class="emTel">15513132205</p>
+                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                </div>
+                <div class="emlRight">
+                    <a href=""></a>
+                </div>
+            </div>
+            <div class="each_mmList">
+                <div class="emlLeft">
+                    <img src="images/head.png" alt="">
+                </div>
+                <div class="emlCenter">
+                    <p class="emName">香港新界代表<span class="em_area_member">【辖区会员】</span></p>
+                    <p class="emTel">15513132205</p>
+                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                </div>
+                <div class="emlRight">
+                    <a href=""></a>
+                </div>
+            </div>
+            <div class="each_mmList">
+                <div class="emlLeft">
+                    <img src="images/head.png" alt="">
+                </div>
+                <div class="emlCenter">
+                    <p class="emName">香港新界代表<span class="em_area_merchant">【辖区商家】</span></p>
+                    <p class="emTel">15513132205</p>
+                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                </div>
+                <div class="emlRight">
+                    <a href=""></a>
+                </div>
+            </div>
+        </div>
+        <!--<div class="each_mmList_container">
+            <p class="each_mmList_title">推荐会员</p>
+            <div class="each_mmList"></div>
+        </div>
+        <div class="each_mmList_container">
+            <p class="each_mmList_title">推荐商家</p>
+            <div class="each_mmList"></div>
+        </div>
+        <div class="each_mmList_container">
+            <p class="each_mmList_title">推荐代理</p>
+            <div class="each_mmList"></div>
+        </div>
+        <div class="each_mmList_container">
+            <p class="each_mmList_title">推荐辖区会员</p>
+            <div class="each_mmList"></div>
+        </div>
+        <div class="each_mmList_container">
+            <p class="each_mmList_title">推荐辖区商家</p>
+            <div class="each_mmList"></div>
+        </div>-->
     </div>
 </div>
