@@ -78,18 +78,24 @@ $scope.maxMoney=function (e) {
          angular.element(".tx").on("click",function () {
 
           if(parseFloat($("#moneyt").val())!=Math.floor(parseFloat($("#moneyt").val()))){
-              alert("提现金额必须是整数且100的倍数");
-              return false;
+
+              appService.artTxt("提现金额必须是整数且100的倍数！").then(function () {
+                  return false;
+              });
           }
 
              if(parseFloat($("#moneyt").val())%100){
-                 alert("提现金额必须是整数且100的倍数");
-                 return false;
+
+                 appService.artTxt("提现金额必须是整数且100的倍数！").then(function () {
+                     return false;
+                 });
              }
 
              if(parseInt($("#moneyt").val())<200){
-                 alert("提现金额不能低于200");
-                 return false;
+
+                 appService.artTxt("提现金额不能低于200！").then(function () {
+                     return false;
+                 });
              }
              if($(this).hasClass("bg2")){
                  // if(parseInt($("#moneyt").val()) <$scope.Withdrawal.money){ }
@@ -135,8 +141,9 @@ $scope.maxMoney=function (e) {
                             $scope.Withdrawal.zf_no=false;
                         },1500);
                     }else { //  密码正确
-                        alert(e.data.msg);
-                        $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
+                         appService.artTxt(e.data.msg).then(function () {
+                           $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
+                        });
                     }
 
 

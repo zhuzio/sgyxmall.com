@@ -18,21 +18,24 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 		$("#appDateTime2").val();
 
 		 if($("#cha").val().length==0)  
-        {  
-           alert('请输入手机号码！');  
-           return false;  
+        {
+            appService.artTxt("请输入手机号码！").then(function () {
+                return false;
+            });
         }      
         if($("#cha").val().length!=11)  
-        {  
-            alert('请输入有效的手机号码！11');  
-            return false;  
+        {
+            appService.artTxt("请输入有效的手机号码！").then(function () {
+                return false;
+            });
         }  
           
        
         if(!(/^1[34578]\d{9}$/.test($("#cha").val()-0)))  
-        {  
-            alert('请输入有效的手机号码！');  
-            return false;  
+        {
+            appService.artTxt("请输入有效的手机号码！").then(function () {
+                return false;
+            });
         }  
 		
 		var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
