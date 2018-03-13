@@ -36,10 +36,26 @@ yx_mallApp
                     defer.reject(e);
                 });
                 return defer.promise;
+            },
+            artTxt: function (txt) {
+                var defer = $q.defer();
+                $("body").append("<div class='alert'><p><span>" + txt + "</span></p ></div>");
+                $(".alert p").animate({ bottom: "40%", opacity: "1" }, 300, function () {
+                    setTimeout(function () {
+                        $(".alert p").animate({
+                            bottom: "25%",
+                            opacity: "0"
+                        }, 300);
+                    }, 1500);
+                    setTimeout(function () {
+                        $(".alert").remove();
+                        defer.resolve();
+                    }, 2100);
+                });
+                return defer.promise;
             }
         }
     }]).filter("datatimes",function(){
-
     return function(num){
 
         var lens=num.length;
@@ -50,7 +66,7 @@ yx_mallApp
 
     };
 })
-.directive('onFinish', function ($timeout) {
+    .directive('onFinish', function ($timeout) {
     return {
         restrict: 'A',
         link: function (scope, element, attr) {
@@ -126,7 +142,7 @@ yx_mallApp
 
     };
 })
-   .filter("imgChange",function(){
+    .filter("imgChange",function(){
 
         return function(aa){
 
@@ -168,3 +184,4 @@ yx_mallApp
 
     };
 });
+

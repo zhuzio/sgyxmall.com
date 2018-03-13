@@ -1,6 +1,7 @@
 //添加收货地址页面 控制器
 yx_mallApp
-    .controller("addAddressController",["$scope","appService","$state",function ($scope,appService,$state) {
+    .controller("addAddressController",["$scope","appService","$stateParams","$state",function ($scope,appService,$stateParams,$state) {
+        console.log($stateParams)
         document.title="添加信息";
         $scope.area={
             //初始化省份
@@ -160,12 +161,6 @@ yx_mallApp
             }else {
                 $scope.info.def = 0
             }
-            /* console.log($scope.info.token);
-             console.log($scope.info.name);
-             console.log($scope.info.tel);
-             console.log($scope.area.address);
-             console.log($scope.info.d_address);
-             console.log($scope.info.def);*/
             var submit=appService._postData(URL+"index.php?s=/Api/User/addAddress",
                 {
                     consignee:$scope.info.name,
@@ -178,8 +173,8 @@ yx_mallApp
                 });
             submit.then(function (e) {
                 console.log(e)
-                if (e.data.data.code == 1){
-                    alert("添加成功,请耐心等待....");
+                if (e.data.ret == "success"){
+                    alert(e.data.msg);
                     $state.go("myAttend")
                 }else {
                     alert("网络超时，请稍后重试");
@@ -189,5 +184,6 @@ yx_mallApp
                 console.log(e)
             })
 
-        }
+        };
+
     }])

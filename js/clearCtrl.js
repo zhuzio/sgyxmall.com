@@ -33,7 +33,7 @@ yx_mallApp
             if (e.data.data == "" || e.data.data == null){
                 var r = confirm("您还没有收货地址，确定去添加？");
                 if (r){
-                    $state.go("addAddress");
+                    $state.go("addAddress",{url:"clearing"});
                 }else {
                     window.history.back(-1);
                 }

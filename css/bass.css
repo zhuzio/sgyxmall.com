@@ -289,3 +289,32 @@ button {
 .mAGContainerY .mAGCenter {
     -webkit-transform: scale(1);
 }
+.alert{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 9999999999999;
+}
+.alert p{
+    position: absolute;
+    bottom: 25%;
+    width: 100%;
+    height: auto;
+    font-size: .25rem;
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    opacity: 0;
+}
+.alert p span{
+    background: rgba(0, 0, 0, 0.76);
+    color: white;
+    display: inline-block;
+    margin: 0 auto;
+    padding: .15rem .15rem;
+    border-radius: .15rem;
+}

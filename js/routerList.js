@@ -120,7 +120,7 @@ yx_mallApp.constant('RouterList_Config',[
         ]
     },{
         name:"address",
-        url:"/_address",
+        url:"/_address?url",
         templateUrl:"net/address.html",
         controller:"addressController",
         files:[

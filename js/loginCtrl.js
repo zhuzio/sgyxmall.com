@@ -83,12 +83,10 @@ yx_mallApp
             //苏格时代登录
             if(y == 0){
                 $scope.login.way = "sgyx";
-                // localStorage.setItem("method",0);
             };
             //苏格优品登录
             if(y == 1){
                 $scope.login.way = 'sgyp';
-                // localStorage.setItem("method",1);
             }
             var loginE=appService._postData(URL+"index.php?s=/Api/User/login",
                 {
@@ -97,17 +95,31 @@ yx_mallApp
                     way:$scope.login.way
                 });
             loginE.then(function (e) {
-                console.log(e.data)
                 if(e.data.ret == 'err'){
-                    alert(e.data.msg);
-                    $window.location.reload();
+                    appService.artTxt(e.data.msg).then(function () {
+                        $scope.login.psd = "";
+                        $scope.login.dsb = true;
+                        $(".login_ajax_container").animate({
+                            bottom:"100%"
+                        },0);
+                       switch (y){
+                           case 0:
+                               $scope.login.btnTxt="苏格时代登录";
+                               break;
+                           case 1:
+                               $scope.login.btnTxt="苏格优品登录";
+                               break;
+                       }
+                        $(".login_btn").css({background:"#ccc"});
+                    });
+
                 }else if(e.data.ret == 'ok'){
                     localStorage.setItem("userInfo",JSON.stringify(e.data.data));
                     localStorage.setItem('tokens', e.data.data.token);
                     localStorage.setItem("way",e.data.data.way);
-                    // localStorage.setItem("type",e.data.data.way);
-                    alert("登录成功");
-                    $state.go("tabs.index");
+                    appService.artTxt("登录成功").then(function () {
+                        $state.go("tabs.index");
+                    });
                 }
             },function (e) {
                 console.log(e)

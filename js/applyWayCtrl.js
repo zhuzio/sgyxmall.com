@@ -1,6 +1,7 @@
 //去支付页面 控制器
 yx_mallApp
     .controller("applyWayController",["$scope","$stateParams","appService","$window",function ($scope,$stateParams,appService,$window) {
+        document.title = "去支付";
         console.log($stateParams);
         $scope.apply={
             //订单ID
