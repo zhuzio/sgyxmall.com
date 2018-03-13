@@ -27,7 +27,7 @@ yx_mallApp
 		$scope.arr.mouth=e.data.data;
         $scope.arr.total=e.data.arr;
         $scope.arr.current=e.data.data[0].money;
-	    console.log(e);
+
 	},function(e){
 		console.log(e);
 	});
@@ -55,8 +55,7 @@ yx_mallApp
 				            way:localStorage.getItem("way"), time:time}) ;
 					     conversion_record.then(function(e){
 						$scope.arr.dayDetail=e.data.data;
-						
-						console.log(e);
+
 					},function(e){
 						console.log(e);
 					})
@@ -78,15 +77,12 @@ yx_mallApp
                 $scope.arr.dayDetail.concat(e.data.data);
 
             }
-            console.log(e);
+
         },function(e){
             console.log(e);
         })
 
 
     }
-
-
-
 
 }]);

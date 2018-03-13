@@ -20,7 +20,7 @@ yx_mallApp
 		    token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way"), })         
 				bill.then(function(e){
-					console.log(e);
+
 					$scope.xiaoFei.jlBill=e.data;
 				},function(e){
 					console.log(e);
@@ -37,7 +37,7 @@ yx_mallApp
 		    token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way"), })         
 				bill.then(function(e){
-					console.log(e);
+
 					$scope.xiaoFei.jlBill=e.data;
 				},function(e){
 					console.log(e);
@@ -54,7 +54,7 @@ yx_mallApp
 		      token: localStorage.getItem("tokens"),
               way:localStorage.getItem("way"), })         
 				bill.then(function(e){
-					console.log(e);
+
 					$scope.xiaoFei.txBill=e.data;
 				},function(e){
 					console.log(e);

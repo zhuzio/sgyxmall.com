@@ -22,7 +22,7 @@ yx_mallApp
         way:localStorage.getItem("way")
     });
 	uesr.then(function (e) {
-	    console.log(e);
+
         $scope.Withdrawal.money=e.data.data.maxMoney;
         // 默认的卡号
         if($stateParams.name=="1"){
@@ -112,7 +112,7 @@ $scope.maxMoney=function (e) {
             // console.log($scope.Withdrawal.zf_password);
             if($scope.Withdrawal.zf_password.length==6){
                 var pw=$scope.Withdrawal.zf_password.join("");
-                console.log(pw);
+
 
 
                 var Withdrawal=appService._postData(URL+"index.php?s=/Api/wealth/user_deposit",{
@@ -124,7 +124,7 @@ $scope.maxMoney=function (e) {
                 });
 
                 Withdrawal.then(function (e) {
-                    console.log(e);
+                  
                     //成功后处理
 
                     if(e.data.ret=="err"){ //  密码错误

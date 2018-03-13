@@ -25,7 +25,7 @@ yx_mallApp
             $scope.treasureConversion.month=e.data.data;
             $scope.treasureConversion.total=e.data.arr;
             $scope.treasureConversion.current=e.data.data[0].money;
-            console.log(e);
+
         },function(e){
             console.log(e);
         });
@@ -59,17 +59,12 @@ yx_mallApp
             conversion_record.then(function(e){
                 $scope.treasureConversion.dayDetail=e.data.data;
 
-                console.log(e);
             },function(e){
                 console.log(e);
             })
             //   初加载请求
 
         }
-
-
-
-
 
         $scope.more=function(e){
             $scope.treasureConversion.page=$scope.treasureConversion.page+1;
@@ -83,24 +78,13 @@ yx_mallApp
                    $scope.treasureConversion.dayDetail.concat(e.data.data);
 
                 }
-                console.log(e);
+
             },function(e){
                 console.log(e);
             })
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
     }]);

@@ -17,7 +17,7 @@ yx_mallApp
             if(!e.data.data.length){
                 $(".more").html("暂无更多")
             }
-            console.log(e);
+
         },function (e) {
             console.log(e);
         })
@@ -33,7 +33,7 @@ yx_mallApp
                 }else {
                     $scope.wo.data= $scope.wo.data.concat(e.data.data);
 
-                    console.log(e);
+
                 }
 
             },function (e) {

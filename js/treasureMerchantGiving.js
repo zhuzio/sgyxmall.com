@@ -17,8 +17,7 @@ yx_mallApp
 		
 		$("#appDateTime1").val()
 		$("#appDateTime2").val()
-		console.log(typeof ($("#cha").val()-0));
-		console.log($("#appDateTime1").val());
+
 		
 		 if($("#cha").val().length==0)  
         {  
@@ -66,7 +65,7 @@ yx_mallApp
 
 
 
-    }
+    };
 	
 	//初加载
 	var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
@@ -76,14 +75,12 @@ yx_mallApp
 
 		
 		  chaxun.then(function(e){
-		  	console.log(e);
+
 		  	    $scope.dan.all =e.data.data.give_count;
 		  	    $scope.dan.data =e.data.data.total_amount_jiu;
 		  	
 		  },function(e){
-		  	
-		  	
-		  	console.log(e);
+		  		  	console.log(e);
 		  })
 //加载更多
     $scope.more=function () {
@@ -103,7 +100,7 @@ yx_mallApp
                   if(e.data.data.total_amount_jiu){
 
                   }
-                console.log(e);
+
             }
 
         },function (e) {
@@ -114,11 +111,6 @@ yx_mallApp
 
 
     };
-
-
-
-
-
 
 
 
