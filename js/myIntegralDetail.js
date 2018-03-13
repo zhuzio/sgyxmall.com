@@ -54,7 +54,7 @@ yx_mallApp
             token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way") });
         Integral1.then(function(e){
-            console.log(e);
+
             if(!e.data){
               return false;
             }
@@ -70,7 +70,7 @@ yx_mallApp
             token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way") });
         Integral.then(function(e){
-            console.log(e);
+
             if(!e.data){
                 return false;
             }
@@ -150,7 +150,7 @@ yx_mallApp
                     way:localStorage.getItem("way"), month:time});
                 conversion_record.then(function(e){
                     $scope.Withdrawal.gou_dayDetail=e.data.data;
-                    console.log(e);
+
                 },function(e){
                     console.log(e);
                 });
@@ -167,7 +167,7 @@ yx_mallApp
                     way:localStorage.getItem("way"), month:time});
                 conversion_record.then(function(e){
                     $scope.Withdrawal.fa_dayDetail=e.data.data;
-                    console.log(e);
+
                 },function(e){
                     console.log(e);
                 })
@@ -200,7 +200,6 @@ yx_mallApp
 
                     }
 
-                    console.log(e);
                 },function(e){
                     console.log(e);
                 })
@@ -222,7 +221,6 @@ yx_mallApp
 
                     }
 
-                    console.log(e);
                 },function(e){
                     console.log(e);
                 });

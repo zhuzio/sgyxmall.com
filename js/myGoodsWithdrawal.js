@@ -24,7 +24,7 @@ yx_mallApp
             way:localStorage.getItem("way")
         });
         uesr1.then(function (e) {
-            console.log(e);
+
             $scope.Withdrawal.current_money  = e.data.data.max_money;
             $scope.Withdrawal.money=e.data.data.max_money;
 
@@ -104,18 +104,23 @@ $scope.maxMoney=function (e) {
          angular.element(".tx").on("click",function () {
 
           if(parseFloat($("#moneyt").val())!=Math.floor(parseFloat($("#moneyt").val()))){
-              alert("提现金额必须是整数且100的倍数");
-              return false;
+
+              appService.artTxt("提现金额必须是整数且100的倍数").then(function () {
+                  return false;
+              });
           }
 
              if(parseFloat($("#moneyt").val())%100){
-                 alert("提现金额必须是整数且100的倍数");
-                 return false;
+                 appService.artTxt("提现金额必须是整数且100的倍数").then(function () {
+                     return false;
+                 });
              }
 
              if(parseInt($("#moneyt").val())<200){
-                 alert("提现金额不能低于200");
-                 return false;
+
+                 appService.artTxt("提现金额不能低于200").then(function () {
+                     return false;
+                 });
              }
              if($(this).hasClass("bg2")){
                  // if(parseInt($("#moneyt").val()) <$scope.Withdrawal.money){ }
@@ -138,8 +143,6 @@ $scope.maxMoney=function (e) {
             // console.log($scope.Withdrawal.zf_password);
             if($scope.Withdrawal.zf_password.length==6){
                 var pw=$scope.Withdrawal.zf_password.join("");
-                console.log(pw);
-
 
                 var Withdrawal=appService._postData(URL+"index.php?s=/Api/wealth/shop_deposit",{
                     token: localStorage.getItem("tokens"),
@@ -150,12 +153,13 @@ $scope.maxMoney=function (e) {
                 });
 
                 Withdrawal.then(function (e) {
-                    console.log(e);
+
                     //成功后处理
 
                     if(e.data.ret=="success"){ //  密码正确
-                        alert(e.data.msg);
-                        $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
+                          appService.artTxt(e.data.msg).then(function () {
+                           $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
+                        });
                     }else { //  密码错误
 
                         $scope.Withdrawal.zf_no=true;

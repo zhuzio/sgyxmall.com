@@ -26,7 +26,7 @@ yx_mallApp
             $scope.Withdrawal.month=e.data.data;
             $scope.Withdrawal.total=e.data.totalpage;
             $scope.Withdrawal.current=e.data.data[0].order_amount;
-            console.log(e);
+
         },function(e){
             console.log(e);
         });
@@ -63,7 +63,6 @@ yx_mallApp
             conversion_record.then(function(e){
                 $scope.Withdrawal.dayDetail=e.data.data.data;
 
-                console.log(e);
             },function(e){
                 console.log(e);
             })
@@ -82,13 +81,9 @@ yx_mallApp
                     }else {
 
                         $scope.Withdrawal.dayDetail.concat(e.data.data.data);
-                        console.log(e);
+
                     }
 
-
-
-
-                    console.log(e);
                 },function(e){
                     console.log(e);
                 })

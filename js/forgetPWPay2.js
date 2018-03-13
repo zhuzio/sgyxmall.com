@@ -48,7 +48,7 @@ yx_mallApp
                                       $state.go("set");
                                  });
                              }else {
-                                
+
                                  appService.artTxt(e.data.msg).then(function () {
                                      return false;
                                  });
