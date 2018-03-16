@@ -54,11 +54,9 @@ yx_mallApp
         //附近商家数据 数据请求
         var shop=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")});
         shop.then(function (e) {
-            console.log(e);
+
             $scope.index.shop=e.data.data;
             setTimeout(function () {   },0)
-
-
 
         },function (e) {
             console.log(e)
@@ -75,7 +73,6 @@ yx_mallApp
                 }else {
                     $scope.index.shop= $scope.index.shop.concat(e.data.data);
 
-                    console.log(e);
                 }
 
             },function (e) {
@@ -83,17 +80,9 @@ yx_mallApp
             })
 
 
-
-
         };
 
-
-
-
-
     }else{
-
-
 
         //	定位操作
         var map, geolocation;
@@ -132,16 +121,13 @@ yx_mallApp
             sessionStorage.setItem('lat',$scope.index.lat);
             sessionStorage.setItem('city',data.addressComponent.city);
 
-            console.log($scope.index.lon);
 
             //附近商家数据 数据请求
             var shop=appService._postData(URL+"index.php?s=/Api/store/nearby_shops",{page:$scope.index.page,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")});
             shop.then(function (e) {
-                console.log(e);
+
                 $scope.index.shop=e.data.data;
                 setTimeout(function () {   },0)
-
-
 
             },function (e) {
                 console.log(e)
@@ -157,7 +143,6 @@ yx_mallApp
                     }else {
                         $scope.index.shop= $scope.index.shop.concat(e.data.data);
 
-                        console.log(e);
                     }
 
                 },function (e) {
@@ -174,12 +159,6 @@ yx_mallApp
 
 
     }
-
-
-
-
-
-
 
 
 

@@ -18,21 +18,24 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 		$("#appDateTime2").val();
 
 		 if($("#cha").val().length==0)  
-        {  
-           alert('请输入手机号码！');  
-           return false;  
+        {
+            appService.artTxt("请输入手机号码！").then(function () {
+                return false;
+            });
         }      
         if($("#cha").val().length!=11)  
-        {  
-            alert('请输入有效的手机号码！11');  
-            return false;  
+        {
+            appService.artTxt("请输入有效的手机号码！").then(function () {
+                return false;
+            });
         }  
           
        
         if(!(/^1[34578]\d{9}$/.test($("#cha").val()-0)))  
-        {  
-            alert('请输入有效的手机号码！');  
-            return false;  
+        {
+            appService.artTxt("请输入有效的手机号码！").then(function () {
+                return false;
+            });
         }  
 		
 		var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
@@ -64,7 +67,7 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 	});
 		
 		  chaxun.then(function(e){
-		  	console.log(e);
+
 		  	    $scope.dan.all =e.data.data.give_count;
 		  	    $scope.dan.data =e.data.data.total_amount_san;
 		  	
@@ -91,8 +94,6 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
                 $(".more").html("暂无更多")
             }else {
                 $scope.dan.data= $scope.dan.data.concat(e.data.data.total_amount_san);
-
-                console.log(e);
             }
 
         },function (e) {
@@ -103,12 +104,6 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 
 
     };
-
-
-
-
-
-
 
 
 }]);

@@ -28,10 +28,16 @@ console.log(typeof JSON.parse(localStorage.getItem("userInfo")).user_name)
                          });
                          ma.then(function (e) {
                                if(e.data.ret="success"){
-                                   alert(e.data.msg);
-                                 $state.go("set");
+
+
+                                   appService.artTxt(e.data.msg).then(function () {
+                                       $state.go("set");
+                                   });
                                }else {
-                                   alert(e.data.msg);
+
+                                   appService.artTxt(e.data.msg).then(function () {
+                                       return false;
+                                   });
                                }
                          },function (e) {
                              console.log(e);

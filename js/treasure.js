@@ -50,8 +50,6 @@
           $scope.tre.earnings=e.data.data.earnings;
           $scope.tre.total=e.data.data.total;
 
-          console.log(e);
-
       },function(e){
           //	错误状态
           console.log(e);
@@ -71,8 +69,7 @@
                  // console.log(e.data.data)
                  $scope.tre.withdrawal_layer=true;
              }
-              // console.log(e)
-          console.log("123");
+
           },
           function (reason) {
               console.log(reason)
@@ -88,7 +85,7 @@
               $(".tre_middle_fen").removeClass("tre_middle_b");
               $(".tre_span3").addClass("tre_ba");
               $(".tre_span4").removeClass("tre_ba");
-              console.log(a);
+
               $scope.tre.status_gw=true;
               $scope.tre.status_sy=false;
 
@@ -99,8 +96,7 @@
               $(".tre_span4").addClass("tre_ba");
               $scope.tre.status_gw=false;
               $scope.tre.status_sy=true;
-              console.log(typeof a );
-              console.log($(".tre_container"));
+
           }
 
 

@@ -18,7 +18,7 @@ yx_mallApp
 	bill.then(function(e){
         $scope.xiaoFei.arr=e.data.arr;
 		$scope.xiaoFei.data=e.data.data;
-		console.log(e);
+
 	},function(e){
 		console.log(e);
 	})

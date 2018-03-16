@@ -34,8 +34,10 @@ yx_mallApp
 
 
             if ($scope.user.phone== "") {
-                alert("请输入电话号码！！！");
-                return false;
+                appService.artTxt("请输入电话号码！！！").then(function () {
+                    return false;
+                });
+
             } else  if (!z_tel.test($scope.user.phone)) {
                 return false;
             } else {
@@ -58,7 +60,7 @@ yx_mallApp
                         }, 1000);
                     var dx=appService._postData(URL+"index.php?s=Api/user/send_code",{phone:$scope.user.phone,type:"change"});
                     dx.then(function (e) {
-                        console.log(e);
+
                         $scope.user.code_id=e.data.data.id;
                     },function (e) {
                         console.log(e);
@@ -72,10 +74,16 @@ yx_mallApp
             next1.then(function (e) {
 
                 if(e.data.ret=="success"){
-                    alert(e.data.msg);
-                    $state.go("forgetPWPay2");
+
+                    appService.artTxt(e.data.msg).then(function () {
+                         $state.go("forgetPWPay2");
+                    });
+
                 }else {
-                    alert(e.data.msg);
+
+                    appService.artTxt(e.data.msg).then(function () {
+                        return false;
+                    });
                 }
             },function (e) {
                 console.log(e);

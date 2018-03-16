@@ -11,7 +11,7 @@
 
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
         //这里写获取dom的操作，
-        console.log(ngRepeatFinishedEvent);
+        // console.log(ngRepeatFinishedEvent);
         if($stateParams.classifyId==1){
             $(".mc_pr").eq(0).addClass("mc_prbb");
             $scope.arr.shopType="建修建材";
@@ -30,10 +30,10 @@
     //请求店铺分类类型
     var  fenlei=appService._postData(URL+"index.php?s=/Api/store/store_category",{});
     fenlei.then(function(e){
-        console.log(e);
+
         $scope.arr.arr2=e.data.data;
         $scope.changeWidth($(".mc_center11"),$scope.arr.arr1);
-        console.log($scope.arr.arr2);
+
     },function(e){
 
         console.log(e);
@@ -61,9 +61,9 @@
 //请求页面初加载  店铺分类数据
     var  detail=appService._postData(URL+"index.php?s=/Api/store/nearby_shops_cate",{cate_id:$stateParams.classifyId,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")});
     detail.then(function(e){
-        console.log(e);
+
         $scope.arr.arr3=e.data.data;
-        console.log($scope.arr.arr3);
+
     },function(e){
 
         console.log(e);
@@ -71,8 +71,6 @@
     })
 
 
-
-    console.log($(".mc_pr").eq(0));
     $scope.change=function($index,name,id){
          $scope.arr.shopType=name;
         $(".mc_pr").removeClass("mc_prbb");
@@ -80,9 +78,9 @@
         //请求店铺分类数据
         var  detail=appService._postData(URL+"index.php?s=/Api/store/nearby_shops_cate",{cate_id:id,lon:sessionStorage.getItem("lon"),lat:sessionStorage.getItem("lat")});
         detail.then(function(e){
-            console.log(e);
+
             $scope.arr.arr3=e.data.data;
-            console.log($scope.arr.arr3);
+
         },function(e){
 
             console.log(e);
@@ -90,13 +88,6 @@
         })
 
     }
-
-
-
-
-
-
-
 
 
 

@@ -78,7 +78,7 @@ yx_mallApp
                     $scope.arr.dayDetail.concat(e.data.data);
 
                 }
-                console.log(e);
+
             },function(e){
                 console.log(e);
             })

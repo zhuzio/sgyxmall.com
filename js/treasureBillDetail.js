@@ -11,18 +11,18 @@ yx_mallApp
 	};
 	$scope.detail.billId=$stateParams.billId;
 	$scope.detail.billtype=$stateParams.billType;//获取传惨
-	console.log(typeof $stateParams.billType);
+
 	if($stateParams.billType=='1'){
 		//请求1是购物积分账单
-		console.log(1);
+
 		var bill=appService._postData(URL+"index.php?s=/Api/wealth/bill_month_info",{
 		    token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way"),
            time: $stateParams.billId
 		});
 			bill.then(function(e){
-//			$scope.detail.data=	e.data.data;
-				console.log(e);
+			$scope.detail.data=	e.data.data;
+				// console.log(e);
 			},function(e){
 				console.log(e);
 			})
@@ -34,8 +34,8 @@ yx_mallApp
 		    token: localStorage.getItem("tokens"),
             way:localStorage.getItem("way"), time: $stateParams.billId}) ;        
 			bill.then(function(e){
-//				$scope.detail.data=	e.data.data;
-				console.log(e);
+				$scope.detail.data=	e.data.data;
+				// console.log(e);
 			},function(e){
 				console.log(e);
 			})

@@ -21,10 +21,10 @@ yx_mallApp
         page:$scope.bb.page
 	});
 	baoBiao.then(function(e){
-			console.log(e);
+
 		$scope.bb.data=	e.data.data;
 		$scope.bb.qu=	e.data.arr.area;
-		console.log($scope.bb.qu);
+
 		},function(e){
 			console.log(e);
 		});
@@ -38,7 +38,7 @@ yx_mallApp
 			page:$scope.bb.page
 	});
 		baoBiao.then(function(e){
-			console.log(e);
+
 			$scope.bb.data=	e.data.data;
 		     $scope.bb.qu=	e.data.arr.area;
 		},function(e){

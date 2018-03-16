@@ -16,12 +16,12 @@ yx_mallApp.controller("merchantDetailController",["$scope","appService","$stateP
         //请求店铺详情
         var  fenlei=appService._postData(URL+"index.php?s=/Api/store/shop_info",{store_id:$stateParams.shopId});
         fenlei.then(function(e){
-            console.log(e);
+
             $scope.index.arr3=e.data.data;
             $scope.index.swipers.push(e.data.data.image_1);
             $scope.index.swipers.push(e.data.data.image_2);
             $scope.index.swipers.push(e.data.data.image_3);
-            console.log($scope.index.swipers);
+
             if(!$scope.index.arr3.description){
                 $scope.index.arr3.description="暂无介绍";
             }
@@ -33,12 +33,6 @@ yx_mallApp.controller("merchantDetailController",["$scope","appService","$stateP
             console.log(e);
 
         })
-
-
-
-
-
-
 
 
 

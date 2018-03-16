@@ -27,7 +27,7 @@ yx_mallApp
 		$scope.arr.mouth=e.data.data;
 		$scope.arr.total=e.data.arr;
 	    $scope.arr.current=e.data.data[0].money;
-	    console.log(e);
+
 	},function(e){
 		console.log(e);
 	});

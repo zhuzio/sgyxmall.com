@@ -17,25 +17,30 @@ yx_mallApp
 		
 		$("#appDateTime1").val()
 		$("#appDateTime2").val()
-		console.log(typeof ($("#cha").val()-0));
-		console.log($("#appDateTime1").val());
+
 		
 		 if($("#cha").val().length==0)  
-        {  
-           alert('请输入手机号码！');  
-           return false;  
+        {
+            appService.artTxt("请输入手机号码！").then(function () {
+                return false;
+            });
+
+
         }      
         if($("#cha").val().length!=11)  
-        {  
-            alert('请输入有效的手机号码！11');  
-            return false;  
+        {
+            appService.artTxt("请输入有效的手机号码！").then(function () {
+                return false;
+            });
+
         }  
           
        
         if(!(/^1[345789]\d{9}$/.test($("#cha").val()-0)))
-        {  
-            alert('请输入有效的手机号码！');  
-            return false;  
+        {
+            appService.artTxt("请输入有效的手机号码！").then(function () {
+                return false;
+            });
         }  
 		
 		var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
@@ -66,7 +71,7 @@ yx_mallApp
 
 
 
-    }
+    };
 	
 	//初加载
 	var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
@@ -76,14 +81,12 @@ yx_mallApp
 
 		
 		  chaxun.then(function(e){
-		  	console.log(e);
+
 		  	    $scope.dan.all =e.data.data.give_count;
 		  	    $scope.dan.data =e.data.data.total_amount_jiu;
 		  	
 		  },function(e){
-		  	
-		  	
-		  	console.log(e);
+		  		  	console.log(e);
 		  })
 //加载更多
     $scope.more=function () {
@@ -103,7 +106,7 @@ yx_mallApp
                   if(e.data.data.total_amount_jiu){
 
                   }
-                console.log(e);
+
             }
 
         },function (e) {
@@ -114,11 +117,6 @@ yx_mallApp
 
 
     };
-
-
-
-
-
 
 
 
