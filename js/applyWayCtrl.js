@@ -1,6 +1,6 @@
 //去支付页面 控制器
 yx_mallApp
-    .controller("applyWayController",["$scope","$stateParams","appService","$window",function ($scope,$stateParams,appService,$window) {
+    .controller("applyWayController",["$scope","$stateParams","appService","$window","$state",function ($scope,$stateParams,appService,$window,$state) {
         document.title = "去支付";
         console.log($stateParams);
         $scope.apply={
@@ -70,7 +70,9 @@ yx_mallApp
             $scope.inputPsd=function (num) {
                 switch (num){
                     case '取消':
-                        // todo...
+                        $(".input_psd_container").animate({
+                            top:"100%"
+                        },300);
                         break;
                     case '删除':
                         try {
@@ -103,7 +105,7 @@ yx_mallApp
                             });
                             $(".input_process_loading").animate({
                                 top:"0"
-                            },0)
+                            },0);
                             $scope.currentInputIndex=-1;
                             $scope.apply.spd = afterInputPassword;
                             $scope.applyApi($scope.apply.spd);
@@ -135,12 +137,22 @@ yx_mallApp
                 });
             userApply.then(function (e) {
                 console.log(e)
-                /*if(e.data.ret == "success"){
-                   alert(e.data.msg)
+                if(e.data.ret == "success"){
+                   appService.artTxt(e.data.msg).then(function (value) {
+                       $(".input_process_loading").animate({
+                           top:"100%"
+                       },0);
+                       $(".input_psd_container").animate({
+                           top:"100%"
+                       },300);
+                       $state.go("myOrder");
+                   })
                 }else {
-                    alert(e.data.msg);
-                    $window.location.reload()
-                }*/
+                    appService.artTxt(e.data.msg).then(function (value) {
+                        $window.location.reload()
+                    });
+
+                }
             },function (e) {
                 console.log(e)
             })

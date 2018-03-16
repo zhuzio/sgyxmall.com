@@ -128,7 +128,7 @@ yx_mallApp.constant('RouterList_Config',[
         ]
     },{
         name:"addAddress",
-        url:"/_addAddress",
+        url:"/_addAddress?url",
         templateUrl:"net/addAddress.html",
         controller:"addAddressController",
         files:[

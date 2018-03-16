@@ -6,7 +6,7 @@
     </div>
 </header>
 <div class="address_box">
-    <div class="ads_list" ng-repeat="ads in address.addressInfo">
+    <div class="ads_list" ng-repeat="ads in address.addressInfo" ng-click="goWhere(ads)">
             <p class="ads_name_tel">
                 <span class="ads_name">{{ads.consignee}}</span>
                 <span class="ads_tel">{{ads.phone_tel}}</span>
@@ -19,5 +19,5 @@
     </div>
 </div>
 <div class="ads_add">
-    <a ui-sref="addAddress({url:'address'})">新增收货地址</a>
+    <a ui-sref="addAddress({url:'add'})">新增收货地址</a>
 </div>

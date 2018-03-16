@@ -71,6 +71,24 @@
 .myOrderInfo >p >span{
     color: #8a8a8a;
 }
+.myOrderInfo >p >span >input{
+    background: none;
+    border: none;
+    font-size: .26rem;
+    color: #8a8a8a;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.myOrderInfo >p >i{
+    font-style: normal;
+    display: inline-block;
+    border: 1px #e79e56 solid;
+    padding: .03rem .1rem;
+    font-size: .22rem;
+    float: right;
+    border-radius: .1rem;
+    color: #e79e56;
+}
 .myOrder_receive{
     border-top: 1px solid #ccc;
     width: 100%;
@@ -106,9 +124,14 @@
     margin-right: .2rem;
 }
 .shopName{
-    font-size: .27rem;
+    font-size: .22rem;
     text-indent: .5em;
     padding: .2rem 0;
+    color: #8b8b8b;
+}
+.shopName >span{
+    font-size: 0.26rem;
+    font-weight: bolder;
 }
 .DFK{
     color: #e1ba95;
@@ -117,11 +140,17 @@
     color: #8cb0be;
 }
 .YFH{
-    color: #9acab2;
+    color: #8fbba5;
 }
 .YWC{
     color: #e6c2b6;
 }
 .TK{
     color: #9a9fca;
+}
+.orderMore{
+    text-align: center;
+    color: #ccc;
+    font-size: .24rem;
+    line-height: .8rem;
 }

@@ -4,7 +4,7 @@
        填写订单
     </div>
     <!--用户收货地址信息-->
-    <div class="clear_address_container" ui-sref="address">
+    <div class="clear_address_container" ui-sref="address({url:'clear'})">
         <p class="receiver_name fl">{{clear.user_name}}</p>
         <div class="receiver_address_container fl">
             <p class="receiver_phone">{{clear.user_phone}}</p>
@@ -19,7 +19,7 @@
            </div>
             <div class="eol_info fl">
                 <p class="eol_name">{{goods.goods_name}}</p>
-                <p class="eol_type">{{goods.goods_types}}</p>
+                <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{goods.goods_types}}</p>
                 <p class="eol_enc">¥ <span class="eol_price">{{goods.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{goods.goods_point}}</span></p>
             </div>
             <span>X {{goods.goods_count}}</span>

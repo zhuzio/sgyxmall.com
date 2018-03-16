@@ -13,7 +13,7 @@
             <div class="info_list"><span class="info_title">联系电话</span><input type="number" name="s_phone" placeholder="请输入手机号" required class="ad_tel" ng-model="info.tel"></div>
             <div class="info_list"><span class="info_title">选择地区</span><input type="text" name="s_addr" placeholder="请选择地区信息"  readonly required id="J_Address" ng-focus="addArea()" class="ad_addr" value="{{area.address}}"></div>
             <div class="info_list"><span class="info_title">详细地址</span><input type="text" name="s_address" placeholder="请输入详细地址" required class="ad_add_d" ng-model="info.d_address"></div>
-            <div class="info_list"><span class="info_title">邮编</span><input type="number" name="s_address" placeholder="请输入邮编" required class="ad_add_d" ng-model="info.mail_num"></div>
+            <div class="info_list"><span class="info_title">邮编</span><input type="text" name="s_address" placeholder="请输入邮编" required class="ad_add_d" ng-model="info.mail_num"></div>
             <div class="setDefAds"><input type="checkbox" id="setDefAds" ng-model="info.isDef"><label for="setDefAds" > 设置为默认地址</label></div>
             <input type="submit" value="确认增加" class="submit" ng-click="submitData()">
         </div>

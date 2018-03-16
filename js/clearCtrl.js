@@ -23,29 +23,36 @@ yx_mallApp
         }
         $scope.clear.number=parseFloat(eval($scope.clear.goodsNum.join("+")))
         //获得用户地址信息
-        var address=appService._postData(URL+"index.php?s=/Api/User/getDefaultAddress",{
-            token:$scope.clear.token,
-            way:$scope.clear.way,
-            apiType:"one"
-        });
-        address.then(function (e) {
-            console.log(e.data.data);
-            if (e.data.data == "" || e.data.data == null){
-                var r = confirm("您还没有收货地址，确定去添加？");
-                if (r){
-                    $state.go("addAddress",{url:"clearing"});
+        var defAds=JSON.parse(localStorage.getItem("choseAds"));
+        if (defAds){
+            $scope.clear.user_name=defAds.consignee;
+            $scope.clear.user_phone=defAds.phone_tel;
+            $scope.clear.address=defAds.region_name+" "+defAds.address
+        }else {
+            var address=appService._postData(URL+"index.php?s=/Api/User/getDefaultAddress",{
+                token:$scope.clear.token,
+                way:$scope.clear.way,
+                apiType:"one"
+            });
+            address.then(function (e) {
+                if (e.data.data == "" || e.data.data == null){
+                    var r = confirm("您还没有收货地址，确定去添加？");
+                    if (r){
+                        $state.go("addAddress",{url:"clearing"});
+                    }else {
+                        window.history.back(-1);
+                    }
                 }else {
-                    window.history.back(-1);
+                    $scope.clear.user_name=e.data.data.consignee;
+                    $scope.clear.user_phone=e.data.data.phone_tel;
+                    $scope.clear.address=e.data.data.region_name+" "+e.data.data.address
                 }
-            }else {
-                $scope.clear.user_name=e.data.data.consignee;
-                $scope.clear.user_phone=e.data.data.phone_tel;
-                $scope.clear.address=e.data.data.region_name+" "+e.data.data.address
-            }
 
-        },function (e) {
-            console.log(e)
-        });
+            },function (e) {
+                console.log(e)
+            });
+        }
+
         //去支付
         $scope.goApply=function () {
             var order=appService._postData(URL+"index.php?s=/Api/order/addOrder",{

@@ -1,3 +1,40 @@
+<style type="text/css">
+    .myOrder_header{
+        position: fixed;
+        top:0;
+        left: 0;
+        z-index: 9999999999;
+    }
+    .orderListHead{
+        position: fixed;
+        top:.8rem;
+        left: 0;
+        z-index: 9999999999;
+
+    }
+    .order_list_container{
+        margin-top: 1.8rem;
+    }
+    .order_list_container >div >img{
+        display: block;
+        width:50%;
+        height: auto;
+        margin: 3rem auto;
+    }
+    .mAGContainer{
+        z-index: 999999999999999999;
+    }
+    .logisticsQuery{
+        position: absolute;
+        width: 70%;
+        height: 3rem;
+        background: white;
+        top: 30%;
+        left: 15%;
+        border-radius: .2rem;
+        /*transform: scale(1.2);*/
+    }
+</style>
 <div class="myOrder_header">
     <a href="javascript:window.history.back(-1)"></a>
     我的商城订单
@@ -7,15 +44,15 @@
     <p ng-repeat="tabs in shopOrder.tabTxt" ng-class={'tabOn':shopOrder.tabIdx==$index} ng-click="changeOrderTab($index)">{{tabs}}</p>
 </div>
 <div class="order_list_container">
-
+    <!--所有订单-->
     <div class="order_allOrder" ng-if="shopOrder.allOrderMo">
         <div class="each_myOrder_list" ng-repeat="eg in shopOrder.allOrder" >
             <p class="shopName">{{eg.store_name}}
-                <span class="fr DFK" ng-if="eg.switch_status==2">待付款</span>
-                <span class="fr DFH" ng-if="eg.switch_status==3">待发货</span>
-                <span class="fr YFH" ng-if="eg.switch_status==4">已发货</span>
-                <span class="fr YWC" ng-if="eg.switch_status==3">已完成</span>
-                <span class="fr TK" ng-if="eg.switch_status==3">退款</span>
+                <span class="fr DFK" ng-if="eg.order_status==11">待付款</span>
+                <span class="fr DFH" ng-if="eg.order_status==20">待发货</span>
+                <span class="fr YFH" ng-if="eg.order_status==30">已发货</span>
+                <span class="fr YWC" ng-if="eg.order_status==40">已完成</span>
+                <span class="fr TK" ng-if="eg.order_status==50">退款</span>
             </p>
             <div class="each_order_list">
                 <div class="eol_img fl">
@@ -32,7 +69,8 @@
                 <p><span>订单编号：{{eg.order_sn}}</span></p>
                 <p><span>下单时间：{{eg.add_time}}</span></p>
                 <p><span>商品合计：{{eg.goods_price}}元+{{eg.goods_point}}积分</span></p>
-                <p><span>支付方式：</span></p>
+                <p ng-if="eg.payment_name"><span>支付方式：{{eg.payment_name}}</span></p>
+                <p ng-if="eg.waybill_sn"><span>快递单号：<input id="txt{{eg.waybill_sn}}" value="{{eg.waybill_sn}}" readonly></span><i ng-click="copyTxt(eg.waybill_sn)"ng-if="eg.order_status==30">一键复制</i></p>
                 <p><span>运　　费：{{eg.shipping_money}}</span></p>
             </div>
             <div class="myOrder_receive">
@@ -43,25 +81,190 @@
                 </div>
             </div>
             <p class="applyTui">
-                <span class="fr" ui-sref="applyReturnGoods" ng-if="eg.switch_status==2">取消订单</span>
-                <span class="fr" ng-if="eg.switch_status==2" ng-click="orderApply(eg)">去支付</span>
-                <span class="fr" ui-sref="applyReturnGoods" ng-if="eg.switch_status==4 || eg.switch_status==3">申请退款</span>
+                <span class="fr" ui-sref="applyReturnGoods" ng-if="eg.order_status==11">取消订单</span>
+                <span class="fr" ng-if="eg.order_status==11" ng-click="orderApply(eg)">去支付</span>
+                <span class="fr" ng-if="eg.order_status==30" ng-click="confirmReceipt(eg)">确认收货</span>
+                <span class="fr" ui-sref="applyReturnGoods" ng-if="eg.order_status==20 || eg.order_status==30">申请退款</span>
+                <span class="fr" ng-if="eg.order_status==30" ng-click="logisticsQuery(eg)">物流查询</span>
             </p>
         </div>
+        <p class="orderMore" ng-if="shopOrder.allOrderMore">点击加载更多</p>
     </div>
+    <!--待付款-->
     <div class="order_waitApply" ng-if="shopOrder.waitApplyMo">
-
+        <div class="each_myOrder_list" ng-repeat="ega in shopOrder.waitApply" >
+            <p class="shopName">{{ega.store_name}}</p>
+            <div class="each_order_list">
+                <div class="eol_img fl">
+                    <img ng-src="http://www.sgyxmall.com/{{ega.default_img}}" alt="{{}}">
+                </div>
+                <div class="eol_info fl">
+                    <p class="eol_name">{{ega.goods_name}}</p>
+                    <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{ega.goods_types}}</p>
+                    <p class="eol_enc">¥ <span class="eol_price">{{ega.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{ega.goods_point}}</span></p>
+                </div>
+                <span>X {{ega.goods_count}}</span>
+            </div>
+            <div class="myOrderInfo">
+                <p><span>订单编号：{{ega.order_sn}}</span></p>
+                <p><span>下单时间：{{ega.add_time}}</span></p>
+                <p><span>商品合计：{{ega.goods_price}}元+{{ega.goods_point}}积分</span></p>
+                <!--<p><span>支付方式：{{eg.payment_name}}</span></p>-->
+                <p><span>运　　费：{{ega.shipping_money}}</span></p>
+            </div>
+            <div class="myOrder_receive">
+                <div class="or_left fl"></div>
+                <div class="or_right fl">
+                    <p><span>收货人：</span>{{ega.buy_name}} <span class="fr" style="color: black">{{ega.phone_tell}}</span></p>
+                    <p><span>收货地址：</span>{{ega.address}}</p>
+                </div>
+            </div>
+            <p class="applyTui">
+                <span class="fr" ui-sref="applyReturnGoods" ng-if="ega.order_status==11">取消订单</span>
+                <span class="fr" ng-if="ega.order_status==11" ng-click="orderApply(eg)">去支付</span>
+            </p>
+        </div>
+        <p class="orderMore" ng-if="shopOrder.waitApplyMore">点击加载更多</p>
     </div>
+    <!--待发货-->
     <div class="order_waitSend" ng-if="shopOrder.waitSendMo">
-
+        <div class="each_myOrder_list" ng-repeat="egs in shopOrder.waitSend" >
+            <p class="shopName">{{egs.store_name}}</p>
+            <div class="each_order_list">
+                <div class="eol_img fl">
+                    <img ng-src="http://www.sgyxmall.com/{{egs.default_img}}" alt="{{}}">
+                </div>
+                <div class="eol_info fl">
+                    <p class="eol_name">{{egs.goods_name}}</p>
+                    <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{egs.goods_types}}</p>
+                    <p class="eol_enc">¥ <span class="eol_price">{{egs.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{egs.goods_point}}</span></p>
+                </div>
+                <span>X {{egs.goods_count}}</span>
+            </div>
+            <div class="myOrderInfo">
+                <p><span>订单编号：{{egs.order_sn}}</span></p>
+                <p><span>下单时间：{{egs.add_time}}</span></p>
+                <p><span>商品合计：{{egs.goods_price}}元+{{egs.goods_point}}积分</span></p>
+                <p><span>支付方式：{{egs.payment_name}}</span></p>
+                <p><span>运　　费：{{egs.shipping_money}}</span></p>
+            </div>
+            <div class="myOrder_receive">
+                <div class="or_left fl"></div>
+                <div class="or_right fl">
+                    <p><span>收货人：</span>{{egs.buy_name}} <span class="fr" style="color: black">{{egs.phone_tell}}</span></p>
+                    <p><span>收货地址：</span>{{egs.address}}</p>
+                </div>
+            </div>
+            <p class="applyTui">
+                <span class="fr" ui-sref="applyReturnGoods">申请退款</span>
+            </p>
+        </div>
+        <p class="orderMore" ng-if="shopOrder.waitSendMore">点击加载更多</p>
     </div>
+    <!--已发货-->
     <div class="order_waitReceive" ng-if="shopOrder.waitReceiveMo">
-
+        <div class="each_myOrder_list" ng-repeat="egr in shopOrder.waitReceive" >
+            <p class="shopName">{{egr.store_name}}</p>
+            <div class="each_order_list">
+                <div class="eol_img fl">
+                    <img ng-src="http://www.sgyxmall.com/{{egr.default_img}}" alt="{{}}">
+                </div>
+                <div class="eol_info fl">
+                    <p class="eol_name">{{egr.goods_name}}</p>
+                    <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{egr.goods_types}}</p>
+                    <p class="eol_enc">¥ <span class="eol_price">{{egr.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{egr.goods_point}}</span></p>
+                </div>
+                <span>X {{egr.goods_count}}</span>
+            </div>
+            <div class="myOrderInfo">
+                <p><span>订单编号：{{egr.order_sn}}</span></p>
+                <p><span>下单时间：{{egr.add_time}}</span></p>
+                <p><span>商品合计：{{egr.goods_price}}元+{{egr.goods_point}}积分</span></p>
+                <p><span>快递单号：<input id="txt{{egr.waybill_sn}}" value="{{egr.waybill_sn}}" readonly></span><i ng-click="copyTxt(egr.waybill_sn)">一键复制</i></p>
+                <p><span>支付方式：{{egr.payment_name}}</span></p>
+                <p><span>运　　费：{{egr.shipping_money}}</span></p>
+            </div>
+            <div class="myOrder_receive">
+                <div class="or_left fl"></div>
+                <div class="or_right fl">
+                    <p><span>收货人：</span>{{egr.buy_name}} <span class="fr" style="color: black">{{egr.phone_tell}}</span></p>
+                    <p><span>收货地址：</span>{{egr.address}}</p>
+                </div>
+            </div>
+            <p class="applyTui">
+                <span class="fr" ui-sref="applyReturnGoods">申请退款</span>
+                <span class="fr">确认收货</span>
+                <span class="fr" ng-click="logisticsQuery()">物流查询</span>
+        </div>
+        <p class="orderMore" ng-if="shopOrder.waitReceiveMore">点击加载更多</p>
     </div>
+    <!--已完成-->
     <div class="order_haveOver" ng-if="shopOrder.haveOverMo">
-
+        <div class="each_myOrder_list" ng-repeat="ego in shopOrder.haveOver" >
+            <p class="shopName">{{ego.store_name}}</p>
+            <div class="each_order_list">
+                <div class="eol_img fl">
+                    <img ng-src="http://www.sgyxmall.com/{{ego.default_img}}" alt="{{}}">
+                </div>
+                <div class="eol_info fl">
+                    <p class="eol_name">{{ego.goods_name}}</p>
+                    <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{ego.goods_types}}</p>
+                    <p class="eol_enc">¥ <span class="eol_price">{{ego.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{ego.goods_point}}</span></p>
+                </div>
+                <span>X {{ego.goods_count}}</span>
+            </div>
+            <div class="myOrderInfo">
+                <p><span>订单编号：{{ego.order_sn}}</span></p>
+                <p><span>下单时间：{{ego.add_time}}</span></p>
+                <p><span>商品合计：{{ego.goods_price}}元+{{ego.goods_point}}积分</span></p>
+                <p><span>快递单号：<input id="txt{{ego.waybill_sn}}" value="{{ego.waybill_sn}}" readonly></span></p>
+                <p><span>支付方式：{{ego.payment_name}}</span></p>
+                <p><span>运　　费：{{ego.shipping_money}}</span></p>
+            </div>
+            <div class="myOrder_receive">
+                <div class="or_left fl"></div>
+                <div class="or_right fl">
+                    <p><span>收货人：</span>{{ego.buy_name}} <span class="fr" style="color: black">{{ego.phone_tell}}</span></p>
+                    <p><span>收货地址：</span>{{ego.address}}</p>
+                </div>
+            </div>
+            <p class="applyTui">
+            </p>
+        </div>
+        <p class="orderMore" ng-if="shopOrder.haveOverMore">点击加载更多</p>
     </div>
+    <!--退款-->
     <div class="order_goodsReturn" ng-if="shopOrder.goodsReturnMo">
-
+        <div class="each_myOrder_list" ng-repeat="ege in shopOrder.goodsReturn" >
+            <p class="shopName">{{ege.store_name}}</p>
+            <div class="each_order_list">
+                <div class="eol_img fl">
+                    <img ng-src="http://www.sgyxmall.com/{{ege.default_img}}" alt="{{}}">
+                </div>
+                <div class="eol_info fl">
+                    <p class="eol_name">{{ege.goods_name}}</p>
+                    <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{ege.goods_types}}</p>
+                    <p class="eol_enc">¥ <span class="eol_price">{{ege.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{ege.goods_point}}</span></p>
+                </div>
+                <span>X {{ege.goods_count}}</span>
+            </div>
+            <div class="myOrderInfo">
+                <p><span>订单编号：{{ege.order_sn}}</span></p>
+                <p><span>下单时间：{{ege.add_time}}</span></p>
+                <p><span>商品合计：{{ege.goods_price}}元+{{ege.goods_point}}积分</span></p>
+                <p><span>支付方式：{{ege.payment_name}}</span></p>
+                <p><span>运　　费：{{ege.shipping_money}}</span></p>
+            </div>
+            <div class="myOrder_receive">
+                <div class="or_left fl"></div>
+                <div class="or_right fl">
+                    <p><span>收货人：</span>{{ege.buy_name}} <span class="fr" style="color: black">{{ege.phone_tell}}</span></p>
+                    <p><span>收货地址：</span>{{ege.address}}</p>
+                </div>
+            </div>
+            <p class="applyTui">
+            </p>
+        </div>
+        <p class="orderMore" ng-if="shopOrder.goodsReturnMore">点击加载更多</p>
     </div>
 </div>

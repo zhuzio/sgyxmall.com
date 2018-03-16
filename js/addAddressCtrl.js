@@ -1,8 +1,9 @@
 //添加收货地址页面 控制器
 yx_mallApp
-    .controller("addAddressController",["$scope","appService","$stateParams","$state",function ($scope,appService,$stateParams,$state) {
+    .controller("addAddressController",["$scope","appService","$stateParams","$state","$window",function ($scope,appService,$stateParams,$state,$window) {
         console.log($stateParams)
         document.title="添加信息";
+
         $scope.area={
             //初始化省份
             province:[],
@@ -25,6 +26,7 @@ yx_mallApp
             //初始化选择的地方
             address:"",
         };
+
         $scope.procinceIdx;
         $scope.cityIdx;
         $scope.districtIdx;
@@ -41,7 +43,22 @@ yx_mallApp
             z_tel:/^1[3|5|7|8]\d{9}$/,
             mail_num:"",
             isDef:false,
-            def:0
+            def:0,
+            addr_id:""
+        };
+        if ($stateParams.url == "modify"){
+            var modifyAds = JSON.parse(localStorage.getItem("choseAds"));
+            $scope.info.name = modifyAds.consignee;
+            $scope.info.tel = parseInt(modifyAds.phone_tel);
+            $scope.area.address = modifyAds.region_name;
+            $scope.info.d_address = modifyAds.address;
+            $scope.info.addr_id = modifyAds.addr_id;
+            $scope.info.mail_num = modifyAds.region_id;
+            if (modifyAds.type == "1" || modifyAds.type == 1){
+                $scope.info.isDef = true;
+            }else {
+                $scope.info.isDef = false;
+            };
         }
         var select=appService._getData("lib/area.json");
         select.then(function (e) {
@@ -133,56 +150,115 @@ yx_mallApp
         $scope.submitData=function () {
             //名字为空
             if (!$scope.info.name){
-                alert("名字不能为空！！！");
+                appService.artTxt("名字不能为空！！！");
                 return false;
             }
             //电话为空
             if (!$scope.info.tel){
-                alert("电话不能为空！！！");
+                appService.artTxt("电话不能为空！！！");
                 return false;
             }
             //地区为空
             if (!$scope.area.address){
-                alert("地区不能为空，请选择！！！");
+                appService.artTxt("地区不能为空，请选择！！！");
                 return false;
             }
             //详细地址为空
             if (!$scope.info.d_address){
-                alert("详细地址为空！！！");
+                appService.artTxt("详细地址为空！！！");
                 return false;
             }
             //电话格式错误
             if ($scope.info.z_tel.test($scope.info.tel) == false){
-                alert("电话格式错误！！！");
+                appService.artTxt("电话格式错误！！！");
+                return false;
+            }
+
+            //邮编为空
+            if (!$scope.info.d_address){
+                alert("邮编为空！！！");
                 return false;
             }
             if($scope.info.isDef){
                 $scope.info.def = 1
             }else {
                 $scope.info.def = 0
+            };
+            if ($stateParams.url == "modify"){
+                var modifySubmit=appService._postData(URL+"index.php?s=Api/User/editAddress",
+                    {
+                        consignee:$scope.info.name,
+                        phone_tel:$scope.info.tel,
+                        region_name:$scope.area.address,
+                        region_id:$scope.info.mail_num,
+                        address:$scope.info.d_address,
+                        token:localStorage.getItem("tokens"),
+                        way:localStorage.getItem("way"),
+                        type:$scope.info.def,
+                        addr_id:$scope.info.addr_id
+                    });
+                    modifySubmit.then(function (e) {
+                    console.log(e)
+                    if (e.data.ret == "success"){
+                        appService.artTxt(e.data.msg).then(function (value) {
+                            $state.go("address");
+                        })
+                    }else {
+                       appService.artTxt(e.data.msg);
+                    }
+                },function (e) {
+                    console.log(e)
+                })
+            }else if ($stateParams.url == "clearing"){
+                var submit=appService._postData(URL+"index.php?s=/Api/User/addAddress",
+                    {
+                        consignee:$scope.info.name,
+                        phone_tel:$scope.info.tel,
+                        region_name:$scope.area.address,
+                        region_id:$scope.info.mail_num,
+                        address:$scope.info.d_address,
+                        token:localStorage.getItem("tokens"),
+                        way:localStorage.getItem("way"),
+                        type:$scope.info.def
+                    });
+                submit.then(function (e) {
+                    console.log(e)
+                    if (e.data.ret == "success"){
+                        appService.artTxt(e.data.msg).then(function (value) {
+                           $window.history.go(-1);
+                        });
+                    }else {
+                        appService.artTxt(e.data.msg)
+                    }
+                },function (e) {
+                    console.log(e)
+                })
+            }else {
+                var submit=appService._postData(URL+"index.php?s=/Api/User/addAddress",
+                    {
+                        consignee:$scope.info.name,
+                        phone_tel:$scope.info.tel,
+                        region_name:$scope.area.address,
+                        region_id:$scope.info.mail_num,
+                        address:$scope.info.d_address,
+                        token:localStorage.getItem("tokens"),
+                        way:localStorage.getItem("way"),
+                        type:$scope.info.def
+                    });
+                submit.then(function (e) {
+                    console.log(e)
+                    if (e.data.ret == "success"){
+                        appService.artTxt(e.data.msg).then(function (value) {
+                            $state.go("address");
+                        });
+                    }else {
+                        appService.artTxt(e.data.msg)
+                    }
+                },function (e) {
+                    console.log(e)
+                })
             }
-            var submit=appService._postData(URL+"index.php?s=/Api/User/addAddress",
-                {
-                    consignee:$scope.info.name,
-                    phone_tel:$scope.info.tel,
-                    region_name:$scope.area.address,
-                    address:$scope.info.d_address,
-                    token:localStorage.getItem("tokens"),
-                    way:localStorage.getItem("way"),
-                    type:$scope.info.def
-                });
-            submit.then(function (e) {
-                console.log(e)
-                if (e.data.ret == "success"){
-                    alert(e.data.msg);
-                    $state.go("myAttend")
-                }else {
-                    alert("网络超时，请稍后重试");
-                    $state.go("myAttend");
-                }
-            },function (e) {
-                console.log(e)
-            })
+
 
         };
 

@@ -28,7 +28,7 @@
                     <input type="text" name="way" value="{{apply.way}}" hidden>
                     <input type="text" name="order_sn" value="{{apply.orderId}}" hidden>
                     <input type="text" name="payment" value="allcash" hidden>
-                    <input type="text" name="payment_way" value="11" hidden>
+                    <input type="text" name="payment_way" value="14" hidden>
                     <input type="text" name="goods_count" value="{{apply.orderNum}}" hidden>
                     <input type="text" name="pay_passwd" value="" hidden>
                     <input type="submit" class="apply_tonglian" value="微信支付">
@@ -59,7 +59,7 @@
 <div class="input_psd_container">
        <div class="goodsInfo_psd">
            <p class="apply_title">请输入支付密码</p>
-           <p>您的选择的是全额购买，总价格是：<span></span>积分</p>
+           <p>您的选择的是全额购买，总价格是：<span>{{apply.fullMoney}}</span>积分</p>
            <div class="psd_container">
                <input type="password" readonly ng-repeat="item in passwordGroup track by $index" ng-value="item.value">
            </div>

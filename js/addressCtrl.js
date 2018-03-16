@@ -1,6 +1,6 @@
 //我的地址页面 控制器
 yx_mallApp
-    .controller("addressController",["$scope","appService","$state",function ($scope,appService,$state) {
+    .controller("addressController",["$scope","appService","$window","$stateParams","$state",function ($scope,appService,$window,$stateParams,$state) {
         $scope.address={
             txt:"编辑",
             addressInfo:[],
@@ -36,7 +36,6 @@ yx_mallApp
         //删除地址
         $scope.deleteAddress=function (ele,idx,ads) {
             ele.splice(idx,1);
-            console.log(ads)
             var delAddress=appService._postData(URL+"index.php?s=/Api/user/delAddress",{
                 token:$scope.address.userInfo.token,
                 way:$scope.address.userInfo.way,
@@ -44,14 +43,28 @@ yx_mallApp
             });
                 delAddress.then(function (value) {
                     if (value.data.ret == "success"){
-                        alert(value.data.msg);
+                        appService.artTxt(value.data.msg);
                     }else {
-                        alert(value.data.msg);
+                        appService.artTxt(value.data.msg);
                         return false;
                     }
                 },function (reason) {
                     console.log(reason)
-                })
+                });
+                var defAd = JSON.parse(localStorage.getItem("choseAds"));
+                if (defAd){
+                    localStorage.removeItem("choseAds");
+                };
+        };
+        //判断进入的页面
+        $scope.goWhere=function (ads) {
+            localStorage.setItem("choseAds",JSON.stringify(ads));
+            console.log(JSON.parse(localStorage.getItem("choseAds")));
+            if ($stateParams.url == "clear"){
+                $window.history.go(-1);
+            }else {
+                $state.go("addAddress",{url:"modify"})
+            }
         }
 
     }])
