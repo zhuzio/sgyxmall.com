@@ -11,7 +11,7 @@
 
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
         //这里写获取dom的操作，
-        // console.log(ngRepeatFinishedEvent);
+
         if($stateParams.classifyId==1){
             $(".mc_pr").eq(0).addClass("mc_prbb");
             $scope.arr.shopType="建修建材";
