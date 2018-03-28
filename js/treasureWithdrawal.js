@@ -126,7 +126,7 @@ $scope.maxMoney=function (e) {
                     way:localStorage.getItem("way"),
                     password:pw,
                     bank_id:$scope.Withdrawal.bank_id ,
-                    money:$scope.Withdrawal.money
+                    money:$scope.Withdrawal.tq_money
                 });
 
                 Withdrawal.then(function (e) {
@@ -142,7 +142,7 @@ $scope.maxMoney=function (e) {
                         },1500);
                     }else { //  密码正确
                          appService.artTxt(e.data.msg).then(function () {
-                           $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
+                           $state.go("treasureWithdrawalDetail");
                         });
                     }
 

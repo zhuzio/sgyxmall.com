@@ -16,7 +16,19 @@ yx_mallApp
                page:1,
                oldselected:-2,
            };
-       
+    function getNowFormatDate() {
+        var date = new Date();
+
+        var month = date.getMonth() + 1;
+
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+
+        var currentdate = date.getFullYear() +  month;
+
+        return currentdate;
+    }
 //   初加载请求
 //加载每月记录
     var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/member_award",{
@@ -25,8 +37,18 @@ yx_mallApp
 	conversion_record.then(function(e){
 		$scope.arr.mouth=e.data.data;
         $scope.arr.total=e.data.arr;
-        $scope.arr.current=e.data.data[0].money;
-	    // console.log(e);
+        if(!e.data.data[0]){
+            $scope.arr.current=0;
+        }else{
+
+            if(getNowFormatDate()==e.data.data[0].times){
+
+                $scope.arr.current=e.data.data[0].money;
+            }else {
+                $scope.arr.current=0;
+            }
+
+        }
 	},function(e){
 		console.log(e);
 	});

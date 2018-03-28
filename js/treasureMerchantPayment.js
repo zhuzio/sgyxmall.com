@@ -47,7 +47,7 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 		
 		  chaxun.then(function(e){
 		  
-		  	   $scope.dan.all =e.data.data.give_count;
+		  	   $scope.dan.all =e.data.data.get_count;
 		  	    $scope.dan.data =e.data.data.total_amount_san;
 		  	
 		  },function(e){
@@ -68,7 +68,7 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 		
 		  chaxun.then(function(e){
 
-		  	    $scope.dan.all =e.data.data.give_count;
+		  	    $scope.dan.all =e.data.data.get_count;
 		  	    $scope.dan.data =e.data.data.total_amount_san;
 		  	
 		  },function(e){

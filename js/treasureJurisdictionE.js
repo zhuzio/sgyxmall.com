@@ -16,8 +16,20 @@ yx_mallApp
                oldselected:-2,//记录上次选中
                page:1,
            };
-           
-   
+
+        function getNowFormatDate() {
+            var date = new Date();
+
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+
+            var currentdate = date.getFullYear() +  month;
+
+            return currentdate;
+        }
 //   初加载请求
 //加载每月记录
     var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/area_earning_month",{
@@ -26,9 +38,20 @@ yx_mallApp
 	conversion_record.then(function(e){
 		$scope.arr.mouth=e.data.data;
         $scope.arr.total=e.data.arr;
-        $scope.arr.current=e.data.data[0].money;
-	    // console.log(e);
-	},function(e){
+        if(!e.data.data[0]){
+            $scope.arr.current=0;
+        }else{
+
+            if(getNowFormatDate()==e.data.data[0].times){
+
+                $scope.arr.current=e.data.data[0].money;
+            }else {
+                $scope.arr.current=0;
+            }
+
+        }
+
+    },function(e){
 		console.log(e);
 	})
 

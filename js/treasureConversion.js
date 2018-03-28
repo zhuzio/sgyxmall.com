@@ -15,7 +15,16 @@ yx_mallApp
             page:1,
         };
 
+        function getNowFormatDate() {
+            var date = new Date();
+            var month = date.getMonth() + 1;
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            var currentdate = date.getFullYear() +  month;
+            return currentdate;
 
+        }
 //   初加载请求
 //加载每月记录
         var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record",{
@@ -24,7 +33,21 @@ yx_mallApp
         conversion_record.then(function(e){
             $scope.treasureConversion.month=e.data.data;
             $scope.treasureConversion.total=e.data.arr;
-            $scope.treasureConversion.current=e.data.data[0].money;
+
+            if(!e.data.data[0]){
+                $scope.treasureConversion.current=0;
+            }else{
+
+                if(getNowFormatDate()==e.data.data[0].times){
+
+                    $scope.treasureConversion.current=e.data.data[0].money;
+                }else {
+                    $scope.treasureConversion.current=0;
+                }
+
+            }
+
+
 
         },function(e){
             console.log(e);

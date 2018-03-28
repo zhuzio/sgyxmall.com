@@ -89,10 +89,11 @@
 								<img src="images/wealthAll/w_ttime.png" class="treCon_img2"/>到账时间
 							</div>
 							<div style="display: inline-block;margin-left: 1rem;">
-								{{w.operatortime}}
+								{{w.operatortime|conversion}}
 							</div>
-							<div class="treCon_one_right">
+							<div class="treCon_one_right" >
 
+								{{w.ispay|textPay}}
 							</div>
 						</div>
 
