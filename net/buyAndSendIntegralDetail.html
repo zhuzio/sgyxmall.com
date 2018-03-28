@@ -1,0 +1,200 @@
+<style type="text/css">
+    .basHead{
+        width: 100%;
+        height: 3.1rem;
+        background: rgb(140,176,190);
+        border-top: 1px solid rgba(255, 255, 255, 0);
+        box-sizing: border-box;
+        color: white;
+        position: relative;
+    }
+    .basHeadSend{
+        background: #eecfb2;
+    }
+    .basHeadTab{
+        width: 100%;
+        height: .6rem;
+        text-align: center;
+        line-height: .55rem;
+        font-size: .28rem;
+        margin-top: .2rem;
+    }
+    .basHeadTab >span{
+        display: inline-block;
+        width: 1.3rem;
+        height: 100%;
+        border: 1px rgba(255, 255, 255, 0.51) solid;
+        box-sizing: border-box;
+        font-family: 微软雅黑;
+    }
+    .headTabOn{
+        background: white;
+        color: black !important;
+    }
+    .butIntegralBtn{
+        border-radius: .15rem 0 0 .15rem;
+    }
+    .sendIntegralBtn{
+        border-radius:0 .15rem .15rem 0;
+    }
+    .basNowInt,
+    .basNowIntNum{
+        font-size: .27rem;
+        text-align: center;
+        margin-top: .3rem;
+        letter-spacing: 2px;
+    }
+    .basNowIntNum{
+        font-size: 0.35rem;
+        margin-top: .15rem;
+        letter-spacing: normal;
+    }
+    .basTotalInt{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: .6rem;
+        line-height: .6rem;
+        border-top: 1px rgba(255, 255, 255, 0.3) solid;
+    }
+    .basTotalInt >p{
+        padding-left: .2rem;
+        font-size: .22rem;
+    }
+    .eachBasList{
+        width: 100%;
+        height: auto;
+        padding: .2rem 0;
+        background: white;
+        margin-top: .2rem;
+    }
+    .eachBasList p{
+        overflow: hidden;
+    }
+    .eachBasList i{
+        font-style: normal;
+        color: red;
+    }
+    .basListMonth{
+        width: 94%;
+        height: .6rem;
+        line-height: .6rem;
+        font-size: .28rem;
+        color: #555;
+        padding: 0 3%;
+        border-bottom: 1px #e5e5e5 solid;
+    }
+    .basListDet{
+        width: 94%;
+        padding: .15rem 3%;
+        border-bottom:1px #e5e5e5 solid;
+    }
+    .basListDetSend{
+        background: url("images/merchantIntegral/Audit.png") no-repeat 80% center;
+        background-size: 1.4rem auto;
+    }
+    .basListDetSendPass{
+        background: url("images/merchantIntegral/Adoption.png") no-repeat 80% center;
+        background-size: 1.4rem auto;
+    }
+    .basListMonth >i{
+        display: inline-block;
+        width: .3rem;
+        height: .3rem;
+        background: url("images/right.png") no-repeat center ;
+        background-size: auto .3rem;
+    }
+    .basListDet >p{
+        width: 100%;
+        height: .6rem;
+        line-height: .6rem;
+        font-size: .23rem;
+    }
+    .buy_buyIntNum{
+        display: inline-block;
+        padding-left: .4rem;
+        background: url("images/wealthAll/z-z20.png") no-repeat left center;
+        background-size: .32rem auto;
+    }
+    .buy_totalInt{
+        display: inline-block;
+        padding-left: .4rem;
+        background: url("images/wealthAll/z-z41.png") no-repeat left center;
+        background-size: .35rem auto;
+    }
+    .intDate{
+        display: inline-block;
+        padding-left: .4rem;
+        background: url("images/wealthAll/tre_xqtime.png") no-repeat left center;
+        background-size: .35rem auto;
+    }
+    .sendBg{
+        display: inline-block;
+        padding-left: .4rem;
+    }
+    .send_platform{
+        background: url("images/wealthAll/z-1000.png") no-repeat left center;
+        background-size: .35rem auto;
+    }
+    .send_merchant{
+        background: url("images/wealthAll/z-z20.png") no-repeat left center;
+        background-size: .35rem auto;
+    }
+    .send_member{
+        background: url("images/wealthAll/hysybz.png") no-repeat left center;
+        background-size: .35rem auto;
+    }
+    .send_phone{
+        background: url("images/wealthAll/tre_mobile.png") no-repeat left center;
+        background-size: auto .35rem;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    发购积分明细
+</div>
+<div class="basHead" ng-class="{'basHeadSend':!bas.tabClassBuy}">
+    <div class="basHeadTab">
+        <span class="butIntegralBtn" ng-class="{'headTabOn':bas.tabClassBuy}" ng-click="changeBasTab(1)">购积分</span><span class="sendIntegralBtn" ng-class="{'headTabOn':bas.tabClassSend}" ng-click="changeBasTab(2)">发积分</span>
+    </div>
+    <p class="basNowInt">当前积分:</p>
+    <p class="basNowIntNum">{{bas.nowIntegral}}</p>
+    <div class="basTotalInt">
+        <p ng-if="bas.tabClassBuy">累计购买积分：{{bas.totalBuyIntegral}}</p>
+        <p ng-if="bas.tabClassSend">已发积分：{{bas.totalSendIntegral}}<span class="fr" style="padding-right: .2rem">累计积分：{{bas.totalIntegral}}</span></p>
+    </div>
+</div>
+
+<div class="buyIntContainer" ng-if="bas.tabClassBuy">
+    <div class="eachBasList" ng-repeat="buyInt in bas.buyMonthInfo">
+        <p class="basListMonth" ng-click="showBasIntDet(1,buyInt,$index)">{{buyInt.months}}<i class="fr"></i></p>
+        <div class="basListDetContainer" ng-if="buyInt.buyIntBlock">
+
+            <div class="basListDet" ng-repeat=" buyIntDet in bas.buyIntInfo">
+                <p><span class="buy_buyIntNum fl">购入积分：<i>{{buyIntDet.num}}</i></span><span class="buy_everyInt fr">每积分价格/元：<i>{{buyIntDet.price}}</i></span></p>
+                <p><span class="buy_totalInt">共计：<i>{{buyIntDet.amount}}</i></span></p>
+                <p><span class="IntOrder fl">订单号：{{buyIntDet.orderid}}</span><span class="intDate fr">{{buyIntDet.pay_createtime}}</span></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="sendIntContainer" ng-if="bas.tabClassSend">
+    <div class="eachBasList" ng-repeat="sendInt in bas.sendMonthInfo">
+        <p class="basListMonth" ng-click="showBasIntDet(2,sendInt,$index)">{{sendInt.months}}<i class="fr"></i></p>
+        <div class="basListDetContainer" ng-if="sendInt.sendIntBlock">
+
+            <div class="basListDet basListDetSend" ng-repeat="sendIntDet in bas.sendIntInfo" ng-class="{'basListDetSendPass':sendIntDet.is_pass==1}">
+                <p><span class="send_platform sendBg">平台赠送：<i>{{sendIntDet.system_point}}</i></span></p>
+                <p><span class="send_merchant sendBg">商家赠送：<i>{{sendIntDet.shops_point}}</i></span></p>
+                <p><span class="send_member sendBg">会员：{{sendIntDet.real_name}}</span></p>
+                <p><span class="send_phone sendBg">{{sendIntDet.user_name}}</span></p>
+                <p><span class="IntOrder fl">订单号：{{sendIntDet.order_sn}}</span><span class="intDate fr">{{sendIntDet.createtime}}</span></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+

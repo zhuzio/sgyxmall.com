@@ -6,7 +6,7 @@ yx_mallApp
             YP:false,
             SD:false
         };
-        console.log($scope.tab.userInfo)
+        // console.log($scope.tab.userInfo)
         if($scope.tab.userInfo == "" || $scope.tab.userInfo == undefined || $scope.tab.userInfo == null){
             $state.go("login");
         }else {

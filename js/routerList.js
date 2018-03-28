@@ -96,7 +96,7 @@ yx_mallApp.constant('RouterList_Config',[
         ]
     },{
         name:"clearing",
-        url:"/_clearing",
+        url:"/_clearing?way",
         templateUrl:"net/clearing.html",
         controller:"clearController",
         files:[
@@ -112,7 +112,7 @@ yx_mallApp.constant('RouterList_Config',[
         ]
     },{
         name:"applyWay",
-        url:"/_applyWay?OrderID&num&price&point",
+        url:"/_applyWay?OrderID&num&price&point&sc_id",
         templateUrl:"net/applyWay.html",
         controller:"applyWayController",
         files:[
@@ -494,7 +494,7 @@ yx_mallApp.constant('RouterList_Config',[
     },
     {
         name:"buyAndSendIntegralDetail",
-        url:"/_buyAndSendIntegralDetail",
+        url:"/_buyAndSendIntegralDetail?way",
         templateUrl:"net/buyAndSendIntegralDetail.html",
         controller:"buyAndSendIntegralDetailController",
         files:[
@@ -545,5 +545,15 @@ yx_mallApp.constant('RouterList_Config',[
         files:[
             './js/applyReturnGoodsCtrl.js'
         ]
+    },
+    {
+        name:"merchantOrder",//商家订单
+        url:"/_merchantOrder",
+        templateUrl:"net/merchantOrder.html",
+        controller:"merchantOrderController",
+        files:[
+            './js/merchantOrderCtrl.js'
+        ]
     }
+
 ]);

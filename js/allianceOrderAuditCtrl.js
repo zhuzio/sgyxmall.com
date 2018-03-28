@@ -162,12 +162,12 @@ yx_mallApp
         };
         $scope.getDatas(1,0);
         //  通过/驳回申请
-        $scope.aoaReject=function (sta,orderId,eve) {
+        $scope.aoaReject=function (sta,waitAudit,eve) {
 
             var aoaReject = appService._postData(URL+"index.php?s=Api/shop_center1/check_order",{
                 token:$scope.aoa.userInfo.token,
                 way:$scope.aoa.userInfo.way,
-                order_sn:orderId,
+                order_sn:waitAudit.order_sn,
                 is_check:sta,
                 order_type:"offline"
             });
@@ -178,13 +178,12 @@ yx_mallApp
                             // 审核驳回
                             case 2:
                                 $(eve.target).parents(".aoaAudit").find(".boH").css("display","block");
-                                // $scope.aoa.isBtn = false;
-                                this.$scope.aoa.isBtn = false;
+                                waitAudit.isBtn = true;
                                 break;
                             // 审核通过
                             case 1:
                                 $(eve.target).parents(".aoaAudit").find(".Tong").css("display","block");
-                                $scope.aoa.isBtn = false;
+                                waitAudit.isBtn = true;
                                 break;
                         }
                     }else {
@@ -314,7 +313,7 @@ yx_mallApp
                         allPass.then(function (value) {
                             if(value.data.ret="success"){
                                 alert(value.data.msg);
-                                $window.location.reload()
+                                // $window.location.reload()
                             }
                         },function (reason) {
                             console.log(reason)

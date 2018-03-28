@@ -88,10 +88,20 @@
     <div class="saShop"><span>商家信息</span>{{scan.shopName}}</div>
     <div class="saShop"><span>订单金额</span><input type="number" placeholder="请输入订单金额" ng-model="scan.payMoney"></div>
     <div class="saGoods"><span>商品名称</span><input type="text" placeholder="请选择" onfocus="this.blur()" ng-readonly="true" ng-model="scan.goodsName" ng-click="sc_cg()"></div>
-    <p class="sc_btn">确定</p>
+    <p class="sc_btn" ng-click="OverScanApply()">确定</p>
 </div>
 <div class="mAGContainer" ng-class={'mAGContainerY':scan.back}>
     <div class="goodsContainer">
         <p ng-repeat="goods in scan.goodsInfo" ng-click="choseGoods(goods)">{{goods.name}}</p>
     </div>
 </div>
+
+<!--二级密码支付盘-->
+<div class="input_psd_container">
+    <div pay-keyboard full-money="{{scan.payMoney}}"></div>
+</div>
+<!--支付过程加载层-->
+<div class="input_process_loading">
+    <img src="images/loadings.gif" alt="">
+</div>
+

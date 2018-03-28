@@ -7,38 +7,32 @@
 </head>
 <style type="text/css">
     .aaa{
-        width: 700px;
-        height: 500px;
-        background: #8f902b;
-        margin: 50px auto;
+        width: 600px;
+        height: 600px;
+        background: rgba(0, 0, 0, 0.61);
+        border: 1px white solid;
     }
-    @-webkit-keyframes buzz-out {
-        0% {
-            -webkit-transform: translateX(10px);
-        }
-        100% {
-            -webkit-transform: translateX(-10px) ;
-        }
+    .vvv{
+        width: 200px;
+        height: 150px;
+        background: white;
+        border-radius: 20px;
+        margin: 100px auto 0;
+        transform: scale(1.2);
     }
-    .aaa:hover  {
-        -webkit-animation-name: buzz-out;
-        -webkit-animation-duration: 0.03s;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-iteration-count: 6;
+    .vvv1{
+        transform: scale(1);
+        transition-duration: .3s;
     }
 </style>
 <body>
-<div class="aaa">sdfgsdfgs</div>
+<div class="aaa">
+    <div class="vvv">
+
+    </div>
+</div>
 </body>
 <script>
-    var obj={
-        age:"22",
-        getAge:function(){
-            console.log(this.age);
-            return this.age
-        }
-    };
-    var fn=obj.getAge();
-    console.log(fn)
+
 </script>
 </html>

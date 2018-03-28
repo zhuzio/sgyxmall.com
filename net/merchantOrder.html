@@ -1,0 +1,77 @@
+<style type="text/css">
+    .module_head{
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .changeWay{
+        position: absolute;
+        right: .2rem;
+        font-size: .2rem;
+        color: #9f9f9f;
+    }
+    .aoaCenter{
+        margin-top: 1.8rem;
+    }
+    .aoaCenter >div >img{
+        display: block;
+        margin: 3rem auto 0;
+        width: 60%;
+    }
+    .aoaAut >div{
+        background: white url("images/merchantIntegral/Audit.png") no-repeat 90% center;
+        background-size: 1.5rem auto;
+    }
+</style>
+<div class="module_head" >
+    <a href="javascript:window.history.go(-1)"></a>
+    商家订单
+    <span class="changeWay" ng-click="changeOutIn()">{{MOrder.moduelName}}</span>
+</div>
+<div class="aoaContainer">
+    <div class="aoaHead">
+        <div ng-class="{'aoaHeadOn':MOrder.isAudit}" ng-click="changeMOrderMo(1)">未审核</div>
+        <div ng-class="{'aoaHeadOn':MOrder.isPass}" ng-click="changeMOrderMo(2)">已通过</div>
+        <div ng-class="{'aoaHeadOn':MOrder.isReject}" ng-click="changeMOrderMo(3)">已驳回</div>
+    </div>
+    <div class="aoaCenter">
+        <div ng-if="MOrder.isAuditMo" class="aoaAut">
+            <div class="eachAoAList" ng-repeat="waitAudit in MOrder.waitAudit">
+                <p class="aoaTitle">订单编号：{{waitAudit.order_sn}}</p>
+                <p class="aoaCon">商品名称：{{waitAudit.classname}}</p>
+                <p class="aoaCon">消费金额：<span>{{waitAudit.goods_amount}} ({{waitAudit.payment_name}})</span></p>
+                <p class="aoaCon">赠送积分：<span>{{waitAudit.point}}</span></p>
+                <p class="aoaCon">买家电话：{{waitAudit.phone_mob}}</p>
+                <p class="aoaCon">下单时间：{{waitAudit.pay_time}}</p>
+            </div>
+            <img src="images/nodata.png" alt="" ng-if="MOrder.AudNoData">
+            <p class="aoaAddMore" ng-click="MOAddMore(1)" ng-if="MOrder.more_aud">点击加载更多</p>
+        </div>
+        <div ng-if="MOrder.isPassMo" class="aoaPas">
+            <div class="eachAoAList" ng-repeat="havePass in MOrder.havePass">
+                <p class="aoaTitle">订单编号：{{havePass.order_sn}}</p>
+                <p class="aoaCon">商品名称：{{havePass.classname}}</p>
+                <p class="aoaCon">消费金额：<span>{{havePass.goods_amount}} ({{havePass.payment_name}})</span></p>
+                <p class="aoaCon">赠送积分：<span>{{havePass.point}}</span></p>
+                <p class="aoaCon">买家电话：{{havePass.phone_mob}}</p>
+                <p class="aoaCon">下单时间：{{havePass.pay_time}}</p>
+                <p class="aoaCon">审核时间：{{havePass.check_time}}</p>
+            </div>
+            <img src="images/nodata.png" alt="" ng-if="MOrder.PasNoData">
+            <p class="aoaAddMore" ng-click="MOAddMore(2)" ng-if="MOrder.more_pas">点击加载更多</p>
+        </div>
+        <div ng-if="MOrder.isRejectMo" class="aoaRej">
+            <div class="eachAoAList" ng-repeat="haveReject in MOrder.haveReject">
+                <p class="aoaTitle">订单编号：{{haveReject.order_sn}}</p>
+                <p class="aoaCon">商品名称：{{haveReject.classname}}</p>
+                <p class="aoaCon">消费金额：<span>{{haveReject.goods_amount}}</span></p>
+                <p class="aoaCon">赠送积分：<span>{{haveReject.point}}</span></p>
+                <p class="aoaCon">用户电话：{{haveReject.phone_mob}}</p>
+                <p class="aoaCon">下单时间：{{haveReject.pay_time}}</p>
+                <p class="aoaCon">审核时间：{{haveReject.check_time}}</p>
+            </div>
+            <img src="images/nodata.png" alt="" ng-if="MOrder.RejNoData">
+            <p class="aoaAddMore" ng-click="MOAddMore(3)" ng-if="MOrder.more_rej">点击加载更多</p>
+        </div>
+    </div>
+</div>

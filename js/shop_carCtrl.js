@@ -14,7 +14,8 @@ yx_mallApp
             finalOrder:[],
             checkLength:[],
             haveShop:true,
-            noShop:false
+            noShop:false,
+            shopId:[]
         };
         var goodsCar = appService._postData(URL+"index.php?s=/Api/Classify/userCart", {
             token: localStorage.getItem("tokens"),
@@ -164,19 +165,22 @@ yx_mallApp
                             goods_price:goodsItem.goods_price,
                             goods_point:goodsItem.goods_point
                         };
+                        $scope.shopCar.shopId.push(goodsItem.sc_id);
                         $scope.shopCar.finalOrder.push(order);
                     }
                 })
             });
             if($scope.shopCar.finalOrder.length != 0){
-                var dataArr={ token:localStorage.getItem("tokens"),
+                var dataArr={
+                    token:localStorage.getItem("tokens"),
                     goodsInfo:$scope.shopCar.finalOrder,
                     way:localStorage.getItem("way"),
                     totalPrice:$scope.totalPrice,
-                    totalPoint:$scope.totalStock
+                    totalPoint:$scope.totalStock,
+                    sc_id:$scope.shopCar.shopId
                 };
                 localStorage.setItem("datas",JSON.stringify(dataArr));
-                $state.go("clearing")
+                $state.go("clearing",{way:"shopCar"})
             }else {
                 alert("您还为选中商品！！！");
                 return false;

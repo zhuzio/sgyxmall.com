@@ -7,15 +7,16 @@
         <p ui-sref="address">全额购买</p>
         <div class="chose_aw_con">
 
-            <div class="tong_apply">
+            <div class="tong_apply" ng-click="UserApply(0)" >
                 <!--<p>通联支付</p>-->
                 <form action="http://www.sgyxmall.com/index.php?s=/Api/Payment/onlinePayment" method="post">
                     <input type="text" name="token" value="{{apply.token}}" hidden>
                     <input type="text" name="way" value="{{apply.way}}" hidden>
                     <input type="text" name="order_sn" value="{{apply.orderId}}" hidden>
                     <input type="text" name="payment" value="allcash" hidden>
-                    <input type="text" name="payment_way" value="13" hidden>
+                    <input type="text" name="payment_way" value="18" hidden>
                     <input type="text" name="goods_count" value="{{apply.orderNum}}" hidden>
+                    <input type="text" name="sc_id" hidden value="{{apply.sc_id}}">
                     <input type="text" name="pay_passwd" value="" hidden>
                     <input type="submit" class="apply_tonglian" value="通联支付">
                 </form>
@@ -30,6 +31,7 @@
                     <input type="text" name="payment" value="allcash" hidden>
                     <input type="text" name="payment_way" value="14" hidden>
                     <input type="text" name="goods_count" value="{{apply.orderNum}}" hidden>
+                    <input type="text" name="sc_id" hidden value="{{apply.sc_id}}">
                     <input type="text" name="pay_passwd" value="" hidden>
                     <input type="submit" class="apply_tonglian" value="微信支付">
                 </form>
@@ -49,7 +51,18 @@
             </div>
 
             <div class="weChat_integral_apply" ng-click="UserApply(4)">
-                <p>微信+积分支付</p>
+                <!--<p>微信+积分支付</p>-->
+                <form action="http://www.sgyxmall.com/index.php?s=/Api/Payment/onlinePayment" method="post">
+                    <input type="text" name="token" value="{{apply.token}}" hidden>
+                    <input type="text" name="way" value="{{apply.way}}" hidden>
+                    <input type="text" name="order_sn" value="{{apply.orderId}}" hidden>
+                    <input type="text" name="payment" value="cashorpoint" hidden>
+                    <input type="text" name="payment_way" value="20" hidden>
+                    <input type="text" name="goods_count" value="{{apply.orderNum}}" hidden>
+                    <input type="text" name="sc_id" hidden value="{{apply.sc_id}}">
+                    <input type="text" name="pay_passwd" value="" hidden>
+                    <input type="submit" class="apply_tonglian" value="微信+积分支付">
+                </form>
             </div>
 
         </div>
@@ -57,7 +70,7 @@
 </div>
 <!--二级密码支付盘-->
 <div class="input_psd_container">
-       <div class="goodsInfo_psd">
+      <!-- <div class="goodsInfo_psd">
            <p class="apply_title">请输入支付密码</p>
            <p>您的选择的是全额购买，总价格是：<span>{{apply.fullMoney}}</span>积分</p>
            <div class="psd_container">
@@ -66,7 +79,8 @@
        </div>
        <div class="input_pan">
            <div ng-repeat="num in apply.pan" ng-click="inputPsd(num)">{{num}}</div>
-       </div>
+       </div>-->
+    <div pay-keyboard full-money="{{apply.fullMoney}}"></div>
 </div>
 <!--支付过程加载层-->
 <div class="input_process_loading">
