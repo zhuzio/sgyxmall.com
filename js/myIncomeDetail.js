@@ -7,8 +7,7 @@ yx_mallApp
 
 
             month:[],//月账单
-            dayDetail:[{money:66,buyer_name:"yanxu",order_sn:"35544541",pay_time:"2018-01-11 00:11:12",is_check:0,info:"xiaom"},
-                {money:16,buyer_name:"闫旭",order_sn:"56654212135",pay_time:"2018-01-01 10:31:12",is_check:1,info:"xiaom"}],
+            dayDetail:[],
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月转化，默认为零
             total:0,//累计转化，默认为零

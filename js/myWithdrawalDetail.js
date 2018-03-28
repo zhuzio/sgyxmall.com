@@ -6,9 +6,7 @@ yx_mallApp
         $scope.Withdrawal={
 
             month:[],//月账单
-            dayDetail:[{ip:0,money:121,createtime:"2018-01",bank_code:"建行",operatortime:"2018-02"},
-                {ip:1,money:121,createtime:"2018-01",bank_code:"建行",operatortime:"2018-02"},
-                {ip:2,money:121,createtime:"2018-01",bank_code:"建行",operatortime:"2018-02"}],//提现详情
+            dayDetail:[],//提现详情
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月转化，默认为零
             total:0,//累计转化，默认为零

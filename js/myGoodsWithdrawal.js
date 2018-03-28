@@ -158,7 +158,7 @@ $scope.maxMoney=function (e) {
 
                     if(e.data.ret=="success"){ //  密码正确
                           appService.artTxt(e.data.msg).then(function () {
-                           $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});
+                           $state.go("myWithdrawalDetail");
                         });
                     }else { //  密码错误
 
