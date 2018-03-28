@@ -53,15 +53,30 @@ yx_mallApp
                     }, 2100);
                 });
                 return defer.promise;
+            },
+            conform:function (txt) {
+                var defer = $q.defer();
+                $("body").append("<div class='alert1'><div class='conformBox'>" +
+                    "<p>"+txt+"</p><div class='conformBtn'>" +
+                    "<span class='c_cancel'>取消</span><span class='c_conform'>确认</span>" +
+                    "</div></div></div>");
+                $(".conformBox").addClass("conformBox_on").animate({opacity:"1"},300);
+                $(".c_conform").click(function () {
+                    defer.resolve();
+                    $(".alert1").remove();
+                });
+                $(".c_cancel").click(function () {
+                    defer.reject();
+                    $(".alert1").remove();
+                })
+                return defer.promise;
             }
         }
     }]).filter("datatimes",function(){
     return function(num){
-
         var lens=num.length;
         var timer1=num.substr(0,4);
         var timer2=num.substr(4,lens-4);
-
         return timer1+"-"+timer2;
 
     };

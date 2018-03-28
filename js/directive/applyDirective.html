@@ -1,0 +1,12 @@
+<div>
+    <div class="goodsInfo_psd">
+        <p class="apply_title">请输入支付密码</p>
+        <p>确认支付：<span>{{fullMoney}}</span>积分</p>
+        <div class="psd_container">
+            <input type="password" readonly ng-repeat="item in applyObject.passwordGroup track by $index" ng-value="item.value">
+        </div>
+    </div>
+    <div class="input_pan">
+        <div ng-repeat="num in applyObject.pan" ng-click="inputPsd(num)">{{num}}</div>
+    </div>
+</div>

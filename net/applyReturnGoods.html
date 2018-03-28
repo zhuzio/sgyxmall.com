@@ -66,15 +66,20 @@
         width: 100%;
         height: 1.8rem;
         margin-top: .2rem;
+        padding-bottom: .3rem;
     }
-    .choseImg{
+    .choseImg,
+    .choseImgTwo,
+    .choseImgOne{
         width: 1.8rem;
         height: 1.8rem;
         float: left;
         margin-right: .1rem;
         position: relative;
     }
-    .choseImg input{
+    .choseImg input,
+    .choseImgTwo input,
+    .choseImgOne input{
         display: block;
         width: 100%;
         height: 100%;
@@ -82,6 +87,55 @@
         top: 0;
         left: 0;
         opacity: 0;
+    }
+    .regReason{
+        width: 70%;
+        max-height: 5.5rem;
+        background: white;
+        top: 23%;
+        left: 15%;
+        border-radius: .2rem;
+        position: absolute;
+        padding: .3rem 0;
+        -webkit-transform: scale(1.2);
+        -webkit-backface-visibility: hidden;
+        -webkit-transition-property: -webkit-transform;
+        -webkit-transition-duration: 0.3s;
+    }
+    .regReason p{
+        width: 80%;
+        height: .6rem;
+        line-height: .6rem;
+        text-align: center;
+        border-bottom: 1px #e5e5e5 solid;
+        margin: 0 auto;
+        font-size: .26rem;
+    }
+    .mAGContainerY >div{
+        -webkit-transform: scale(1);
+    }
+    .choseImg{
+        background: url("images/upload.png") no-repeat center;
+        background-size: 120% auto;
+    }
+    .choseImgTwo,
+    .choseImgOne{
+        background: url("images/set/Plus.png") no-repeat center;
+        background-size: 50%;
+    }
+    .haveImg{
+        float: left;
+        width: 1.8rem;
+        height: 1.8rem;
+        margin-right: .1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .haveImg img{
+        width:auto;
+        height: 100%;
     }
 </style>
 <div class="module_head">
@@ -91,32 +145,32 @@
 <div class="argContainer">
     <div class="each_order_list" style="border: none">
         <div class="eol_img fl">
-            <img ng-src="http://www.sgyxmall.com/Upload/goods/store_13/2018-01-13/5a59bdcc6a0ab.jpg" alt="">
+            <img ng-src="http://www.sgyxmall.com/{{reg.applyReturnGoods.default_img}}" alt="{{reg.applyReturnGoods.goods_name}}">
         </div>
         <div class="eol_info fl">
-            <p class="eol_name">这是一个商品的名字 这是商品的名字</p>
-            <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">颜色：黑色，尺寸：如图</p>
-            <p class="eol_enc">¥ <span class="eol_price">200.22</span><span class="eol_and"> + </span><span class="eol_point">33.33</span></p>
+            <p class="eol_name">{{reg.applyReturnGoods.goods_name}}</p>
+            <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{reg.applyReturnGoods.goods_types}}</p>
+            <p class="eol_enc">¥ <span class="eol_price">{{reg.applyReturnGoods.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{reg.applyReturnGoods.goods_point}}</span></p>
         </div>
-        <span>X 2</span>
+        <span>X {{reg.applyReturnGoods.goods_count}}</span>
     </div>
 </div>
 <!--服务类型-->
-<div class="argServiceType argDiv">
-    <span class="argDivTitle">服务类型</span>请选择服务类型
+<div class="argServiceType argDiv" ng-click="alertBlock(1)">
+    <span class="argDivTitle">服务类型</span>{{reg.regServiceType}}
 </div>
 <!--退款原因-->
-<div class="argReason argDiv">
-    <span class="argDivTitle">退款原因</span>请选择退款原因
+<div class="argReason argDiv" ng-click="alertBlock(3)">
+    <span class="argDivTitle">退款原因</span>{{reg.regReason}}
 </div>
 <!--退款金额-->
 <div class="argMoney argDiv">
-    <span class="argDivTitle">退款金额</span><span style="color:#e79e56;">99元+99积分</span>
+    <span class="argDivTitle">退款金额</span><span style="color:#e79e56;">{{reg.applyReturnGoods.expense_price}}元+{{reg.applyReturnGoods.expense_point}}积分</span>
 </div>
 <p class="argAction"><span>*</span>退款金额=实际购买商品单价*数量</p>
 <!--运费-->
 <div class="argFreight argDiv">
-    <span class="argDivTitle">运费</span>0元
+    <span class="argDivTitle">运费</span>{{reg.applyReturnGoods.shipping_money}}元
 </div>
 <p class="argAction"><span>*</span>非商品质量、错发、漏发、卖家可拒绝退运费</p>
 <div class="argReasonDis argDiv">
@@ -126,12 +180,28 @@
 <div class="argUpImg">
     <span class="argDivTitle">上传凭证</span>
     <div class="uiBox">
-        <div class="choseImg">
-            <img src="" alt="">
-            <input type="file" multiple="multiple" capture accept="image/*">
+        <div class="choseImg" ng-if="reg.choseImg">
+            <input type="file" multiple="multiple" accept="image/*" onchange="angular.element(this).scope().choseImg(this.files,0)">
+        </div>
+        <div class="haveImg" ng-if="reg.haveImg" ng-repeat="item in reg.IArr" ><img ng-src="{{item}}" alt=""></div>
+        <div class="choseImgTwo" ng-if="reg.choseImgTwo">
+            <input type="file" multiple="multiple" accept="image/*" onchange="angular.element(this).scope().choseImg(this.files,2)">
+        </div>
+        <div class="choseImgOne" ng-if="reg.choseImgOne">
+            <input type="file" accept="image/*" onchange="angular.element(this).scope().choseImg(this.files,1)">
         </div>
     </div>
 </div>
-<div class="argBtn">
+<div class="argBtn" ng-click="applyReturnGoodsBtn()">
     提交申请
+</div>
+<div class="mAGContainer" ng-class="{'mAGContainerY':reg.AlertClass}">
+    <div class="regReason" ng-if="reg.STAlert">
+        <p ng-repeat="p in reg.regServiceTypeArr" ng-click="regTxt(p,1)" >{{p}}</p>
+        <p style="color: #ccc" ng-click="alertBlock(2)">取消</p>
+    </div>
+    <div class="regReason" ng-if="reg.RAlert">
+        <p ng-repeat="v in reg.regReasonArr" ng-click="regTxt(v,2)">{{v}}</p>
+        <p style="color: #ccc" ng-click="alertBlock(2)">取消</p>
+    </div>
 </div>

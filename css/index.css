@@ -353,9 +353,10 @@ li{
 }
 .each_du img{
     display: block;
-    width: 95%;
+    width: auto;
     height: auto;
     margin: 0 auto;
+    max-height: 2.8rem;
 }
 .each_du_name{
     width: 94%;

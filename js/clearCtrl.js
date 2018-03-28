@@ -1,6 +1,7 @@
 //结算页面 控制器
 yx_mallApp
     .controller("clearController",["$scope","$stateParams","appService","$state",function ($scope,$stateParams,appService,$state) {
+        document.title = "填写订单";
         $scope.clear={
             goods:[],
             total:"",
@@ -11,8 +12,14 @@ yx_mallApp
             user_phone:"********************",
             dataArr:localStorage.getItem("datas"),
             goodsNum:[],
-            number:0
+            number:0,
+            shopId:[]
         };
+        if ( $stateParams.way=="shopCar" ){
+            $scope.clear.shopId = JSON.parse($scope.clear.dataArr).sc_id;
+        }else {
+            $scope.clear.shopId = [""];
+        }
         //获得商品结算信息
         $scope.clear.goods=JSON.parse($scope.clear.dataArr).goodsInfo;
         $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元 + "+JSON.parse($scope.clear.dataArr).totalPoint+" 积分";
@@ -36,12 +43,11 @@ yx_mallApp
             });
             address.then(function (e) {
                 if (e.data.data == "" || e.data.data == null){
-                    var r = confirm("您还没有收货地址，确定去添加？");
-                    if (r){
+                    appService.conform("您还没有收货地址，确定去添加？").then(function (value) {
                         $state.go("addAddress",{url:"clearing"});
-                    }else {
+                    },function (reason) {
                         window.history.back(-1);
-                    }
+                    });
                 }else {
                     $scope.clear.user_name=e.data.data.consignee;
                     $scope.clear.user_phone=e.data.data.phone_tel;
@@ -61,19 +67,21 @@ yx_mallApp
                 goodsInfo:JSON.parse($scope.clear.dataArr).goodsInfo,
                 buy_name:$scope.clear.user_name,
                 address:$scope.clear.address,
-                phone_tell:$scope.clear.user_phone
+                phone_tell:$scope.clear.user_phone,
+                sc_id:$scope.clear.shopId
             });
             order.then(function (e) {
-                console.log(e)
+                // console.log(e)
                 if(e.data.ret == "ok"){
                     $state.go("applyWay",{
-                        OrderID:e.data.data,
+                        OrderID:[e.data.data],
                         num:$('.each_order_list').length,
                         price:JSON.parse($scope.clear.dataArr).totalPrice,
-                        point:JSON.parse($scope.clear.dataArr).totalPoint
+                        point:JSON.parse($scope.clear.dataArr).totalPoint,
+                        sc_id:$scope.clear.shopId
                     });
                 }else {
-                    alert(e.data.ret );
+                    appService.artTxt(e.data.ret );
                     return false;
                 }
             },function (e) {

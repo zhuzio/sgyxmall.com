@@ -26,8 +26,8 @@
                 <p class="aoaCon">用户电话：{{waitAudit.user_name}}</p>
                 <p class="aoaCon">下单时间：{{waitAudit.add_time}}</p>
                 <div class="aoaAudit">
-                    <span class="aoaRes" ng-if="aoa.isBtn" ng-click="aoaReject(2,waitAudit.order_sn,$event)">驳回</span>
-                    <span class="aoaAgr" ng-if="aoa.isBtn" ng-click="aoaReject(1,waitAudit.order_sn,$event)">通过</span>
+                    <span class="aoaRes" ng-if="!waitAudit.isBtn" ng-click="aoaReject(2,waitAudit,$event)">驳回</span>
+                    <span class="aoaAgr" ng-if="!waitAudit.isBtn" ng-click="aoaReject(1,waitAudit,$event)">通过</span>
                     <p style="color: #e79e56" class="Tong">已通过</p>
                     <p style="color: #999999" class="boH">已驳回</p>
                 </div>

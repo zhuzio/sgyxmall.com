@@ -21,18 +21,72 @@
         height: auto;
         margin: 3rem auto;
     }
-    .mAGContainer{
-        z-index: 999999999999999999;
-    }
-    .logisticsQuery{
-        position: absolute;
-        width: 70%;
-        height: 3rem;
+    .argdContainer{
+        width: 80%;
+        height: auto;
+        margin: .2rem auto;
         background: white;
-        top: 30%;
-        left: 15%;
+        position: absolute;
+        top: 10%;
+        left: 10%;
         border-radius: .2rem;
-        /*transform: scale(1.2);*/
+        padding-bottom: .5rem;
+    }
+    .argdList{
+        width: 94%;
+        height: .8rem;
+        line-height: .8rem;
+        font-size: .26rem;
+        border-bottom: 1px #e5e5e5 solid;
+        margin: 0 auto;
+    }
+    .argdTitle{
+        display: inline-block;
+        width: 1.5rem;
+        padding-left: .25rem;
+        color: #555;
+    }
+    .regdImgBox{
+        width: 100%;
+        height: auto;
+        padding-bottom: .2rem;
+        overflow: hidden;
+    }
+    .regdImgCen{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 33.3%;
+        float: left;
+        height: 2.5rem;
+        overflow: hidden;
+    }
+    .regdImgCen img{
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    .argdImg{
+        width: 94%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .argdImg >p{
+        padding-left: .25rem;
+        font-size: .26rem;
+        color: #555;
+        margin-top: .2rem;
+    }
+    .argd_know{
+        width: 60%;
+        height: .8rem;
+        line-height: .8rem;
+        text-align: center;
+        font-size: .3rem;
+        background: #e79e56;
+        color: white;
+        margin: .3rem auto 0;
+        border-radius: .2rem;
     }
 </style>
 <div class="myOrder_header">
@@ -68,7 +122,7 @@
             <div class="myOrderInfo">
                 <p><span>订单编号：{{eg.order_sn}}</span></p>
                 <p><span>下单时间：{{eg.add_time}}</span></p>
-                <p><span>商品合计：{{eg.goods_price}}元+{{eg.goods_point}}积分</span></p>
+                <p><span>商品合计：{{eg.expense_price}}元+{{eg.expense_point}}积分</span></p>
                 <p ng-if="eg.payment_name"><span>支付方式：{{eg.payment_name}}</span></p>
                 <p ng-if="eg.waybill_sn"><span>快递单号：<input id="txt{{eg.waybill_sn}}" value="{{eg.waybill_sn}}" readonly></span><i ng-click="copyTxt(eg.waybill_sn)"ng-if="eg.order_status==30">一键复制</i></p>
                 <p><span>运　　费：{{eg.shipping_money}}</span></p>
@@ -81,14 +135,16 @@
                 </div>
             </div>
             <p class="applyTui">
-                <span class="fr" ui-sref="applyReturnGoods" ng-if="eg.order_status==11">取消订单</span>
+                <span class="fr" ng-if="eg.order_status==11" ng-click="cancelOrder(eg,0,$index)">取消订单</span>
                 <span class="fr" ng-if="eg.order_status==11" ng-click="orderApply(eg)">去支付</span>
                 <span class="fr" ng-if="eg.order_status==30" ng-click="confirmReceipt(eg)">确认收货</span>
-                <span class="fr" ui-sref="applyReturnGoods" ng-if="eg.order_status==20 || eg.order_status==30">申请退款</span>
+                <span class="fr" ng-if="eg.order_status==20 || eg.order_status==30" ng-click="applyReturnGoods(eg)">申请退款</span>
                 <span class="fr" ng-if="eg.order_status==30" ng-click="logisticsQuery(eg)">物流查询</span>
+                <span class="fr" ng-if="eg.order_status==50" ng-click="applyReturnGoodsDetail(eg.order_id)">查看详情</span>
             </p>
         </div>
-        <p class="orderMore" ng-if="shopOrder.allOrderMore">点击加载更多</p>
+        <img src='images/nodata.png' ng-if="shopOrder.allOrderNoData">
+        <p class="orderMore" ng-if="shopOrder.allOrderMore" ng-click="addOrderMore(0,'')">点击加载更多</p>
     </div>
     <!--待付款-->
     <div class="order_waitApply" ng-if="shopOrder.waitApplyMo">
@@ -108,7 +164,7 @@
             <div class="myOrderInfo">
                 <p><span>订单编号：{{ega.order_sn}}</span></p>
                 <p><span>下单时间：{{ega.add_time}}</span></p>
-                <p><span>商品合计：{{ega.goods_price}}元+{{ega.goods_point}}积分</span></p>
+                <p><span>商品合计：{{ega.expense_price}}元+{{ega.expense_point}}积分</span></p>
                 <!--<p><span>支付方式：{{eg.payment_name}}</span></p>-->
                 <p><span>运　　费：{{ega.shipping_money}}</span></p>
             </div>
@@ -120,11 +176,12 @@
                 </div>
             </div>
             <p class="applyTui">
-                <span class="fr" ui-sref="applyReturnGoods" ng-if="ega.order_status==11">取消订单</span>
-                <span class="fr" ng-if="ega.order_status==11" ng-click="orderApply(eg)">去支付</span>
+                <span class="fr" ng-if="ega.order_status==11" ng-click="cancelOrder(ega,1,$index)">取消订单</span>
+                <span class="fr" ng-if="ega.order_status==11" ng-click="orderApply(ega)">去支付</span>
             </p>
         </div>
-        <p class="orderMore" ng-if="shopOrder.waitApplyMore">点击加载更多</p>
+        <img src='images/nodata.png' ng-if="shopOrder.waitApplyNoData">
+        <p class="orderMore" ng-if="shopOrder.waitApplyMore" ng-click="addOrderMore(1,'11')">点击加载更多</p>
     </div>
     <!--待发货-->
     <div class="order_waitSend" ng-if="shopOrder.waitSendMo">
@@ -144,7 +201,7 @@
             <div class="myOrderInfo">
                 <p><span>订单编号：{{egs.order_sn}}</span></p>
                 <p><span>下单时间：{{egs.add_time}}</span></p>
-                <p><span>商品合计：{{egs.goods_price}}元+{{egs.goods_point}}积分</span></p>
+                <p><span>商品合计：{{egs.expense_price}}元+{{egs.expense_point}}积分</span></p>
                 <p><span>支付方式：{{egs.payment_name}}</span></p>
                 <p><span>运　　费：{{egs.shipping_money}}</span></p>
             </div>
@@ -156,10 +213,11 @@
                 </div>
             </div>
             <p class="applyTui">
-                <span class="fr" ui-sref="applyReturnGoods">申请退款</span>
+                <span class="fr" ui-sref="applyReturnGoods" ng-click="applyReturnGoods(egs)">申请退款</span>
             </p>
         </div>
-        <p class="orderMore" ng-if="shopOrder.waitSendMore">点击加载更多</p>
+        <img src='images/nodata.png' ng-if="shopOrder.waitSendNoData">
+        <p class="orderMore" ng-if="shopOrder.waitSendMore" ng-click="addOrderMore(2,'20')">点击加载更多</p>
     </div>
     <!--已发货-->
     <div class="order_waitReceive" ng-if="shopOrder.waitReceiveMo">
@@ -179,7 +237,7 @@
             <div class="myOrderInfo">
                 <p><span>订单编号：{{egr.order_sn}}</span></p>
                 <p><span>下单时间：{{egr.add_time}}</span></p>
-                <p><span>商品合计：{{egr.goods_price}}元+{{egr.goods_point}}积分</span></p>
+                <p><span>商品合计：{{egr.expense_price}}元+{{egr.expense_point}}积分</span></p>
                 <p><span>快递单号：<input id="txt{{egr.waybill_sn}}" value="{{egr.waybill_sn}}" readonly></span><i ng-click="copyTxt(egr.waybill_sn)">一键复制</i></p>
                 <p><span>支付方式：{{egr.payment_name}}</span></p>
                 <p><span>运　　费：{{egr.shipping_money}}</span></p>
@@ -192,11 +250,12 @@
                 </div>
             </div>
             <p class="applyTui">
-                <span class="fr" ui-sref="applyReturnGoods">申请退款</span>
+                <span class="fr" ui-sref="applyReturnGoods" ng-click="applyReturnGoods(egr)">申请退款</span>
                 <span class="fr">确认收货</span>
                 <span class="fr" ng-click="logisticsQuery()">物流查询</span>
         </div>
-        <p class="orderMore" ng-if="shopOrder.waitReceiveMore">点击加载更多</p>
+        <img src='images/nodata.png' ng-if="shopOrder.waitReceiveNoData">
+        <p class="orderMore" ng-if="shopOrder.waitReceiveMore" ng-click="addOrderMore(3,'30')">点击加载更多</p>
     </div>
     <!--已完成-->
     <div class="order_haveOver" ng-if="shopOrder.haveOverMo">
@@ -216,7 +275,7 @@
             <div class="myOrderInfo">
                 <p><span>订单编号：{{ego.order_sn}}</span></p>
                 <p><span>下单时间：{{ego.add_time}}</span></p>
-                <p><span>商品合计：{{ego.goods_price}}元+{{ego.goods_point}}积分</span></p>
+                <p><span>商品合计：{{ego.expense_price}}元+{{ego.expense_point}}积分</span></p>
                 <p><span>快递单号：<input id="txt{{ego.waybill_sn}}" value="{{ego.waybill_sn}}" readonly></span></p>
                 <p><span>支付方式：{{ego.payment_name}}</span></p>
                 <p><span>运　　费：{{ego.shipping_money}}</span></p>
@@ -231,7 +290,8 @@
             <p class="applyTui">
             </p>
         </div>
-        <p class="orderMore" ng-if="shopOrder.haveOverMore">点击加载更多</p>
+        <img src='images/nodata.png' ng-if="shopOrder.haveOverNoData">
+        <p class="orderMore" ng-if="shopOrder.haveOverMore" ng-click="addOrderMore(4,'40')">点击加载更多</p>
     </div>
     <!--退款-->
     <div class="order_goodsReturn" ng-if="shopOrder.goodsReturnMo">
@@ -251,7 +311,7 @@
             <div class="myOrderInfo">
                 <p><span>订单编号：{{ege.order_sn}}</span></p>
                 <p><span>下单时间：{{ege.add_time}}</span></p>
-                <p><span>商品合计：{{ege.goods_price}}元+{{ege.goods_point}}积分</span></p>
+                <p><span>商品合计：{{ege.expense_price}}元+{{ege.expense_point}}积分</span></p>
                 <p><span>支付方式：{{ege.payment_name}}</span></p>
                 <p><span>运　　费：{{ege.shipping_money}}</span></p>
             </div>
@@ -263,8 +323,34 @@
                 </div>
             </div>
             <p class="applyTui">
+                <span class="fr" ng-click="applyReturnGoodsDetail(ege.order_id)">查看详情</span>
             </p>
         </div>
-        <p class="orderMore" ng-if="shopOrder.goodsReturnMore">点击加载更多</p>
+        <img src='images/nodata.png' ng-if="shopOrder.goodsReturnNoData">
+        <p class="orderMore" ng-if="shopOrder.goodsReturnMore" ng-click="addOrderMore(5,'50')">点击加载更多</p>
     </div>
+</div>
+<div class="mAGContainer" ng-class="{'mAGContainerY':shopOrder.regdClass}" style="z-index: 9999999999999999999999999">
+    <div class="argdContainer">
+        <div class="argdList">
+            <span class="argdTitle">退货状态</span>
+            <span class="argdCon" style="color: #ff853e">{{shopOrder.regdInfo.status}}</span>
+        </div>
+        <div class="argdList">
+            <span class="argdTitle">退货原因</span>
+            <span class="argdCon">{{shopOrder.regdInfo.refund_reason}}</span>
+        </div>
+        <div class="argdList" style="height: auto">
+            <span class="argdTitle">退货说明</span>
+            <span class="argdCon">{{shopOrder.regdInfo.refund_desc}}</span>
+        </div>
+        <div class="argdImg">
+            <p>退货凭证</p>
+            <div class="regdImgBox">
+                <div class="regdImgCen" ng-repeat="img in shopOrder.regdInfo.buyer_img"><img ng-src="{{img}}" alt=""></div>
+            </div>
+        </div>
+        <p class="argd_know" ng-click="shopOrder.regdClass = false">我知道了</p>
+    </div>
+
 </div>

@@ -130,14 +130,10 @@
 </div>
 <button class="goApply" ng-click="sendIG()">确定</button>
 <!--二级密码支付盘-->
-<div class="mAGContainer" ng-class="{'mAGContainerY':sio.psd}">
-    <div class="goodsInfoPsd">
-        <p class="applyTitle">请输入支付密码</p>
-        <div class="psdContainer">
-            <input type="password" readonly ng-repeat="item in passwordGroup track by $index" ng-value="item.value">
-        </div>
-    </div>
-    <div class="input_pan">
-        <div ng-repeat="num in sio.pan" ng-click="inputPsd(num)">{{num}}</div>
-    </div>
+<div class="input_psd_container">
+    <div pay-keyboard full-money="{{sio.sioInfo.finalIntegralNum}}"></div>
+</div>
+<!--支付过程加载层-->
+<div class="input_process_loading">
+    <img src="images/loadings.gif" alt="">
 </div>

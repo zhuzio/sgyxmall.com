@@ -46,7 +46,7 @@
                     <img ng-src="http://www.sgyxmall.com/{{pr.default_img}}" alt="{{pr.goods_name}}">
                     <p class="each_pr_name">{{pr.goods_name}}</p>
                     <div class="sold_price">
-                        <p>¥<span>{{pr.default_market}}</span></p>
+                        <p>¥<span>{{pr.default_ready}}</span></p>
                     </div>
                 </li>
             </ul>
@@ -64,7 +64,7 @@
                     <img ng-src="http://www.sgyxmall.com/{{female.default_img}}" alt="{{female.goods_name}}">
                     <p class="each_pr_name">{{female.goods_name}}</p>
                     <div class="sold_price">
-                        <p>¥<span>{{female.default_market}}</span></p>
+                        <p>¥<span>{{female.default_ready}}</span></p>
                     </div>
                 </li>
             </ul>
@@ -78,7 +78,7 @@
                     <img ng-src="http://www.sgyxmall.com/{{male.default_img}}" alt="{{male.goods_name}}">
                     <p class="each_pr_name">{{male.goods_name}}</p>
                     <div class="sold_price">
-                        <p>¥<span>{{male.default_market}}</span></p>
+                        <p>¥<span>{{male.default_ready}}</span></p>
                     </div>
                 </li>
             </ul>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="each_gf_right">
                         <p class="each_gf_name">{{guessLike.goods_name}}</p>
-                        <p class="each_gf_price">¥<span>{{guessLike.default_market}}</span></p>
+                        <p class="each_gf_price">¥<span>{{guessLike.default_ready}}</span></p>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
             <div class="each_du" ng-repeat="dayUpdata in index.dayUpdate" ui-sref="detail({goodsId:dayUpdata.goods_id})">
                 <img ng-src="http://www.sgyxmall.com/{{dayUpdata.default_img}}" alt="{{dayUpdata.goods_name}}">
                 <p class="each_du_name">{{dayUpdata.goods_name}}</p>
-                <p class="each_du_price">¥<span>{{dayUpdata.default_market}}</span></p>
+                <p class="each_du_price">¥<span>{{dayUpdata.default_ready}}</span></p>
             </div>
         </div>
     </div>
