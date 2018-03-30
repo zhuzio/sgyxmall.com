@@ -8,7 +8,7 @@ yx_mallApp
            $scope.arr={
            
             mouth:[],//月账单
-            dayDetail:[{classname:"测试",createtime:"2018-01-11 00:11:12",money:44,order_sn:54766452,xq_real_name:"小皇"},{classname:"京东方",money:44,order_sn:54766452,xq_real_name:"小皇",createtime:"2018-01-01 10:31:12"}],
+            dayDetail:[],
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月收益，默认为零
             total:0,//累计收益，默认为零
@@ -100,8 +100,8 @@ yx_mallApp
                 if(e.data.data == "" ){
                     $(".more").html("暂无更多");
                 }else {
-                    $scope.arr.dayDetail.concat(e.data.data);
 
+                    $scope.arr.dayDetail.push.apply($scope.arr.dayDetail,e.data.data);
                 }
 
             },function(e){

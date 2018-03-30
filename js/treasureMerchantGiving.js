@@ -102,10 +102,9 @@ yx_mallApp
             if(e.data.data.total_amount_jiu == "" ){
                 $(".more").html("暂无更多")
             }else {
-                $scope.dan.data= $scope.dan.data.concat(e.data.data.total_amount_jiu);
-                  if(e.data.data.total_amount_jiu){
 
-                  }
+                $scope.dan.data.push.apply($scope.dan.data,e.data.data.total_amount_jiu);
+
 
             }
 

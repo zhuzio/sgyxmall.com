@@ -47,12 +47,12 @@
 			<input type="number"  id="cha"  placeholder="请输入手机号"  ng-model="phone" >
 		</div>
 		<div class="treCon_start">
-			  <input  type="text"   placeholder="起始日期"  class="plate_time right" lay-key="1" id="appDateTime1" name="appDateTime1" >
+			  <input  type="text" readonly=""  placeholder="起始日期"  class="plate_time right" lay-key="1" id="appDateTime1" name="appDateTime1" >
 	    </div>
 		<div class="treCon_end">
-			  <input  type="text"  placeholder="结束日期" class="plate_time right" lay-key="2" id="appDateTime2" name="appDateTime2" >
+			  <input  type="text" readonly=""  placeholder="结束日期" class="plate_time right" lay-key="2" id="appDateTime2" name="appDateTime2" >
 	    </div>
-	    <div id="treCon_ok"  style="background: #9acab2;">
+	    <div id="treCon_ok" ng-click="query()" style="background: #9acab2;">
 	    	查找
 	    </div>
     </div>

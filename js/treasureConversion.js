@@ -7,7 +7,7 @@ yx_mallApp
         $scope.treasureConversion={
 
             month:[],//月账单
-            dayDetail:[{get_money:66,happiness:11,order_type:"541",createtime:"2018-01-11 00:11:12"},{get_money:16,happiness:10,order_type:"offline",createtime:"2018-01-01 10:31:12"}],
+            dayDetail:[],
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月转化，默认为零
             total:0,//累计转化，默认为零
@@ -98,8 +98,8 @@ yx_mallApp
                 if(e.data.data == "" ){
                     $(".more").html("暂无更多")
                 }else {
-                   $scope.treasureConversion.dayDetail.concat(e.data.data);
 
+                    $scope.treasureConversion.dayDetail.push.apply($scope.treasureConversion.dayDetail,e.data.data);
                 }
 
             },function(e){

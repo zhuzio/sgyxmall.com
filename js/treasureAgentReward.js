@@ -98,8 +98,8 @@ yx_mallApp
             if(e.data.data == "" ){
                 $(".more").html("暂无更多")
             }else {
-                $scope.arr.dayDetail=$scope.arr.dayDetail.concat(e.data.data);
 
+                $scope.arr.dayDetail.push.apply($scope.arr.dayDetail,e.data.data);
             }
 
         },function(e){

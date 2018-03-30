@@ -9,7 +9,7 @@ yx_mallApp
            $scope.arr={
            
             mouth:[],//月账单
-            dayDetail:[{get_money:66,order_sn:"",phone:"15236058819",from_username:"小明",to_name:"541",createtime:"2018-01-11 00:11:12"},{get_money:16,phone:"15236058819",order_sn:1057945,from_username:"小明",to_name:"offline",createtime:"2018-01-01 10:31:12"}],
+            dayDetail:[],
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月奖励，默认为零
             total:0,//累计奖励，默认为零
@@ -95,8 +95,8 @@ yx_mallApp
             if(e.data.data == "" ){
                 $(".more").html("暂无更多")
             }else {
-                $scope.arr.dayDetail.concat(e.data.data);
 
+                $scope.arr.dayDetail.push.apply($scope.arr.dayDetail,e.data.data);
             }
 
         },function(e){
