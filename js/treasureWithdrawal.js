@@ -47,7 +47,7 @@ yx_mallApp
 $scope.maxMoney=function (e) {
 
     $scope.Withdrawal.tq_money=  e;
-
+    $(".tx").addClass("bg2").removeClass("bg1");
 
 };
           //监测输入提现的金额
