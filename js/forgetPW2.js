@@ -25,7 +25,12 @@ yx_mallApp
                              });
                              return false;
                          }
+                         if($scope.user.newpw1.length<6){
+                             appService.artTxt("密码不能低于6位").then(function () {
 
+                             });
+                             return false;
+                         }
                          var ma=appService._postData(URL+"index.php?s=/Api/Password/update_login_password",{
                              user_name:JSON.parse(localStorage.getItem("userInfo")).user_name,
                              password:$scope.user.newpw1,
