@@ -36,7 +36,12 @@ yx_mallApp
                          if($scope.user.typeName){
                              return false;
                          }
+                         if(!$scope.user.newpw1||!$scope.user.newpw2){
+                             appService.artTxt("支付密码不能为空").then(function () {
 
+                             });
+                             return false;
+                         }
                          var ma=appService._postData(URL+"index.php?s=/Api/password/update_pay_password",{
                              user_name:JSON.parse(localStorage.getItem("userInfo")).user_name,
                              password:$scope.user.newpw1,

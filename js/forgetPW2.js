@@ -13,13 +13,18 @@ yx_mallApp
 
 
                     };
-console.log(typeof JSON.parse(localStorage.getItem("userInfo")).user_name)
+
                      $scope.submit=function () {
 
                          if($scope.user.newpw1!=$scope.user.newpw2){
                              return false;
                          }
+                         if(!$scope.user.newpw1||!$scope.user.newpw2){
+                             appService.artTxt("密码不能为空").then(function () {
 
+                             });
+                             return false;
+                         }
 
                          var ma=appService._postData(URL+"index.php?s=/Api/Password/update_login_password",{
                              user_name:JSON.parse(localStorage.getItem("userInfo")).user_name,
