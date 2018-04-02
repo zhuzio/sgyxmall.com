@@ -13,16 +13,25 @@ yx_mallApp
             dataArr:localStorage.getItem("datas"),
             goodsNum:[],
             number:0,
-            shopId:[]
+            shopId:[],
+            goodsDefault:"",
+
         };
+        console.log(JSON.parse($scope.clear.dataArr))
         if ( $stateParams.way=="shopCar" ){
+
             $scope.clear.shopId = JSON.parse($scope.clear.dataArr).sc_id;
         }else {
             $scope.clear.shopId = [""];
         }
         //获得商品结算信息
         $scope.clear.goods=JSON.parse($scope.clear.dataArr).goodsInfo;
-        $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元 + "+JSON.parse($scope.clear.dataArr).totalPoint+" 积分";
+        $scope.clear.goodsDefault = JSON.parse($scope.clear.dataArr).goodsDefault;
+        if ($scope.clear.goodsDefault == 0){
+            $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元  ";
+        }else {
+            $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元 + "+JSON.parse($scope.clear.dataArr).totalPoint+" 积分";
+        };
         for (var i in $scope.clear.goods){
             //获得数量
             var num=($scope.clear.goods)[i].goods_count;
@@ -68,7 +77,7 @@ yx_mallApp
                 buy_name:$scope.clear.user_name,
                 address:$scope.clear.address,
                 phone_tell:$scope.clear.user_phone,
-                sc_id:$scope.clear.shopId
+                sc_id:$scope.clear.shopId,
             });
             order.then(function (e) {
                 // console.log(e)
@@ -78,7 +87,8 @@ yx_mallApp
                         num:$('.each_order_list').length,
                         price:JSON.parse($scope.clear.dataArr).totalPrice,
                         point:JSON.parse($scope.clear.dataArr).totalPoint,
-                        sc_id:$scope.clear.shopId
+                        sc_id:$scope.clear.shopId,
+                        isY:JSON.parse($scope.clear.dataArr).goodsDefault
                     });
                 }else {
                     appService.artTxt(e.data.ret );

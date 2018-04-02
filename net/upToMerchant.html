@@ -1,3 +1,9 @@
+<style type="text/css">
+    .GCB_on {
+        color: #e79e56;
+        border: 1px #e79e56 solid;
+    }
+</style>
 <div class="module_head">
     <a href="javascript:window.history.go(-1)"></a>
     升级为商家
@@ -26,7 +32,7 @@
     <div class="eachUM">
         <p class="eachUMTitle">验证码<span>*</span></p>
         <input type="text" class="eachUMCon z_eachUMCon" placeholder="请输入验证码" ng-model="upToMerchant.ZCode">
-        <button class="getMCode">获取验证码</button>
+        <button class="getMCode" ng-click="getUpMessageCode()"ng-class="{'GCB_on':upToMerchant.clickSta}">{{upToMerchant.getMsgTxt}}</button>
     </div>
     <div class="eachUMPic">
         <p class="eachUMTitle eachUMTitlePic">营业执照<span>*</span></p>
@@ -77,7 +83,7 @@
         <input type="checkbox" id="uMA" ng-model="upToMerchant.weaAgreementY">
         <label for="uMA"> 我已阅读并同意</label><span ng-click="readAgreement()">店铺协议</span>
     </div>
-    <button class="upToMerchantSub" ng-click="upToMerchantSub()" ng-disabled="upToMerchant.HaveSub">{{upToMerchant.subTxt}}</button>
+    <button class="upToMerchantSub" ng-click="upToMerchantSub()" >{{upToMerchant.subTxt}}</button>
 </div>
 <!--三级城市联动-->
 <div class="area_container" style="z-index: 999999">

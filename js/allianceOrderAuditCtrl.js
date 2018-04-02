@@ -187,7 +187,7 @@ yx_mallApp
                                 break;
                         }
                     }else {
-                        alert(value.data.msg);
+                        appService.artTxt(value.data.msg);
                         return false;
                     }
                 },function (reason) {
@@ -312,7 +312,7 @@ yx_mallApp
                     });
                         allPass.then(function (value) {
                             if(value.data.ret="success"){
-                                alert(value.data.msg);
+                                appService.artTxt(value.data.msg);
                                 // $window.location.reload()
                             }
                         },function (reason) {
@@ -333,8 +333,10 @@ yx_mallApp
                     });
                     allPass.then(function (value) {
                         if(value.data.ret="success"){
-                            alert(value.data.msg);
-                            $window.location.reload()
+                            appService.artTxt(value.data.msg).then(function (value2) {
+                                $window.location.reload()
+                            });
+
                         }
                     },function (reason) {
                         console.log(reason)

@@ -45,12 +45,16 @@ yx_mallApp
             merchantQRUrl:"",
             returnTxt:[],
 
+            roleType:""
+
         };
 
         $scope.myOld.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         //请求用户信息
         var oldUserInfo=appService._postData(URL+"index.php?s=api/User/userinfo",{token:$scope.myOld.userInfo.token,way:$scope.myOld.userInfo.way});
             oldUserInfo.then(function (e) {
+                // console.log(e);
+                $scope.myOld.roleType = e.data.data.type;
                 $scope.myOld.deg = e.data.data.type_sn;
                 var typeNum= parseInt(e.data.data.type);
                 /*
@@ -198,7 +202,7 @@ yx_mallApp
             },function (reason) {
                 console.log(reason)
             });
-        $scope.wxScrn=function () {
+            $scope.wxScrn=function () {
             wx.scanQRCode({
                 needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
                 scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
@@ -234,6 +238,29 @@ yx_mallApp
                 }
             });
         };
+
+        // 升级 社区代理
+        $scope.upGradeKind=function () {
+            var upGradeKind = appService._postData(URL+"index.php?s=Api/userset/upgrade",{
+                token:$scope.myOld.userInfo.token,
+                way:$scope.myOld.userInfo.way,
+                type:4
+            });
+                upGradeKind.then(function (value) {
+                    if (value.data.ret == "success"){
+                        appService.artTxt(value.data.msg).then(function (value2) {
+                            $scope.myOld.chose_up = false;
+                        });
+                    }else {
+                        appService.artTxt(value.data.msg).then(function (value2) {
+                            $scope.myOld.chose_up = false;
+                        });
+                    }
+                },function (reason) {
+                    console.log(reason)
+                })
+        };
+
 
 
 

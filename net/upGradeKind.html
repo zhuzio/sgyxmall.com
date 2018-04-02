@@ -1,0 +1,73 @@
+<style type="text/css">
+    .ugContainer{
+        width: 100%;
+        height: auto;
+        padding: .2rem 0 .5rem;
+        background: white;
+        margin-top: .2rem;
+    }
+    .ugBox{
+        width: 94%;
+        height: .9rem;
+        line-height: .9rem;
+        border-bottom: 1px #e5e5e5 solid;
+        padding: 0 3%;
+        font-size: .26rem;
+        background: url("images/right.png") no-repeat 95% center;
+        background-size: auto .3rem;
+    }
+    .ugBtn{
+        width: 80%;
+        height: .8rem;
+        line-height: .8rem;
+        border-radius: .15rem;
+        background: #e79e56;
+        color: white;
+        margin: 1rem auto 0 ;
+        text-align: center;
+        font-size: .3rem;
+    }
+    .mAGContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .addressInfoBox{
+        width: 65%;
+        max-height: 80%;
+        border-radius: .2rem;
+        background: white;
+        overflow: scroll;
+        padding: .2rem 0;
+    }
+    .addressInfoBox p{
+        width: 85%;
+        height: .6rem;
+        line-height: .6rem;
+        text-align: center;
+        border-bottom: 1px #e5e5e5 dashed;
+        margin: 0 auto;
+        font-size: .25rem;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    选择代理位置
+</div>
+<div class="ugContainer">
+    <div class="ugBox" ng-click="ugkAddress(0)"><span class="ugTitle">请选择省份：</span>{{ugk.provinceName}}</div>
+    <div class="ugBox" ng-click="ugkAddress(1)" ng-if="ugk.wayCity"><span class="ugTitle">请选择城市：</span>{{ugk.cityName}}</div>
+    <div class="ugBox" ng-click="ugkAddress(2)" ng-if="ugk.wayArea"><span class="ugTitle">请选择县区：</span>{{ugk.areaName}}</div>
+    <p class="ugBtn" ng-click="submitUpInfo()">提交申请</p>
+</div>
+<div class="mAGContainer" ng-class="{'mAGContainerY':ugk.adBox}">
+    <div class="addressInfoBox" ng-if="ugk.isP">
+        <p ng-repeat="pro in ugk.province" ng-click="ugkAds(0,pro)">{{pro.name}}</p>
+    </div>
+    <div class="addressInfoBox" ng-if="ugk.isC">
+        <p ng-repeat="city in ugk.city" ng-click="ugkAds(1,city)">{{city.name}}</p>
+    </div>
+    <div class="addressInfoBox" ng-if="ugk.isA">
+        <p ng-repeat="area in ugk.area" ng-click="ugkAds(2,area)">{{area.name}}</p>
+    </div>
+</div>

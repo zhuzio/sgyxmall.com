@@ -45,19 +45,19 @@ yx_mallApp
         $scope.goConformSendOrder=function () {
             var z_tel=/^1[34578]\d{9}$/;
             if ($scope.sendInfo.buyerName == "" || z_tel.test($scope.sendInfo.buyerName) == false){
-                alert("买家账号不能为空或格式错误！！！");
+                appService.artTxt("买家账号不能为空或格式错误！！！");
                 return false;
             };
             if ($scope.sendInfo.sendIntegralNum == ""){
-                alert("赠送积分不能为空！！！");
+                appService.artTxt("赠送积分不能为空！！！");
                 return false;
             };
             if ($scope.sendInfo.dealMoney == ""){
-                alert("成交金额不能为空！！！");
+                appService.artTxt("成交金额不能为空！！！");
                 return false;
             };
             if ($scope.sendInfo.sendGoodsName == "请选择" || $scope.sendInfo.sendGoodsName == ""){
-                alert("商品名称不能为空！！！");
+                appService.artTxt("商品名称不能为空！！！");
                 return false;
             };
 
@@ -68,7 +68,7 @@ yx_mallApp
                 point:$scope.sendInfo.sendIntegralNum
             });
             memberAbout.then(function (value) {
-                console.log(value);
+                // console.log(value);
                 if (value.data.ret=="ok"){
                     var finalOrder={
                         finalBuyerName:"",
@@ -84,7 +84,7 @@ yx_mallApp
                     localStorage.removeItem("sendInfo");
                     $state.go("sendIntegralOrder",{sP:value.data.data.system_point,uP:value.data.data.user_point,uN:value.data.data.username});
                 }else {
-                    alert(value.data.msg);
+                    appService.artTxt(value.data.msg);
                     return false
                 }
             },function (reason) {

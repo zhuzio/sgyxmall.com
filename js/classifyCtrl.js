@@ -51,4 +51,18 @@ yx_mallApp
             console.log(e)
         });
 
-    }])
+
+        $scope.getCatch=function (idx) {
+            switch (idx){
+                case 1:
+                    $cache.setCache("aaa","ceshi");
+                    break;
+                case 2:
+                    var b=$cache.getCache("aaa");
+                    console.log(b)
+                    break;
+            }
+
+        };
+
+    }]);

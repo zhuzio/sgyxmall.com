@@ -112,7 +112,7 @@ yx_mallApp.constant('RouterList_Config',[
         ]
     },{
         name:"applyWay",
-        url:"/_applyWay?OrderID&num&price&point&sc_id",
+        url:"/_applyWay?OrderID&num&price&point&sc_id&isY",
         templateUrl:"net/applyWay.html",
         controller:"applyWayController",
         files:[
@@ -512,7 +512,7 @@ yx_mallApp.constant('RouterList_Config',[
     },
     {
         name:"myMember",//我的会员
-        url:"/_myMember",
+        url:"/_myMember?role",
         templateUrl:"net/myMember.html",
         controller:"myMemberController",
         files:[
@@ -553,6 +553,15 @@ yx_mallApp.constant('RouterList_Config',[
         controller:"merchantOrderController",
         files:[
             './js/merchantOrderCtrl.js'
+        ]
+    },
+    {
+        name:"upGradeKind",//会员升级
+        url:"/_upGradeKind?way",
+        templateUrl:"net/upGradeKind.html",
+        controller:"upGradeKindController",
+        files:[
+            './js/upGradeKindCtrl.js'
         ]
     }
 

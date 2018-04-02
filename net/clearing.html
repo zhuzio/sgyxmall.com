@@ -20,7 +20,7 @@
             <div class="eol_info fl">
                 <p class="eol_name">{{goods.goods_name}}</p>
                 <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{goods.goods_types}}</p>
-                <p class="eol_enc">¥ <span class="eol_price">{{goods.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point">{{goods.goods_point}}</span></p>
+                <p class="eol_enc">¥ <span class="eol_price">{{goods.goods_price}}</span><span class="eol_and" ng-if="clear.goodsDefault != '0.00'"> + </span><span class="eol_point" ng-if="clear.goodsDefault !='0.00'">{{goods.goods_point}}</span></p>
             </div>
             <span>X {{goods.goods_count}}</span>
         </div>

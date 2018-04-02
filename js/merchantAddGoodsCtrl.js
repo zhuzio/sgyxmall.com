@@ -29,7 +29,7 @@ yx_mallApp
                     break;
                 case 3:
                     if ($scope.mAG.mAGName == ""){
-                        alert("商品名称不能为空！！！");
+                        appService.artTxt("商品名称不能为空！！！");
                         return false;
                     }else {
                         var mAG=appService._postData(URL+"index.php?s=Api/shop_center1/addClassName",{
@@ -59,8 +59,10 @@ yx_mallApp
             });
                 mAGLDel.then(function (value) {
                     if (value.data.ret == "success"){
-                        alert("删除成功");
-                        $window.location.reload();
+                        appService.artTxt("删除成功").then(function (value2) {
+                            $window.location.reload();
+                        });
+
                     }
                 },function (reason) {
                     console.log(reason)

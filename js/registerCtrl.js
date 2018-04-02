@@ -42,14 +42,14 @@ yx_mallApp
         $scope.getMessageCode=function () {
             var z_tel= /^1(3|4|5|7|8|9)\d{9}$/;
             if ($scope.reg.regTel == ""){
-                alert("请输入电话号码！！！");
+                appService.artTxt("请输入电话号码！！！");
                 return false;
             }else if(z_tel.test($scope.reg.regTel) == false){
-                alert("电话号码格式错误！！！");
+                appService.artTxt("电话号码格式错误！！！");
                 return false;
             };
             if (!$scope.reg.watherImgCode){
-                alert("您的图片验证码错误，请重新输入");
+                appService.artTxt("您的图片验证码错误，请重新输入");
                 return false;
             };
             if($scope.reg.clickSta){
@@ -239,47 +239,47 @@ yx_mallApp
         $scope.userRegister=function () {
             var w_num=/^[0-9]*$/;
             if ($scope.reg.regTel == "" || $scope.reg.regTel == null){
-                alert("电话号码不能为空！！！");
+                appService.artTxt("电话号码不能为空！！！");
                 return false;
             };
             if ($scope.reg.imgCodeNum == "" || $scope.reg.imgCodeNum == null){
-                alert("图片验证码不能为空！！！");
+                appService.artTxt("图片验证码不能为空！！！");
                 return false;
             }
             if ($scope.reg.regCode == "" || $scope.reg.regCode == null){
-                alert("请输入验证码！！！");
+                appService.artTxt("请输入验证码！！！");
                 return false;
             };
             if ($scope.reg.regRecCode == "" || $scope.reg.regRecCode == null){
-                alert("请输入您的推荐编号！！！");
+                appService.artTxt("请输入您的推荐编号！！！");
                 return false;
             };
             if ($scope.reg.regLoginPsd == "" || $scope.reg.regLoginPsd == null){
-                alert("登录密码不能为空！！！");
+                appService.artTxt("登录密码不能为空！！！");
                 return false;
             };
             if ($scope.reg.regApplyPsd == "" || $scope.reg.regApplyPsd == null){
-                alert("支付密码不能为空！！！");
+                appService.artTxt("支付密码不能为空！！！");
                 return false;
             };
             if ($scope.reg.regRealName == "" || $scope.reg.regRealName == null){
-                alert("真实姓名不能为空！！！");
+                appService.artTxt("真实姓名不能为空！！！");
                 return false;
             };
             if ($scope.area.address == "" || $scope.area.address == null){
-                alert("请选择注册地！！！");
+                appService.artTxt("请选择注册地！！！");
                 return false;
             };
             if ($scope.reg.regAgreement == false){
-                alert("请阅读用户协议");
+                appService.artTxt("请阅读用户协议");
                 return false;
             };
             if (w_num.test($scope.reg.regApplyPsd) == false){
-               alert("支付密码只能为6位数字！！！");
+               appService.artTxt("支付密码只能为6位数字！！！");
                return false;
            };
             if ($scope.reg.regApplyPsd.length != 6){
-               alert("支付密码只能为6位数字！！！");
+               appService.artTxt("支付密码只能为6位数字！！！");
                return false;
            };
             var   register=appService._postData(URL+"index.php?s=Api/user/register",{
@@ -297,10 +297,12 @@ yx_mallApp
                 register.then(function (value) {
                     console.log(value);
                     if (value.data.ret=="success"){
-                        alert(value.data.msg);
-                        $state.go("login");
+                        appService.artTxt(value.data.msg).then(function (value2) {
+                            $state.go("login");
+                        });
+
                     }else {
-                        alert(value.data.msg);
+                        appService.artTxt(value.data.msg);
                         return false;
                     }
                 },function (reason) {

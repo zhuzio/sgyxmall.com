@@ -22,13 +22,13 @@
                 </form>
             </div>
 
-            <div class="weChat_apply" ng-click="UserApply(1)">
+            <div class="weChat_apply" ng-click="UserApply()">
                 <!--<p>微信支付</p>-->
                 <form action="http://www.sgyxmall.com/index.php?s=/Api/Payment/onlinePayment" method="post">
                     <input type="text" name="token" value="{{apply.token}}" hidden>
                     <input type="text" name="way" value="{{apply.way}}" hidden>
                     <input type="text" name="order_sn" value="{{apply.orderId}}" hidden>
-                    <input type="text" name="payment" value="allcash" hidden>
+                    <input type="text" name="payment" value="cashorpoint" hidden>
                     <input type="text" name="payment_way" value="14" hidden>
                     <input type="text" name="goods_count" value="{{apply.orderNum}}" hidden>
                     <input type="text" name="sc_id" hidden value="{{apply.sc_id}}">
@@ -42,6 +42,8 @@
             </div>
         </div>
     </div>
+
+
     <div class="chose_applyWay1" ng-if="apply.isIn">
         <p>会员价购买</p>
         <div class="chose_aw_con1">

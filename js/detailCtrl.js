@@ -68,52 +68,47 @@ yx_mallApp
         };
         //获得商品详情数据
         var goods=appService._postData(URL+"index.php?s=/Api/Classify/goodsInfo",{goods_id:$stateParams.goodsId});
-        goods.then(function (e) {
-            $scope.goodsDetail.goods=e.data.data;
-            console.log($scope.goodsDetail.goods);
-            //商品的颜色分类
-            $scope.goodsDetail.goods_color=e.data.data.specification;
-            /* if($scope.goodsDetail.goods_color == '' || $scope.goodsDetail.goods_color ==null){
-                 $scope.goodsDetail.isColor = false;
-             };*/
-            //商品的尺寸分类
-            $scope.goodsDetail.goods_size=e.data.data.specification[0].spec_desc2;
-            /* if($scope.goodsDetail.goods_size == '' || $scope.goodsDetail.goods_size ==null){
-                 $scope.goodsDetail.isSizes=false;
-             };*/
-            //默认商品弹出价格
-            $scope.goodsDetail.t_price=e.data.data.default_ready;
-            //默认商品弹出积分
-            $scope.goodsDetail.t_integral=e.data.data.default_point;
-            //默认库存
-            $scope.goodsDetail.stock=e.data.data.default_stock;
-            setTimeout(function () {
-                var swiper = new Swiper('.swiper-container', {
-                    pagination: '.swiper-pagination',
-                    nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev',
-                    paginationClickable: true,
-                    spaceBetween: 0,
-                    centeredSlides: true,
-                    autoplay: 2500,
-                    autoplayDisableOnInteraction: false,
-                    loop:true
-                });
-                $scope.goodsDetail.offsetTop=parseInt($(".gdi_img_title").offset().top);
-                $(window).scroll(function () {
-                    if($(window).scrollTop() > $scope.goodsDetail.offsetTop){
-                        $(".gd_goods").removeClass("scroll_on");
-                        $(".gd_detail").addClass("scroll_on")
-                    }else if ($(window).scrollTop() <= $scope.goodsDetail.offsetTop){
-                        $(".gd_goods").addClass("scroll_on");
-                        $(".gd_detail").removeClass("scroll_on")
-                    }
-                })
-            },0);
+            goods.then(function (value) {
+                console.log(value);
+                // 商品赋值
+                $scope.goodsDetail.goods = value.data.data;
+                // 商品颜色分类
+                $scope.goodsDetail.goods_color=value.data.data.specification;
+                //商品的尺寸分类
+                $scope.goodsDetail.goods_size=value.data.data.specification[0].spec_desc2;
+                //默认商品弹出价格
+                $scope.goodsDetail.t_price=value.data.data.default_ready;
+                //默认商品弹出积分
+                $scope.goodsDetail.t_integral=value.data.data.default_point;
+                //默认库存
+                $scope.goodsDetail.stock=value.data.data.default_stock;
+                setTimeout(function () {
+                    var swiper = new Swiper('.swiper-container', {
+                        pagination: '.swiper-pagination',
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                        paginationClickable: true,
+                        spaceBetween: 0,
+                        centeredSlides: true,
+                        autoplay: 2500,
+                        autoplayDisableOnInteraction: false,
+                        loop:true
+                    });
+                    $scope.goodsDetail.offsetTop=parseInt($(".gdi_img_title").offset().top);
+                    $(window).scroll(function () {
+                        if($(window).scrollTop() > $scope.goodsDetail.offsetTop){
+                            $(".gd_goods").removeClass("scroll_on");
+                            $(".gd_detail").addClass("scroll_on")
+                        }else if ($(window).scrollTop() <= $scope.goodsDetail.offsetTop){
+                            $(".gd_goods").addClass("scroll_on");
+                            $(".gd_detail").removeClass("scroll_on")
+                        }
+                    })
+                },0);
 
-        },function (e) {
-            console.log(e)
-        });
+            },function (reason) {
+                console.log(reason)
+            });
         //页面头部 商品  详情 滚动
         $scope.scrollNow=function (n) {
             if (n == 1){
@@ -176,9 +171,9 @@ yx_mallApp
             //购物车弹出确定
             if ($scope.goodsDetail.enter == 2){
                 if(localStorage.getItem("tokens") == "" || localStorage.getItem("tokens") == undefined || localStorage.getItem("tokens") == null){
-                    alert("登录超时或未登录，请重新登录！！！");
+                    appService.artTxt("登录超时或未登录，请重新登录！！！");
                 }else if($scope.goodsDetail.finalColor == "" || $scope.goodsDetail.finalSize == ""){
-                    alert("请选择颜色或尺寸");
+                    appService.artTxt("请选择颜色或尺寸");
                 }else {
                     var JoinShopCar=appService._postData(URL+"index.php?s=/Api/Classify/addCart",{
                         token:localStorage.getItem("tokens"),
@@ -195,10 +190,13 @@ yx_mallApp
                     JoinShopCar.then(function (e) {
                         console.log(e.data);
                         if(e.data.ret == "success"){
-                            alert("成功加入购物车！");
-                            $window.location.reload();
+                            appService.artTxt("成功加入购物车！").then(function (value) {
+                                $window.location.reload();
+                            });
+
                         }else {
-                            alert(e.data.msg)
+                            appService.artTxt(e.data.msg);
+                            return false;
                         }
                     },function (e) {
                         console.log(e)
@@ -209,17 +207,30 @@ yx_mallApp
             //立即购买弹出确定
             if($scope.goodsDetail.enter == 3){
                 if(localStorage.getItem("tokens") == "" || localStorage.getItem("tokens") == undefined || localStorage.getItem("tokens") == null){
-                    alert("登录超时或未登录，请重新登录！！！");
+                    appService.artTxt("登录超时或未登录，请重新登录！！！");
                 }else if($scope.goodsDetail.finalColor == "" || $scope.goodsDetail.finalSize == ""){
-                    alert("请选择颜色或尺寸");
+                    appService.artTxt("请选择颜色或尺寸");
                 }else{
-                    var dataArr={
-                        token:$scope.goodsDetail.token,
-                        goodsInfo:$scope.finalData(),
-                        way:$scope.goodsDetail.ways,
-                        totalPrice:$scope.goodsDetail.finalPrice,
-                        totalPoint:$scope.goodsDetail.finalPoint
-                    };
+                    if ($scope.goodsDetail.goods.default_point == 0){
+                        var dataArr={
+                            token:$scope.goodsDetail.token,
+                            goodsInfo:$scope.finalData(),
+                            way:$scope.goodsDetail.ways,
+                            totalPrice:$scope.goodsDetail.finalPrice,
+                            totalPoint:0,
+                            goodsDefault:$scope.goodsDetail.goods.default_point
+                        };
+                    }else {
+                        var dataArr={
+                            token:$scope.goodsDetail.token,
+                            goodsInfo:$scope.finalData(),
+                            way:$scope.goodsDetail.ways,
+                            totalPrice:$scope.goodsDetail.finalPrice,
+                            totalPoint:$scope.goodsDetail.finalPoint,
+                            goodsDefault:$scope.goodsDetail.goods.default_point
+
+                        };
+                    }
                     localStorage.setItem("datas",JSON.stringify(dataArr));
                     $state.go("clearing");
                 }
@@ -236,9 +247,9 @@ yx_mallApp
             //加入购物车
             if (j == 0){
                 if(localStorage.getItem("tokens") == "" || localStorage.getItem("tokens") == undefined || localStorage.getItem("tokens") == null){
-                    alert("登录超时或未登录，请重新登录！！！");
+                    appService.artTxt("登录超时或未登录，请重新登录！！！");
                 }else if($scope.goodsDetail.finalColor == "" || $scope.goodsDetail.finalSize == ""){
-                    alert("请选择颜色或尺寸");
+                    appService.artTxt("请选择颜色或尺寸");
                 }else {
                     var JoinShopCar=appService._postData(URL+"index.php?s=/Api/Classify/addCart",{
                         token:localStorage.getItem("tokens"),
@@ -255,10 +266,13 @@ yx_mallApp
                     JoinShopCar.then(function (e) {
                         console.log(e.data);
                         if(e.data.ret == "success"){
-                            alert("成功加入购物车！");
-                            $window.location.reload();
+                            appService.artTxt("成功加入购物车！").then(function (value) {
+                                $window.location.reload();
+                            });
+
                         }else {
-                            alert(e.data.msg)
+                            appService.artTxt(e.data.msg);
+                            return false;
                         }
                     },function (e) {
                         console.log(e)
@@ -269,17 +283,30 @@ yx_mallApp
             //立即购买
             if (j == 1){
                 if(localStorage.getItem("tokens") == "" || localStorage.getItem("tokens") == undefined || localStorage.getItem("tokens") == null){
-                    alert("登录超时或未登录，请重新登录！！！");
+                    appService.artTxt("登录超时或未登录，请重新登录！！！");
                 }else if($scope.goodsDetail.finalColor == "" || $scope.goodsDetail.finalSize == ""){
-                    alert("请选择颜色或尺寸");
+                    appService.artTxt("请选择颜色或尺寸");
                 }else{
-                    var dataArr={
-                        token:$scope.goodsDetail.token,
-                        goodsInfo:$scope.finalData(),
-                        way:$scope.goodsDetail.ways,
-                        totalPrice:$scope.goodsDetail.finalPrice,
-                        totalPoint:$scope.goodsDetail.finalPoint
-                    };
+                    if ($scope.goodsDetail.goods.default_point == 0){
+                        var dataArr={
+                            token:$scope.goodsDetail.token,
+                            goodsInfo:$scope.finalData(),
+                            way:$scope.goodsDetail.ways,
+                            totalPrice:$scope.goodsDetail.finalPrice,
+                            totalPoint:0,
+                            goodsDefault:$scope.goodsDetail.goods.default_point
+                        };
+                    }else {
+                        var dataArr={
+                            token:$scope.goodsDetail.token,
+                            goodsInfo:$scope.finalData(),
+                            way:$scope.goodsDetail.ways,
+                            totalPrice:$scope.goodsDetail.finalPrice,
+                            totalPoint:$scope.goodsDetail.finalPoint,
+                            goodsDefault:$scope.goodsDetail.goods.default_point
+                        };
+                    }
+
                     localStorage.setItem("datas",JSON.stringify(dataArr));
                     $state.go("clearing");
                 }

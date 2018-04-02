@@ -110,7 +110,7 @@ yx_mallApp
         //猜你喜欢 数据请求
         var guessLike=appService._getData(URL+"index.php?s=/Api/Index/is_like");
             guessLike.then(function (e) {
-                console.log(e.data)
+                // console.log(e.data)
                 $scope.index.guessLike=e.data;
                 setTimeout(function () {
                     var obj= $(".each_gf");
@@ -131,7 +131,7 @@ yx_mallApp
         //今日首发·天天新款 数据请求
         var dayUpdate=appService._postData(URL+"index.php?s=/Api/Index/everyday_goods",{page:$scope.index.page});
         dayUpdate.then(function (e) {
-            console.log(e.data.data)
+            // console.log(e.data.data)
             $scope.index.dayUpdate=e.data.data;
         },function (e) {
             console.log(e)

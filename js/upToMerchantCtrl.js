@@ -1,5 +1,5 @@
 yx_mallApp
-    .controller("upToMerchantController",["$scope","appService","$state",function ($scope,appService,$state) {
+    .controller("upToMerchantController",["$scope","appService","$state","$interval",function ($scope,appService,$state,$interval) {
         $scope.upToMerchant={
             // 用户信息
             userInfo:[],
@@ -43,7 +43,51 @@ yx_mallApp
             weaAgreementY:false,
             //是否提交一次
             HaveSub:false,
-            subTxt:"提交"
+            subTxt:"提交",
+            clickSta:true,
+            getMsgTxt:"获取验证码",
+            msgID:0,
+            isSub:true,
+
+        };
+        //获取短信验证码
+        $scope.getUpMessageCode=function () {
+            var z_tel= /^1(3|4|5|7|8|9)\d{9}$/;
+            if ($scope.upToMerchant.merchantsTel == ""){
+                appService.artTxt("请输入电话号码！！！");
+                return false;
+            }else if(z_tel.test($scope.upToMerchant.merchantsTel) == false){
+                appService.artTxt("电话号码格式错误！！！");
+                return false;
+            };
+            if($scope.upToMerchant.clickSta){
+                $scope.upToMerchant.clickSta = false;
+                var num = 120,
+                    time=$interval(function () {
+                        num--;
+                        if (num == 0){
+                            $interval.cancel(time);
+                            $scope.upToMerchant.getMsgTxt = "获取验证码";
+                            $scope.upToMerchant.clickSta = true;
+                        }else {
+                            $scope.upToMerchant.getMsgTxt =num+ "s后重发";
+                        }
+                    },1000);
+                //请求发送短信
+                var msgCode = appService._postData(URL+"index.php?s=api/user/send_code",{
+                    phone:$scope.upToMerchant.merchantsTel,
+                    type:"register"
+                });
+                msgCode.then(function (value) {
+                    console.log(value)
+                    if (value.data.ret == "ok"){
+                        $scope.upToMerchant.msgID = value.data.data.id;
+                    }
+                },function (reason) {
+                    console.log(reason)
+                })
+
+            }
         };
         $scope.upToMerchant.userInfo =JSON.parse(localStorage.getItem("userInfo"));
         $scope.area={
@@ -334,96 +378,106 @@ yx_mallApp
         }
         //提交
         $scope.upToMerchantSub=function () {
-            if (!$scope.upToMerchant.merchantName){
-                alert("店铺名称不能为空！！！");
-                return false;
-            };
-            if (!$scope.area.address){
-                alert("店铺位置不能为空！！！");
-                return false;
-            };
-            if (!$scope.upToMerchant.merchantArea){
-                alert("店铺详细位置不能为空！！！");
-                return false;
-            };
-            if (!$scope.upToMerchant.merchantClass){
-                alert("店铺分类不能为空！！！");
-                return false;
-            };
-            if (!$scope.upToMerchant.merchantsTel || tels.test($scope.upToMerchant.merchantsTel) == false){
-                alert("联系电话不能为空或电话号码格式错误！！！");
-                return false;
-            };
-            if (!$scope.upToMerchant.ZCode){
-                alert("验证码不能为空！！！");
-                return false;
-            };
-            if (!$scope.upToMerchant.licenseWay){
-                alert("请上传营业执照！！！");
-                return false;
-            };
-            if (!$scope.upToMerchant.logoWay){
-                alert("请上传店铺标志！！！");
-                return false;
-            };
-            if (!$scope.upToMerchant.singleWay1){
-                alert("至少三店铺展示图");
-                return false;
-            };
-            if (!$scope.upToMerchant.singleWay2){
-                alert("至少三店铺展示图");
-                return false;
-            };
-            if (!$scope.upToMerchant.singleWay3){
-                alert("至少三店铺展示图");
-                return false;
-            };
-            if ($scope.upToMerchant.mProduct == "听说好的店铺介绍可以吸引更多的人呢!但是最多200个字哦"){
-                $scope.upToMerchant.mProduct = "";
-            };
-            if ($scope.upToMerchant.mActive == "请输入您的店铺活动"){
-                $scope.upToMerchant.mActive = "";
-            }
-            if (!$scope.upToMerchant.weaAgreementY || $scope.upToMerchant.weaAgreementY == false){
-                alert("请先同意店铺协议！！！");
-                return false;
-            };
-            $scope.upToMerchant.subTxt = "已提交，请稍等...";
-            $scope.upToMerchant.HaveSub = true;
+            if ($scope.upToMerchant.isSub){
+                $scope.upToMerchant.isSub = false;
+                if (!$scope.upToMerchant.merchantName){
+                    appService.artTxt("店铺名称不能为空！！！");
+                    return false;
+                };
+                if (!$scope.area.address){
+                    appService.artTxt("店铺位置不能为空！！！");
+                    return false;
+                };
+                if (!$scope.upToMerchant.merchantArea){
+                    appService.artTxt("店铺详细位置不能为空！！！");
+                    return false;
+                };
+                if (!$scope.upToMerchant.merchantClass){
+                    appService.artTxt("店铺分类不能为空！！！");
+                    return false;
+                };
+                if (!$scope.upToMerchant.merchantsTel || tels.test($scope.upToMerchant.merchantsTel) == false){
+                    appService.artTxt("联系电话不能为空或电话号码格式错误！！！");
+                    return false;
+                };
+                if (!$scope.upToMerchant.ZCode){
+                    appService.artTxt("验证码不能为空！！！");
+                    return false;
+                };
+                if (!$scope.upToMerchant.licenseWay){
+                    appService.artTxt("请上传营业执照！！！");
+                    return false;
+                };
+                if (!$scope.upToMerchant.logoWay){
+                    appService.artTxt("请上传店铺标志！！！");
+                    return false;
+                };
+                if (!$scope.upToMerchant.singleWay1){
+                    appService.artTxt("至少三店铺展示图");
+                    return false;
+                };
+                if (!$scope.upToMerchant.singleWay2){
+                    appService.artTxt("至少三店铺展示图");
+                    return false;
+                };
+                if (!$scope.upToMerchant.singleWay3){
+                    appService.artTxt("至少三店铺展示图");
+                    return false;
+                };
+                if ($scope.upToMerchant.mProduct == "听说好的店铺介绍可以吸引更多的人呢!但是最多200个字哦"){
+                    $scope.upToMerchant.mProduct = "";
+                };
+                if ($scope.upToMerchant.mActive == "请输入您的店铺活动"){
+                    $scope.upToMerchant.mActive = "";
+                }
+                if (!$scope.upToMerchant.weaAgreementY || $scope.upToMerchant.weaAgreementY == false){
+                    appService.artTxt("请先同意店铺协议！！！");
+                    return false;
+                };
+                $scope.upToMerchant.subTxt = "已提交，请稍等...";
+                $scope.upToMerchant.HaveSub = true;
 
-            var upToMerchantSub=appService._postData(URL+"index.php?s=Api/Collection/shopupgrade",{
-                token:$scope.upToMerchant.userInfo.token,
-                way:$scope.upToMerchant.userInfo.way,
-                store_name:$scope.upToMerchant.merchantName,
-                o2o:"offline",
-                cate_id:$scope.upToMerchant.merchantClassNum,
-                store_banner:$scope.upToMerchant.licenseWay,
-                store_logo:$scope.upToMerchant.logoWay,
-                image_1:$scope.upToMerchant.singleWay1,
-                image_2:$scope.upToMerchant.singleWay2,
-                image_3:$scope.upToMerchant.singleWay3,
-                province:$scope.area.proNum,
-                city:$scope.area.cityNum,
-                area:$scope.area.disNum,
-                address:$scope.upToMerchant.merchantArea,
-                lat:$scope.upToMerchant.merchantLat,
-                lng:$scope.upToMerchant.merchantLng,
-                tel1:$scope.upToMerchant.merchantsTel,
-                tel2:"",
-                description:$scope.upToMerchant.mProduct,
-                activity:$scope.upToMerchant.mActive,
-                region_name:$scope.area.address
-            });
+                var upToMerchantSub=appService._postData(URL+"index.php?s=Api/Collection/shopupgrade",{
+                    token:$scope.upToMerchant.userInfo.token,
+                    way:$scope.upToMerchant.userInfo.way,
+                    store_name:$scope.upToMerchant.merchantName, //店铺名称
+                    o2o:"offline",
+                    code:$scope.upToMerchant.ZCode,//短信验证码
+                    code_id:$scope.upToMerchant.msgID,//短信验证码的ID
+                    cate_id:$scope.upToMerchant.merchantClassNum,//店铺分类编码
+                    store_banner:$scope.upToMerchant.licenseWay, //营业执照路径
+                    store_logo:$scope.upToMerchant.logoWay,//商铺logo路径
+                    image_1:$scope.upToMerchant.singleWay1, //营业展示1
+                    image_2:$scope.upToMerchant.singleWay2, //营业展示2
+                    image_3:$scope.upToMerchant.singleWay3, //营业展示3
+                    province:$scope.area.proNum, // 省份
+                    city:$scope.area.cityNum, // 城市
+                    area:$scope.area.disNum, // 地区
+                    address:$scope.upToMerchant.merchantArea,  //店铺详细位置
+                    lat:$scope.upToMerchant.merchantLat,//纬度
+                    lng:$scope.upToMerchant.merchantLng,//经度
+                    tel1:$scope.upToMerchant.merchantsTel,//联系电话
+                    tel2:"",
+                    description:$scope.upToMerchant.mProduct, //店铺简介
+                    activity:$scope.upToMerchant.mActive, //店铺活动
+                    region_name:$scope.area.address
+                });
                 upToMerchantSub.then(function (value) {
                     console.log(value);
                     if (value.data.ret == "success"){
-                        alert("申请成功，请等待审核...");
-                        $state.go("tabs.myOld");
+                        appService.artTxt("申请成功，请等待审核...").then(function (value2) {
+                            $state.go("tabs.myOld");
+                        });
+
                     }else {
-                        alert(value.data.msg);
+                        appService.artTxt(value.data.msg).then(function (value2) {
+                            $scope.upToMerchant.isSub = true;
+                            $scope.upToMerchant.subTxt = "提交";
+                        });
                     }
                 },function (reason) {
                     console.log(reason)
-                })
-        }
+                });
+            };
+        };
     }])

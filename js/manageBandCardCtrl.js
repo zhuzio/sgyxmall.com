@@ -32,10 +32,12 @@ yx_mallApp
                 setDefBank.then(function (value) {
                     console.log(value);
                     if (value.data.ret == "success"){
-                        alert(value.data.msg);
-                        $window.location.reload();
+                        appService.artTxt(value.data.msg).then(function (value2) {
+                            $window.location.reload();
+                        });
+
                     }else {
-                        alert(value.data.msg)
+                        appService.artTxt(value.data.msg)
                     }
 
                 },function (reason) {
@@ -55,10 +57,12 @@ yx_mallApp
                 });
                 deleteBank.then(function (value) {
                     if (value.data.ret == "success"){
-                        alert(value.data.msg);
-                        $window.location.reload();
+                        appService.artTxt(value.data.msg).then(function (value2) {
+                            $window.location.reload();
+                        });
+
                     }else {
-                        alert(value.data.msg)
+                        appService.artTxt(value.data.msg)
                     }
                 },function (reason) {
                     console.log(reason)

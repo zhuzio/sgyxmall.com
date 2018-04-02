@@ -134,35 +134,35 @@ yx_mallApp
         $scope.addBankCardSub=function () {
             var IdZ=/^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/
             if (!$scope.Adc.bandCardUserName){
-                alert("持卡人姓名不能为空！！！");
+                appService.artTxt("持卡人姓名不能为空！！！");
                 return false;
             };
             if (!$scope.Adc.bandCardNum){
-                alert("银行卡号不能为空！！！");
+                appService.artTxt("银行卡号不能为空！！！");
                 return false;
             };
             if (!$scope.Adc.choseInfo.adcBank){
-                alert("开户行不能为空！！！");
+                appService.artTxt("开户行不能为空！！！");
                 return false;
             };
             if (!$scope.Adc.choseInfo.adcPro){
-                alert("开户省份不能为空！！！");
+                appService.artTxt("开户省份不能为空！！！");
                 return false;
             };
             if (!$scope.Adc.choseInfo.adcCity){
-                alert("开户城市不能为空！！！");
+                appService.artTxt("开户城市不能为空！！！");
                 return false;
             };
             if (!$scope.Adc.choseInfo.adcArea){
-                alert("开户支行不能为空！！！");
+                appService.artTxt("开户支行不能为空！！！");
                 return false;
             };
             if (!$scope.Adc.userIdNum){
-                alert("身份证号不能为空！！！");
+                appService.artTxt("身份证号不能为空！！！");
                 return false;
             };
             if (IdZ.test($scope.Adc.userIdNum) == false){
-                alert("身份证号格式错误！！！");
+                appService.artTxt("身份证号格式错误！！！");
                 return false;
             };
             var addBankCardSub=appService._postData(URL+"index.php?s=Api/Userset/addcard",{
@@ -177,10 +177,12 @@ yx_mallApp
             });
                 addBankCardSub.then(function (value) {
                     if (value.data.ret == "success"){
-                        alert(value.data.msg);
-                        $state.go("manageBandCard")
+                        appService.artTxt(value.data.msg).then(function (value2) {
+                            $state.go("manageBandCard");
+                        });
+
                     }else {
-                        alert(value.data.msg);
+                        appService.artTxt(value.data.msg);
                     }
                 },function (reason) {
                     console.log(reason)

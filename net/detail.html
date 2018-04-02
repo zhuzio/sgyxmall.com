@@ -21,8 +21,8 @@
         <p class="gdi_price">
             <span class="rmb">结算价：</span>¥
             <span class="esc_rmb">{{goodsDetail.goods.default_ready}}</span>
-            <!--<span class="p_add">+</span>
-            <span class="esc_int">{{goodsDetail.goods.default_point}}</span>-->
+            <span class="p_add" ng-if="goodsDetail.goods.default_point != '0.00'">+</span>
+            <span class="esc_int" ng-if="goodsDetail.goods.default_point != '0.00'">{{goodsDetail.goods.default_point}}</span>
         </p>
     </div>
     <div class="chose_tn" ng-click="choseType(1)">选择数量规格</div>
@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="chose_box_container">
-        <div class="shopCar_link fl"><span ng-show="goodsDetail.is_shopCarCount">{{goodsDetail.shopCarCount}}</span></div>
+        <div class="shopCar_link fl" ui-sref="tabs.shopCar"><span ng-show="goodsDetail.is_shopCarCount">{{goodsDetail.shopCarCount}}</span></div>
         <div class="gd_do fl">
             <div class="join_shopCar fl"  ng-click="choseType(2)">加入购物车</div>
             <div class="buy_now fl" ng-click="choseType(3)">立即购买</div>
@@ -54,8 +54,8 @@
                             <p class="cti_price">
                                 <span class="rmb">结算价：</span>¥
                                 <span class="cti_rmb">{{goodsDetail.t_price}}</span>
-                               <!-- <span class="cti_adds">+</span>
-                                <span class="cti_int">{{goodsDetail.t_integral}}</span>-->
+                                <span class="cti_adds"  ng-if="goodsDetail.goods.default_point != '0.00'">+</span>
+                                <span class="cti_int"  ng-if="goodsDetail.goods.default_point != '0.00'">{{goodsDetail.t_integral}}</span>
                             </p>
                             <p class="cti_ku">库存：<span>{{goodsDetail.stock}}</span></p>
                         </div>

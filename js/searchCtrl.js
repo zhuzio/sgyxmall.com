@@ -14,7 +14,7 @@ yx_mallApp
             if($scope.search.txt != "" ){
                 $state.go("searchDetail",{goodsClass:$scope.search.txt})
             }else {
-                alert("请输入关键字");
+                appService.artTxt("请输入关键字");
             }
         };
         var historySearch=appService._getData("http://www.ycblog.com.cn/index.php?s=/Api/Goods/searchHistory");

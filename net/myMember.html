@@ -96,6 +96,12 @@
         width: 100%;
         height: auto;
     }
+    .each_mmList_container >img{
+        display: block;
+        width: 60%;
+        height: auto;
+        margin: 2rem auto 0;
+    }
     .each_mmList_title{
         width: 100%;
         height: .5rem;
@@ -170,6 +176,12 @@
     .em_area_merchant{
         color: #500050;
     }
+    .memberAddmore{
+        text-align: center;
+        padding: .2rem 0;
+        font-size: .25rem;
+        color: #929292;
+    }
 </style>
 <div class="module_head">
     <a href="javascript:window.history.go(-1)"></a>
@@ -183,12 +195,11 @@
             <p class="mmpTxt" ng-click="getPullList()">{{member.selectTxt}}</p>
             <i class="mmIcon"></i>
             <div class="mmPullDown">
-                <p ng-click="getFilterType(0,'所有推荐')">所有推荐</p>
-                <p ng-click="getFilterType(1,'会员')">会员</p>
-                <p ng-click="getFilterType(2,'商家')">商家</p>
-                <p ng-click="getFilterType(3,'代理')">代理</p>
-                <p ng-click="getFilterType(4,'辖区会员')">辖区会员</p>
-                <p ng-click="getFilterType(5,'辖区商家')">辖区商家</p>
+                <p ng-click="getFilterType(1,'会员')" >会员</p>
+                <p ng-click="getFilterType(2,'商家')" >商家</p>
+                <p ng-click="getFilterType(3,'代理')" >代理</p>
+                <p ng-click="getFilterType(4,'辖区会员')" ng-if="member.isAll">辖区会员</p>
+                <p ng-click="getFilterType(5,'辖区商家')" ng-if="member.isAll">辖区商家</p>
             </div>
         </div>
         <!--搜索框-->
@@ -198,93 +209,120 @@
         </div>
     </div>
     <div class="mmList">
-        <div class="each_mmList_container">
-            <p class="each_mmList_title">所有推荐</p>
-            <div class="each_mmList">
+
+        <div class="each_mmList_container" ng-if="member.memberMo">
+             <p class="each_mmList_title">会员</p>
+
+            <div class="each_mmList"ng-repeat="mb in member.memberInfo">
                 <div class="emlLeft">
                     <img src="images/head.png" alt="">
                 </div>
                 <div class="emlCenter">
-                    <p class="emName">香港新界代表<span class="em_member">【会员】</span></p>
-                    <p class="emTel">15513132205</p>
-                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                    <p class="emName">{{mb.real_name}}
+                        <span class="em_member">【会员】</span>
+                    </p>
+                    <p class="emTel">{{mb.user_name}}</p>
+                    <p class="emDate">注册日期：{{mb.reg_time}}</p>
                 </div>
                 <div class="emlRight">
-                    <a href=""></a>
+                    <a href="tel:{{mb.user_name}}"></a>
                 </div>
             </div>
-            <div class="each_mmList">
+
+            <img src="images/nodata.png" alt="" ng-if="member.memberInfoNoData">
+            <p class="memberAddmore" ng-if="member.memberInfoAddMore" ng-click="memberAddMore(1)">点击加载更多</p>
+         </div>
+
+        <div class="each_mmList_container" ng-if="member.merchantMo">
+             <p class="each_mmList_title">商家</p>
+
+            <div class="each_mmList"ng-repeat="mc in member.merchantInfo">
                 <div class="emlLeft">
                     <img src="images/head.png" alt="">
                 </div>
                 <div class="emlCenter">
-                    <p class="emName">香港新界代表<span class="em_merchant">【商家】</span></p>
-                    <p class="emTel">15513132205</p>
-                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                    <p class="emName">{{mc.real_name}}
+                        <span class="em_merchant">【商家】</span>
+                    </p>
+                    <p class="emTel">{{mc.user_name}}</p>
+                    <p class="emDate">注册日期：{{mc.reg_time}}</p>
                 </div>
                 <div class="emlRight">
-                    <a href=""></a>
+                    <a href="tel:{{mc.user_name}}"></a>
                 </div>
             </div>
-            <div class="each_mmList">
+
+            <img src="images/nodata.png" alt="" ng-if="member.merchantInfoNoData">
+            <p class="memberAddmore" ng-if="member.merchantInfoAddMore" ng-click="memberAddMore(2)">点击加载更多</p>
+        </div>
+
+        <div class="each_mmList_container" ng-if="member.agencyMo">
+             <p class="each_mmList_title">代理</p>
+
+            <div class="each_mmList"ng-repeat="an in member.agencyInfo">
                 <div class="emlLeft">
                     <img src="images/head.png" alt="">
                 </div>
                 <div class="emlCenter">
-                    <p class="emName">香港新界代表<span class="em_agency">【代理】</span></p>
-                    <p class="emTel">15513132205</p>
-                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                    <p class="emName">{{an.real_name}}
+                        <span class="em_agency">【代理】</span>
+                    </p>
+                    <p class="emTel">{{an.user_name}}</p>
+                    <p class="emDate">注册日期：{{an.reg_time}}</p>
                 </div>
                 <div class="emlRight">
-                    <a href=""></a>
+                    <a href="tel:{{an.user_name}}"></a>
                 </div>
             </div>
-            <div class="each_mmList">
+
+            <img src="images/nodata.png" alt="" ng-if="member.agencyInfoNoData">
+            <p class="memberAddmore" ng-if="member.agencyInfoAddMore" ng-click="memberAddMore(3)">点击加载更多</p>
+         </div>
+
+        <div class="each_mmList_container" ng-if="member.areaMemberMo">
+             <p class="each_mmList_title">辖区会员</p>
+
+            <div class="each_mmList"ng-repeat="amb in member.areaMemberInfo">
                 <div class="emlLeft">
                     <img src="images/head.png" alt="">
                 </div>
                 <div class="emlCenter">
-                    <p class="emName">香港新界代表<span class="em_area_member">【辖区会员】</span></p>
-                    <p class="emTel">15513132205</p>
-                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                    <p class="emName">{{amb.real_name}}
+                        <span class="em_area_member">【辖区会员】</span>
+                    </p>
+                    <p class="emTel">{{amb.user_name}}</p>
+                    <p class="emDate">注册日期：{{amb.reg_time}}</p>
                 </div>
                 <div class="emlRight">
-                    <a href=""></a>
+                    <a href="tel:{{amb.user_name}}"></a>
                 </div>
             </div>
-            <div class="each_mmList">
+
+            <img src="images/nodata.png" alt="" ng-if="member.areaMemberInfoNoData">
+            <p class="memberAddmore" ng-if="member.areaMemberInfoAddMore" ng-click="memberAddMore(4)">点击加载更多</p>
+         </div>
+
+        <div class="each_mmList_container" ng-if="member.areaMerchantMo">
+             <p class="each_mmList_title">辖区商家</p>
+
+            <div class="each_mmList"ng-repeat="amc in member.areaMerchantInfo">
                 <div class="emlLeft">
                     <img src="images/head.png" alt="">
                 </div>
                 <div class="emlCenter">
-                    <p class="emName">香港新界代表<span class="em_area_merchant">【辖区商家】</span></p>
-                    <p class="emTel">15513132205</p>
-                    <p class="emDate">注册日期：2016-1-15 20:55</p>
+                    <p class="emName">{{amc.real_name}}
+                        <span class="em_area_merchant">【辖区商家】</span>
+                    </p>
+                    <p class="emTel">{{amc.user_name}}</p>
+                    <p class="emDate">注册日期：{{amc.reg_time}}</p>
                 </div>
                 <div class="emlRight">
-                    <a href=""></a>
+                    <a href="tel:{{amc.user_name}}"></a>
                 </div>
             </div>
-        </div>
-        <!--<div class="each_mmList_container">
-            <p class="each_mmList_title">推荐会员</p>
-            <div class="each_mmList"></div>
-        </div>
-        <div class="each_mmList_container">
-            <p class="each_mmList_title">推荐商家</p>
-            <div class="each_mmList"></div>
-        </div>
-        <div class="each_mmList_container">
-            <p class="each_mmList_title">推荐代理</p>
-            <div class="each_mmList"></div>
-        </div>
-        <div class="each_mmList_container">
-            <p class="each_mmList_title">推荐辖区会员</p>
-            <div class="each_mmList"></div>
-        </div>
-        <div class="each_mmList_container">
-            <p class="each_mmList_title">推荐辖区商家</p>
-            <div class="each_mmList"></div>
-        </div>-->
+
+            <img src="images/nodata.png" alt="" ng-if="member.areaMerchantInfoNoData">
+            <p class="memberAddmore" ng-if="member.areaMerchantInfoAddMore" ng-click="memberAddMore(5)">点击加载更多</p>
+         </div>
     </div>
 </div>

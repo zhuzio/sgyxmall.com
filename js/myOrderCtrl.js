@@ -66,7 +66,7 @@ yx_mallApp
                 page:page
             });
             allOrder.then(function (value) {
-                // console.log(value.data.data)
+                console.log(value.data.data)
                 var noDatas = value.data.data == undefined || value.data.data == null || value.data.data == "";
                 if (page == 1){
                     switch (idx){
@@ -317,17 +317,20 @@ yx_mallApp
         };
         //去支付
         $scope.orderApply=function (ele) {
+            // console.log(ele);
+
             $state.go("applyWay",{
                 OrderID:ele.order_sn,
                 num:ele.goods_count,
-                price:parseInt(ele.goods_price)*parseInt(ele.goods_count),
-                point:parseInt(ele.goods_point)*parseInt(ele.goods_count)
+                price:parseFloat(ele.goods_price)*parseFloat(ele.goods_count),
+                point:parseFloat(ele.goods_happy)*parseFloat(ele.goods_count),
+                isY:ele.goods_happy,
             })
         };
         //确认收货
         $scope.confirmReceipt=function (goods) {
             // console.log(goods);
-            appService.conform("确认收货？确认之后货款将到商家账户！").then(function (value) {
+            appService.conform("确认收货之后货款将到商家账户！").then(function (value) {
                 var confirmReceipt = appService._postData(URL+"index.php?s=/Api/order/quit_order",{
                     token:$scope.shopOrder.userInfo.token,
                     way:$scope.shopOrder.userInfo.way,

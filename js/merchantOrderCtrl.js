@@ -88,7 +88,7 @@ yx_mallApp
                 is_check:isCheck
             });
             datas.then(function (value) {
-                // console.log(value);
+                console.log(value);
                 var noDatas = value.data.data == "" || value.data.data == undefined ||value.data.data == null;
                 switch (paymentId){
                     //paymentId为查看的部分 9查看支出 3查看收入
@@ -100,6 +100,7 @@ yx_mallApp
                                     if (noDatas){
                                         $scope.MOrder.AudNoData = true;
                                     }else{
+                                        $scope.MOrder.AudNoData = false;
                                         $scope.MOrder.waitAudit = value.data.data;
                                         $scope.MOrder.TAudPage = value.data.totalpage;
                                         if ($scope.MOrder.TAudPage > 1){
@@ -121,6 +122,7 @@ yx_mallApp
                                     if (noDatas){
                                         $scope.MOrder.PasNoData = true;
                                     }else{
+                                        $scope.MOrder.PasNoData = false;
                                         $scope.MOrder.havePass = value.data.data;
                                         $scope.MOrder.TPasTPage = value.data.totalpage;
                                         if ($scope.MOrder.TPasTPage > 1){
@@ -142,6 +144,7 @@ yx_mallApp
                                     if (noDatas){
                                         $scope.MOrder.RejNoData = true;
                                     }else{
+                                        $scope.MOrder.RejNoData = false;
                                         $scope.MOrder.haveReject = value.data.data;
                                         $scope.MOrder.TRejTPage = value.data.totalpage;
                                         if ($scope.MOrder.TRejTPage > 1){
@@ -168,6 +171,7 @@ yx_mallApp
                                     if (noDatas){
                                         $scope.MOrder.AudNoData = true;
                                     }else{
+                                        $scope.MOrder.AudNoData = false;
                                         $scope.MOrder.waitAudit = value.data.data;
                                         $scope.MOrder.TAudPage = value.data.totalpage;
                                         if ($scope.MOrder.TAudPage > 1){
@@ -189,6 +193,7 @@ yx_mallApp
                                     if (noDatas){
                                         $scope.MOrder.PasNoData = true;
                                     }else{
+                                        $scope.MOrder.PasNoData = false;
                                         $scope.MOrder.havePass = value.data.data;
                                         $scope.MOrder.TPasTPage = value.data.totalpage;
                                         if ($scope.MOrder.TPasTPage > 1){
@@ -210,6 +215,7 @@ yx_mallApp
                                     if (noDatas){
                                         $scope.MOrder.RejNoData = true;
                                     }else{
+                                        $scope.MOrder.RejNoData = false;
                                         $scope.MOrder.haveReject = value.data.data;
                                         $scope.MOrder.TRejTPage = value.data.totalpage;
                                         if ($scope.MOrder.TRejTPage > 1){
@@ -251,6 +257,10 @@ yx_mallApp
                     $scope.MOrder.isSearchMo = true;
                     $scope.MOrder.status = 0;
 
+                    $scope.MOrder.AudNoData = false;
+
+                    $scope.MOrder.waitAudit = [];
+
                     $scope.getMOrderData(idx,1,$scope.MOrder.moduelNum,$scope.MOrder.status);
                     break;
                 case 2:
@@ -266,6 +276,10 @@ yx_mallApp
                     $scope.MOrder.isSearchMo = false;
                     $scope.MOrder.status = 1;
 
+                    $scope.MOrder.PasNoData = false;
+
+                    $scope.MOrder.havePass = [];
+
                     $scope.getMOrderData(idx,1,$scope.MOrder.moduelNum,$scope.MOrder.status);
                     break;
                 case 3:
@@ -280,6 +294,10 @@ yx_mallApp
 
                     $scope.MOrder.isSearchMo = false;
                     $scope.MOrder.status = 2;
+
+                    $scope.MOrder.RejNoData = false;
+
+                    $scope.MOrder.haveReject = [];
 
                     $scope.getMOrderData(idx,1,$scope.MOrder.moduelNum,$scope.MOrder.status);
                     break;

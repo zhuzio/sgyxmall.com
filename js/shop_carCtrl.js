@@ -100,8 +100,10 @@ yx_mallApp
                 var deleteShopCar=appService._postData(URL+"index.php?s=/Api/Classify/delcart",{sc_id:sc_id});
                 deleteShopCar.then(function (e) {
                     if (e.data.ret == 'success'){
-                        alert("删除成功");
-                        $window.location.reload();
+                        appService.artTxt("删除成功").then(function (value) {
+                            $window.location.reload();
+                        });
+
                     }
                 },function (e) {
                     console.log(e)
@@ -182,7 +184,7 @@ yx_mallApp
                 localStorage.setItem("datas",JSON.stringify(dataArr));
                 $state.go("clearing",{way:"shopCar"})
             }else {
-                alert("您还为选中商品！！！");
+                appService.artTxt("您还为选中商品！！！");
                 return false;
             }
         };

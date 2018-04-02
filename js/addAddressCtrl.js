@@ -176,7 +176,7 @@ yx_mallApp
 
             //邮编为空
             if (!$scope.info.d_address){
-                alert("邮编为空！！！");
+                appService.artTxt("邮编为空！！！");
                 return false;
             }
             if($scope.info.isDef){

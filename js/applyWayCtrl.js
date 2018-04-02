@@ -11,7 +11,7 @@ yx_mallApp
             //商品的积分；
             surplusIn:$stateParams.point,
             //商品全额
-            fullMoney:(parseInt($stateParams.point)+parseInt($stateParams.price)),
+            fullMoney:(parseFloat($stateParams.point)+parseFloat($stateParams.price)),
             //商品的现金数量
             surplusPrice:$stateParams.price,
             //支付种类 allpoint全积分 allcash全现金 cashandpoint现金和积分
@@ -29,6 +29,8 @@ yx_mallApp
             //积分加现金是否显示
             isIn:true,
             sc_id:$stateParams.sc_id,
+            // 是否是严选商品
+            isY:$stateParams.isY,
         };
         $scope.apply.orderId = ($stateParams.OrderID).split(",");
         // console.log( $scope.apply.orderId)
@@ -41,9 +43,9 @@ yx_mallApp
                     // $scope.applyApi($scope.apply.spd);
                     break;
                 case 1:
-                    $scope.apply.payment = "allcash";
+                   /* $scope.apply.payment = "allcash";
                     $scope.apply.payment_way = "11";
-                    $scope.applyApi($scope.apply.spd);
+                    $scope.applyApi($scope.apply.spd);*/
                     break;
                 case 2:
                     $scope.apply.payment = "allpoint";
@@ -70,61 +72,6 @@ yx_mallApp
             $(".input_psd_container").animate({
                 top:"0"
             },300);
-            // $scope.inputPsd=function (num) {
-            //     switch (num){
-            //         case '取消':
-            //             $(".input_psd_container").animate({
-            //                 top:"100%"
-            //             },300);
-            //             break;
-            //         case '删除':
-            //             try {
-            //                 $scope.passwordGroup[$scope.currentInputIndex].value=null;
-            //                 $scope.currentInputIndex--;
-            //             }catch (e){
-            //                 return true;
-            //             }
-            //             break;
-            //         default:
-            //             $scope.currentInputIndex++;
-            //             $scope.passwordGroup[$scope.currentInputIndex].value=num;
-            //             break;
-            //     }
-            // };
-            // $scope.currentInputIndex=-1;
-            // $scope.passwordGroup=[];
-            // for(var i=0;i<6;i++){
-            //     $scope.passwordGroup.push({
-            //         value:null
-            //     })
-            // };
-            // $scope.$watch('currentInputIndex',function(nv){
-            //     if(nv){
-            //         if(nv==5){
-            //             try{
-            //                 var afterInputPassword='';
-            //                 angular.forEach($scope.passwordGroup,function(element){
-            //                     afterInputPassword+=element.value;
-            //                 });
-            //                 $(".input_process_loading").animate({
-            //                     top:"0"
-            //                 },0);
-            //                 $scope.currentInputIndex=-1;
-            //                 $scope.apply.spd = afterInputPassword;
-            //                 $scope.applyApi($scope.apply.spd);
-            //                 //密码输入完成,afterInputPassword就是密码;直接发起请求;
-            //                 //请求处理完毕,currentInputIndex重置为-1,遍历数组填充为{value:null}
-            //                 //为防止请求期间网络问题，当用户输入完毕发起请求的同时，最好出现一个遮罩层,防止用户点击操作
-            //             }catch(e){
-            //                 return true;
-            //             }
-            //         }else if(nv<-1){
-            //             $scope.currentInputIndex=-1;
-            //             //删除完毕;
-            //             //todo...
-            //         }
-            //     }
-            // })
         };
         //调取支付接口
         $scope.applyApi=function (spd) {
@@ -140,7 +87,7 @@ yx_mallApp
                     sc_id:$scope.apply.sc_id,
                 });
             userApply.then(function (e) {
-                // console.log(e)
+                console.log(e)
                 if(e.data.ret == "success"){
                     appService.artTxt(e.data.msg).then(function (value) {
                         $(".input_process_loading").animate({
@@ -166,10 +113,38 @@ yx_mallApp
         var userIn=appService._postData(URL+"index.php?s=/Api/Order/surplus_point",{token:localStorage.getItem("tokens"),
             way:localStorage.getItem("way")});
         userIn.then(function (e) {
-            // console.log(e.data.data);
+            // console.log(e.data.data)
+            /*
+            *money: 购物积分
+            * select：严选积分
+            * */
+            /*判断是否是严选商品 0 不是严选商品 不为0 则是严选商品*/
+            if ($scope.apply.isY == 0){
+                $scope.apply.isIn = false;
+                if(parseFloat($scope.apply.surplusIn) > parseFloat(e.data.data.money)){
+                    $scope.apply.isAllIn = false;
+                };
+                if( parseFloat($scope.apply.fullMoney) > parseFloat(e.data.data.money)){
+                    $scope.apply.isAllIn = false;
+                };
+            }else {
+                console.log("SSS")
+                $scope.apply.isIn = true;
+                if(parseFloat($scope.apply.surplusIn) > parseFloat(e.data.data.select)){
+                    $scope.apply.isAllIn = false;
+                };
+                if( parseFloat($scope.apply.fullMoney) > parseFloat(e.data.data.select)){
+                    $scope.apply.isAllIn = false;
+                };
+            };
+
+
+
+
+
             // console.log(Math.floor($scope.apply.surplusIn).toFixed(2))
             // console.log(Math.floor($scope.apply.surplusIn).toFixed(2) < Math.floor(e.data.data).toFixed(2))
-            if(Math.floor($scope.apply.surplusIn).toFixed(2) > e.data.data){
+           /* if(Math.floor($scope.apply.surplusIn).toFixed(2) > e.data.data){
                 $scope.apply.isIn = false;
             }
             if( Math.floor($scope.apply.fullMoney).toFixed(2) > e.data.data){
@@ -178,7 +153,7 @@ yx_mallApp
             if($scope.apply.fullMoney <= e.data.data){
                 $scope.apply.isIn = true;
                 $scope.apply.isAllIn = true;
-            }
+            }*/
         },function (e) {
             console.log(e)
         });

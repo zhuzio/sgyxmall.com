@@ -73,7 +73,7 @@ yx_mallApp
             switch (idx){
                 case 0:
                     if (w.length > 3){
-                        alert("最多只能选择三张图片！！！");
+                        appService.artTxt("最多只能选择三张图片！！！");
                         return false;
                     }else if (w.length == 3){
                         for (var i=0 ;i < w.length ; i++){
@@ -124,7 +124,7 @@ yx_mallApp
                     break;
                 case 2:
                     if (w.length > 2){
-                        alert("您还能选择两张图片！！！");
+                        appService.artTxt("您还能选择两张图片！！！");
                         return false;
                     }else if (w.length == 2){
                         for (var i=0 ;i < w.length ; i++){

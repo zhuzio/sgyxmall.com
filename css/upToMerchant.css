@@ -31,17 +31,21 @@
     border: none;
     height: 85%;
     font-size: .26rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance:none;
+    background: none;
 }
 .z_eachUMCon{
-    width: 40%;
+    width: 32% !important;
 }
 .getMCode{
     display: inline-block;
     width: 30%;
     height: 70%;
     background: none;
-    color: #e79e56;
-    border: 1px #e79e56 solid;
+    color: #ccc;
+    border: 1px #ccc solid;
     border-radius: .15rem;
     font-size: .24rem;
 }
