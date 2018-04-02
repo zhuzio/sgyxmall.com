@@ -7,7 +7,7 @@ yx_mallApp
         $scope.treasureConversion={
 
             month:[],//月账单
-            dayDetail:[{get_money:66,happiness:11,order_type:"541",createtime:"2018-01-11 00:11:12"},{get_money:16,happiness:10,order_type:"offline",createtime:"2018-01-01 10:31:12"}],
+            dayDetail:[],
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月转化，默认为零
             total:0,//累计转化，默认为零
@@ -15,7 +15,16 @@ yx_mallApp
             page:1,
         };
 
+        function getNowFormatDate() {
+            var date = new Date();
+            var month = date.getMonth() + 1;
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            var currentdate = date.getFullYear() +  month;
+            return currentdate;
 
+        }
 //   初加载请求
 //加载每月记录
         var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record",{
@@ -24,7 +33,21 @@ yx_mallApp
         conversion_record.then(function(e){
             $scope.treasureConversion.month=e.data.data;
             $scope.treasureConversion.total=e.data.arr;
-            $scope.treasureConversion.current=e.data.data[0].money;
+
+            if(!e.data.data[0]){
+                $scope.treasureConversion.current=0;
+            }else{
+
+                if(getNowFormatDate()==e.data.data[0].times){
+
+                    $scope.treasureConversion.current=e.data.data[0].money;
+                }else {
+                    $scope.treasureConversion.current=0;
+                }
+
+            }
+
+
 
         },function(e){
             console.log(e);
@@ -75,8 +98,8 @@ yx_mallApp
                 if(e.data.data == "" ){
                     $(".more").html("暂无更多")
                 }else {
-                   $scope.treasureConversion.dayDetail.concat(e.data.data);
 
+                    $scope.treasureConversion.dayDetail.push.apply($scope.treasureConversion.dayDetail,e.data.data);
                 }
 
             },function(e){

@@ -157,6 +157,38 @@ yx_mallApp
 
     };
 })
+    .filter("imgPay",function(){
+
+        return function(aa){
+
+            if(aa=="0"){
+                return "w_dsh.jpg"
+            }else if(aa=="1"){
+                return "w_tok.png";
+            }else{
+                return "w_tno.png";
+            }
+
+
+
+        };
+})
+    .filter("textPay",function(){
+
+        return function(aa){
+
+            if(aa=="0"){
+                return "待审核"
+            }else if(aa=="1"){
+                return "已到账";
+            }else{
+                return "已驳回";
+            }
+
+
+
+        };
+    })
     .filter("imgChange",function(){
 
         return function(aa){
@@ -167,6 +199,20 @@ yx_mallApp
                 return "tre_jf1.png";
             }else{
                 return "tre_jf3.png";
+            }
+
+
+
+        };
+    })
+    .filter("conversion",function(){
+
+        return function(aa){
+
+            if(aa=="1970-01-01 08:00:00"){
+                return "未审核";
+            }else{
+                return aa;
             }
 
 

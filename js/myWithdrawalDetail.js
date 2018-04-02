@@ -6,9 +6,7 @@ yx_mallApp
         $scope.Withdrawal={
 
             month:[],//月账单
-            dayDetail:[{ip:0,money:121,createtime:"2018-01",bank_code:"建行",operatortime:"2018-02"},
-                {ip:1,money:121,createtime:"2018-01",bank_code:"建行",operatortime:"2018-02"},
-                {ip:2,money:121,createtime:"2018-01",bank_code:"建行",operatortime:"2018-02"}],//提现详情
+            dayDetail:[],//提现详情
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月转化，默认为零
             total:0,//累计转化，默认为零
@@ -16,7 +14,19 @@ yx_mallApp
             page:1,
         };
 
+        function getNowFormatDate() {
+            var date = new Date();
 
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+
+            var currentdate = date.getFullYear() +  month;
+
+            return currentdate;
+        }
 //   初加载请求
 //加载每月记录
         var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/shop_deposit_list",{
@@ -25,8 +35,22 @@ yx_mallApp
         conversion_record.then(function(e){
             $scope.Withdrawal.month=e.data.data;
             $scope.Withdrawal.total=e.data.totalpage;
-            $scope.Withdrawal.current=e.data.data[0].order_amount;
+            // $scope.Withdrawal.current=e.data.data[0].order_amount;
             $scope.Withdrawal.page=1;
+
+            if(!e.data.data[0]){
+                $scope.Withdrawal.current=0;
+            }else{
+
+                if(getNowFormatDate()==e.data.data[0].months){
+
+                    $scope.Withdrawal.current=e.data.data[0].order_amount;
+                }else {
+                    $scope.Withdrawal.current=0;
+                }
+
+            }
+
 
         },function(e){
             console.log(e);

@@ -105,7 +105,10 @@
 				<p class="more" ng-if="Withdrawal.status_fa" ng-click="more(v.months)" >加载更多</p>
 			</div>
 		</div>
-		     <!--购积分-->
+		<div class="treCon_one_top" style="text-align: center"  ng-if="Withdrawal.fa_month.length==0&&Withdrawal.status_fa">
+			暂无数据
+		</div>
+		          <!--购积分-->
 		<div class="treCon_one_show" ng-if="Withdrawal.status_gou" ng-repeat="v in Withdrawal.gou_month" >
 			<div class="treCon_one_top"  ng-click="change($index,v.months)">
 				{{v.months}} 总计：{{v.point}}积分<span ng-if="$index!=Withdrawal.selected" class="treCon_imgSp2">&nbsp;</span><span ng-if="$index==Withdrawal.selected"  class="treCon_imgSp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -143,6 +146,9 @@
 
 		</div>
 
+		<div class="treCon_one_top" style="text-align: center" ng-if="Withdrawal.gou_month.length==0&&Withdrawal.status_gou">
+			暂无数据
+		</div>
 	</div>
 
 

@@ -63,8 +63,8 @@ yx_mallApp
                 if(e.data.data == "" ){
                     $(".more").html("暂无更多")
                 }else {
-                    $scope.bb.data= $scope.bb.data.concat(e.data.data);
 
+                    $scope.bb.data.push.apply($scope.bb.data,e.data.data);
 
                 }
 

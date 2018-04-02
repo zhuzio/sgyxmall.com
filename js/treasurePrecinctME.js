@@ -8,14 +8,26 @@ yx_mallApp
            $scope.arr={
            
             mouth:[],//月账单
-            dayDetail:[{classname:"测试",createtime:"2018-01-11 00:11:12",money:44,order_sn:54766452,xq_real_name:"小皇"},{classname:"京东方",money:44,order_sn:54766452,xq_real_name:"小皇",createtime:"2018-01-01 10:31:12"}],
+            dayDetail:[],
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月收益，默认为零
             total:0,//累计收益，默认为零
                oldselected:-2,
                page:1,
            };
-           
+        function getNowFormatDate() {
+            var date = new Date();
+
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+
+            var currentdate = date.getFullYear() +  month;
+
+            return currentdate;
+        }
    
 //   初加载请求
 //加载每月记录
@@ -25,7 +37,21 @@ yx_mallApp
 	conversion_record.then(function(e){
 		$scope.arr.mouth=e.data.data;
         $scope.arr.total=e.data.arr;
-        $scope.arr.current=e.data.data[0].money;
+
+        if(!e.data.data[0]){
+            $scope.arr.current=0;
+        }else{
+
+            if(getNowFormatDate()==e.data.data[0].times){
+
+                $scope.arr.current=e.data.data[0].money;
+            }else {
+                $scope.arr.current=0;
+            }
+
+        }
+
+
 
 	},function(e){
 		console.log(e);
@@ -74,8 +100,8 @@ yx_mallApp
                 if(e.data.data == "" ){
                     $(".more").html("暂无更多");
                 }else {
-                    $scope.arr.dayDetail.concat(e.data.data);
 
+                    $scope.arr.dayDetail.push.apply($scope.arr.dayDetail,e.data.data);
                 }
 
             },function(e){

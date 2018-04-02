@@ -70,6 +70,12 @@ yx_mallApp
         };
 
         $scope.next=function () {
+            if(!$scope.user.code){
+                appService.artTxt("请输入验证码").then(function () {
+                    return false;
+                });
+                return false;
+            }
             var next1=appService._postData(URL+"index.php?s=Api/Password/validate_code",{id:$scope.user.code_id,code:$scope.user.code});
             next1.then(function (e) {
 

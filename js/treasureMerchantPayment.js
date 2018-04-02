@@ -47,7 +47,7 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 		
 		  chaxun.then(function(e){
 		  
-		  	   $scope.dan.all =e.data.data.give_count;
+		  	   $scope.dan.all =e.data.data.get_count;
 		  	    $scope.dan.data =e.data.data.total_amount_san;
 		  	
 		  },function(e){
@@ -68,7 +68,7 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 		
 		  chaxun.then(function(e){
 
-		  	    $scope.dan.all =e.data.data.give_count;
+		  	    $scope.dan.all =e.data.data.get_count;
 		  	    $scope.dan.data =e.data.data.total_amount_san;
 		  	
 		  },function(e){
@@ -93,7 +93,8 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
             if(e.data.data.total_amount_san == "" ){
                 $(".more").html("暂无更多")
             }else {
-                $scope.dan.data= $scope.dan.data.concat(e.data.data.total_amount_san);
+
+                $scope.dan.data.push.apply($scope.dan.data,e.data.data.total_amount_san);
             }
 
         },function (e) {

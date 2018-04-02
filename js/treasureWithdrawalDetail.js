@@ -4,9 +4,7 @@ yx_mallApp
         document.title="财富体现明细";
         $scope.wo={
             page:1,
-            data:[{ip:0,money:121,createtime:"2018-01",bank_code:"建行",operatortime:"2018-02"},
-                {ip:1,money:121,createtime:"2018-01",bank_code:"建行",operatortime:"2018-02"},
-                {ip:2,money:121,createtime:"2018-01",bank_code:"建行",operatortime:"2018-02"}]//提现详情
+            data:[]//提现详情
         };
         var  uesr=appService._postData(URL+"index.php?s=/Api/wealth/deposit_detail",{
             token: localStorage.getItem("tokens"),
@@ -31,8 +29,8 @@ yx_mallApp
                 if(e.data.data == "" ){
                     $(".more").html("暂无更多")
                 }else {
-                    $scope.wo.data= $scope.wo.data.concat(e.data.data);
 
+                    $scope.wo.data.push.apply($scope.wo.data,e.data.data);
 
                 }
 
