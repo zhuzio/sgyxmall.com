@@ -98,13 +98,13 @@ yx_mallApp
                         $(".input_psd_container").animate({
                             top:"100%"
                         },300);
-                        alert("成功");
-                        // $state.go("myOrder");
+
+                        $state.go("myOrder");
                     })
                 }else {
-                    alert("失败");
+
                     appService.artTxt(e.data.msg).then(function (value) {
-                        // $window.location.reload()
+                        $window.location.reload()
                     });
 
                 }
