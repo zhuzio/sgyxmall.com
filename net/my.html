@@ -1,3 +1,13 @@
+<style>
+    .mAGContainer_conter{
+        width: 60%;
+        height: auto;
+        padding: .1rem;
+        margin: 0 auto;
+        margin-top: 50%;
+        background: #FFFFFF;
+    }
+</style>
 <div>
     <header class="my_header">
         <div class="header_container">
@@ -9,10 +19,18 @@
                 <!--用户名字-->
                 <p class="my_user_name">{{my.userInfo.real_name}}</p>
                 <!--用户积分-->
-                <p class="my_user_integral">{{my.userInfo.money}}</p>
+                <p class="my_user_integral" ng-click="lookIntegral()">查看积分</p>
             </div>
         </div>
     </header>
+    <!--弹出层-->
+    <div class="mAGContainer" ng-class="{'mAGContainerY':my.integral_status}" ng-click="lookNo()">
+       <div class="mAGContainer_conter">
+           严选积分:{{my.user_happiness}}购物积分:{{my.user_money}}
+       </div>
+
+    </div>
+
     <!--我的订单-->
     <div class="my_user_order my_user_my" ui-sref="myOrder">
         <p>我的订单</p>
