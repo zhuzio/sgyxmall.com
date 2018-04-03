@@ -34,7 +34,7 @@ yx_mallApp
             }
             $scope.my.user_happiness=e.data.data.happiness;
             $scope.my.user_money=e.data.data.money;
-           
+
         },function (e) {
 
         });

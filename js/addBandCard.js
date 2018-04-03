@@ -1,5 +1,6 @@
 yx_mallApp
     .controller("addBandCardController",["$scope","appService","$state",function ($scope,appService,$state) {
+        document.title="添加银行卡";
         $scope.Adc={
             userInfo:{},
             //持卡人姓名
@@ -174,6 +175,7 @@ yx_mallApp
                 bank_code:$scope.Adc.choseInfo.adcAreaNum,
                 bank_img:$scope.Adc.choseInfo.adcBankImg,
                 id_card:$scope.Adc.userIdNum,
+                open_bank:$scope.Adc.choseInfo.adcArea
             });
                 addBankCardSub.then(function (value) {
                     if (value.data.ret == "success"){

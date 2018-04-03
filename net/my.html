@@ -1,11 +1,16 @@
 <style>
     .mAGContainer_conter{
-        width: 60%;
+        width: 70%;
         height: auto;
         padding: .1rem;
         margin: 0 auto;
         margin-top: 50%;
         background: #FFFFFF;
+        text-align: center;
+        letter-spacing: 0.5px;
+    }
+    .mAGContainer_conter p{
+        margin: 0.3rem .1rem ;
     }
 </style>
 <div>
@@ -26,7 +31,10 @@
     <!--弹出层-->
     <div class="mAGContainer" ng-class="{'mAGContainerY':my.integral_status}" ng-click="lookNo()">
        <div class="mAGContainer_conter">
-           严选积分:{{my.user_happiness}}购物积分:{{my.user_money}}
+           <p>严选积分:{{my.user_happiness}} &nbsp;购物积分:{{my.user_money}}</p>
+           <p style="text-align: left">您在商城购物所获赠的严选积分，可在苏格严选商城购物时，使用获赠的严选积分，对所购商品进行兑换及相应比例的积分抵扣。</p>
+
+
        </div>
 
     </div>
