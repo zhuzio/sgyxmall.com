@@ -24,6 +24,7 @@ yx_mallApp
             pan:['1','2','3','4','5','6','7','8','9','取消','0','删除'],
             psdArr:[],
             spd:"",
+            yx_money:true,//判断严选积分是否充足，不充足或为0，会员购买不予展示
             //全积分是否展示
             isAllIn:true,
             //积分加现金是否显示
@@ -55,6 +56,7 @@ yx_mallApp
                 case 3:
                     $scope.apply.payment = "cashandpoint";
                     $scope.apply.payment_way = "13";
+                    console.log($scope.apply.spd)
                     $scope.applyApi($scope.apply.spd);
                     break;
                 case 4:
@@ -96,9 +98,11 @@ yx_mallApp
                         $(".input_psd_container").animate({
                             top:"100%"
                         },300);
+
                         $state.go("myOrder");
                     })
                 }else {
+
                     appService.artTxt(e.data.msg).then(function (value) {
                         $window.location.reload()
                     });
@@ -113,7 +117,7 @@ yx_mallApp
         var userIn=appService._postData(URL+"index.php?s=/Api/Order/surplus_point",{token:localStorage.getItem("tokens"),
             way:localStorage.getItem("way")});
         userIn.then(function (e) {
-            // console.log(e.data.data)
+            console.log(e.data)
             /*
             *money: 购物积分
             * select：严选积分
@@ -130,11 +134,19 @@ yx_mallApp
             }else {
                 console.log("SSS")
                 $scope.apply.isIn = true;
+                $scope.apply.isAllIn=false;
+                // 严选积分为0或者小于商品严选积分时，会员购买不予显示
+                if(parseFloat($scope.apply.surplusIn) > parseFloat(e.data.data.select)||e.data.data.select==0){
+                    $scope.yx_money = false;
+
+                };
                 if(parseFloat($scope.apply.surplusIn) > parseFloat(e.data.data.select)){
                     $scope.apply.isAllIn = false;
+                    alert("123")
                 };
                 if( parseFloat($scope.apply.fullMoney) > parseFloat(e.data.data.select)){
                     $scope.apply.isAllIn = false;
+                    alert("456")
                 };
             };
 

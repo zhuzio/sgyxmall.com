@@ -82,20 +82,23 @@ $scope.maxMoney=function (e) {
               appService.artTxt("提现金额必须是整数且100的倍数！").then(function () {
                   return false;
               });
+              return false;
           }
 
              if(parseFloat($("#moneyt").val())%100){
 
                  appService.artTxt("提现金额必须是整数且100的倍数！").then(function () {
-                     return false;
+
                  });
+                 return false;
              }
 
              if(parseInt($("#moneyt").val())<200){
 
                  appService.artTxt("提现金额不能低于200！").then(function () {
-                     return false;
+
                  });
+                 return false;
              }
              if($(this).hasClass("bg2")){
                  // if(parseInt($("#moneyt").val()) <$scope.Withdrawal.money){ }

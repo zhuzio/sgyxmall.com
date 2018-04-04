@@ -4,9 +4,8 @@
         去支付
     </div>
     <div class="chose_applyWay">
-        <p ui-sref="address">全额购买</p>
+        <p >全额购买</p>
         <div class="chose_aw_con">
-
            <!-- <div class="tong_apply" ng-click="UserApply(0)" >
                 &lt;!&ndash;<p>通联支付</p>&ndash;&gt;
                 <form action="http://www.sgyxmall.com/index.php?s=/Api/Payment/onlinePayment" method="post">
@@ -21,7 +20,6 @@
                     <input type="submit" class="apply_tonglian" value="通联支付">
                 </form>
             </div>-->
-
             <div class="weChat_apply" ng-click="UserApply()">
                 <!--<p>微信支付</p>-->
                 <form action="http://www.sgyxmall.com/index.php?s=/Api/Payment/onlinePayment" method="post">
@@ -48,11 +46,11 @@
         <p>会员价购买</p>
         <div class="chose_aw_con1">
 
-            <!--<div class="tong_integral_apply" ng-click="UserApply(3)">
-                <p>通联+积分支付</p>
-            </div>-->
-
-            <div class="weChat_integral_apply" ng-click="UserApply(4)">
+            <!--<div class="tong_integral_apply" ng-click="UserApply(3)">-->
+                <!--<p>通联+积分支付</p>-->
+            <!--</div>-->
+            <!--yx_money  判断严选积分是否充足或为0 不充足或为0，不予显示-->
+            <div class="weChat_integral_apply" ng-click="UserApply(4)" ng-if="apply.yx_money">
                 <!--<p>微信+积分支付</p>-->
                 <form action="http://www.sgyxmall.com/index.php?s=/Api/Payment/onlinePayment" method="post">
                     <input type="text" name="token" value="{{apply.token}}" hidden>

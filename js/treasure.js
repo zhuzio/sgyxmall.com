@@ -49,7 +49,7 @@
           $scope.tre.point_peac=e.data.data.point_peac;
           $scope.tre.earnings=e.data.data.earnings;
           $scope.tre.total=e.data.data.total;
-
+console.log(e)
       },function(e){
           //	错误状态
           console.log(e);
