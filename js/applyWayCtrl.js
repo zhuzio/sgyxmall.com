@@ -142,11 +142,11 @@ yx_mallApp
                 };
                 if(parseFloat($scope.apply.surplusIn) > parseFloat(e.data.data.select)){
                     $scope.apply.isAllIn = false;
-                    alert("123")
+
                 };
                 if( parseFloat($scope.apply.fullMoney) > parseFloat(e.data.data.select)){
                     $scope.apply.isAllIn = false;
-                    alert("456")
+
                 };
             };
 
