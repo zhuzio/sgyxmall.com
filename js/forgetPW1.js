@@ -12,7 +12,7 @@ yx_mallApp
              err:false,
              code_id:"",
          };
-        $scope.user.phone=  JSON.parse(localStorage.getItem("userInfo")).user_name-0;
+
         var $bool=true;
         var $bool1=true;
         var z_tel=/^1[3|5|7|8|9]\d{9}$/;
@@ -35,12 +35,16 @@ yx_mallApp
 
             if ($scope.user.phone== "") {
                 appService.artTxt("请输入电话号码！！！！").then(function () {
-                    return false;
-                });
 
+                });
+                return false;
             } else  if (!z_tel.test($scope.user.phone)) {
+                appService.artTxt("手机格式不对！").then(function () {
+
+                });
                 return false;
             } else {
+                localStorage.setItem("phones",$scope.user.phone);
                 $scope.user.err=false;
                 if ($bool) {
                     $bool = false;
@@ -61,7 +65,7 @@ yx_mallApp
 
                    var dx=appService._postData(URL+"index.php?s=Api/user/send_code",{phone:$scope.user.phone,type:"find"});
                    dx.then(function (e) {
-
+                       console.log(e);
                        $scope.user.code_id=e.data.data.id;
                    },function (e) {
                        console.log(e);
