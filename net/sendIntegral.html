@@ -63,14 +63,20 @@
         background:white url("images/right.png") no-repeat 96% center;
         background-size: auto .25rem;
     }
+    .sendIntegralDetail{
+        padding-right: .2rem;
+        color: #666;
+        font-size: .26rem;
+    }
 </style>
 <div class="module_head">
     <a href="javascript:window.history.go(-1)"></a>
     发积分
+    <span class="fr sendIntegralDetail" ui-sref="buyAndSendIntegralDetail">明细</span>
 </div>
 <div class="showIntegral">
     可用积分 <span>{{sendInfo.merchantPoint}}</span>
-    <span class="goBuyIntegral fr">购买</span>
+    <span class="goBuyIntegral fr" ui-sref="buyIntegral">购买</span>
 </div>
 <div class="sendICenter">
     <div class="sendIList">

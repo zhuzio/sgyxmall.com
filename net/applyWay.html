@@ -7,8 +7,8 @@
         <p ui-sref="address">全额购买</p>
         <div class="chose_aw_con">
 
-            <div class="tong_apply" ng-click="UserApply(0)" >
-                <!--<p>通联支付</p>-->
+           <!-- <div class="tong_apply" ng-click="UserApply(0)" >
+                &lt;!&ndash;<p>通联支付</p>&ndash;&gt;
                 <form action="http://www.sgyxmall.com/index.php?s=/Api/Payment/onlinePayment" method="post">
                     <input type="text" name="token" value="{{apply.token}}" hidden>
                     <input type="text" name="way" value="{{apply.way}}" hidden>
@@ -20,7 +20,7 @@
                     <input type="text" name="pay_passwd" value="" hidden>
                     <input type="submit" class="apply_tonglian" value="通联支付">
                 </form>
-            </div>
+            </div>-->
 
             <div class="weChat_apply" ng-click="UserApply()">
                 <!--<p>微信支付</p>-->
@@ -48,9 +48,9 @@
         <p>会员价购买</p>
         <div class="chose_aw_con1">
 
-            <div class="tong_integral_apply" ng-click="UserApply(3)">
+            <!--<div class="tong_integral_apply" ng-click="UserApply(3)">
                 <p>通联+积分支付</p>
-            </div>
+            </div>-->
 
             <div class="weChat_integral_apply" ng-click="UserApply(4)">
                 <!--<p>微信+积分支付</p>-->
@@ -72,16 +72,7 @@
 </div>
 <!--二级密码支付盘-->
 <div class="input_psd_container">
-      <!-- <div class="goodsInfo_psd">
-           <p class="apply_title">请输入支付密码</p>
-           <p>您的选择的是全额购买，总价格是：<span>{{apply.fullMoney}}</span>积分</p>
-           <div class="psd_container">
-               <input type="password" readonly ng-repeat="item in passwordGroup track by $index" ng-value="item.value">
-           </div>
-       </div>
-       <div class="input_pan">
-           <div ng-repeat="num in apply.pan" ng-click="inputPsd(num)">{{num}}</div>
-       </div>-->
+     
     <div pay-keyboard full-money="{{apply.fullMoney}}"></div>
 </div>
 <!--支付过程加载层-->

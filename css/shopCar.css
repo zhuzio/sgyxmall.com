@@ -2,6 +2,7 @@
     width: 100%;
     height: auto;
     margin-bottom: 2.3rem;
+    margin-top: 1.2rem;
 }
 .each_shop_container{
     background: white;
@@ -16,10 +17,6 @@
     margin-top: -.1rem !important;
     margin-left: .1rem;
 }
-/*.shop_name >span{
-    font-size: .27rem;
-    line-height: .6rem;
-}*/
 .each_shop_list{
     width: 100%;
     overflow: hidden;
@@ -182,4 +179,42 @@
 .all_shop_total >p{
     text-align: right;
     padding-right: .15rem;
+}
+.shopCarHead{
+    width: 100%;
+    height: .6rem;
+    text-align: center;
+    line-height: .6rem;
+    font-size: .26rem;
+    position: fixed;
+    top:0rem;
+    left: 0;
+    padding: .2rem 0 .2rem 0 ;
+    background: white;
+}
+.shopCarHead span{
+    display: inline-block;
+    width: 1.5rem;
+    height: 100%;
+    border: 1px #e5e5e5 solid;
+    /*box-sizing: border-box;*/
+    background: white;
+}
+.shopCarOn{
+    background: #e79e56 !important;
+    color: white;
+}
+.shopCarCommon{
+    border-radius: .2rem 0 0 .2rem;
+    border-right: none!important;
+}
+.shopCarStrict{
+    border-radius:0 .2rem .2rem 0;
+    border-left: none!important;
+}
+.shopCarContainers >img{
+    display: block;
+    width: 62%;
+    height: auto;
+    margin: 3rem auto;
 }

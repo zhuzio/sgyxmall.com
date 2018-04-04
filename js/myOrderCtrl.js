@@ -67,7 +67,7 @@ yx_mallApp
             });
             allOrder.then(function (value) {
                 console.log(value.data.data)
-                var noDatas = value.data.data == undefined || value.data.data == null || value.data.data == "";
+                var noDatas = value.data.data == undefined || value.data.data == null || value.data.data == "" || value.data.data.orderInfo == "" ||value.data.data.orderInfo == undefined;
                 if (page == 1){
                     switch (idx){
                         case 0:
@@ -398,6 +398,7 @@ yx_mallApp
                                     $scope.shopOrder.waitApply.splice(_index,1);
                                     if ($scope.shopOrder.waitApply.length == 0){
                                         $scope.shopOrder.waitApplyMore = true;
+                                        $scope.shopOrder.waitApplyNoData = true;
                                     }
                                     break;
                             }

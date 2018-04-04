@@ -34,12 +34,12 @@ yx_mallApp
                 point_type:IntegralType,
             });
             buyAndSendIntegral.then(function (value) {
-                // console.log(value)
+                console.log(value)
                 switch (idx){
                     case 1:
                         $scope.bas.buyMonthInfo = value.data.data;
                         $scope.bas.nowIntegral = value.data.totalpage.newpoint;
-                        $scope.bas.totalBuyIntegral = value.data.totalpage.summoney;
+                        $scope.bas.totalBuyIntegral = value.data.totalpage.buy_point;
                         break;
                     case 2:
                         $scope.bas.sendMonthInfo = value.data.data;
