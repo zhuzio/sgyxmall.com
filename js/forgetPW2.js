@@ -32,7 +32,7 @@ yx_mallApp
                              return false;
                          }
                          var ma=appService._postData(URL+"index.php?s=/Api/Password/update_login_password",{
-                             user_name:JSON.parse(localStorage.getItem("userInfo")).user_name,
+                             user_name:localStorage.getItem("phones"),
                              password:$scope.user.newpw1,
 
                          });
@@ -41,7 +41,7 @@ yx_mallApp
 
 
                                    appService.artTxt(e.data.msg).then(function () {
-                                       $state.go("set");
+                                       $state.go("login");
                                    });
                                }else {
 
