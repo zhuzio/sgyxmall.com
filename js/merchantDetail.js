@@ -21,6 +21,19 @@ yx_mallApp.controller("merchantDetailController",["$scope","appService","$stateP
             $scope.index.swipers.push(e.data.data.image_1);
             $scope.index.swipers.push(e.data.data.image_2);
             $scope.index.swipers.push(e.data.data.image_3);
+            setTimeout(function () {
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    paginationClickable: true,
+                    spaceBetween: 0,
+                    centeredSlides: true,
+                    autoplay: 2500,
+                    autoplayDisableOnInteraction: false,
+                    loop:true
+                });
+            },0)
 
             if(!$scope.index.arr3.description){
                 $scope.index.arr3.description="暂无介绍";

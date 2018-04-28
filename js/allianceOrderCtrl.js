@@ -44,7 +44,7 @@ yx_mallApp
         $scope.getAoData=function (idx,page,status) {
             var allianceOrder = appService._postData(URL+"index.php?s=Api/order/personoffline",{
                 token:$scope.ao.userInfo.token,
-                way:$scope.ao.userInfo.way,
+                // way:$scope.ao.userInfo.way,
                 page:page,
                 /*
                 * status : 0 未审核 1 已审核 2 已驳回
@@ -169,7 +169,7 @@ yx_mallApp
         $scope.aoAddMoreData=function (idx,page,sta) {
             var aoAddMoreData=appService._postData(URL+"index.php?s=Api/order/personoffline",{
                 token:$scope.ao.userInfo.token,
-                way:$scope.ao.userInfo.way,
+                // way:$scope.ao.userInfo.way,
                 page:page,
                 // status : 0 未审核 1 已审核 2 已驳回
                 status:sta

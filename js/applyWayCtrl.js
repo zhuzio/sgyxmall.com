@@ -11,7 +11,7 @@ yx_mallApp
             //商品的积分；
             surplusIn:$stateParams.point,
             //商品全额
-            fullMoney:(parseFloat($stateParams.point)+parseFloat($stateParams.price)),
+            fullMoney:parseFloat($stateParams.price),
             //商品的现金数量
             surplusPrice:$stateParams.price,
             //支付种类 allpoint全积分 allcash全现金 cashandpoint现金和积分
@@ -32,9 +32,16 @@ yx_mallApp
             sc_id:$stateParams.sc_id,
             // 是否是严选商品
             isY:$stateParams.isY,
+            userInfo:[],
+
+            isFullIntegral:true,
+            userStrictIntegral:0,
+            goodsStrictIntegral:$stateParams.point
         };
+        console.log($stateParams.point)
+        $scope.apply.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         $scope.apply.orderId = ($stateParams.OrderID).split(",");
-        // console.log( $scope.apply.orderId)
+        console.log( $scope.apply.orderId)
         $scope.UserApply=function (way) {
             switch (way)
             {
@@ -79,8 +86,8 @@ yx_mallApp
         $scope.applyApi=function (spd) {
             var userApply=appService._postData(URL+"index.php?s=/Api/Payment/onlinePayment",
                 {
-                    token:localStorage.getItem("tokens"),
-                    way:localStorage.getItem("way"),
+                    token:$scope.apply.userInfo.token,
+                    // way:localStorage.getItem("way"),
                     order_sn:$scope.apply.orderId,
                     payment:$scope.apply.payment,
                     payment_way:$scope.apply.payment_way,
@@ -114,16 +121,26 @@ yx_mallApp
         };
         //获得用户的账户积分信息
 
-        var userIn=appService._postData(URL+"index.php?s=/Api/Order/surplus_point",{token:localStorage.getItem("tokens"),
-            way:localStorage.getItem("way")});
+        var userIn=appService._postData(URL+"index.php?s=/Api/Order/surplus_point",{
+            token:$scope.apply.userInfo.token
+            // way:localStorage.getItem("way")
+        });
         userIn.then(function (e) {
-            console.log(e.data)
+            // console.log(e.data);
+            $scope.apply.userStrictIntegral = e.data.data.select;
             /*
             *money: 购物积分
             * select：严选积分
             * */
             /*判断是否是严选商品 0 不是严选商品 不为0 则是严选商品*/
-            if ($scope.apply.isY == 0){
+
+           /* if (parseFloat($stateParams.point) > parseFloat(e.data.data.select)){
+                $scope.apply.isFullIntegral = false;
+                appService.artTxt("您的严选积分不够购买此商品，只有两种支付方式")
+            };*/
+
+
+            /*if ($scope.apply.isY == 0){
                 $scope.apply.isIn = false;
                 if(parseFloat($scope.apply.surplusIn) > parseFloat(e.data.data.money)){
                     $scope.apply.isAllIn = false;
@@ -149,23 +166,8 @@ yx_mallApp
 
                 };
             };
+*/
 
-
-
-
-
-            // console.log(Math.floor($scope.apply.surplusIn).toFixed(2))
-            // console.log(Math.floor($scope.apply.surplusIn).toFixed(2) < Math.floor(e.data.data).toFixed(2))
-           /* if(Math.floor($scope.apply.surplusIn).toFixed(2) > e.data.data){
-                $scope.apply.isIn = false;
-            }
-            if( Math.floor($scope.apply.fullMoney).toFixed(2) > e.data.data){
-                $scope.apply.isAllIn = false;
-            }
-            if($scope.apply.fullMoney <= e.data.data){
-                $scope.apply.isIn = true;
-                $scope.apply.isAllIn = true;
-            }*/
         },function (e) {
             console.log(e)
         });
@@ -185,5 +187,7 @@ yx_mallApp
             $(".input_psd_container").animate({
                 top:"100%"
             },300);
-        })
+        });
+
+
     }])

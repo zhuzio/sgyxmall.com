@@ -51,8 +51,9 @@ yx_mallApp
 
 //加载每月记录        购买积分请求
         var Integral1=appService._postData(URL+"index.php?s=/Api/wealth/shop_point_month",{
-            token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way") });
+            token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way") 
+        });
         Integral1.then(function(e){
 
             if(!e.data){
@@ -67,8 +68,9 @@ yx_mallApp
         });
 //加载每月记录        送积分请求
         var Integral=appService._postData(URL+"index.php?s=/Api/wealth/shop_send_point_month",{
-            token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way") });
+            token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way")
+        });
         Integral.then(function(e){
 
             if(!e.data){
@@ -146,8 +148,9 @@ yx_mallApp
 
 
                 var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/shop_point_detail",{
-                    token: localStorage.getItem("tokens"),
-                    way:localStorage.getItem("way"), month:time});
+                    token: JSON.parse(localStorage.getItem("userInfo")).token,
+                    // way:localStorage.getItem("way"),
+                    month:time});
                 conversion_record.then(function(e){
                     $scope.Withdrawal.gou_dayDetail=e.data.data;
 
@@ -163,8 +166,9 @@ yx_mallApp
 
 
                 var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/shop_send_point_detail",{
-                    token: localStorage.getItem("tokens"),
-                    way:localStorage.getItem("way"), month:time});
+                    token: JSON.parse(localStorage.getItem("userInfo")).token,
+                    // way:localStorage.getItem("way"),
+                    month:time});
                 conversion_record.then(function(e){
                     $scope.Withdrawal.fa_dayDetail=e.data.data;
 
@@ -188,8 +192,9 @@ yx_mallApp
                 $scope.Withdrawal.gou_page=$scope.Withdrawal.gou_page+1;
 
                 var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/shop_point_detail",{
-                    token: localStorage.getItem("tokens"),
-                    way:localStorage.getItem("way"), month:time,page:$scope.Withdrawal.gou_page});
+                    token: JSON.parse(localStorage.getItem("userInfo")).token,
+                    // way:localStorage.getItem("way"), 
+                    month:time,page:$scope.Withdrawal.gou_page});
                 conversion_record.then(function(e){
 
                     if(e.data == "" ){
@@ -210,8 +215,9 @@ yx_mallApp
                 $scope.Withdrawal.fa_page=$scope.Withdrawal.fa_page+1;
 
                 var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/shop_send_point_detail",{
-                    token: localStorage.getItem("tokens"),
-                    way:localStorage.getItem("way"), month:time,page:$scope.Withdrawal.fa_page});
+                    token: JSON.parse(localStorage.getItem("userInfo")).token,
+                    // way:localStorage.getItem("way"), 
+                    month:time,page:$scope.Withdrawal.fa_page});
                 conversion_record.then(function(e){
                     if(e.data== "" ){
                         $(".more").html("暂无更多")

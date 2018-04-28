@@ -1,7 +1,7 @@
 //购物车页面 控制器
 yx_mallApp
     .controller("shopCarController",["$scope","$stateParams","appService","$state","$window",function ($scope,$stateParams,appService,$state,$window) {
-        if(!localStorage.getItem("tokens")){
+        if(!localStorage.getItem("userInfo")){
             $state.go("login");
         };
         document.title='苏格严选商城--购物车';
@@ -16,31 +16,46 @@ yx_mallApp
             shopId:[],
             isCommon:true,
             isStrict:false,
-            // 严选商品
+            userInfo:[],
+          /*  // 严选商品
             strictGoods:[],
             totalPriceStrict:0,
             totalIntegralStrict:0,
             selectAllStrict:false,
             noStrictGoods:false,
-            haveStrictGoods:true,
+            haveStrictGoods:true,*/
 
             // 普通商品
             commonGoods:[],
             totalPriceCommon:0,
+            totalStrictPriceCommon:0,
+            totalStrictIntegralCommon:0,
             selectAllCommon:false,
             haveCommonGoods:true,
             noCommonGoods:false,
 
+            chosePrice:0,
+            chosePoint:0,
+            chosePriceStrict:0,
+
         };
+        $scope.shopCar.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         $scope.getShopCarGoods=function (idx) {
             var goodsCar = appService._postData(URL+"index.php?s=/Api/Classify/userCart", {
-                token: localStorage.getItem("tokens"),
-                way:localStorage.getItem("way"),
-                is_happiness:idx
+                token: $scope.shopCar.userInfo.token,
+                // way:localStorage.getItem("way"),
+                // is_happiness:idx
             });
             goodsCar.then(function (e) {
+                console.log(e)
                 var noData= e.data.data == "" || e.data.data == null ||e.data.data == undefined;
-                switch (idx){
+                if (noData){
+                    $scope.shopCar.noCommonGoods = true;
+                    $scope.shopCar.haveCommonGoods = false;
+                }else {
+                    $scope.shopCar.commonGoods = e.data.data;
+                };
+                /*switch (idx){
                     case 0:
                         if (noData){
                             $scope.shopCar.noCommonGoods = true;
@@ -57,7 +72,7 @@ yx_mallApp
                             $scope.shopCar.strictGoods = e.data.data;
                         };
                         break;
-                };
+                };*/
             }, function (e) {
                 console.log(e)
             });
@@ -67,7 +82,7 @@ yx_mallApp
 
         //商铺全选
         $scope.CheckstoreAll = function (idx,StoreItem) {
-            switch (idx){
+            /*switch (idx){
                 case 0:
                     angular.forEach(StoreItem.goods_info, function (goodsItem) {
                         if (StoreItem.isCheckstoreAll) {
@@ -86,7 +101,14 @@ yx_mallApp
                         }
                     });
                     break;
-            };
+            };*/
+            angular.forEach(StoreItem.goods_info, function (goodsItem) {
+                if (StoreItem.isCheckstoreAll) {
+                    goodsItem.isCheckOneGoods = true;
+                } else {
+                    goodsItem.isCheckOneGoods = false;
+                }
+            });
 
           $scope.judgeIsSelectAll(idx);
           $scope.addPrice(idx);
@@ -111,7 +133,7 @@ yx_mallApp
         };
         //总价格增加
         $scope.addPrice = function (idx) {
-            switch (idx){
+           /* switch (idx){
                 case 0:
                     var totalPriceCommon = 0;
                     angular.forEach($scope.shopCar.commonGoods, function (storeItem) {
@@ -137,8 +159,22 @@ yx_mallApp
                     $scope.shopCar.totalPriceStrict = parseFloat(totalPriceStrict).toFixed(2);
                     $scope.shopCar.totalIntegralStrict = parseFloat(totalStockStrict).toFixed(2);
                     break;
-            };
-
+            };*/
+            var totalPriceCommon = 0,
+                totalStrictPriceCommon = 0,
+                totalStrictIntegralCommon = 0;
+            angular.forEach($scope.shopCar.commonGoods, function (storeItem) {
+                angular.forEach(storeItem.goods_info, function (goodsItem) {
+                    if (goodsItem.isCheckOneGoods) {
+                        totalPriceCommon += parseFloat(goodsItem.total_ready) * goodsItem.goods_count;
+                        totalStrictPriceCommon += parseFloat(goodsItem.goods_price) * goodsItem.goods_count;
+                        totalStrictIntegralCommon += parseFloat(goodsItem.goods_point) * goodsItem.goods_count;
+                    };
+                });
+            });
+            $scope.shopCar.totalPriceCommon = parseFloat(totalPriceCommon).toFixed(2);
+            $scope.shopCar.totalStrictPriceCommon = parseFloat(totalStrictPriceCommon).toFixed(2);
+            $scope.shopCar.totalStrictIntegralCommon = parseFloat(totalStrictIntegralCommon).toFixed(2);
         };
         //数量增加
         $scope.addCount = function (idx,item, bool) {
@@ -162,7 +198,7 @@ yx_mallApp
                     if (e.data.ret == 'success'){
                         appService.artTxt("删除成功").then(function (value) {
                             store.goods_info.splice(_index, 1);
-                            switch (idx){
+                            /*switch (idx){
                                 case 0:
                                     var $index = $scope.shopCar.commonGoods.indexOf(store);
                                     if (store.goods_info.length == 0) {
@@ -175,6 +211,10 @@ yx_mallApp
                                         $scope.shopCar.strictGoods.splice($index, 1);
                                     };
                                     break;
+                            };*/
+                            var $index = $scope.shopCar.commonGoods.indexOf(store);
+                            if (store.goods_info.length == 0) {
+                                $scope.shopCar.commonGoods.splice($index, 1);
                             };
                             $scope.addPrice(idx);
                         });
@@ -188,7 +228,7 @@ yx_mallApp
         };
         //判断选中的长度，是否全选
         $scope.judgeIsSelectAll=function (idx) {
-            switch (idx){
+            /*switch (idx){
                 case 0:
                     var storeLength=$scope.shopCar.commonGoods.length,
                         selectStoreLength=0;
@@ -219,11 +259,24 @@ yx_mallApp
                         $scope.shopCar.selectAllStrict=false;
                     };
                     break;
+            };*/
+            var storeLength=$scope.shopCar.commonGoods.length,
+                selectStoreLength=0;
+            angular.forEach($scope.shopCar.commonGoods,function(item){
+                if(item.isCheckstoreAll){
+                    selectStoreLength++;
+                };
+            });
+            //如果选中的商铺长度 等于 总商铺的长度 则下方全选
+            if(selectStoreLength==storeLength){
+                $scope.shopCar.selectAllCommon=true;
+            }else{
+                $scope.shopCar.selectAllCommon=false;
             };
         };
         //全选
         $scope.selectAllGoods=function(idx){
-            switch (idx){
+            /*switch (idx){
                 case 0:
                     angular.forEach($scope.shopCar.commonGoods,function(storeItem){
                         if($scope.shopCar.selectAllCommon){
@@ -254,12 +307,25 @@ yx_mallApp
                         }
                     });
                     break;
-            };
+            };*/
+            angular.forEach($scope.shopCar.commonGoods,function(storeItem){
+                if($scope.shopCar.selectAllCommon){
+                    storeItem.isCheckstoreAll=true;
+                    angular.forEach(storeItem.goods_info,function(goodsItem){
+                        goodsItem.isCheckOneGoods=true;
+                    })
+                }else{
+                    storeItem.isCheckstoreAll=false;
+                    angular.forEach(storeItem.goods_info,function(goodsItem){
+                        goodsItem.isCheckOneGoods=false;
+                    })
+                }
+            });
             $scope.addPrice(idx);
         };
         //去结算
         $scope.goClear=function (idx) {
-            switch (idx){
+            /*switch (idx){
                 case 0:
                     angular.forEach($scope.shopCar.commonGoods,function (storeItem) {
                         angular.forEach(storeItem.goods_info,function (goodsItem) {
@@ -298,11 +364,35 @@ yx_mallApp
                         })
                     });
                     break;
-            }
+            }*/
+            angular.forEach($scope.shopCar.commonGoods,function (storeItem) {
+                angular.forEach(storeItem.goods_info,function (goodsItem) {
+                    if(goodsItem.isCheckOneGoods){
+                        var order={
+                            goods_id:goodsItem.goods_id,
+                            goods_count:goodsItem.goods_count,
+                            goods_types:goodsItem.goods_types,
+                            goods_img:goodsItem.default_img,
+                            goods_name:goodsItem.goods_name,
+                            goods_price:goodsItem.goods_price,
+                            goods_point:goodsItem.goods_point,
+                            total_ready:goodsItem.total_ready,
+
+                        };
+                        $scope.shopCar.shopId.push(goodsItem.sc_id);
+                        $scope.shopCar.finalOrder.push(order);
+                    }
+                })
+            });
             if($scope.shopCar.finalOrder.length != 0){
-                var finalPrice = 0,
-                    finalIntegral = 0,
-                    goodsDefault = 0;
+                var finalPrice = $scope.shopCar.totalPriceCommon,
+                    finalIntegral =$scope.shopCar.totalStrictIntegralCommon,
+                    finalPriceStrict　=$scope.shopCar.totalStrictPriceCommon;
+
+
+              /*  var finalPrice = 0,
+                    finalIntegral =0,
+                    goodsDefault =0;
                 switch (idx){
                     case 0:
                         finalIntegral = 0;
@@ -314,17 +404,18 @@ yx_mallApp
                         finalPrice = $scope.shopCar.totalPriceStrict;
                         goodsDefault = $scope.shopCar.totalIntegralStrict;
                         break;
-                }
+                }*/
                 var dataArr={
-                    token:localStorage.getItem("tokens"),
+                    token:$scope.shopCar.userInfo.token,
                     goodsInfo:$scope.shopCar.finalOrder,
-                    way:localStorage.getItem("way"),
+                    // way:localStorage.getItem("way"),
                     totalPrice:finalPrice,
                     totalPoint:finalIntegral,
+                    totalPriceStrict:finalPriceStrict,
                     sc_id:$scope.shopCar.shopId,
-                    goodsDefault:goodsDefault,
+                    // goodsDefault:goodsDefault,
                 };
-                // console.log(dataArr);
+                console.log(dataArr);
                 localStorage.setItem("datas",JSON.stringify(dataArr));
                 $state.go("clearing",{way:"shopCar"})
             }else {
@@ -333,7 +424,7 @@ yx_mallApp
             }
         };
         // tab 切换
-        $scope.shopCarTab=function (idx) {
+       /* $scope.shopCarTab=function (idx) {
             switch (idx){
                 case 0:
                     $scope.shopCar.isCommon = true;
@@ -352,6 +443,6 @@ yx_mallApp
             $scope.shopCar.finalOrder = [];
             $scope.shopCar.shopId = [];
             $scope.getShopCarGoods(idx);
-        };
+        };*/
 
     }])

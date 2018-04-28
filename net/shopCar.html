@@ -1,6 +1,6 @@
-<div class="shopCarHead">
+<!--<div class="shopCarHead">
     <span class="shopCarCommon" ng-click="shopCarTab(0)" ng-class="{'shopCarOn':shopCar.isCommon}">普通商品</span><span class="shopCarStrict" ng-click="shopCarTab(1)" ng-class="{'shopCarOn':shopCar.isStrict}">严选商品</span>
-</div>
+</div>-->
 
 
 <div class="shopCarContainers" ng-show="shopCar.isCommon">
@@ -32,7 +32,8 @@
                                 <input type="number" class="esc_number fl" readonly value="{{goods.goods_count}}">
                                 <p class="esc_add fl" ng-click="addCount(0,goods,true)">+</p>
                             </div>
-                            <p class="ecs_price">¥ <span class="esc_rmb">{{goods.goods_price}}</span></p>
+                            <p class="ecs_price">¥ <span class="esc_rmb">{{goods.total_ready}}</span></p>
+                            <p class="esc_mi">或  ¥{{goods.goods_price}}+严选积分{{goods.goods_point}}</p>
                             <span class="ecs_delete" ng-click="delete(0,shopName,$index)">删除</span>
                         </div>
                     </div>
@@ -50,7 +51,12 @@
             <label for="esc_goods1"> 全选</label>
         </div>
         <div class="all_shop_total fl">
-            <p>合计：<span>{{shopCar.totalPriceCommon}}</span>元</p>
+            <p class="allShopTotalTxt">合计：</p>
+            <p class="allShopTotalStrict">
+                <span class="allShopTotal">{{shopCar.totalPriceCommon}} 元</span>
+                <span>或 ¥{{shopCar.totalStrictPriceCommon}}+严选积分{{shopCar.totalStrictIntegralCommon}}</span>
+            </p>
+
         </div>
         <div class="go_cleaning" ng-click="goClear(0)">
             结算
@@ -59,8 +65,8 @@
     <!--没有数据-->
     <img src="images/nodata.png" alt=""ng-show="shopCar.noCommonGoods">
 </div>
-<div class="shopCarContainers" ng-show="shopCar.isStrict">
-    <!--列表数据-->
+<!--<div class="shopCarContainers" ng-show="shopCar.isStrict">
+    &lt;!&ndash;列表数据&ndash;&gt;
     <div class="shop_car_container" ng-show="shopCar.haveStrictGoods">
         <div class="each_shop_container" ng-repeat="shopName in shopCar.strictGoods">
             <p class="shop_name">
@@ -93,7 +99,7 @@
             </div>
         </div>
     </div>
-    <!--底部结算-->
+    &lt;!&ndash;底部结算&ndash;&gt;
     <div class="shop_car_clearing_container" ng-show="shopCar.haveStrictGoods">
         <div class="all_shop_check fl">
             <input type="checkbox" id="esc_goodss1" ng-click="selectAllGoods(1)" ng-model="shopCar.selectAllStrict">
@@ -106,6 +112,6 @@
             结算
         </div>
     </div>
-    <!--没有数据-->
+    &lt;!&ndash;没有数据&ndash;&gt;
     <img src="images/nodata.png" alt=""ng-show="shopCar.noStrictGoods">
-</div>
+</div>-->

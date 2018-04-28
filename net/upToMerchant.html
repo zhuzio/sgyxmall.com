@@ -6,7 +6,7 @@
 </style>
 <div class="module_head">
     <a href="javascript:window.history.go(-1)"></a>
-    升级为商家
+    {{upToMerchant.titleTxt}}
 </div>
 <div class="upMContainer">
     <div class="eachUM">
@@ -15,7 +15,7 @@
     </div>
     <div class="eachUM eachUMC">
         <p class="eachUMTitle" id="J_Address" >店铺位置<span>*</span></p>
-        <input type="text" class="eachUMCon" placeholder="请选择省、市、区" ng-focus="addArea()" ng-model="area.address">
+        <input type="text" class="eachUMCon" placeholder="请选择省、市、区" ng-focus="addArea()" ng-model="area.address" ng-disabled="upToMerchant.modify">
     </div>
     <div class="eachUM">
         <p class="eachUMTitle">详细信息<span>*</span></p>
@@ -27,9 +27,9 @@
     </div>
     <div class="eachUM">
         <p class="eachUMTitle">联系电话<span>*</span></p>
-        <input type="text" class="eachUMCon" placeholder="请输入您的联系电话" ng-model="upToMerchant.merchantsTel">
+        <input type="text" class="eachUMCon" placeholder="请输入您的联系电话" ng-model="upToMerchant.merchantsTel" ng-change="showZCode()">
     </div>
-    <div class="eachUM">
+    <div class="eachUM" ng-show="upToMerchant.modifyTel">
         <p class="eachUMTitle">验证码<span>*</span></p>
         <input type="text" class="eachUMCon z_eachUMCon" placeholder="请输入验证码" ng-model="upToMerchant.ZCode">
         <button class="getMCode" ng-click="getUpMessageCode()"ng-class="{'GCB_on':upToMerchant.clickSta}">{{upToMerchant.getMsgTxt}}</button>

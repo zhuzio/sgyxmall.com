@@ -53,11 +53,11 @@
         color: #666;
         font-size: .25rem;
     }
-    .bcDo input[type=checkbox]{
+    .bcDo input[type=radio]{
         display: none;
         width: .4rem;
     }
-    .bcDo input[type="checkbox"]:checked+label::before {
+    .bcDo input[type="radio"]:checked+label::before {
         background: url("images/set/ba_select.png") no-repeat center;
         background-size: contain;
     }
@@ -118,7 +118,7 @@
                         为 1  不是默认
 
                 -->
-                <input type="checkbox" id="bc{{bankCard.bank_id}}" ng-checked="bankCard.status == 0">
+                <input type="radio" id="bc{{bankCard.bank_id}}" ng-checked="bankCard.status == 0" name="bandCard">
                 <label for="bc{{bankCard.bank_id}}"  ng-click="setDefBank(bankCard)">&nbsp;&nbsp;设为默认</label>
             </div>
         </div>

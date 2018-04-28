@@ -1,3 +1,13 @@
+<style type="text/css">
+    .addMores{
+        width: 100%;
+        height: auto;
+        text-align: center;
+        padding: .2rem 0;
+        font-size: .24rem;
+        color: #ccc;
+    }
+</style>
 <div class="cd_search_container">
     <a href="javascript:window.history.back(-1)"></a>
     <div class="cd_search">
@@ -5,11 +15,15 @@
     </div>
 </div>
 <div class="cd_list_container">
-    <div class="each_cd_list" ng-repeat="cd_detail in classifyDetail.detail | filter :classifyDetail.search" ui-sref="detail({goodsId:cd_detail.goods_id})">
-        <img ng-src="http://www.sgyxmall.com/{{cd_detail.default_img}}" alt="{{cd_detail.goods_name}}" class="cd_img fl" >
-        <div class="cd_info fl">
+    <div class="each_cd_list" ng-repeat="cd_detail in classifyDetail.detail | filter :classifyDetail.search track by $index" ui-sref="detail({goodsId:cd_detail.goods_id})">
+        <div class="cd_imgBox fl">
+            <img ng-src="http://www.sgyxmall.com/{{cd_detail.default_img}}" alt="{{cd_detail.goods_name}}" class="cd_img" >
+        </div>
+        <div class="cd_info fr">
             <p class="cd_name">{{cd_detail.goods_name}}</p>
-            <p class="cd_price">¥ <span>{{cd_detail.default_market}}</span></p>
+            <p class="cd_price">¥ <span>{{cd_detail.total_ready}}</span> <br><i>或 ¥ {{cd_detail.default_ready}} + 严选积分{{cd_detail.default_point}}</i></p>
         </div>
     </div>
+
 </div>
+<p class="addMores" ng-if="classifyDetail.addMore" ng-click="classifyDetailAddMore()">点击加载更多</p>

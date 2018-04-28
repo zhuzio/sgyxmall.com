@@ -6,18 +6,20 @@ yx_mallApp
             YP:false,
             SD:false
         };
-        // console.log($scope.tab.userInfo)
         if($scope.tab.userInfo == "" || $scope.tab.userInfo == undefined || $scope.tab.userInfo == null){
             $state.go("login");
         }else {
-            if ($scope.tab.userInfo.way_sn == "苏格优品"){
+            $scope.tab.YP = false;
+            $scope.tab.SD = true;
+            // $state.go("tabs.index");
+           /* if ($scope.tab.userInfo.way_sn == "苏格优品"){
                 $scope.tab.YP = true;
                 $scope.tab.SD = false;
             }
             if ($scope.tab.userInfo.way_sn == "苏格严选"){
                 $scope.tab.YP = false;
                 $scope.tab.SD = true;
-            }
+            }*/
         }
 
     }])

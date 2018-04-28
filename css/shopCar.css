@@ -2,7 +2,7 @@
     width: 100%;
     height: auto;
     margin-bottom: 2.3rem;
-    margin-top: 1.2rem;
+    /*margin-top: 1.2rem;*/
 }
 .each_shop_container{
     background: white;
@@ -21,7 +21,7 @@
     width: 100%;
     overflow: hidden;
     background: white;
-    height: 2rem;
+    height: 2.5rem;
     padding: .2rem 0;
     border-top:1px solid #ebebeb;
 }
@@ -53,18 +53,18 @@
 }
 .each_shop_info{
     width: 90%;
-    height: 2rem;
+    height: 2.5rem;
     overflow: hidden;
 }
 .ecs_img{
     display: block;
     width: 1.9rem;
     height: 1.9rem;
-
+    margin-top: .25rem;
 }
 .ecs_info{
     width: auto;
-    height: 2rem;
+    height: 2.5rem;
     margin-left: .2rem;
     position: relative;
 }
@@ -126,6 +126,16 @@
     font-size: .4rem;
     margin:0 .1rem;
 }
+.esc_rmb i{
+    font-style: normal;
+    font-size: .15rem;
+    color: #555555;
+    padding-left: .15rem;
+}
+.esc_mi{
+    font-size: .2rem;
+    color: #555;
+}
 .esc_int{
     padding-left: .4rem;
     background: url("../images/sxore_orange.png") no-repeat left center;
@@ -165,7 +175,37 @@
     box-sizing: border-box;
     font-size: .27rem;
     line-height: 1rem;
+    position: relative;
+}
+/*.all_shop_total span{
+    display: inline-block;
+    float: left;
+}*/
+.allShopTotalTxt{
+    float: left;
+    padding-left: .2rem;
+}
+.allShopTotalStrict{
+    /*float: right;*/
+    font-size: .2rem;
+    color: #555;
+    /*padding-right: .2rem;*/
+    position: absolute;
+    right: .2rem;
+    top: 0;
+}
+.allShopTotalStrict span{
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: .5rem;
+    line-height: .5rem;
+    text-align: right;
 
+}
+.allShopTotal{
+    font-size: .3rem;
+    line-height: .7rem !important;
 }
 .go_cleaning{
     font-size: .3rem;
@@ -176,10 +216,10 @@
     color: white;
     background: #fb6400;
 }
-.all_shop_total >p{
+/*.all_shop_total >p{
     text-align: right;
     padding-right: .15rem;
-}
+}*/
 .shopCarHead{
     width: 100%;
     height: .6rem;

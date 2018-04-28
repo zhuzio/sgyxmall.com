@@ -17,8 +17,9 @@ yx_mallApp
 	  
 //	  初次加载奖励
 	var bill=appService._postData(URL+"index.php?s=/Api/wealth/profit_month",{
-		    token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way"), })         
+		    token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way"), 
+	})         
 				bill.then(function(e){
 
 					$scope.xiaoFei.jlBill=e.data;
@@ -34,8 +35,9 @@ yx_mallApp
 			$(".tre_span3").addClass("tre_ba");
      		$(".tre_span4").removeClass("tre_ba");
      		var bill=appService._postData(URL+"index.php?s=/Api/wealth/profit_month",{
-		    token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way"), })         
+		    token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way"),
+			})         
 				bill.then(function(e){
 
 					$scope.xiaoFei.jlBill=e.data;
@@ -51,8 +53,9 @@ yx_mallApp
 			$(".tre_span3").removeClass("tre_ba");
      		 $(".tre_span4").addClass("tre_ba");
      		 var bill=appService._postData(URL+"index.php?s=/Api/wealth/deposit_month",{
-		      token: localStorage.getItem("tokens"),
-              way:localStorage.getItem("way"), })         
+		      token: JSON.parse(localStorage.getItem("userInfo")).token,
+              // way:localStorage.getItem("way"),
+			 })         
 				bill.then(function(e){
 
 					$scope.xiaoFei.txBill=e.data;

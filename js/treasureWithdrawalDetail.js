@@ -7,8 +7,8 @@ yx_mallApp
             data:[]//提现详情
         };
         var  uesr=appService._postData(URL+"index.php?s=/Api/wealth/deposit_detail",{
-            token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way")
+            token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way")
         });
         uesr.then(function (e) {
             $scope.wo.data=e.data.data;
@@ -23,8 +23,11 @@ yx_mallApp
         $scope.more=function () {
 
             $scope.wo.page=$scope.wo.page+1;
-            var moreLike=appService._postData(URL+"index.php?s=/Api/wealth/deposit_detail",{page:$scope.wo.page,token: localStorage.getItem("tokens"),
-                way:localStorage.getItem("way")});
+            var moreLike=appService._postData(URL+"index.php?s=/Api/wealth/deposit_detail",{
+                page:$scope.wo.page,
+                token: JSON.parse(localStorage.getItem("userInfo")).token,
+                // way:localStorage.getItem("way")
+            });
             moreLike.then(function (e) {
                 if(e.data.data == "" ){
                     $(".more").html("暂无更多")

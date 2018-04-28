@@ -82,7 +82,7 @@ yx_mallApp
         $scope.getMOrderData=function (idx,page,paymentId,isCheck) {
             var datas=appService._postData(URL+"index.php?s=Api/order/storeorderoffline",{
                 token:$scope.MOrder.userInfo.token,
-                way:$scope.MOrder.userInfo.way,
+                // way:$scope.MOrder.userInfo.way,
                 page:page,
                 payment_id:paymentId,
                 is_check:isCheck

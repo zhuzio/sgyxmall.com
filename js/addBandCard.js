@@ -68,7 +68,9 @@ yx_mallApp
                     $scope.Adc.choseInfo.adcArea = "";
                     $scope.Adc.city = true;
                     $scope.Adc.area = true;
-                    var chosePro = appService._postData(URL+"index.php?s=Api/Bank/w_bank_province",{bank:$scope.Adc.choseInfo.adcBank});
+                    var chosePro = appService._postData(URL+"index.php?s=Api/Bank/w_bank_province",{
+                        bank:$scope.Adc.choseInfo.adcBank
+                    });
                     chosePro.then(function (value) {
                         $scope.Adc.bankPro = value.data.data;
                         $(".bankProList").css("display","block").siblings().css("display","none");
@@ -168,7 +170,7 @@ yx_mallApp
             };
             var addBankCardSub=appService._postData(URL+"index.php?s=Api/Userset/addcard",{
                 token:$scope.Adc.userInfo.token,
-                way:$scope.Adc.userInfo.way,
+                // way:$scope.Adc.userInfo.way,
                 bank_name:$scope.Adc.choseInfo.adcBank,
                 bank_num:$scope.Adc.bandCardNum,
                 user_name:$scope.Adc.bandCardUserName,

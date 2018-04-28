@@ -1,5 +1,5 @@
 yx_mallApp
-    .controller("registerController",["$scope","appService","$state","$interval",function ($scope,appService,$state,$interval) {
+    .controller("registerController",["$scope","appService","$state","$interval","$window",function ($scope,appService,$state,$interval,$window) {
         document.title = "会员注册";
         $scope.reg={
             //短信计时器
@@ -10,7 +10,7 @@ yx_mallApp
             //验证码
             regCode:"",
             //推荐编号
-            regRecCode:"",
+            regRecCode:"1231313",
             //登录密码
             regLoginPsd:"",
             //支付密码
@@ -34,7 +34,8 @@ yx_mallApp
             //返回的短信ID
             msgID:"",
             //图片验证码的正确活错误
-            watherImgCode:false
+            watherImgCode:false,
+            urlCode:""
 
         };
 
@@ -311,5 +312,10 @@ yx_mallApp
 
         };
 
-
+        $scope.reg.urlCode = ($window.location.href).split("=")[1];
+        if ($scope.reg.urlCode != undefined || $scope.reg.urlCode != null || $scope.reg.urlCode != ""){
+            $scope.reg.regRecCode = parseInt($scope.reg.urlCode);
+        }else {
+            $scope.reg.regRecCode = "";
+        }
     }])

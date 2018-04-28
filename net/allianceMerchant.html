@@ -1,15 +1,15 @@
 <style>
     .more {
-        width: 20%;
+        width: 100%;
         text-align: center;
         height: .6rem;
         line-height: .6rem;
-         margin: 0 auto;
+        /*margin: 0 auto;*/
         font-size: .25rem;
-        border: 1px solid black ;
+        /*border: 1px solid black ;*/
         margin-bottom: .2rem;
-        color: #FFFFFF;
-        background: gray;
+        color: #9e9e9e;
+        /*background: gray;*/
     }
 </style>
 <div>
@@ -66,7 +66,7 @@
 
                 <div class="am_near_inf">
                     <div class="am_near_inf_left">
-                        <img ng-src="http://www.sgypmall.com/{{x.store_logo}}"/>
+                        <img ng-src="http://www.sgyxmall.com/{{x.store_logo}}"/>
                     </div>
                     <div class="am_near_inf_right">
 
@@ -86,7 +86,7 @@
             </div>
             <!--加载更多-->
             <!--<p class="addMore"><img ng-src="images/Loading9.gif"/></p>-->
-            <p class="more" ng-click="more()" ng-if="index.locate!='定位中....'">加载更多</p>
+            <p class="more" ng-click="more()" ng-if="index.locate!='定位中....'">点击加载更多</p>
 
         </div>
 

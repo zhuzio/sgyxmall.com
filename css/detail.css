@@ -229,7 +229,7 @@
     height: auto;
 }
 .cti_info{
-    width: 3.5rem;
+    width: 3.6rem;
     height: 100%;
     margin-left: .2rem;
 }
@@ -242,6 +242,14 @@
 }
 .cti_adds{
     font-size: .35rem;
+}
+.cti_strict{
+    font-size: .2rem;
+    color: #555555;
+}
+.cti_strict span{
+    color: #999;
+    letter-spacing: 1px;
 }
 .cti_int{
     font-size: .27rem;

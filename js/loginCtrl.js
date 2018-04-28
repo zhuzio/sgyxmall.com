@@ -8,8 +8,8 @@ yx_mallApp
             $state.go("tabs.index");
         }
         $scope.login={
-            yl:true,
-            sl:false,
+            // yl:false,
+            sl:true,
             name:"",
             psd:"",
             way:"",
@@ -19,10 +19,10 @@ yx_mallApp
             errorShow:false,
             dsb:true,
             psdDis:true,
-            btnTxt:"苏格时代登录"
+            btnTxt:"苏格优品登录"
         };
         //切换登录的方式：苏格时代登录/苏格优选登录
-        $scope.changLogin=function (n) {
+        /*$scope.changLogin=function (n) {
             $scope.login.name = "";
             $scope.login.psd = "";
             $scope.login.dsb = true;
@@ -37,7 +37,7 @@ yx_mallApp
                 $scope.login.sl = true;
                 $scope.login.btnTxt="苏格优品登录";
             }
-        };
+        };*/
         //用户名框变化判断电话号码格式
         $scope.testTel=function () {
             if($scope.login.name.length == 11){
@@ -81,20 +81,21 @@ yx_mallApp
             },0);
             $scope.login.btnTxt="正在登录，请稍等...";
             //苏格时代登录
-            if(y == 0){
+         /*   if(y == 0){
                 $scope.login.way = "sgyx";
             };
             //苏格优品登录
             if(y == 1){
                 $scope.login.way = 'sgyp';
-            }
+            }*/
             var loginE=appService._postData(URL+"index.php?s=/Api/User/login",
                 {
                     phone:$scope.login.name,
                     password:$scope.login.psd,
-                    way:$scope.login.way
+                    // way:$scope.login.way
                 });
             loginE.then(function (e) {
+                console.log(e)
                 if(e.data.ret == 'err'){
                     appService.artTxt(e.data.msg).then(function () {
                         $scope.login.psd = "";
@@ -102,21 +103,22 @@ yx_mallApp
                         $(".login_ajax_container").animate({
                             bottom:"100%"
                         },0);
-                       switch (y){
+                        $scope.login.btnTxt="苏格优品登录";
+                      /* switch (y){
                            case 0:
                                $scope.login.btnTxt="苏格时代登录";
                                break;
                            case 1:
                                $scope.login.btnTxt="苏格优品登录";
                                break;
-                       }
+                       }*/
                         $(".login_btn").css({background:"#ccc"});
                     });
 
                 }else if(e.data.ret == 'ok'){
                     localStorage.setItem("userInfo",JSON.stringify(e.data.data));
-                    localStorage.setItem('tokens', e.data.data.token);
-                    localStorage.setItem("way",e.data.data.way);
+                    // localStorage.setItem('tokens', e.data.data.token);
+                    // localStorage.setItem("way",e.data.data.way);
                     appService.artTxt("登录成功").then(function () {
                         $state.go("tabs.index");
                     });
@@ -125,6 +127,9 @@ yx_mallApp
                 console.log(e)
             })
         };
+        if(localStorage.getItem("userInfo")){
+            $state.go("tabs.index");
+        };
 
 
-    }])
+    }]);

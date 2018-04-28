@@ -10,7 +10,7 @@ yx_mallApp
         // 获取收货地址列表
         var addressList = appService._postData(URL+"index.php?s=/Api/user/getAddress",{
             token:$scope.address.userInfo.token,
-            way:$scope.address.userInfo.way,
+            // way:$scope.address.userInfo.way,
             apiType:"all"
         });
             addressList.then(function (value) {
@@ -38,7 +38,7 @@ yx_mallApp
             ele.splice(idx,1);
             var delAddress=appService._postData(URL+"index.php?s=/Api/user/delAddress",{
                 token:$scope.address.userInfo.token,
-                way:$scope.address.userInfo.way,
+                // way:$scope.address.userInfo.way,
                 addr_id:ads.addr_id
             });
                 delAddress.then(function (value) {

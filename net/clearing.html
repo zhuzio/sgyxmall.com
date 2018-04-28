@@ -20,20 +20,26 @@
             <div class="eol_info fl">
                 <p class="eol_name">{{goods.goods_name}}</p>
                 <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{goods.goods_types}}</p>
-                <p class="eol_enc">¥ <span class="eol_price">{{goods.goods_price}}</span><span class="eol_and" ng-if="clear.goodsDefault != '0.00'"> + </span><span class="eol_point" ng-if="clear.goodsDefault !='0.00'">{{goods.goods_point}}</span></p>
+                <p class="eol_prices">¥ {{goods. total_ready}}</p>
+                <p class="eol_enc">或<span class="eol_price">{{goods.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point" >积分{{goods.goods_point}}</span></p>
             </div>
             <span>X {{goods.goods_count}}</span>
         </div>
     </div>
     <!--订单总量-->
     <div class="clear_money_container">
-        <div>商品总金额：<span>{{clear.total}}</span></div>
+        <div>商品总金额：  <span class="clearStrict">{{clear.total1}}</span>  <span>{{clear.total}}</span>   </div>
         <div>商品总数量：<span>{{clear.number}}</span></div>
         <div>运费：<span></span></div>
     </div>
     <!--去支付-->
     <div class="went_apply">
-        <div class="apple_total fl">应支付：{{clear.total}}</div>
+        <div class="apple_total fl">应支付：
+            <div class="applyPrice">
+                <p>{{clear.total}}</p>
+                <p class="applyPriceCommon">{{clear.total1}}</p>
+            </div>
+        </div>
         <div class="go_apply fl" ng-click="goApply()">去支付</div>
     </div>
 </div>

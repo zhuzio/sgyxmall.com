@@ -14,14 +14,14 @@ yx_mallApp
         tq_money:'',////最终提现钱
         current_money:0,
     };
-	if(!localStorage.getItem("tokens")){
+	if(!localStorage.getItem("userInfo")){
 	    $state.go("login");
     }
         console.log($stateParams);
         //初加载提现
         var  uesr1=appService._postData(URL+"index.php?s=/Api/wealth/shop_deposit_info",{
-            token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way")
+            token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way")
         });
         uesr1.then(function (e) {
 
@@ -37,8 +37,8 @@ yx_mallApp
 
 	//监测卡
 	var  uesr=appService._postData(URL+"index.php?s=/Api/wealth/member_deposit",{
-        token: localStorage.getItem("tokens"),
-        way:localStorage.getItem("way")
+        token: JSON.parse(localStorage.getItem("userInfo")).token,
+        // way:localStorage.getItem("way")
     });
 	uesr.then(function (e) {
 	    console.log(e);
@@ -148,8 +148,8 @@ $scope.maxMoney=function (e) {
                 var pw=$scope.Withdrawal.zf_password.join("");
 
                 var Withdrawal=appService._postData(URL+"index.php?s=/Api/wealth/shop_deposit",{
-                    token: localStorage.getItem("tokens"),
-                    way:localStorage.getItem("way"),
+                    token: JSON.parse(localStorage.getItem("userInfo")).token,
+                    // way:localStorage.getItem("way"),
                     password:pw,
                     bank_id:$scope.Withdrawal.bank_id ,
                     money:$scope.Withdrawal.tq_money,

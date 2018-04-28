@@ -63,7 +63,7 @@ yx_mallApp
 
             var memberAbout=appService._postData(URL+"index.php?s=Api/shop_center1/send_point_step1",{
                 token:$scope.sendInfo.userInfo.token,
-                way:$scope.sendInfo.userInfo.way,
+                // way:$scope.sendInfo.userInfo.way,
                 mobile:$scope.sendInfo.buyerName,
                 point:$scope.sendInfo.sendIntegralNum
             });
@@ -99,7 +99,7 @@ yx_mallApp
         //获取商家可用积分
         var getMPoint=appService._postData(URL+"index.php?s=Api/shop_center1/user_point",{
             token: $scope.sendInfo.userInfo.token,
-            way: $scope.sendInfo.userInfo.way
+            // way: $scope.sendInfo.userInfo.way
         });
             getMPoint.then(function (value) {
                 $scope.sendInfo.merchantPoint = value.data.data;

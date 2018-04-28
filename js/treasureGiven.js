@@ -33,8 +33,9 @@ yx_mallApp
 //   初加载请求
 //加载每月记录
     var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/bonus_points",{
-		    token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way") }) ;
+		    token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way") 
+    }) ;
 	conversion_record.then(function(e){
 		$scope.arr.mouth=e.data.data;
         $scope.arr.total=e.data.arr;
@@ -74,8 +75,9 @@ yx_mallApp
                return false;
            }
      var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/bonus_points_month",{
-						    token: localStorage.getItem("tokens"),
-				            way:localStorage.getItem("way"), time:time}) ;
+						    token: JSON.parse(localStorage.getItem("userInfo")).token,
+				            // way:localStorage.getItem("way"), 
+         time:time}) ;
 					     conversion_record.then(function(e){
 						$scope.arr.dayDetail=e.data.data;
 
@@ -90,8 +92,9 @@ yx_mallApp
         $scope.more=function(e){
             $scope.arr.page=$scope.arr.page+1;
             var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/bonus_points_month",{
-                token: localStorage.getItem("tokens"),
-                way:localStorage.getItem("way"), time:e,page:$scope.arr.page});
+                token: JSON.parse(localStorage.getItem("userInfo")).token,
+                // way:localStorage.getItem("way"), 
+                time:e,page:$scope.arr.page});
             conversion_record.then(function(e){
                 if(e.data.data == "" ){
                     $(".more").html("暂无更多");

@@ -149,6 +149,13 @@
         background: url("images/wealthAll/tre_mobile.png") no-repeat left center;
         background-size: auto .35rem;
     }
+    .basAddMore{
+        text-align: center;
+        line-height: .5rem;
+        font-size: .25rem;
+        color: #b6b6b6;
+        padding-top: .2rem;
+    }
 </style>
 <div class="module_head">
     <a href="javascript:window.history.go(-1)"></a>
@@ -176,7 +183,7 @@
                 <p><span class="buy_totalInt">共计：<i>{{buyIntDet.amount}}</i></span></p>
                 <p><span class="IntOrder fl">订单号：{{buyIntDet.orderid}}</span><span class="intDate fr">{{buyIntDet.pay_createtime}}</span></p>
             </div>
-
+            <p class="basAddMore" ng-if="bas.buyMore" ng-click="basAddMore(1,buyInt)">点击加载更多</p>
         </div>
     </div>
 </div>
@@ -193,7 +200,7 @@
                 <p><span class="send_phone sendBg">{{sendIntDet.user_name}}</span></p>
                 <p><span class="IntOrder fl">订单号：{{sendIntDet.order_sn}}</span><span class="intDate fr">{{sendIntDet.createtime}}</span></p>
             </div>
-
+            <p class="basAddMore" ng-if="bas.sendMore" ng-click="basAddMore(2,sendInt)">点击加载更多</p>
         </div>
     </div>
 </div>

@@ -20,7 +20,10 @@ yx_mallApp
             dayUpdate:[],
             //页数
             page:1,
-            more:true
+            more:true,
+            userInfo:[],
+            is_shopCarCount:false,
+            shopCarCount:0,
         };
         $scope.arr={
             arr1:[],
@@ -29,6 +32,7 @@ yx_mallApp
             arr4:[],
             arrColor:[]
         };
+        $scope.index.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         //改变元素宽度
         $scope.changeWidth=function (parent,arr) {
             setTimeout(function () {
@@ -43,7 +47,7 @@ yx_mallApp
         $scope.getRandomColor=function () {
             var rgba='rgba('+Math.floor(Math.random()*255)+','
                 +Math.floor(Math.random()*255)+','
-                +Math.floor(Math.random()*255)+',0.1'+')';
+                +Math.floor(Math.random()*255)+',0.05'+')';
             return rgba;
         };
         //首页轮播图 数据请求
@@ -67,10 +71,30 @@ yx_mallApp
             },function (e) {
                 console.log(e)
             });
+        //获得购物车的商品数量
+        if ($scope.index.userInfo){
+            var shopCarCount=appService._postData(URL+"index.php?s=/Api/Classify/cartCount",{
+                token:$scope.index.userInfo.token,
+            });
+            shopCarCount.then(function (e) {
+                console.log(e.data);
+                if(e.data.ret == "ok"){
+
+                    if(e.data.data == 0){
+                        $scope.index.is_shopCarCount = false;
+                    }else {
+                        $scope.index.is_shopCarCount = true;
+                    }
+                    $scope.index.shopCarCount=e.data.data;
+                }
+            },function (e) {
+                console.log(e)
+            })
+        };
         //好物甄选 数据请求
         var egoods=appService._postData(URL+"index.php?s=/Api/index/advertising_site",{site:1});
             egoods.then(function (e) {
-                // console.log(e)
+                console.log(e)
                 $scope.index.egoods=e.data.data;
             },function (e) {
                 console.log(e)
@@ -78,6 +102,7 @@ yx_mallApp
         //人气推荐·好物精选 数据请求
         var pr=appService._getData(URL+"index.php?s=/Api/Index/recommend");
             pr.then(function (e) {
+                console.log(e)
                 $scope.index.pr=e.data;
                 $scope.changeWidth($(".pr_center_container1"),$scope.arr.arr1);
             },function (e) {

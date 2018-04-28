@@ -17,7 +17,8 @@ yx_mallApp
             userInt:[],
             finalData:[],
             worng:[],
-            spd:""
+            spd:"",
+            res:[]
         };
         $scope.scan.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         $scope.scan.goodsInfo = JSON.parse(localStorage.getItem("weChatScan")).class_goods;
@@ -28,7 +29,7 @@ yx_mallApp
         //获取用户积分信息
         var userIntegral=appService._postData(URL+"index.php?s=Api/MemberWealth/pointTop",{
             token:$scope.scan.userInfo.token,
-            way:$scope.scan.userInfo.way,
+            // way:$scope.scan.userInfo.way,
         });
             userIntegral.then(function (value) {
                 $scope.scan.userInt = value.data.data
@@ -51,7 +52,7 @@ yx_mallApp
         $scope.giveIntegral=function (psd) {
             var userIntegralPay=appService._postData(URL+"index.php?s=Api/shopCenter1/user_balance_pay",{
                 token:$scope.scan.userInfo.token,
-                way:$scope.scan.userInfo.way,
+                // way:$scope.scan.userInfo.way,
                 pay_passwd:psd,
                 // 商家ID
                 sj_id:$scope.scan.shopId,
@@ -66,10 +67,11 @@ yx_mallApp
                 if (value.data.ret == "ok"){
                     var callback=appService._postData(URL+"index.php?s=Api/shopCenter1/goodspayback_offline",{
                         token:$scope.scan.userInfo.token,
-                        way:$scope.scan.userInfo.way,
+                        // way:$scope.scan.userInfo.way,
                         order_sn:value.data.data.order_sn
                     });
                     callback.then(function (value2) {
+                        $scope.scan.res = value2;
                         if (value2.data.ret == "success"){
                             appService.artTxt(value2.data.msg).then(function (value3) {
                                 $state.go("allianceOrder")

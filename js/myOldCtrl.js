@@ -1,7 +1,7 @@
 //我的页面--苏格时代商城用户 控制器
 yx_mallApp
-    .controller("myOldController",["$scope","appService","$state",function ($scope,appService,$state) {
-        if(!localStorage.getItem("tokens")){
+    .controller("myOldController",["$scope","appService","$state","$window",function ($scope,appService,$state,$window) {
+        if(!localStorage.getItem("userInfo")){
             $state.go("login");
         }
         document.title='苏格严选商城--我的';
@@ -45,17 +45,29 @@ yx_mallApp
             merchantQRUrl:"",
             returnTxt:[],
 
-            roleType:""
+            roleType:"",
+            // 用户注册二维码
+            registerQRCode:"",
 
         };
 
         $scope.myOld.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         //请求用户信息
-        var oldUserInfo=appService._postData(URL+"index.php?s=api/User/userinfo",{token:$scope.myOld.userInfo.token,way:$scope.myOld.userInfo.way});
+        var oldUserInfo=appService._postData(URL+"index.php?s=api/User/userinfo",{
+            token:$scope.myOld.userInfo.token,
+            // way:$scope.myOld.userInfo.way
+        });
             oldUserInfo.then(function (e) {
-                // console.log(e);
+                console.log(e);
                 $scope.myOld.roleType = e.data.data.type;
                 $scope.myOld.deg = e.data.data.type_sn;
+                $scope.myOld.registerQRCode = e.data.data.QR
+                if (e.data.data.portrait == null || e.data.data.portrait == undefined){
+                    $scope.myOld.userHeadImg = "images/head.png";
+                }else {
+                    $scope.myOld.userHeadImg = e.data.data.portrait;
+                }
+
                 var typeNum= parseInt(e.data.data.type);
                 /*
                 * 1 代表会员
@@ -97,6 +109,7 @@ yx_mallApp
             },function (reason) {
                 console.log(reason)
             });
+
         //退出登录
         $scope.quitLogin=function () {
             localStorage.clear();
@@ -130,7 +143,7 @@ yx_mallApp
         $scope.getMerchantQR=function () {
             var getMerchantQR= appService._postData(URL+"index.php?s=Api/shop_center1/pay_barcode",{
                 token:$scope.myOld.userInfo.token,
-                way:$scope.myOld.userInfo.way
+                // way:$scope.myOld.userInfo.way
             });
                 getMerchantQR.then(function (value) {
                     if (value.data.ret="ok"){
@@ -147,7 +160,7 @@ yx_mallApp
         };
         //扫一扫
         var getSingPackage=appService._postData(URL+"index.php?s=Api/shop_center1/getSignPackge",{
-            way:$scope.myOld.userInfo.way,
+            // way:$scope.myOld.userInfo.way,
             url:"wap/index.html#/tabs_myOld"
         });
             getSingPackage.then(function (value) {
@@ -208,7 +221,9 @@ yx_mallApp
                 scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
                 success: function (res) {
                     if (res.errMsg === "scanQRCode:ok"){
-                       var scan=appService._postData(res.resultStr,{way:$scope.myOld.userInfo.way});
+                       var scan=appService._postData(res.resultStr,{
+                           // way:$scope.myOld.userInfo.way
+                       });
                             scan.then(function (value) {
                                 $scope.myOld.returnTxt = value;
                                 if(value.data.ret == "ok"){
@@ -239,14 +254,15 @@ yx_mallApp
             });
         };
 
-        // 升级 社区代理
+        // 升级 市场经理
         $scope.upGradeKind=function () {
             var upGradeKind = appService._postData(URL+"index.php?s=Api/userset/upgrade",{
                 token:$scope.myOld.userInfo.token,
-                way:$scope.myOld.userInfo.way,
+                // way:$scope.myOld.userInfo.way,
                 type:4
             });
                 upGradeKind.then(function (value) {
+                    console.log(value)
                     if (value.data.ret == "success"){
                         appService.artTxt(value.data.msg).then(function (value2) {
                             $scope.myOld.chose_up = false;
@@ -260,6 +276,10 @@ yx_mallApp
                     console.log(reason)
                 })
         };
+        // 物流查询
+        $scope.logisticsSelect=function () {
+            $window.location.href = "https://m.kuaidi100.com/";
+        }
 
 
 

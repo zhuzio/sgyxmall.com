@@ -13,8 +13,9 @@ yx_mallApp
 	  };
 //	bill_month_info
 	var bill=appService._postData(URL+"index.php?s=/Api/wealth/bill_month",{
-		    token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way") });
+		    token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way")
+	});
 	bill.then(function(e){
         $scope.xiaoFei.arr=e.data.arr;
 		$scope.xiaoFei.data=e.data.data;

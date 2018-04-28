@@ -14,8 +14,13 @@ yx_mallApp
             selected:-1,//选中展示本月信息，默认选不中
             current:0,//本月支付，默认为零
             total:0,//累计支付，默认为零
-               oldselected:-2,
-               page:1,
+            oldselected:-2,
+            page:1,
+               type:"",
+               // 购物积分
+               tabShop:true,
+               // 严选积分
+               tabStrict:false
 
            };
 
@@ -35,30 +40,51 @@ yx_mallApp
 
 //   初加载请求
 //加载每月记录
-    var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/payment_record",{
-		    token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way") }) ;
-	conversion_record.then(function(e){
-		$scope.arr.mouth=e.data.data;
-        $scope.arr.total=e.data.arr;
-        if(!e.data.data[0]){
-            $scope.arr.current=0;
-        }else{
+        $scope.getMothData=function (type) {
+            var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/payment_record",{
+                token: JSON.parse(localStorage.getItem("userInfo")).token,
+                type:type
+                // way:localStorage.getItem("way")
+            }) ;
+            conversion_record.then(function(e){
+                console.log(e)
+                $scope.arr.mouth=e.data.data;
+                $scope.arr.total=e.data.arr;
+                if(!e.data.data[0]){
+                    $scope.arr.current=0;
+                }else{
 
-            if(getNowFormatDate()==e.data.data[0].times){
+                    if(getNowFormatDate()==e.data.data[0].times){
 
-                $scope.arr.current=e.data.data[0].money;
-            }else {
-                $scope.arr.current=0;
-            }
+                        $scope.arr.current=e.data.data[0].money;
+                    }else {
+                        $scope.arr.current=0;
+                    }
 
-        }
+                }
+            },function(e){
+                console.log(e);
+            });
+        };
+        $scope.getMothData($scope.arr.type);
 
-
-	},function(e){
-		console.log(e);
-	});
-
+//tab 切换
+        $scope.changeTreasureTab=function (idx) {
+            switch (idx){
+                case 0:
+                    $scope.arr.type = "";
+                    $scope.arr.tabShop = true;
+                    $scope.arr.tabStrict = false;
+                    $scope.getMothData($scope.arr.type);
+                    break;
+                case 1:
+                    $scope.arr.type = "yx";
+                    $scope.arr.tabShop = false;
+                    $scope.arr.tabStrict = true;
+                    $scope.getMothData($scope.arr.type);
+                    break;
+            };
+        };
 	
 //   初加载请求 
 
@@ -80,10 +106,13 @@ yx_mallApp
            }
 
 				    var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/payment_record_month",{
-						    token: localStorage.getItem("tokens"),
-				            way:localStorage.getItem("way"), time:time});
-					     conversion_record.then(function(e){
-						$scope.arr.dayDetail=e.data.data;
+						    token: JSON.parse(localStorage.getItem("userInfo")).token,
+				            // way:localStorage.getItem("way"),
+                        type:$scope.arr.type,
+                        time:time});
+                     conversion_record.then(function(e){
+                         console.log(e)
+                        $scope.arr.dayDetail=e.data.data;
 
 					},function(e){
 						console.log(e);
@@ -97,8 +126,10 @@ yx_mallApp
         $scope.more=function(e){
             $scope.arr.page=$scope.arr.page+1;
             var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/payment_record_month",{
-                token: localStorage.getItem("tokens"),
-                way:localStorage.getItem("way"), time:e,page:$scope.arr.page});
+                token: JSON.parse(localStorage.getItem("userInfo")).token,
+                type:$scope.arr.type,
+                // way:localStorage.getItem("way"), 
+                time:e,page:$scope.arr.page});
             conversion_record.then(function(e){
                 if(e.data.data.length == "" ){
                     $(".more").html("暂无更多")
@@ -114,18 +145,6 @@ yx_mallApp
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }]);

@@ -20,16 +20,16 @@
         <p class="gdi_name">{{goodsDetail.goods.goods_name}}</p>
         <p class="gdi_price">
             <span class="rmb">结算价：</span>¥
-            <span class="esc_rmb">{{goodsDetail.goods.default_ready}}</span>
-            <span class="p_add" ng-if="goodsDetail.goods.default_point != '0.00'">+</span>
-            <span class="esc_int" ng-if="goodsDetail.goods.default_point != '0.00'">{{goodsDetail.goods.default_point}}</span>
+            <span class="esc_rmb">{{goodsDetail.goods.total_ready}} <i>或 ¥{{goodsDetail.goods.default_ready}}+严选积分 {{goodsDetail.goods.default_point}}</i></span>
         </p>
+
     </div>
     <div class="chose_tn" ng-click="choseType(1)">选择数量规格</div>
     <div class="gdi_img">
         <p class="gdi_img_title">商品详情</p>
         <div class="gdi_img_box">
             <img ng-src='http://www.sgyxmall.com/{{img}}' alt="{{goodsDetail.goods.goods_name}}" ng-repeat="img in goodsDetail.goods.img_desc">
+            <img src="images/sevenDays.jpg" alt="">
         </div>
     </div>
     <div class="chose_box_container">
@@ -54,9 +54,10 @@
                             <p class="cti_price">
                                 <span class="rmb">结算价：</span>¥
                                 <span class="cti_rmb">{{goodsDetail.t_price}}</span>
-                                <span class="cti_adds"  ng-if="goodsDetail.goods.default_point != '0.00'">+</span>
-                                <span class="cti_int"  ng-if="goodsDetail.goods.default_point != '0.00'">{{goodsDetail.t_integral}}</span>
+                                <!--<span class="cti_adds">+</span>
+                                <span class="cti_int">{{goodsDetail.t_integral}}</span>-->
                             </p>
+                            <p class="cti_strict"><span>严选价：</span> ¥{{goodsDetail.t_priceStrict}}+严选积分 {{goodsDetail.t_integral}}</p>
                             <p class="cti_ku">库存：<span>{{goodsDetail.stock}}</span></p>
                         </div>
                         <div class="cti_close" ng-click="colseAlerts()"></div>

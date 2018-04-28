@@ -132,7 +132,7 @@ yx_mallApp
             };
             var upGradeKind = appService._postData(URL+"index.php?s=Api/userset/upgrade",{
                 token:$scope.ugk.userInfo.token,
-                way:$scope.ugk.userInfo.way,
+                // way:$scope.ugk.userInfo.way,
                 type:$scope.ugk.upType,
                 region_id:finalId
             });

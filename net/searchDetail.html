@@ -26,7 +26,8 @@
             <div class="each_du" ng-repeat="sGoods in searchDetail.sGoods" ui-sref="detail({goodsId:sGoods.goods_id})">
                 <img ng-src="http://www.sgyxmall.com/{{sGoods.default_img}}" alt="{{sGoods.goods_name}}">
                 <p class="each_du_name">{{sGoods.goods_name}}</p>
-                <p class="each_du_price">¥<span>{{sGoods.default_market}}</span></p>
+                <div class="each_du_price_strict"> ¥{{sGoods.default_ready}}+ 严选积分{{sGoods.default_point}} 或</div>
+                <p class="each_du_price">¥<span>{{sGoods.total_ready}}</span></p>
             </div>
         </div>
     </div>

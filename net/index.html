@@ -1,22 +1,18 @@
 <div>
     <!--搜索栏-->
     <header>
-        <div class="header_shoppingCar">
-            <span class="z-goucount">1</span>
+        <div class="header_shoppingCar" ui-sref="tabs.shopCar">
+            <span class="z-goucount" ng-if="index.is_shopCarCount">{{index.shopCarCount}}</span>
         </div>
         <div class="header_search_container">
-            <input type="search" placeholder="搜索商品" ui-sref="search">
+            <input type="search" placeholder="搜索商品" ui-sref="search" ng-readonly="true">
         </div>
         <div class="header_news">
-            <a href="newscentre.html"></a>
+                <a href="newscentre.html"></a>
         </div>
     </header>
     <!--产品分类-->
-   <!-- <div class="goods_class_container">
-        <div class="goods_center">
-            <span>推荐</span>
-        </div>
-    </div>-->
+
     <!--轮播图开始-->
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -27,10 +23,11 @@
     <!--轮播图结束-->
     <!--好物甄选-->
     <div class="excellent_goods_chose_container">
+
         <p class="egc_title"><span><a href="">好物甄选</a></span></p>
         <div class="egc_goods">
             <div ng-repeat="egoods in index.egoods">
-                <a href="http://sugemall.com/{{egoods.ad_link}}">
+                <a href="{{egoods.ad_link}}" >
                     <img ng-src="http://www.sgyxmall.com/{{egoods.ad_logo}}" alt="{{egoods.ad_name}}">
                 </a>
             </div>
@@ -38,6 +35,8 @@
     </div>
     <!--人气推荐·好物精选-->
     <div class="popularity_recommend_container">
+        <div class="pr_main_img"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[1].ad_logo}}" alt="{{index.fe_male_img[1].ad_name}}" class="male_img"></div>
+
         <p class="pr_title">人气推荐·好物精选</p>
         <div class="pr_center_container pr_center_container1">
             <ul class="pr_center">
@@ -46,7 +45,8 @@
                     <img ng-src="http://www.sgyxmall.com/{{pr.default_img}}" alt="{{pr.goods_name}}">
                     <p class="each_pr_name">{{pr.goods_name}}</p>
                     <div class="sold_price">
-                        <p>¥<span>{{pr.default_ready}}</span></p>
+                        <div class="sold_price_strict">¥{{pr.default_ready}}+ 严选积分{{pr.default_point}} 或</div>
+                        <p>结算价：¥<span>{{pr.total_ready}}</span></p>
                     </div>
                 </li>
             </ul>
@@ -54,48 +54,51 @@
     </div>
     <!--严选精品·物美价优-->
     <div class="strict_filter_container">
+        <div class="pr_main_img"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[0].ad_logo}}" alt="{{index.fe_male_img[0].ad_name}}" class="female_img"></div>
+
         <p class="pr_title">严选精品·物美价优</p>
         <!--这是女装-->
-        <div class="pr_main_img"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[0].ad_logo}}" alt="{{index.fe_male_img[0].ad_name}}" class="female_img"></div>
         <div class="pr_center_container pr_center_container2">
             <ul class="pr_center">
                 <p class="pr_more">显示更多</p>
-                <li class="each_pr" ng-repeat="female in index.female">
+                <li class="each_pr" ng-repeat="female in index.female" ui-sref="detail({goodsId:female.goods_id})">
                     <img ng-src="http://www.sgyxmall.com/{{female.default_img}}" alt="{{female.goods_name}}">
                     <p class="each_pr_name">{{female.goods_name}}</p>
                     <div class="sold_price">
-                        <p>¥<span>{{female.default_ready}}</span></p>
+                        <div class="sold_price_strict">¥{{female.default_ready}}+ 严选积分{{female.default_point}} 或 </div>
+                        <p>¥<span>{{female.total_ready}}</span></p>
                     </div>
                 </li>
             </ul>
         </div>
         <!--这是皮鞋-->
-        <div class="pr_main_img"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[1].ad_logo}}" alt="{{index.fe_male_img[1].ad_name}}" class="male_img"></div>
-        <div class="pr_center_container pr_center_container3">
+        <!--<div class="pr_center_container pr_center_container3">
             <ul class="pr_center">
                 <p class="pr_more">显示更多</p>
-                <li class="each_pr" ng-repeat="male in index.male">
+                <li class="each_pr" ng-repeat="male in index.male" ui-sref="detail({goodsId:male.goods_id})">
                     <img ng-src="http://www.sgyxmall.com/{{male.default_img}}" alt="{{male.goods_name}}">
                     <p class="each_pr_name">{{male.goods_name}}</p>
                     <div class="sold_price">
-                        <p>¥<span>{{male.default_ready}}</span></p>
+                        <div class="sold_price_strict"> ¥{{male.default_ready}}+ 严选积分{{male.default_point}} 或</div>
+                        <p>¥<span>{{male.total_ready}}</span></p>
                     </div>
                 </li>
             </ul>
-        </div>
+        </div>-->
     </div>
     <!--猜你喜欢-->
     <div class="guess_favorite_container">
         <p class="egc_title"><span><a href="">猜你喜欢</a></span></p>
         <div class="gf_center">
             <div class="gf_cen">
-                <div class="each_gf" ng-repeat="guessLike in index.guessLike">
+                <div class="each_gf" ng-repeat="guessLike in index.guessLike" ui-sref="detail({goodsId:guessLike.goods_id})" >
                     <div class="each_gf_left">
                         <img ng-src="http://www.sgyxmall.com/{{guessLike.default_img}}" alt="{{guessLike.goods_name}}">
                     </div>
                     <div class="each_gf_right">
                         <p class="each_gf_name">{{guessLike.goods_name}}</p>
-                        <p class="each_gf_price">¥<span>{{guessLike.default_ready}}</span></p>
+                        <div class="each_gf_price_strict">¥{{guessLike.default_ready}}+ 严选积分{{guessLike.default_point}} 或 </div>
+                        <p class="each_gf_price">¥<span>{{guessLike.total_ready}}</span></p>
                     </div>
                 </div>
             </div>
@@ -108,7 +111,8 @@
             <div class="each_du" ng-repeat="dayUpdata in index.dayUpdate" ui-sref="detail({goodsId:dayUpdata.goods_id})">
                 <img ng-src="http://www.sgyxmall.com/{{dayUpdata.default_img}}" alt="{{dayUpdata.goods_name}}">
                 <p class="each_du_name">{{dayUpdata.goods_name}}</p>
-                <p class="each_du_price">¥<span>{{dayUpdata.default_ready}}</span></p>
+                <p class="each_du_price_strict"> ¥{{dayUpdata.default_ready}}+ 严选积分{{dayUpdata.default_point}} 或</p>
+                <p class="each_du_price">¥<span>{{dayUpdata.total_ready}}</span></p>
             </div>
         </div>
     </div>

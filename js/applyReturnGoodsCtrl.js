@@ -23,6 +23,7 @@ yx_mallApp
         };
         $scope.reg.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         $scope.reg.applyReturnGoods = JSON.parse(localStorage.getItem("applyReturnGoods"));
+        console.log($scope.reg.applyReturnGoods)
         $scope.getTxtNum = function () {
             $scope.reg.txtNum = 200-($scope.reg.regReasonDis.length)
         };
@@ -187,7 +188,7 @@ yx_mallApp
             };
             var applyReturnGoods=appService._postData(URL+"index.php?s=/Api/Order/refund",{
                 token:$scope.reg.userInfo.token,
-                way:$scope.reg.userInfo.way,
+                // way:$scope.reg.userInfo.way,
                 order_id:$scope.reg.applyReturnGoods.order_id,
                 refund_reason:$scope.reg.regReason,
                 refund_service:$scope.reg.regServiceType,

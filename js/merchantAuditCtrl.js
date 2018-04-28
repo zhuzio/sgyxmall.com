@@ -30,7 +30,7 @@ yx_mallApp
         //请求审核列表
         var mcAdInfo=appService._postData(URL+"index.php?s=Api/shop_center1/checkStoreList",{
             token:$scope.mcAd.userInfo.token,
-            way:$scope.mcAd.userInfo.way
+            // way:$scope.mcAd.userInfo.way
         });
             mcAdInfo.then(function (value) {
                 $scope.mcAd.mcAdList = value.data.data;
@@ -59,7 +59,7 @@ yx_mallApp
             }
             var mcAdSearchInfo=appService._postData(URL+"index.php?s=Api/shop_center1/checkStoreList",{
                 token:$scope.mcAd.userInfo.token,
-                way:$scope.mcAd.userInfo.way,
+                // way:$scope.mcAd.userInfo.way,
                 user_name:$scope.mcAd.account,
                 totime:time1,
                 fortime:time2
@@ -88,7 +88,7 @@ yx_mallApp
                         var moreMcAdInfo=appService._postData(URL+"index.php?s=Api/shop_center1/checkStoreList",{
                             page:$scope.mcAd.page,
                             token:$scope.mcAd.userInfo.token,
-                            way:$scope.mcAd.userInfo.way
+                            // way:$scope.mcAd.userInfo.way
                         });
                         moreMcAdInfo.then(function (value) {
                             for (var i in value.data.data){
@@ -109,7 +109,7 @@ yx_mallApp
                     }else {
                         var mcAdSearchInfo=appService._postData(URL+"index.php?s=Api/shop_center1/checkStoreList",{
                             token:$scope.mcAd.userInfo.token,
-                            way:$scope.mcAd.userInfo.way,
+                            // way:$scope.mcAd.userInfo.way,
                             user_name:$scope.mcAd.account,
                             totime:time1,
                             fortime:time2,
@@ -130,7 +130,7 @@ yx_mallApp
         $scope.mcAdAgree=function (isP,sId) {
             var mcAdAgree=appService._postData(URL+"index.php?s=Api/shop_center1/checkStore",{
                 token:$scope.mcAd.userInfo.token,
-                way:$scope.mcAd.userInfo.way,
+                // way:$scope.mcAd.userInfo.way,
                 store_id:sId,
                 state:isP
             });
@@ -164,7 +164,7 @@ yx_mallApp
             };
             var isWhat = appService._postData(URL+"index.php?s=Api/shop_center1/functionStore",{
                 token:$scope.mcAd.userInfo.token,
-                way:$scope.mcAd.userInfo.way,
+                // way:$scope.mcAd.userInfo.way,
                 field:$scope.mcAd.isWhich,
                 state:$scope.mcAd.ste,
                 store_id:$scope.mcAd.mcId

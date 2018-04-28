@@ -159,6 +159,12 @@ yx_mallApp.constant('RouterList_Config',[
             './js/myOrderCtrl.js'
         ]
     },{
+        name:"aboutUs",
+        url:"/_aboutUs",
+        templateUrl:"net/aboutUs.html",
+        controller:"",
+        files:[]
+    },{
         name:"upgrade",
         url:"/_upgrade",
         templateUrl:"net/upgrade.html",
@@ -414,7 +420,7 @@ yx_mallApp.constant('RouterList_Config',[
         files:[]
     },{
         name:"manageBandCard",
-        url:"/_manageBandCard",
+        url:"/_manageBandCard?id",
         templateUrl:"net/manageBandCard.html",
         controller:"manageBandCardController",
         files:[
@@ -440,7 +446,7 @@ yx_mallApp.constant('RouterList_Config',[
     },
     {
         name:"upToMerchant",
-        url:"/_upToMerchant",
+        url:"/_upToMerchant?type",
         templateUrl:"net/upToMerchant.html",
         controller:"upToMerchantController",
         files:[
@@ -503,7 +509,7 @@ yx_mallApp.constant('RouterList_Config',[
     },
     {
         name:"register",
-        url:"/_registerController",
+        url:"/_register",
         templateUrl:"net/register.html",
         controller:"registerController",
         files:[
@@ -562,6 +568,15 @@ yx_mallApp.constant('RouterList_Config',[
         controller:"upGradeKindController",
         files:[
             './js/upGradeKindCtrl.js'
+        ]
+    },
+    {
+        name:"integralReceive",//会员升级
+        url:"/_integralReceive",
+        templateUrl:"net/integralReceive.html",
+        controller:"integralReceiveController",
+        files:[
+            './js/integralReceiveCtrl.js'
         ]
     }
 

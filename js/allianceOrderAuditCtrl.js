@@ -127,7 +127,7 @@ yx_mallApp
             * */
             var aoaData=appService._postData(URL+"index.php?s=Api/order/auditorder",{
                 token:$scope.aoa.userInfo.token,
-                way:$scope.aoa.userInfo.way,
+                // way:$scope.aoa.userInfo.way,
                 page:1,
                 is_check:is_check
             });
@@ -166,7 +166,7 @@ yx_mallApp
 
             var aoaReject = appService._postData(URL+"index.php?s=Api/shop_center1/check_order",{
                 token:$scope.aoa.userInfo.token,
-                way:$scope.aoa.userInfo.way,
+                // way:$scope.aoa.userInfo.way,
                 order_sn:waitAudit.order_sn,
                 is_check:sta,
                 order_type:"offline"
@@ -198,7 +198,7 @@ yx_mallApp
         $scope.searchAud=function () {
             var searchAud=appService._postData(URL+"index.php?s=Api/order/auditorder",{
                 token:$scope.aoa.userInfo.token,
-                way:$scope.aoa.userInfo.way,
+                // way:$scope.aoa.userInfo.way,
                 page:1,
                 is_check:0,
                 user_name:$scope.aoa.merchantAccount,
@@ -215,7 +215,7 @@ yx_mallApp
         $scope.addMoreData=function (idx,page,is_check) {
             var addMoreData = appService._postData(URL+"index.php?s=Api/order/auditorder",{
                 token:$scope.aoa.userInfo.token,
-                way:$scope.aoa.userInfo.way,
+                // way:$scope.aoa.userInfo.way,
                 page:page,
                 is_check:is_check
             });
@@ -305,7 +305,7 @@ yx_mallApp
                     };
                     var allPass=appService._postData(URL+"index.php?s=Api/shop_center1/check_order",{
                         token:$scope.aoa.userInfo.token,
-                        way:$scope.aoa.userInfo.way,
+                        // way:$scope.aoa.userInfo.way,
                         order_sn:buyArr,
                         is_check:1,
                         order_type:"offline"
@@ -326,7 +326,7 @@ yx_mallApp
                     };
                     var allPass=appService._postData(URL+"index.php?s=Api/shop_center1/check_order",{
                         token:$scope.aoa.userInfo.token,
-                        way:$scope.aoa.userInfo.way,
+                        // way:$scope.aoa.userInfo.way,
                         order_sn:buyArr,
                         is_check:2,
                         order_type:"offline"

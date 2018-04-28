@@ -27,10 +27,14 @@ yx_mallApp
         }
 //   初加载请求
 //加载每月记录
+        console.log(JSON.parse(localStorage.getItem("userInfo")))
         var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record",{
-            token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way") });
+            token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way")
+        });
         conversion_record.then(function(e){
+            console.log(e);
+
             $scope.treasureConversion.month=e.data.data;
             $scope.treasureConversion.total=e.data.arr;
 
@@ -77,8 +81,9 @@ yx_mallApp
             }
 
             var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record_month",{
-                token: localStorage.getItem("tokens"),
-                way:localStorage.getItem("way"), time:time});
+                token: JSON.parse(localStorage.getItem("userInfo")).token,
+                // way:localStorage.getItem("way"),
+                time:time});
             conversion_record.then(function(e){
                 $scope.treasureConversion.dayDetail=e.data.data;
 
@@ -92,8 +97,9 @@ yx_mallApp
         $scope.more=function(e){
             $scope.treasureConversion.page=$scope.treasureConversion.page+1;
             var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record_month",{
-                token: localStorage.getItem("tokens"),
-                way:localStorage.getItem("way"), time:e,page:$scope.treasureConversion.page});
+                token: JSON.parse(localStorage.getItem("userInfo")).token,
+                // way:localStorage.getItem("way"),
+                time:e,page:$scope.treasureConversion.page});
             conversion_record.then(function(e){
                 if(e.data.data == "" ){
                     $(".more").html("暂无更多")

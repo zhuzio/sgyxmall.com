@@ -24,7 +24,7 @@ yx_mallApp
             }
             var paymentForGoods=appService._postData(URL+"index.php?s=Api/payment/shopPointOrder",{
                 token:$scope.buyInt.userInfo.token,
-                way:$scope.buyInt.userInfo.way,
+                // way:$scope.buyInt.userInfo.way,
                 money:$scope.buyInt.integralNum
             });
             paymentForGoods.then(function (value) {

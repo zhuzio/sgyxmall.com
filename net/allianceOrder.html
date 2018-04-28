@@ -25,7 +25,7 @@
     <div class="aoaCenter">
         <div ng-if="ao.isAuditMo" class="aoaAut">
             <div class="eachAoAList" ng-repeat="waitAudit in ao.waitAudit">
-                <p class="aoaTitle">订单编号：{{waitAudit.order_sn}}</p>
+                <p class="aoaTitle">订单编号：{{waitAudit.order_sn}} <span class="fr" ng-if="waitAudit.payment_id ==9">商家赠送</span><span class="fr"ng-if="waitAudit.payment_id ==3">用户消费</span></p>
                 <p class="aoaCon">商家名称：{{waitAudit.seller_name}}</p>
                 <p class="aoaCon">商品名称：{{waitAudit.classname}}</p>
                 <p class="aoaCon">消费金额：<span>{{waitAudit.goods_amount}}</span></p>
@@ -38,12 +38,12 @@
         </div>
         <div ng-if="ao.isPassMo" class="aoaPas">
             <div class="eachAoAList" ng-repeat="havePass in ao.havePass">
-                <p class="aoaTitle">订单编号：{{havePass.order_sn}}</p>
+                <p class="aoaTitle">订单编号：{{havePass.order_sn}} <span class="fr" ng-if="havePass.payment_id ==9">商家赠送</span><span class="fr"ng-if="havePass.payment_id ==3">用户消费</span></p>
                 <p class="aoaCon">商家名称：{{havePass.seller_name}}</p>
                 <p class="aoaCon">商品名称：{{havePass.classname}}</p>
                 <p class="aoaCon">消费金额：<span>{{havePass.goods_amount}}</span></p>
                 <p class="aoaCon">赠送积分：<span>{{havePass.point}}</span></p>
-                <p class="aoaCon">用户电话：{{havePass.tel}}</p>
+                <p class="aoaCon">用户电话：{{havePass.user_name}}</p>
                 <p class="aoaCon">下单时间：{{havePass.pay_time}}</p>
                 <p class="aoaCon">审核时间：{{havePass.check_time}}</p>
             </div>
@@ -52,7 +52,7 @@
         </div>
         <div ng-if="ao.isRejectMo" class="aoaRej">
             <div class="eachAoAList" ng-repeat="haveReject in ao.haveReject">
-                <p class="aoaTitle">订单编号：{{haveReject.order_sn}}</p>
+                <p class="aoaTitle">订单编号：{{haveReject.order_sn}} <span class="fr" ng-if="haveReject.payment_id ==9">商家赠送</span><span class="fr"ng-if="haveReject.payment_id ==3">用户消费</span></p>
                 <p class="aoaCon">商家名称：{{haveReject.seller_name}}</p>
                 <p class="aoaCon">商品名称：{{haveReject.classname}}</p>
                 <p class="aoaCon">消费金额：<span>{{haveReject.goods_amount}}</span></p>

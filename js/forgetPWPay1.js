@@ -76,7 +76,8 @@ yx_mallApp
                 });
                 return false;
             }
-            var next1=appService._postData(URL+"index.php?s=Api/Password/validate_code",{id:$scope.user.code_id,code:$scope.user.code});
+            var next1=appService._postData(URL+"index.php?s=Api/Password/validate_code",{
+                id:$scope.user.code_id,code:$scope.user.code});
             next1.then(function (e) {
 
                 if(e.data.ret=="success"){

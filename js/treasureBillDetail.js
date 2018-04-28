@@ -16,8 +16,8 @@ yx_mallApp
 		//请求1是购物积分账单
 
 		var bill=appService._postData(URL+"index.php?s=/Api/wealth/bill_month_info",{
-		    token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way"),
+		    token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way"),
            time: $stateParams.billId
 		});
 			bill.then(function(e){
@@ -31,8 +31,9 @@ yx_mallApp
 		//2是收益奖励
 		console.log(2);
 		var bill=appService._postData(URL+"index.php?s=/Api/wealth/profit_month_info",{
-		    token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way"), time: $stateParams.billId}) ;        
+		    token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way"),
+			time: $stateParams.billId}) ;
 			bill.then(function(e){
 				$scope.detail.data=	e.data.data;
 				// console.log(e);

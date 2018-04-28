@@ -16,7 +16,32 @@
 		color: #FFFFFF;
 		background: gray;
 	}
-
+	.treasureTab{
+		width: 100%;
+		height: .6rem;
+		text-align: center;
+		background: #e5c2ae;
+		line-height: .6rem;
+		padding: .25rem 0 .2rem;
+	}
+	.treasureTab >span{
+		display: inline-block;
+		width: 1.5rem;
+		height: .6rem;
+		border: 1px #fff solid;
+		font-size: .26rem;
+		color: white;
+	}
+	.treasureTabLeft{
+		border-radius: .1rem 0 0 .1rem;
+	}
+	.treasureTabRight{
+		border-radius:0 .1rem .1rem 0;
+	}
+	.treasureTabOn{
+		background: white;
+		color: #333 !important;
+	}
 </style>
 <div class="treCon_container">
 	<div class="mc_head">
@@ -25,6 +50,9 @@
                             支付记录
         </div>
     </div>
+	<div class="treasureTab">
+		<span class="treasureTabLeft " ng-class="{'treasureTabOn':arr.tabShop}" ng-click="changeTreasureTab(0)">购物积分</span><span class="treasureTabRight" ng-class="{'treasureTabOn':arr.tabStrict}" ng-click="changeTreasureTab(1)">严选积分</span>
+	</div>
 	<div class="treCon_score">
 		<div class="treCon_score_top">
 			<div class="treCon_score_top_fen">

@@ -16,8 +16,8 @@ yx_mallApp
 	
 	// 初加载
 	var baoBiao=appService._postData(URL+"index.php?s=/Api/wealth/report_statistics",{
-		token: localStorage.getItem("tokens"),
-		way:localStorage.getItem("way"),
+		token: JSON.parse(localStorage.getItem("userInfo")).token,
+		// way:localStorage.getItem("way"),
         page:$scope.bb.page
 	});
 	baoBiao.then(function(e){
@@ -32,8 +32,8 @@ yx_mallApp
 	$scope.qurch=function(){
 		
 		var baoBiao=appService._postData(URL+"index.php?s=/Api/wealth/report_statistics",{
-		token: localStorage.getItem("tokens"),
-             way:localStorage.getItem("way"),
+		token: JSON.parse(localStorage.getItem("userInfo")).token,
+             // way:localStorage.getItem("way"),
              startTime:$("#test3").val(),
 			page:$scope.bb.page
 	});
@@ -54,8 +54,8 @@ yx_mallApp
             $scope.bb.page=$scope.bb.page+1;
 
             var moreLike=appService._postData(URL+"index.php?s=/Api/wealth/report_statistics",{
-                token: localStorage.getItem("tokens"),
-                way:localStorage.getItem("way"),
+                token: JSON.parse(localStorage.getItem("userInfo")).token,
+                // way:localStorage.getItem("way"),
                 startTime:$("#test3").val(),
                 page:$scope.bb.page
             });

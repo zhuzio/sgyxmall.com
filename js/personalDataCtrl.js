@@ -11,7 +11,7 @@ yx_mallApp
         //请求用户信息
         var baseUserInfo=appService._postData(URL+"index.php?s=Api/User/information",{
             token:$scope.PDSet.userInfo.token,
-            way:$scope.PDSet.userInfo.way
+            // way:$scope.PDSet.userInfo.way
         });
             baseUserInfo.then(function (value) {
                 console.log(value)
@@ -32,7 +32,7 @@ yx_mallApp
                 imgFile = e.target.result;
                 var setHeadImg = appService._postData(URL+"index.php?s=api/wendy/updatePortrait",{
                     token:$scope.PDSet.userInfo.token,
-                    way:$scope.PDSet.userInfo.way,
+                    // way:$scope.PDSet.userInfo.way,
                     portrait:imgFile
                 });
                     setHeadImg.then(function (value) {

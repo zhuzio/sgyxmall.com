@@ -17,7 +17,7 @@ yx_mallApp
                 appService.artTxt("请输入关键字");
             }
         };
-        var historySearch=appService._getData("http://www.ycblog.com.cn/index.php?s=/Api/Goods/searchHistory");
+        var historySearch=appService._getData(URL+"index.php?s=/Api/Goods/searchHistory");
         historySearch.then(function (e) {
             console.log(e);
             var allGoodsName=e.data.msg[0];

@@ -5,8 +5,9 @@ yx_mallApp
         $scope.clear={
             goods:[],
             total:"",
-            token:localStorage.getItem("tokens"),
-            way:localStorage.getItem("way"),
+            total1:"",
+            // token:localStorage.getItem("tokens"),
+            // way:localStorage.getItem("way"),
             user_name:"***",
             address:"************************************",
             user_phone:"********************",
@@ -15,8 +16,9 @@ yx_mallApp
             number:0,
             shopId:[],
             goodsDefault:"",
-
+            userInfo:[],
         };
+        $scope.clear.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         console.log(JSON.parse($scope.clear.dataArr))
         if ( $stateParams.way=="shopCar" ){
 
@@ -26,12 +28,15 @@ yx_mallApp
         }
         //获得商品结算信息
         $scope.clear.goods=JSON.parse($scope.clear.dataArr).goodsInfo;
-        $scope.clear.goodsDefault = JSON.parse($scope.clear.dataArr).goodsDefault;
-        if ($scope.clear.goodsDefault == 0){
+        // $scope.clear.goodsDefault = JSON.parse($scope.clear.dataArr).goodsDefault;
+        /*if ($scope.clear.goodsDefault == 0){
             $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元  ";
         }else {
             $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元 + "+JSON.parse($scope.clear.dataArr).totalPoint+" 积分";
-        };
+        };*/
+
+        $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元 ";
+        $scope.clear.total1 ="或 ¥"+JSON.parse($scope.clear.dataArr).totalPriceStrict+" + 积分"+JSON.parse($scope.clear.dataArr).totalPoint+""
         for (var i in $scope.clear.goods){
             //获得数量
             var num=($scope.clear.goods)[i].goods_count;
@@ -46,11 +51,12 @@ yx_mallApp
             $scope.clear.address=defAds.region_name+" "+defAds.address
         }else {
             var address=appService._postData(URL+"index.php?s=/Api/User/getDefaultAddress",{
-                token:$scope.clear.token,
-                way:$scope.clear.way,
+                token:$scope.clear.userInfo.token,
+                // way:$scope.clear.way,
                 apiType:"one"
             });
             address.then(function (e) {
+                // console.log(e)
                 if (e.data.data == "" || e.data.data == null){
                     appService.conform("您还没有收货地址，确定去添加？").then(function (value) {
                         $state.go("addAddress",{url:"clearing"});
@@ -71,8 +77,8 @@ yx_mallApp
         //去支付
         $scope.goApply=function () {
             var order=appService._postData(URL+"index.php?s=/Api/order/addOrder",{
-                token:localStorage.getItem("tokens"),
-                way:localStorage.getItem("way"),
+                token:$scope.clear.userInfo.token,
+                // way:localStorage.getItem("way"),
                 goodsInfo:JSON.parse($scope.clear.dataArr).goodsInfo,
                 buy_name:$scope.clear.user_name,
                 address:$scope.clear.address,
@@ -80,7 +86,7 @@ yx_mallApp
                 sc_id:$scope.clear.shopId,
             });
             order.then(function (e) {
-                // console.log(e)
+                console.log(e)
                 if(e.data.ret == "ok"){
                     $state.go("applyWay",{
                         OrderID:[e.data.data],

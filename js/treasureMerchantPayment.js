@@ -39,8 +39,8 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
         }  
 		
 		var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
-			 token: localStorage.getItem("tokens"),
-             way:localStorage.getItem("way"),
+			 token: JSON.parse(localStorage.getItem("userInfo")).token,
+             // way:localStorage.getItem("way"),
 			add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:3,
             num:$scope.dan.page
 		});
@@ -60,8 +60,8 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
 	
 	//初加载
 	var chaxun=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
-		     token: localStorage.getItem("tokens"),
-             way:localStorage.getItem("way"), 
+		     token: JSON.parse(localStorage.getItem("userInfo")).token,
+             // way:localStorage.getItem("way"), 
 		add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:3,
 	      num:$scope.dan.page
 	});
@@ -84,8 +84,8 @@ yx_mallApp.controller("treasureMerchantPaymentController",["$scope", "appService
         $scope.dan.page=$scope.dan.page+1;
 
         var moreLike=appService._postData(URL+"index.php?s=/Api/wealth/merchant_point_detail",{
-            token: localStorage.getItem("tokens"),
-            way:localStorage.getItem("way"),
+            token: JSON.parse(localStorage.getItem("userInfo")).token,
+            // way:localStorage.getItem("way"),
             add_time_from:$("#appDateTime1").val(),add_time_to:$("#appDateTime2").val(),payment_id:3,
             num:$scope.dan.page,
         });

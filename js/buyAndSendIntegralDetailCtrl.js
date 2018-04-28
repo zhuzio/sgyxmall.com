@@ -23,18 +23,26 @@ yx_mallApp
             // 累计积分
             totalIntegral:"",
 
-            comeWay:$stateParams.way
+            comeWay:$stateParams.way,
+
+            buyMore:false,
+            sendMore:false,
+            buyPage:1,
+            sendPage:1,
+        };
+        if (localStorage.getItem("finalOrder")){
+            localStorage.removeItem("finalOrder");
         };
         $scope.bas.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         // 获得 月份数据
         $scope.getBasData=function (IntegralType,idx) {
             var buyAndSendIntegral=appService._postData(URL+"index.php?s=Api/shopCenter1/shopPointmonth",{
                 token:$scope.bas.userInfo.token,
-                way:$scope.bas.userInfo.way,
+                // way:$scope.bas.userInfo.way,
                 point_type:IntegralType,
             });
             buyAndSendIntegral.then(function (value) {
-                console.log(value)
+                // console.log(value)
                 switch (idx){
                     case 1:
                         $scope.bas.buyMonthInfo = value.data.data;
@@ -43,6 +51,7 @@ yx_mallApp
                         break;
                     case 2:
                         $scope.bas.sendMonthInfo = value.data.data;
+                        $scope.bas.nowIntegral = value.data.totalpage.newpoint;
                         $scope.bas.totalSendIntegral = value.data.totalpage.summoney;
                         $scope.bas.totalIntegral = value.data.totalpage.totalmoney
                         break;
@@ -52,6 +61,7 @@ yx_mallApp
             });
         };
         if ($scope.bas.comeWay == 2){
+            $scope.bas.IntegralType = "send_point";
             $scope.getBasData("send_point",2);
             $scope.bas.tabClassBuy = false;
             $scope.bas.tabClassSend = true;
@@ -60,12 +70,13 @@ yx_mallApp
         };
 
         // 获得 每月份详细数据
-        $scope.getBasMonthData=function (idx,pointType,month) {
+        $scope.getBasMonthData=function (idx,pointType,month,page) {
             var getBasMonthData=appService._postData(URL+"index.php?s=Api/shopCenter1/shopPointmonthList",{
                 token:$scope.bas.userInfo.token,
-                way:$scope.bas.userInfo.way,
+                // way:$scope.bas.userInfo.way,
                 point_type:pointType,
-                month:month
+                month:month,
+                page:page
             });
 
             /*
@@ -74,18 +85,55 @@ yx_mallApp
             * */
             getBasMonthData.then(function (value) {
                 // console.log(value);
+                var noData = value.data.data==null || value.data.data==""||value.data.data==undefined;
                 switch (idx){
                     case 1:
-                        $scope.bas.buyIntInfo = value.data.data;
+                        if (page!=1){
+                            if (noData){
+                                $scope.bas.buyMore = false;
+                            }else {
+                                for (var i in value.data.data){
+                                    $scope.bas.buyIntInfo.push((value.data.data)[i]);
+                                };
+                            };
+                        }else {
+                            if (noData){
+                                appService.artTxt("暂无数据");
+                            }else {
+                                $scope.bas.buyIntInfo = value.data.data;
+                                if (value.data.totalpage > 1){
+                                    $scope.bas.buyMore = true;
+                                };
+                            };
+                        };
                         break;
                     case 2:
-                        $scope.bas.sendIntInfo = value.data.data;
+                        if (page!=1){
+                            if (noData){
+                                $scope.bas.sendMore = false;
+                            }else {
+
+                                for (var i in value.data.data){
+                                    $scope.bas.sendIntInfo.push((value.data.data)[i]);
+                                };
+                            };
+                        }else {
+                            if (noData){
+                                appService.artTxt("暂无数据");
+                            }else {
+                                $scope.bas.sendIntInfo = value.data.data;
+                                if (value.data.totalpage > 1){
+                                    $scope.bas.sendMore = true;
+                                };
+                            };
+
+                        };
                         break;
                 };
             },function (reason) {
                 console.log(reason)
             })
-        }
+        };
 
         // 切换 tab 按钮
         $scope.changeBasTab=function (idx) {
@@ -115,7 +163,9 @@ yx_mallApp
                             element.buyIntBlock=false;
                         }
                     });
-                    $scope.getBasMonthData(idx,$scope.bas.IntegralType,intType.months);
+                    $scope.bas.buyMore = false;
+                    $scope.bas.buyPage = 1;
+                    $scope.getBasMonthData(idx,$scope.bas.IntegralType,intType.months,1);
                     break;
                 case 2:
                     $scope.bas.sendIntInfo = [];
@@ -125,8 +175,23 @@ yx_mallApp
                             element.sendIntBlock=false;
                         }
                     });
-                    $scope.getBasMonthData(idx,$scope.bas.IntegralType,intType.months);
+                    $scope.bas.sendMore = false;
+                    $scope.bas.sendPage = 1;
+                    $scope.getBasMonthData(idx,$scope.bas.IntegralType,intType.months,1);
                     break;
             };
         };
+        //点击加载更多
+        $scope.basAddMore=function (idx,intType) {
+            switch (idx){
+                case 1:
+                    $scope.bas.buyPage+=1;
+                    $scope.getBasMonthData(idx,$scope.bas.IntegralType,intType.months,$scope.bas.buyPage);
+                    break;
+                case 2:
+                    $scope.bas.sendPage+=1;
+                    $scope.getBasMonthData(idx,$scope.bas.IntegralType,intType.months,$scope.bas.sendPage);
+                    break;
+            }
+        }
     }]);

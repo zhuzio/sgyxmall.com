@@ -12,7 +12,7 @@ yx_mallApp
         //获取商家的商品
         var haveMAG=appService._postData(URL+"index.php?s=Api/shop_center1/shop_class_list",{
             token:$scope.mAG.userInfo.token,
-            way:$scope.mAG.userInfo.way,
+            // way:$scope.mAG.userInfo.way,
         });
             haveMAG.then(function (value) {
                $scope.mAG.haveMAG = value.data.data;
@@ -34,7 +34,7 @@ yx_mallApp
                     }else {
                         var mAG=appService._postData(URL+"index.php?s=Api/shop_center1/addClassName",{
                             token:$scope.mAG.userInfo.token,
-                            way:$scope.mAG.userInfo.way,
+                            // way:$scope.mAG.userInfo.way,
                             classname:$scope.mAG.mAGName
                         });
                             mAG.then(function (value) {
@@ -54,7 +54,7 @@ yx_mallApp
         $scope.mAGLDel=function (g_id) {
             var mAGLDel=appService._postData(URL+"index.php?s=Api/shop_center1/delClassName",{
                 token:$scope.mAG.userInfo.token,
-                way:$scope.mAG.userInfo.way,
+                // way:$scope.mAG.userInfo.way,
                 classid:g_id.class_id
             });
                 mAGLDel.then(function (value) {

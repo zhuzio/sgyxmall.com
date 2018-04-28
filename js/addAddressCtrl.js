@@ -1,7 +1,6 @@
 //添加收货地址页面 控制器
 yx_mallApp
     .controller("addAddressController",["$scope","appService","$stateParams","$state","$window",function ($scope,appService,$stateParams,$state,$window) {
-        console.log($stateParams)
         document.title="添加信息";
 
         $scope.area={
@@ -25,6 +24,7 @@ yx_mallApp
             cls2:false,
             //初始化选择的地方
             address:"",
+
         };
 
         $scope.procinceIdx;
@@ -39,14 +39,19 @@ yx_mallApp
             name:"",
             tel:"",
             d_address:"",
-            token:localStorage.getItem("tokens"),
+            token:JSON.parse(localStorage.getItem("userInfo")).token,
             z_tel:/^1[3|5|7|8]\d{9}$/,
             mail_num:"",
             isDef:false,
             def:0,
-            addr_id:""
+            addr_id:"",
+            adsTitle:"添加收货地址",
+            btnTxt:"确认添加"
         };
         if ($stateParams.url == "modify"){
+            document.title = '修改收货地址';
+            $scope.info.adsTitle = '修改收货地址';
+            $scope.info.btnTxt = "确认修改";
             var modifyAds = JSON.parse(localStorage.getItem("choseAds"));
             $scope.info.name = modifyAds.consignee;
             $scope.info.tel = parseInt(modifyAds.phone_tel);
@@ -192,8 +197,8 @@ yx_mallApp
                         region_name:$scope.area.address,
                         region_id:$scope.info.mail_num,
                         address:$scope.info.d_address,
-                        token:localStorage.getItem("tokens"),
-                        way:localStorage.getItem("way"),
+                        token:JSON.parse(localStorage.getItem("userInfo")).token,
+                        // way:localStorage.getItem("way"),
                         type:$scope.info.def,
                         addr_id:$scope.info.addr_id
                     });
@@ -217,8 +222,8 @@ yx_mallApp
                         region_name:$scope.area.address,
                         region_id:$scope.info.mail_num,
                         address:$scope.info.d_address,
-                        token:localStorage.getItem("tokens"),
-                        way:localStorage.getItem("way"),
+                        token:JSON.parse(localStorage.getItem("userInfo")).token,
+                        // way:localStorage.getItem("way"),
                         type:$scope.info.def
                     });
                 submit.then(function (e) {
@@ -241,8 +246,8 @@ yx_mallApp
                         region_name:$scope.area.address,
                         region_id:$scope.info.mail_num,
                         address:$scope.info.d_address,
-                        token:localStorage.getItem("tokens"),
-                        way:localStorage.getItem("way"),
+                        token:JSON.parse(localStorage.getItem("userInfo")).token,
+                        // way:localStorage.getItem("way"),
                         type:$scope.info.def
                     });
                 submit.then(function (e) {

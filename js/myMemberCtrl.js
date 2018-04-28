@@ -160,7 +160,7 @@ yx_mallApp
         $scope.getMemberInfo=function (type,typeState,page,idx) {
             var myMebAll = appService._postData(URL+"index.php?s=api/user/myteam",{
                 token:$scope.member.userInfo.token,
-                way:$scope.member.userInfo.way,
+                // way:$scope.member.userInfo.way,
                 type:type,
                 type_state:typeState,
                 page:page,

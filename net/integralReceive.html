@@ -1,0 +1,58 @@
+<style type="text/css">
+    .intRecContainer{
+        width: 100%;
+        height: auto;
+        margin-top: .2rem;
+        font-size: .26rem;
+    }
+    .eachListIntRec{
+        width: 94%;
+        padding: .2rem 3%;
+        background: white;
+        margin-bottom: .2rem;
+    }
+    .eachListIntRec span{
+        display: inline-block;
+        padding-left: .35rem;
+    }
+    .eLTop{
+        border-bottom: 1px #e5e5e5 solid;
+        margin-bottom: .15rem;
+    }
+    .eLTop >p{
+        margin-bottom: .15rem;
+    }
+    .sayLoad{
+        background: url("images/wealthAll/hyjl_dd.png") no-repeat left center;
+        background-size: .3rem auto;
+    }
+    .numInt{
+        background: url("images/wealthAll/tre_xqjia.png") no-repeat left center;
+        background-size: .3rem auto;
+    }
+    .dealer{
+        background: url("images/wealthAll/sjsytb.png") no-repeat left center;
+        background-size: .3rem auto;
+    }
+    .undefined{
+        background: url("images/wealthAll/hyjl_lm.png") no-repeat left center;
+        background-size: .3rem auto;
+    }
+    .intDate{
+        background: url("images/wealthAll/tre_xqtime.png") no-repeat left center;
+        background-size: .3rem auto;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    苏格商城积分迁入
+</div>
+<div class="intRecContainer">
+    <div class="eachListIntRec" ng-repeat="list in intRec.intRecList">
+        <div class="eLTop">
+            <p><span class="sayLoad">说明：苏格时代积分转入</span><span class="fr numInt">{{list.point}} 积分</span></p>
+            <p><span class="dealer">处理：苏格财务</span></p>
+        </div>
+        <p><span class="undefined">积分转入</span><span class="fr intDate">{{list.add_time}}</span></p>
+    </div>
+</div>

@@ -24,23 +24,23 @@
           withdrawal_layer1:false, //关闭提现弹出层
           BalanceIntegral_layer:false, //结余积分提示弹出层
           strictIntegral_layer:false ,//严选积分弹出层
-
       };
       //   权限等级
       $scope.tre.userInfo=JSON.parse(localStorage.getItem("userInfo"));
 
-      if(!localStorage.getItem("tokens")){
+    /*  if(!localStorage.getItem("tokens")){
           $state.go("login");
       }
-
+*/
       var userData=appService._postData(URL+"index.php?s=/Api/wealth/my_wealth",{
-          token: localStorage.getItem("tokens"),
-          way:localStorage.getItem("way")
+          token:$scope.tre.userInfo.token,
+          // way:localStorage.getItem("way")
 
       });
 
       userData.then(function(e){
           //     	成功状态
+          // console.log(e)
 
           $scope.tre.level=e.data.data.type;
           $scope.tre.happiness=e.data.data.happiness;
@@ -63,7 +63,9 @@ console.log(e)
       };
       $scope.userBCInfo.userInfo = JSON.parse(localStorage.getItem("userInfo"));
       var cardList = appService._postData(URL+"index.php?s=Api/Userset/crad",{
-          token:$scope.userBCInfo.userInfo.token,way:$scope.userBCInfo.userInfo.way});
+          token:$scope.userBCInfo.userInfo.token,
+          // way:$scope.userBCInfo.userInfo.way
+      });
       cardList.then(function (e) {
              if(e.data.data.length){
                  // console.log(e.data.data)

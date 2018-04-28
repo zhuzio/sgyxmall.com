@@ -1,5 +1,5 @@
 yx_mallApp
-    .controller("sendIntegralOrderController",["$scope","appService","$state","$stateParams",function ($scope,appService,$state,$stateParams) {
+    .controller("sendIntegralOrderController",["$scope","appService","$state","$stateParams","$window",function ($scope,appService,$state,$stateParams,$window) {
         document.title = "确认订单信息";
         $scope.sio={
             sioInfo:[],
@@ -10,14 +10,16 @@ yx_mallApp
             psd:false,
             finalPsd:""
         };
-        $scope.sio.sioInte = $stateParams
-        $scope.sio.userInfo = JSON.parse(localStorage.getItem("userInfo"))
-        $scope.sio.sioInfo = JSON.parse(localStorage.getItem("finalOrder"));
-        console.log($scope.sio.sioInfo)
+        $scope.sio.sioInte = $stateParams;
+        $scope.sio.userInfo = JSON.parse(localStorage.getItem("userInfo"));
+        if (localStorage.getItem("finalOrder")){
+            $scope.sio.sioInfo = JSON.parse(localStorage.getItem("finalOrder"));
+        }else {
+            $window.history.go(-1);
+        }
 
+        console.log($scope.sio.sioInfo)
         $scope.sendIG=function () {
-            // $scope.sio.psd = true
-            // $state.go("buyAndSendIntegralDetail");
             appService.conform("确认消费"+$scope.sio.sioInfo.finalIntegralNum+"积分?").then(function (value) {
                 $(".input_psd_container").animate({
                     top:"0"
@@ -26,7 +28,6 @@ yx_mallApp
                 appService.artTxt("取消支付");
             });
         };
-
         $scope.sendGo=function (psd) {
             var sendGo=appService._postData(URL+"index.php?s=Api/shop_center1/send_point",{
                 token:$scope.sio.userInfo.token,

@@ -93,7 +93,7 @@
     }
 </style>
 <div class="myOrder_header">
-    <a href="javascript:window.history.back(-1)"></a>
+    <a ui-sref="tabs.myOld"></a>
     我的商城订单
 </div>
 <!--顶部tab切换-->
@@ -118,15 +118,16 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{eg.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{eg.goods_types}}</p>
-                    <p class="eol_enc">¥ <span class="eol_price">{{eg.goods_price}}</span><span class="eol_and" ng-if="eg.is_happiness ==1"> + </span><span class="eol_point"  ng-if="eg.is_happiness ==1">{{eg.goods_happy}}</span></p>
+                    <p class="eol_enc">¥ {{eg.goods_price}} + 严选积分{{eg.goods_happy}} 或</p>
+                    <p class="eol_prices">¥ <span class="eol_price">{{eg.total_money}}</span></p>
                 </div>
                 <span>X {{eg.goods_count}}</span>
             </div>
             <div class="myOrderInfo">
                 <p><span>订单编号：{{eg.order_sn}}</span></p>
                 <p><span>下单时间：{{eg.add_time}}</span></p>
-                <p ng-if="eg.is_happiness ==1"><span>支付合计：{{eg.expense_price}}元+{{eg.expense_point}}积分</span></p>
-                <p ng-if="eg.is_happiness ==0"><span>支付合计：<i ng-if="eg.payment_id ==18">{{eg.expense_price}}元</i><i ng-if="eg.payment_id ==14">{{eg.expense_price}}元</i><i ng-if="eg.payment_id == 3">{{eg.expense_point}}积分</i></span></p>
+                <!--<p ng-if="eg.is_happiness ==1"><span>支付合计：{{eg.expense_price}}元+{{eg.expense_point}}积分</span></p>-->
+                <p ng-if="eg.order_status!=11"><span>支付合计：<i>{{eg.expense_price}}元+{{eg.expense_point}}积分</i></span></p>
                 <p ng-if="eg.order_status!=11"><span>支付方式：{{eg.payment_name}}</span></p>
                 <p ng-if="eg.waybill_sn"><span>快递单号：<input id="txt{{eg.waybill_sn}}" value="{{eg.waybill_sn}}" readonly></span><i ng-click="copyTxt(eg.waybill_sn)"ng-if="eg.order_status==30">一键复制</i></p>
                 <p><span>运　　费：{{eg.shipping_money}}</span></p>
@@ -161,16 +162,14 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{ega.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{ega.goods_types}}</p>
-                    <p class="eol_enc">¥ <span class="eol_price">{{ega.goods_price}}</span><span class="eol_and" ng-if="ega.is_happiness ==1"> + </span><span class="eol_point" ng-if="ega.is_happiness ==1">{{ega.goods_happy}}</span></p>
+                    <p class="eol_enc">¥ {{ega.goods_price}} + 严选积分{{ega.goods_happy}} 或</p>
+                    <p class="eol_prices">¥ <span class="eol_price">{{ega.total_money}}</span></p>
                 </div>
                 <span>X {{ega.goods_count}}</span>
             </div>
             <div class="myOrderInfo">
                 <p><span>订单编号：{{ega.order_sn}}</span></p>
                 <p><span>下单时间：{{ega.add_time}}</span></p>
-                <p ng-if="ega.is_happiness ==1"><span>支付合计：{{ega.expense_price}}元+{{ega.expense_point}}积分</span></p>
-                <p ng-if="ega.is_happiness ==0"><span>支付合计：<i ng-if="ega.payment_id ==18">{{ega.expense_price}}元</i><i ng-if="ega.payment_id ==14">{{ega.expense_price}}元</i><i ng-if="ega.payment_id == 3">{{ega.expense_point}}积分</i></span></p>
-                <!--<p><span>支付方式：{{eg.payment_name}}</span></p>-->
                 <p><span>运　　费：{{ega.shipping_money}}</span></p>
             </div>
             <div class="myOrder_receive">
@@ -199,15 +198,15 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{egs.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{egs.goods_types}}</p>
-                    <p class="eol_enc">¥ <span class="eol_price">{{egs.goods_price}}</span><span class="eol_and" ng-if="egs.is_happiness ==1"> + </span><span class="eol_point" ng-if="egs.is_happiness ==1">{{egs.goods_point}}</span></p>
+                    <p class="eol_enc">¥ {{egs.goods_price}} + 严选积分{{egs.goods_happy}} 或</p>
+                    <p class="eol_prices">¥ <span class="eol_price">{{egs.total_money}}</span></p>
                 </div>
                 <span>X {{egs.goods_count}}</span>
             </div>
             <div class="myOrderInfo">
                 <p><span>订单编号：{{egs.order_sn}}</span></p>
                 <p><span>下单时间：{{egs.add_time}}</span></p>
-                <p ng-if="egs.is_happiness ==1"><span>支付合计：{{egs.expense_price}}元+{{egs.expense_point}}积分</span></p>
-                <p ng-if="egs.is_happiness ==0"><span>支付合计：<i ng-if="egs.payment_id ==18">{{egs.expense_price}}元</i><i ng-if="egs.payment_id ==14">{{egs.expense_price}}元</i><i ng-if="egs.payment_id == 3">{{egs.expense_point}}积分</i></span></p>
+                <p><span>支付合计：<i>{{egs.expense_price}}元+{{egs.expense_point}}积分</i></span></p>
                 <p><span>支付方式：{{egs.payment_name}}</span></p>
                 <p><span>运　　费：{{egs.shipping_money}}</span></p>
             </div>
@@ -236,16 +235,15 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{egr.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{egr.goods_types}}</p>
-                    <p class="eol_enc">¥ <span class="eol_price">{{egr.goods_price}}</span><span class="eol_and" ng-if="egr.is_happiness ==1"> + </span><span class="eol_point" ng-if="egr.is_happiness ==1">{{egr.goods_point}}</span></p>
+                    <p class="eol_enc">¥ {{egr.goods_price}} + 严选积分{{egr.goods_happy}} 或</p>
+                    <p class="eol_prices">¥ <span class="eol_price">{{egr.total_money}}</span></p>
                 </div>
                 <span>X {{egr.goods_count}}</span>
             </div>
             <div class="myOrderInfo">
                 <p><span>订单编号：{{egr.order_sn}}</span></p>
                 <p><span>下单时间：{{egr.add_time}}</span></p>
-                <!--<p><span>商品合计：{{egr.expense_price}}元+{{egr.expense_point}}积分</span></p>-->
-                <p ng-if="egr.is_happiness ==1"><span>支付合计：{{egr.expense_price}}元+{{egr.expense_point}}积分</span></p>
-                <p ng-if="egr.is_happiness ==0"><span>支付合计：<i ng-if="egr.payment_id ==18">{{egr.expense_price}}元</i><i ng-if="egr.payment_id ==14">{{egr.expense_price}}元</i><i ng-if="egr.payment_id == 3">{{egr.expense_point}}积分</i></span></p>
+                <p><span>支付合计：<i>{{egr.expense_price}}元+{{egr.expense_point}}积分</i></span></p>
                 <p><span>支付方式：{{egr.payment_name}}</span></p>
                 <p><span>快递单号：<input id="txt{{egr.waybill_sn}}" value="{{egr.waybill_sn}}" readonly></span><i ng-click="copyTxt(egr.waybill_sn)">一键复制</i></p>
                 <p><span>运　　费：{{egr.shipping_money}}</span></p>
@@ -276,15 +274,15 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{ego.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{ego.goods_types}}</p>
-                    <p class="eol_enc">¥ <span class="eol_price">{{ego.goods_price}}</span><span class="eol_and" ng-if="ego.is_happiness ==1"> + </span><span class="eol_point" ng-if="ego.is_happiness ==1">{{ego.goods_point}}</span></p>
+                    <p class="eol_enc">¥ {{ego.goods_price}} + 严选积分{{ego.goods_happy}} 或</p>
+                    <p class="eol_prices">¥ <span class="eol_price">{{ego.total_money}}</span></p>
                 </div>
                 <span>X {{ego.goods_count}}</span>
             </div>
             <div class="myOrderInfo">
                 <p><span>订单编号：{{ego.order_sn}}</span></p>
                 <p><span>下单时间：{{ego.add_time}}</span></p>
-                <p ng-if="ego.is_happiness ==1"><span>支付合计：{{ego.expense_price}}元+{{ego.expense_point}}积分</span></p>
-                <p ng-if="ego.is_happiness ==0"><span>支付合计：<i ng-if="ego.payment_id ==18">{{ego.expense_price}}元</i><i ng-if="ego.payment_id ==14">{{ego.expense_price}}元</i><i ng-if="ego.payment_id == 3">{{ego.expense_point}}积分</i></span></p>
+                <p><span>支付合计：<i>{{ego.expense_price}}元+{{ego.expense_point}}积分</i></span></p>
                 <p><span>支付方式：{{ego.payment_name}}</span></p>
                 <p><span>快递单号：<input id="txt{{ego.waybill_sn}}" value="{{ego.waybill_sn}}" readonly></span></p>
                 <p><span>运　　费：{{ego.shipping_money}}</span></p>
@@ -313,15 +311,15 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{ege.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{ege.goods_types}}</p>
-                    <p class="eol_enc">¥ <span class="eol_price">{{ege.goods_price}}</span><span class="eol_and" ng-if="ege.is_happiness ==1"> + </span><span class="eol_point" ng-if="ege.is_happiness ==1">{{ege.goods_point}}</span></p>
+                    <p class="eol_enc">¥ {{ege.goods_price}} + 严选积分{{ege.goods_happy}} 或</p>
+                    <p class="eol_prices">¥ <span class="eol_price">{{ege.total_money}}</span></p>
                 </div>
                 <span>X {{ege.goods_count}}</span>
             </div>
             <div class="myOrderInfo">
                 <p><span>订单编号：{{ege.order_sn}}</span></p>
                 <p><span>下单时间：{{ege.add_time}}</span></p>
-                <p ng-if="ege.is_happiness ==1"><span>支付合计：{{ege.expense_price}}元+{{ege.expense_point}}积分</span></p>
-                <p ng-if="ege.is_happiness ==0"><span>支付合计：<i ng-if="ege.payment_id ==18">{{ege.expense_price}}元</i><i ng-if="ege.payment_id ==14">{{ege.expense_price}}元</i><i ng-if="ege.payment_id == 3">{{ege.expense_point}}积分</i></span></p>
+                <p><span>支付合计：<i>{{ege.expense_price}}元+{{ege.expense_point}}积分</i></span></p>
                 <p><span>支付方式：{{ege.payment_name}}</span></p>
                 <p><span>运　　费：{{ege.shipping_money}}</span></p>
             </div>
@@ -357,7 +355,7 @@
         <div class="argdImg">
             <p>退货凭证</p>
             <div class="regdImgBox">
-                <div class="regdImgCen" ng-repeat="img in shopOrder.regdInfo.buyer_img"><img ng-src="{{img}}" alt=""></div>
+                <div class="regdImgCen" ng-repeat="img in shopOrder.regdInfo.buyer_img"><img ng-src="http://www.sgyxmall.com{{img}}" alt=""></div>
             </div>
         </div>
         <p class="argd_know" ng-click="shopOrder.regdClass = false">我知道了</p>

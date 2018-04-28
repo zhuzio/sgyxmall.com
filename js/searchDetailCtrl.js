@@ -14,7 +14,7 @@ yx_mallApp
             haveGoods:true
         };
         //或得搜索名字，进行请求
-        var searchGoods=appService._postData("http://www.ycblog.com.cn/index.php?s=/Api/Goods/searchGoods",{search_name:$stateParams.goodsClass});
+        var searchGoods=appService._postData(URL+"index.php?s=/Api/Goods/searchGoods",{search_name:$stateParams.goodsClass});
         searchGoods.then(function (e) {
             console.log(e.data.data);
 

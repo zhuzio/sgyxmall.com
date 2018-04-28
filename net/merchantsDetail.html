@@ -1,3 +1,16 @@
+<style type="text/css">
+    .swiper-slide{
+        display: flex;
+        justify-items: center;
+        align-items: center;
+    }
+    .swiper-slide img{
+        display: block;
+        width: auto;
+        height: 4.6rem;
+        margin: 0 auto;
+    }
+</style>
 <div class="merchant_classify_container">
 	<div class="mc_head">
         <a href="javascript:window.history.back(-1)"></a>
@@ -8,7 +21,7 @@
    <!--轮播图开始-->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class='swiper-slide' ng-repeat="sp in index.swipers"><a href="#"><img ng-src='http://www.sgyxmall.com/{{sp}}'></a></div>
+            <div class='swiper-slide' ng-repeat="sp in index.swipers"><img ng-src='http://www.sgyxmall.com/{{sp}}'></div>
         </div>
         <div class="swiper-pagination"></div>
     </div>

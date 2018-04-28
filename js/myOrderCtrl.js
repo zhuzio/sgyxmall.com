@@ -61,7 +61,7 @@ yx_mallApp
         $scope.getOrderInfo=function (idx,sta,page) {
             var allOrder = appService._postData(URL+"index.php?s=Api/Order/selectOrderList",{
                 token:$scope.shopOrder.userInfo.token,
-                way:$scope.shopOrder.userInfo.way,
+                // way:$scope.shopOrder.userInfo.way,
                 order_status:sta,
                 page:page
             });
@@ -317,12 +317,12 @@ yx_mallApp
         };
         //去支付
         $scope.orderApply=function (ele) {
-            // console.log(ele);
+            console.log(ele);
 
             $state.go("applyWay",{
                 OrderID:ele.order_sn,
                 num:ele.goods_count,
-                price:parseFloat(ele.goods_price)*parseFloat(ele.goods_count),
+                price:parseFloat(ele.total_money)*parseFloat(ele.goods_count),
                 point:parseFloat(ele.goods_happy)*parseFloat(ele.goods_count),
                 isY:ele.goods_happy,
             })
@@ -333,7 +333,7 @@ yx_mallApp
             appService.conform("确认收货之后货款将到商家账户！").then(function (value) {
                 var confirmReceipt = appService._postData(URL+"index.php?s=/Api/order/quit_order",{
                     token:$scope.shopOrder.userInfo.token,
-                    way:$scope.shopOrder.userInfo.way,
+                    // way:$scope.shopOrder.userInfo.way,
                     order_id:goods.order_id
                 });
                 confirmReceipt.then(function (value) {
@@ -384,7 +384,7 @@ yx_mallApp
                 var cancelOrder = appService._postData(URL+"index.php?s=Api/order/cancel_order",{
                     order_id : g.order_id,
                     token:$scope.shopOrder.userInfo.token,
-                    way:$scope.shopOrder.userInfo.way
+                    // way:$scope.shopOrder.userInfo.way
                 });
                 cancelOrder.then(function (value) {
                     // console.log(value)
@@ -418,7 +418,7 @@ yx_mallApp
             $scope.shopOrder.regdClass = true;
             var returnGoodsDetail=appService._postData(URL+"index.php?s=/Api/Order/refundOrderInfo",{
                 token:$scope.shopOrder.userInfo.token,
-                way:$scope.shopOrder.userInfo.way,
+                // way:$scope.shopOrder.userInfo.way,
                 order_id:id
             });
             returnGoodsDetail.then(function (value) {
