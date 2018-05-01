@@ -166,6 +166,7 @@ yx_mallApp
                 page:page,
             });
             myMebAll.then(function (value) {
+                // console.log(value)
                 var noData = value.data.data == "" || value.data.data == undefined ||value.data.data == null;
 
                 switch (idx){

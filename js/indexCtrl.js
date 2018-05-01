@@ -40,7 +40,7 @@ yx_mallApp
                 for (var i =0; i<each_pr.length; i++){
                     arr.push(parseInt($(each_pr[i]).css("width")))
                 };
-                $(parent).find(".pr_center").css("width",(parseFloat(eval(arr.join("+"))/58)+(each_pr.length*0.5)+2)+"rem");
+                $(parent).find(".pr_center").css("width",(parseFloat(eval(arr.join("+"))/58)+(each_pr.length*0.15)+2)+"rem");
             },0)
         };
         //生成随机色
@@ -77,7 +77,7 @@ yx_mallApp
                 token:$scope.index.userInfo.token,
             });
             shopCarCount.then(function (e) {
-                console.log(e.data);
+                // console.log(e.data);
                 if(e.data.ret == "ok"){
 
                     if(e.data.data == 0){
@@ -94,11 +94,16 @@ yx_mallApp
         //好物甄选 数据请求
         var egoods=appService._postData(URL+"index.php?s=/Api/index/advertising_site",{site:1});
             egoods.then(function (e) {
-                console.log(e)
+                // console.log(e)
                 $scope.index.egoods=e.data.data;
             },function (e) {
                 console.log(e)
             });
+
+
+
+
+
         //人气推荐·好物精选 数据请求
         var pr=appService._getData(URL+"index.php?s=/Api/Index/recommend");
             pr.then(function (e) {
@@ -108,27 +113,20 @@ yx_mallApp
             },function (e) {
                 console.log(e)
             });
+
         //严选精品·物美价优   女装图片 皮鞋图片 数据请求
         var femaleImg=appService._postData(URL+"index.php?s=/Api/index/advertising_site",{site:2});
             femaleImg.then(function (e) {
+                // console.log(e)
                 $scope.index.fe_male_img=e.data.data;
             },function (e) {
                 console.log(e)
             });
-        //严选精品·物美价优   女装数据请求
+        //严选精品·物美价优
         var female=appService._getData(URL+"index.php?s=/Api/Index/is_beautiful");
             female.then(function (e) {
-                // console.log(e.data.woman)
-                $scope.index.female=e.data.woman;
+                $scope.index.female=e.data;
                 $scope.changeWidth($(".pr_center_container2"),$scope.arr.arr2);
-            },function (e) {
-                console.log(e)
-            });
-        //严选精品·物美价优   男装数据请求
-        var male=appService._getData(URL+"index.php?s=/Api/Index/is_beautiful");
-            male.then(function (e) {
-                $scope.index.male=e.data.man;
-                $scope.changeWidth($(".pr_center_container3"),$scope.arr.arr3);
             },function (e) {
                 console.log(e)
             });

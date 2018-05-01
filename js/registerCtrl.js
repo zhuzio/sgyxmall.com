@@ -296,7 +296,7 @@ yx_mallApp
                 area:$scope.area.disNum//地区
             });
                 register.then(function (value) {
-                    console.log(value);
+                    // console.log(value);
                     if (value.data.ret=="success"){
                         appService.artTxt(value.data.msg).then(function (value2) {
                             $state.go("login");

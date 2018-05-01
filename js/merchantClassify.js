@@ -42,7 +42,7 @@
 
 
 
-    console.log($stateParams.classifyId);
+    // console.log($stateParams.classifyId);
 
     //改变元素宽度
     $scope.changeWidth=function (parent,arr) {

@@ -123,6 +123,9 @@
         background: url("images/wealthAll/z-z41.png") no-repeat left center;
         background-size: .35rem auto;
     }
+    .buy_totalInt >u{
+        text-decoration: none !important;
+    }
     .intDate{
         display: inline-block;
         padding-left: .4rem;
@@ -180,7 +183,7 @@
 
             <div class="basListDet" ng-repeat=" buyIntDet in bas.buyIntInfo">
                 <p><span class="buy_buyIntNum fl">购入积分：<i>{{buyIntDet.num}}</i></span><span class="buy_everyInt fr">每积分价格/元：<i>{{buyIntDet.price}}</i></span></p>
-                <p><span class="buy_totalInt">共计：<i>{{buyIntDet.amount}}</i></span></p>
+                <p><span class="buy_totalInt">共计：<i>{{buyIntDet.amount}}</i><u ng-if="buyIntDet.paytype=='hk'">（货款支付）</u><u ng-if="buyIntDet.paytype=='wx'">（微信支付）</u></span></p>
                 <p><span class="IntOrder fl">订单号：{{buyIntDet.orderid}}</span><span class="intDate fr">{{buyIntDet.pay_createtime}}</span></p>
             </div>
             <p class="basAddMore" ng-if="bas.buyMore" ng-click="basAddMore(1,buyInt)">点击加载更多</p>

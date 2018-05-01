@@ -19,7 +19,7 @@ yx_mallApp
             userInfo:[],
         };
         $scope.clear.userInfo = JSON.parse(localStorage.getItem("userInfo"));
-        console.log(JSON.parse($scope.clear.dataArr))
+        // console.log(JSON.parse($scope.clear.dataArr))
         if ( $stateParams.way=="shopCar" ){
 
             $scope.clear.shopId = JSON.parse($scope.clear.dataArr).sc_id;
@@ -86,7 +86,7 @@ yx_mallApp
                 sc_id:$scope.clear.shopId,
             });
             order.then(function (e) {
-                console.log(e)
+                // console.log(e)
                 if(e.data.ret == "ok"){
                     $state.go("applyWay",{
                         OrderID:[e.data.data],

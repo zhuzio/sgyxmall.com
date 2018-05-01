@@ -65,7 +65,7 @@ yx_mallApp
 
                    var dx=appService._postData(URL+"index.php?s=Api/user/send_code",{phone:$scope.user.phone,type:"find"});
                    dx.then(function (e) {
-                       console.log(e);
+                       // console.log(e);
                        $scope.user.code_id=e.data.data.id;
                    },function (e) {
                        console.log(e);
@@ -84,7 +84,7 @@ yx_mallApp
             }
             var next1=appService._postData(URL+"index.php?s=Api/Password/validate_code",{id:$scope.user.code_id,code:$scope.user.code});
             next1.then(function (e) {
-                console.log(e);
+                // console.log(e);
                   if(e.data.ret=="success"){
                       $state.go("forgetPW2");
                   }else {

@@ -58,7 +58,7 @@ yx_mallApp
             // way:$scope.myOld.userInfo.way
         });
             oldUserInfo.then(function (e) {
-                console.log(e);
+                // console.log(e);
                 $scope.myOld.roleType = e.data.data.type;
                 $scope.myOld.deg = e.data.data.type_sn;
                 $scope.myOld.registerQRCode = e.data.data.QR
@@ -262,7 +262,7 @@ yx_mallApp
                 type:4
             });
                 upGradeKind.then(function (value) {
-                    console.log(value)
+                    // console.log(value)
                     if (value.data.ret == "success"){
                         appService.artTxt(value.data.msg).then(function (value2) {
                             $scope.myOld.chose_up = false;

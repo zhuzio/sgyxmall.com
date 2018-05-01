@@ -19,7 +19,7 @@ yx_mallApp
             errorShow:false,
             dsb:true,
             psdDis:true,
-            btnTxt:"苏格优品登录"
+            btnTxt:"登录"
         };
         //切换登录的方式：苏格时代登录/苏格优选登录
         /*$scope.changLogin=function (n) {
@@ -95,7 +95,7 @@ yx_mallApp
                     // way:$scope.login.way
                 });
             loginE.then(function (e) {
-                console.log(e)
+                // console.log(e)
                 if(e.data.ret == 'err'){
                     appService.artTxt(e.data.msg).then(function () {
                         $scope.login.psd = "";
@@ -103,7 +103,7 @@ yx_mallApp
                         $(".login_ajax_container").animate({
                             bottom:"100%"
                         },0);
-                        $scope.login.btnTxt="苏格优品登录";
+                        $scope.login.btnTxt="登录";
                       /* switch (y){
                            case 0:
                                $scope.login.btnTxt="苏格时代登录";

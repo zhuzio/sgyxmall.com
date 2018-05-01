@@ -7,14 +7,14 @@ yx_mallApp
 
         };
         $scope.PDSet.userInfo = JSON.parse(localStorage.getItem("userInfo"));
-        console.log( $scope.PDSet.userInfo)
+        // console.log( $scope.PDSet.userInfo)
         //请求用户信息
         var baseUserInfo=appService._postData(URL+"index.php?s=Api/User/information",{
             token:$scope.PDSet.userInfo.token,
             // way:$scope.PDSet.userInfo.way
         });
             baseUserInfo.then(function (value) {
-                console.log(value)
+                // console.log(value)
                 $scope.PDSet.baseInfo = value.data.data;
             },function (reason) {
                 console.log(reason)
@@ -40,8 +40,10 @@ yx_mallApp
                        /!* if (value.){
 
                         }*!/*/
-                       alert(value.data.ret);
-                        $window.location.reload()
+                       appService.artTxt(value.data.ret).then(function (value2) {
+                           $window.location.reload();
+                       });
+
                     },function (reason) {
                         console.log(reason)
                     })

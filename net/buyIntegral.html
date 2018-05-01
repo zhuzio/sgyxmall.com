@@ -85,8 +85,16 @@
                 <input type="submit" class="apply_tonglian" value="微信支付">
             </form>
         </div>
-        <!--<div class="paymentForGoods" ng-click="paymentForGoods()">
+        <div class="paymentForGoods" ng-click="paymentForGoods()">
             <p>货款支付</p>
-        </div>-->
+        </div>
     </div>
+</div>
+<!--二级密码支付盘-->
+<div class="input_psd_container">
+    <div pay-keyboard full-money="{{buyInt.integralNum}}"></div>
+</div>
+<!--支付过程加载层-->
+<div class="input_process_loading">
+    <img src="images/loadings.gif" alt="">
 </div>

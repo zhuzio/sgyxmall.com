@@ -47,7 +47,7 @@ yx_mallApp
                 // way:localStorage.getItem("way")
             }) ;
             conversion_record.then(function(e){
-                console.log(e)
+                // console.log(e)
                 $scope.arr.mouth=e.data.data;
                 $scope.arr.total=e.data.arr;
                 if(!e.data.data[0]){
@@ -111,7 +111,7 @@ yx_mallApp
                         type:$scope.arr.type,
                         time:time});
                      conversion_record.then(function(e){
-                         console.log(e)
+                         // console.log(e)
                         $scope.arr.dayDetail=e.data.data;
 
 					},function(e){

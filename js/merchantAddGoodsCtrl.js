@@ -62,7 +62,6 @@ yx_mallApp
                         appService.artTxt("删除成功").then(function (value2) {
                             $window.location.reload();
                         });
-
                     }
                 },function (reason) {
                     console.log(reason)

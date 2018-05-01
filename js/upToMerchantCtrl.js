@@ -83,7 +83,7 @@ yx_mallApp
                     type:"register"
                 });
                 msgCode.then(function (value) {
-                    console.log(value)
+                    // console.log(value)
                     if (value.data.ret == "ok"){
                         $scope.upToMerchant.msgID = value.data.data.id;
                     }
@@ -490,7 +490,7 @@ yx_mallApp
                     region_name:$scope.area.address
                 });
                     upToMerchantSub.then(function (value) {
-                        console.log(value);
+                        // console.log(value);
                         if (value.data.ret == "success"){
                             appService.artTxt("申请成功，请等待审核...").then(function (value2) {
                                 $state.go("tabs.myOld");
@@ -520,7 +520,7 @@ yx_mallApp
 
             });
             modifyShop.then(function (value) {
-                console.log(value);
+                // console.log(value);
                 $scope.upToMerchant.merchantName = value.data.data.owner_name;
                 $scope.area.address = value.data.data.region_name;
                 $scope.upToMerchant.merchantClass = value.data.data.cate.cate_name
@@ -538,7 +538,7 @@ yx_mallApp
                 $scope.upToMerchant.mProduct = value.data.data.description;
                 $scope.upToMerchant.mActive = value.data.data.activity;
                 $scope.showZCode=function () {
-                    console.log();
+                    // console.log();
                     if ($scope.upToMerchant.merchantsTel == value.data.data.tel){
                         $scope.upToMerchant.modifyTel = false;
                     }else {

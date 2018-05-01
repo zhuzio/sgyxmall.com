@@ -18,7 +18,7 @@ yx_mallApp
             $window.history.go(-1);
         }
 
-        console.log($scope.sio.sioInfo)
+        // console.log($scope.sio.sioInfo)
         $scope.sendIG=function () {
             appService.conform("确认消费"+$scope.sio.sioInfo.finalIntegralNum+"积分?").then(function (value) {
                 $(".input_psd_container").animate({
@@ -40,7 +40,7 @@ yx_mallApp
                 remark:$scope.sio.notice
             });
                 sendGo.then(function (value) {
-                    console.log(value)
+                    // console.log(value)
                     $scope.sio.psd = false;
                     if (value.data.ret == "ok"){
                         appService.artTxt(value.data.msg).then(function (value2) {

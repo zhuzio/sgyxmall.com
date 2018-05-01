@@ -17,7 +17,7 @@ yx_mallApp
             // way:$scope.userBCInfo.userInfo.way
         });
         cardList.then(function (value) {
-                console.log(value)
+                // console.log(value)
                 $scope.userBCInfo.cardList = value.data.data;
             },
             function (reason) {
@@ -33,7 +33,7 @@ yx_mallApp
                     bank_id:eve.bank_id
                 });
                 setDefBank.then(function (value) {
-                    console.log(value);
+                    // console.log(value);
                     if (value.data.ret == "success"){
                         appService.artTxt(value.data.msg).then(function (value) {
                             $window.location.reload();

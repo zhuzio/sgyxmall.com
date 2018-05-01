@@ -17,7 +17,7 @@ yx_mallApp
 	if(!localStorage.getItem("userInfo")){
 	    $state.go("login");
     }
-        console.log($stateParams);
+        // console.log($stateParams);
         //初加载提现
         var  uesr1=appService._postData(URL+"index.php?s=/Api/wealth/shop_deposit_info",{
             token: JSON.parse(localStorage.getItem("userInfo")).token,
@@ -41,7 +41,7 @@ yx_mallApp
         // way:localStorage.getItem("way")
     });
 	uesr.then(function (e) {
-	    console.log(e);
+	    // console.log(e);
 
         // 默认的卡号
         if($stateParams.name=="1"||!$stateParams.name){
@@ -181,15 +181,4 @@ $scope.maxMoney=function (e) {
             }
 
         };
-
-
-
-
-///////////支付密码
-
-
-
-
-
-
 }]);

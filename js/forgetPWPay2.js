@@ -15,7 +15,7 @@ yx_mallApp
                     };
 
                     $scope.ckecked=function (e) {
-                        console.log(e)
+                        // console.log(e)
                            if(!$scope.user.z_tel.test(e-0)||e.length!=6){
                                $scope.user.typeName=true;
 

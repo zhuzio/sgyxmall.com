@@ -66,7 +66,7 @@ yx_mallApp
                 page:page
             });
             allOrder.then(function (value) {
-                console.log(value.data.data)
+                // console.log(value.data.data)
                 var noDatas = value.data.data == undefined || value.data.data == null || value.data.data == "" || value.data.data.orderInfo == "" ||value.data.data.orderInfo == undefined;
                 if (page == 1){
                     switch (idx){
@@ -317,7 +317,7 @@ yx_mallApp
         };
         //去支付
         $scope.orderApply=function (ele) {
-            console.log(ele);
+            // console.log(ele);
 
             $state.go("applyWay",{
                 OrderID:ele.order_sn,

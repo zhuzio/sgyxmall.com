@@ -19,8 +19,7 @@
 		</style>
 		 <div ng-if="detail.billtype=='1'" ng-repeat="v in detail.data ">
 			<!--      type===1 ：  会员转化 2 ：购物积分奖励      其他 ：    市场补贴-->
-		   <div class="treCon_one_show"  ng-if="v.type!='9'" > 
-				
+		   <div class="treCon_one_show"  ng-if="v.type!='9'" >
 				<div class="treCon_one_bot"   > 
 					<div class="treCon_one_1">
 						<div class="treCon_one_left">
@@ -39,14 +38,9 @@
 						</div>
 					</div>
 				</div>
-				
 			</div>
-			
-			
-				
 			<!--    type===9 -->
-		    <div class="treCon_one_show" ng-if="v.type=='9'" > 
-				
+		    <div class="treCon_one_show" ng-if="v.type=='9'" >
 				<div class="treCon_one_bot" > <!--ng-repeat="x in v.detail "-->
 					<div class="treCon_one_1">
 						<div class="treCon_one_left">
@@ -60,7 +54,6 @@
 						<div class="treCon_one_left">
 							<img src="images/wealthAll/tre_jf3.png" class="treCon_img2"/>商家名：{{v.from_username}}
 						</div>
-						
 					</div>
 					<div class="treCon_one_1">
 					    <div class="treCon_one_right">
@@ -68,16 +61,12 @@
 						</div>
 					</div>	
 				</div>
-				
 			</div>
-		  
 	     </div>
 			<!--收益奖励的账单-->
 			 <div ng-if="detail.billtype=='2'"  ng-repeat="v in detail.data " >
 			    <!--      type===4  5  6  7      -->
-			     
-			   <div class="treCon_one_show"  ng-if="v.type=='4'|| v.type=='5'||v.type=='6'||v.type=='7'" > 
-					
+			   <div class="treCon_one_show"  ng-if="v.type=='4'|| v.type=='5'||v.type=='6'||v.type=='7'" >
 					<div class="treCon_one_bot" > 
 						<div class="treCon_one_1">
 							<div class="treCon_one_left">
@@ -91,7 +80,6 @@
 							<div class="treCon_one_left">
 								<img src="images/wealthAll/jlbz.png" class="treCon_img2"/>{{v.title}}
 							</div>
-							
 						</div>
 						<div class="treCon_one_1" style="letter-spacing: 0px;font-size: .15rem;">
 							<div class="treCon_one_left">
@@ -102,15 +90,9 @@
 							</div>
 						</div>
 					</div>
-					
 				</div>
-				
-					
 				<!--      type===8    -->
-			    
-			       
-			   <div class="treCon_one_show" ng-if="v.type=='8'" > 
-					
+			   <div class="treCon_one_show" ng-if="v.type=='8'" >
 					<div class="treCon_one_bot" > 
 						<div class="treCon_one_1">
 							<div class="treCon_one_left">
@@ -124,23 +106,15 @@
 							<div class="treCon_one_left">
 								<img src="images/wealthAll/jlbz.png" class="treCon_img2"/>{{v.title}}
 							</div>
-							
 						</div>
 						<div class="treCon_one_1" style="letter-spacing: 0px;font-size: .15rem;">
-							
 							<div class="treCon_one_right">
 								<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>{{v.createtime}}
 							</div>
 						</div>
 					</div>
-					
 				</div>
-				
-			    
-			    
 			    <!--      type=== 9 -->
-			
-			      
 			   <div class="treCon_one_show"  ng-if="v.type=='9'" > 
 					
 					<div class="treCon_one_bot" > 
@@ -152,28 +126,14 @@
 								<img src="images/wealthAll/tre_xqjia.png" class="treCon_img1"/>{{v.money}}收益
 							</div>
 						</div>
-						
 						<div class="treCon_one_1" style="letter-spacing: 0px;font-size: .15rem;">
-							
 							<div class="treCon_one_right">
 								<img src="images/wealthAll/tre_xqtime.png" class="treCon_img3"/>{{v.createtime}}
 							</div>
 						</div>
 					</div>
-					
 				</div>
-				
-			
-			
-			
-			
-			
 			 </div>
-			
-			 
-	 
-	 
-	 
 	    <div style="width: 100%;text-align: center;font-size: .25rem;margin-top: .2rem;">暂无更多</div>
 	</div>
 	

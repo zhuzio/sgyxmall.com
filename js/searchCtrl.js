@@ -19,7 +19,7 @@ yx_mallApp
         };
         var historySearch=appService._getData(URL+"index.php?s=/Api/Goods/searchHistory");
         historySearch.then(function (e) {
-            console.log(e);
+            // console.log(e);
             var allGoodsName=e.data.msg[0];
             $scope.search.historySearch=e.data.msg[1];
 

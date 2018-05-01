@@ -14,7 +14,7 @@ yx_mallApp
             apiType:"all"
         });
             addressList.then(function (value) {
-                console.log(value);
+                // console.log(value);
                 $scope.address.addressInfo = value.data.data
             },function (reason) {
                 console.log(reason)
@@ -59,7 +59,7 @@ yx_mallApp
         //判断进入的页面
         $scope.goWhere=function (ads) {
             localStorage.setItem("choseAds",JSON.stringify(ads));
-            console.log(JSON.parse(localStorage.getItem("choseAds")));
+            // console.log(JSON.parse(localStorage.getItem("choseAds")));
             if ($stateParams.url == "clear"){
                 $window.history.go(-1);
             }else {

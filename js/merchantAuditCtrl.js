@@ -101,7 +101,7 @@ yx_mallApp
                     break;
                     //搜索后点击加载更多
                 case 2:
-                    console.log($scope.mcAd.totalPage)
+                    // console.log($scope.mcAd.totalPage)
                     $scope.mcAd.page=$scope.mcAd.page+1;
                     if ($scope.mcAd.page > $scope.mcAd.totalPage){
                         $scope.mcAd.moreTxt = true;
@@ -135,7 +135,7 @@ yx_mallApp
                 state:isP
             });
                 mcAdAgree.then(function (value) {
-                    console.log(value)
+                    // console.log(value)
                 },function (reason) {
                     console.log(reason  )
                 })

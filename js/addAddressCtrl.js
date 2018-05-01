@@ -203,7 +203,7 @@ yx_mallApp
                         addr_id:$scope.info.addr_id
                     });
                     modifySubmit.then(function (e) {
-                    console.log(e)
+                    // console.log(e)
                     if (e.data.ret == "success"){
                         appService.artTxt(e.data.msg).then(function (value) {
                             $state.go("address");
@@ -227,7 +227,7 @@ yx_mallApp
                         type:$scope.info.def
                     });
                 submit.then(function (e) {
-                    console.log(e)
+                    // console.log(e)
                     if (e.data.ret == "success"){
                         appService.artTxt(e.data.msg).then(function (value) {
                            $window.history.go(-1);
@@ -251,7 +251,7 @@ yx_mallApp
                         type:$scope.info.def
                     });
                 submit.then(function (e) {
-                    console.log(e)
+                    // console.log(e)
                     if (e.data.ret == "success"){
                         appService.artTxt(e.data.msg).then(function (value) {
                             $state.go("address");

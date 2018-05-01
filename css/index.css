@@ -192,8 +192,8 @@ li{
     max-height: 2.43rem;
     min-height: 2.43rem;
     margin: 0 auto;
-    border: 1px solid #eeeeee;
-    border-radius: .1rem;
+    /*border: 1px solid #eeeeee;*/
+    border-radius: .15rem;
 }
 .each_pr_name{
     font-size: .24rem;
@@ -238,7 +238,7 @@ li{
     width: 1.88rem;
     height: 1.88rem;
     text-align: center;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
     border-radius: 50%;
     background: #f6f6f6 url("../images/more1.png") no-repeat center 70%;
     background-size: .3rem auto;
@@ -259,9 +259,14 @@ li{
     overflow: hidden;
     margin-bottom: .15rem;
 }
-.pr_main_img >img{
+.pr_main_img a{
+   /* display: block;
+    width: 100%;
+    height: 100%;*/
+}
+.pr_main_img img{
     display: block;
-    width: auto;
+    width: 100%;
     height: 100%;
     margin: 0 auto;
 }
@@ -352,9 +357,10 @@ li{
     width: 49%;
     height: 5rem;
     float: left;
-    border: 1px solid #eee;
+    /*border: 1px solid #eee;*/
     box-sizing: border-box;
     margin-bottom: .2rem;
+    overflow: hidden;
 }
 .each_du:nth-child(2n-1){
     margin-right: 1%;
@@ -371,8 +377,11 @@ li{
     display: block;
     width: auto;
     height: auto;
+    max-width: 2.8rem;
+    min-height: 2.8rem;
     margin: 0 auto;
     max-height: 2.8rem;
+    border-radius: .15rem;
 }
 .each_du_name{
     width: 94%;
@@ -425,7 +434,7 @@ li{
     position: fixed;
     bottom: 0;
     background-color: #fff;
-    border-top: 1px solid #efeff4;
+    /*border-top: 1px solid #efeff4;*/
 }
 .footer div{
     float: left;

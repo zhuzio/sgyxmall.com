@@ -27,13 +27,13 @@ yx_mallApp
         }
 //   初加载请求
 //加载每月记录
-        console.log(JSON.parse(localStorage.getItem("userInfo")))
+//         console.log(JSON.parse(localStorage.getItem("userInfo")))
         var conversion_record=appService._postData(URL+"index.php?s=/Api/wealth/conversion_record",{
             token: JSON.parse(localStorage.getItem("userInfo")).token,
             // way:localStorage.getItem("way")
         });
         conversion_record.then(function(e){
-            console.log(e);
+            // console.log(e);
 
             $scope.treasureConversion.month=e.data.data;
             $scope.treasureConversion.total=e.data.arr;
@@ -63,7 +63,7 @@ yx_mallApp
 
         $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
             //这里写获取dom的操作，
-            console.log(ngRepeatFinishedEvent);
+            // console.log(ngRepeatFinishedEvent);
 
         });
 

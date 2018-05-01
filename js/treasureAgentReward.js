@@ -100,7 +100,7 @@ yx_mallApp
             page:$scope.arr.page
         });
         conversion_record.then(function(e){
-            console.log(e);
+            // console.log(e);
             if(e.data.data == "" ){
                 $(".more").html("暂无更多")
             }else {

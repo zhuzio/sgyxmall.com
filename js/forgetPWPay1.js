@@ -20,7 +20,7 @@ yx_mallApp
         $scope.jianCe=function (e) {
 
             if (!z_tel.test(e)) {
-                console.log(e);
+                // console.log(e);
                 $scope.user.err=true;
 
                 return false;

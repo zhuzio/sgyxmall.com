@@ -90,7 +90,7 @@ yx_mallApp
 
         $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
             //这里写获取dom的操作，
-            console.log(ngRepeatFinishedEvent);
+            // console.log(ngRepeatFinishedEvent);
 
         });
 

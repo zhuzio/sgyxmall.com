@@ -132,7 +132,7 @@ yx_mallApp
                 is_check:is_check
             });
             aoaData.then(function (value) {
-                console.log(value);
+                // console.log(value);
                 switch (idx){
                     case 1:
                         $scope.aoa.waitAudit = value.data.data;
@@ -172,7 +172,7 @@ yx_mallApp
                 order_type:"offline"
             });
                 aoaReject.then(function (value) {
-                    console.log(value);
+                    // console.log(value);
                     if (value.data.ret == "success"){
                         switch (sta){
                             // 审核驳回
@@ -252,7 +252,7 @@ yx_mallApp
         };
         // 点击加载更多
         $scope.aoaAddMore=function (idx) {
-            console.log(idx)
+            // console.log(idx)
             switch (idx){
                 case 1:
                     $scope.aoa.audPage+=1;

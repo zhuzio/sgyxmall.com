@@ -47,7 +47,7 @@ yx_mallApp
                 // is_happiness:idx
             });
             goodsCar.then(function (e) {
-                console.log(e)
+                // console.log(e)
                 var noData= e.data.data == "" || e.data.data == null ||e.data.data == undefined;
                 if (noData){
                     $scope.shopCar.noCommonGoods = true;
@@ -415,7 +415,7 @@ yx_mallApp
                     sc_id:$scope.shopCar.shopId,
                     // goodsDefault:goodsDefault,
                 };
-                console.log(dataArr);
+                // console.log(dataArr);
                 localStorage.setItem("datas",JSON.stringify(dataArr));
                 $state.go("clearing",{way:"shopCar"})
             }else {

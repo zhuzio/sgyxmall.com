@@ -23,7 +23,7 @@ yx_mallApp
         };
         $scope.reg.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         $scope.reg.applyReturnGoods = JSON.parse(localStorage.getItem("applyReturnGoods"));
-        console.log($scope.reg.applyReturnGoods)
+        // console.log($scope.reg.applyReturnGoods)
         $scope.getTxtNum = function () {
             $scope.reg.txtNum = 200-($scope.reg.regReasonDis.length)
         };

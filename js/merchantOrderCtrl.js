@@ -88,7 +88,7 @@ yx_mallApp
                 is_check:isCheck
             });
             datas.then(function (value) {
-                console.log(value);
+                // console.log(value);
                 var noDatas = value.data.data == "" || value.data.data == undefined ||value.data.data == null;
                 switch (paymentId){
                     //paymentId为查看的部分 9查看支出 3查看收入

@@ -16,7 +16,7 @@ yx_mallApp
 	if(!localStorage.getItem("tokens")){
 	    $state.go("login");
     }
-        console.log($stateParams);
+        // console.log($stateParams);
 	var  uesr=appService._postData(URL+"index.php?s=/Api/wealth/member_deposit",{
         token: JSON.parse(localStorage.getItem("userInfo")).token,
         // way:localStorage.getItem("way")
@@ -157,15 +157,4 @@ $scope.maxMoney=function (e) {
             }
 
         };
-
-
-
-
-///////////支付密码
-
-
-
-
-
-
 }]);

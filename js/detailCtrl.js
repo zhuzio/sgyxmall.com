@@ -79,7 +79,7 @@ yx_mallApp
         //获得商品详情数据
         var goods=appService._postData(URL+"index.php?s=/Api/Classify/goodsInfo",{goods_id:$stateParams.goodsId});
             goods.then(function (value) {
-                console.log(value);
+                // console.log(value);
                 // 商品赋值
                 $scope.goodsDetail.goods = value.data.data;
                 // 商品颜色分类
@@ -284,7 +284,7 @@ yx_mallApp
                     goods_img:$scope.goodsDetail.goods.default_img
                 });
                 JoinShopCar.then(function (e) {
-                    console.log(e.data);
+                    // console.log(e.data);
                     if(e.data.ret == "success"){
                         appService.artTxt("成功加入购物车！").then(function (value) {
                             $scope.goodsDetail.is_shopCarCount = true;

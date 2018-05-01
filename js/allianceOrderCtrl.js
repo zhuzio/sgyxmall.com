@@ -53,7 +53,7 @@ yx_mallApp
                 status:status
             });
             allianceOrder.then(function (value) {
-                console.log(value);
+                // console.log(value);
                 switch (idx){
                     case 1:
                         $scope.ao.waitAudit = value.data.data;
@@ -175,7 +175,7 @@ yx_mallApp
                 status:sta
             });
                 aoAddMoreData.then(function (value) {
-                    console.log(value);
+                    // console.log(value);
                     if (value.data.data == ""){
                         switch (idx){
                             case 1:

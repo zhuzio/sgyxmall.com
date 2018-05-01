@@ -42,6 +42,11 @@
         background: url("images/wealthAll/tre_xqtime.png") no-repeat left center;
         background-size: .3rem auto;
     }
+    .intRecContainer >img{
+        display: block;
+        width: 80%;
+        margin: 1rem auto;
+    }
 </style>
 <div class="module_head">
     <a href="javascript:window.history.go(-1)"></a>
@@ -55,4 +60,5 @@
         </div>
         <p><span class="undefined">积分转入</span><span class="fr intDate">{{list.add_time}}</span></p>
     </div>
+    <img src="images/nodata.png" alt="" ng-if="intRec.isImg">
 </div>

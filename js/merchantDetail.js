@@ -12,7 +12,7 @@ yx_mallApp.controller("merchantDetailController",["$scope","appService","$stateP
             swipers:[] //商家详情轮播图
         };
 
-        console.log($stateParams.shopId);
+        // console.log($stateParams.shopId);
         //请求店铺详情
         var  fenlei=appService._postData(URL+"index.php?s=/Api/store/shop_info",{store_id:$stateParams.shopId});
         fenlei.then(function(e){

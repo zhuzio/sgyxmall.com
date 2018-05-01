@@ -12,7 +12,7 @@ yx_mallApp
                 }).then(function (e) {
                     defer.resolve(e);
                 },function (e) {
-                    console.log(e)
+                    // console.log(e)
                     defer.reject(e)
                 });
                 return defer.promise;
@@ -32,7 +32,7 @@ yx_mallApp
                 }).then(function (e) {
                     defer.resolve(e)
                 },function (e) {
-                    console.log(e);
+                    // console.log(e);
                     defer.reject(e);
                 });
                 return defer.promise;

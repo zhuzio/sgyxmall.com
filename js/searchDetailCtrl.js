@@ -1,7 +1,7 @@
 //商品搜索详情页面 控制器
 yx_mallApp
     .controller("searchDetailController",["$scope","appService","$stateParams",function ($scope,appService,$stateParams) {
-        console.log($stateParams);
+        // console.log($stateParams);
         $scope.searchDetail={
             searchTitle:$stateParams.goodsClass,
             searchName:$stateParams.goodsClass,
@@ -16,7 +16,7 @@ yx_mallApp
         //或得搜索名字，进行请求
         var searchGoods=appService._postData(URL+"index.php?s=/Api/Goods/searchGoods",{search_name:$stateParams.goodsClass});
         searchGoods.then(function (e) {
-            console.log(e.data.data);
+            // console.log(e.data.data);
 
             if (e.data.data == null || e.data.data == ""){
                 $scope.searchDetail.noGoods = true;
@@ -39,7 +39,7 @@ yx_mallApp
             }
         };
         $scope.orderByName=function (name,num) {
-            console.log(name);
+            // console.log(name);
             $scope.searchDetail.p_show = false;
             $scope.searchDetail.s_show = false;
             if(num == 0){

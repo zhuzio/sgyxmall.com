@@ -181,7 +181,7 @@ yx_mallApp
             },0);
             $scope.apply.spd = password;
             $scope.applyApi($scope.apply.spd);
-        })
+        });
         $scope.$on('cancelApply',function(){
             //取消支付
             $(".input_psd_container").animate({
