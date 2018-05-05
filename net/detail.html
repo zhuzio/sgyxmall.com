@@ -29,7 +29,9 @@
         <p class="gdi_img_title">商品详情</p>
         <div class="gdi_img_box">
             <img ng-src='http://www.sgyxmall.com/{{img}}' alt="{{goodsDetail.goods.goods_name}}" ng-repeat="img in goodsDetail.goods.img_desc">
-            <img src="images/sevenDays.jpg" alt="">
+            <!--0:不支持七天物流退货 1：支持七天物理退货-->
+            <img src="images/sevenDays.jpg" alt="" ng-if="goodsDetail.goods.seven_days_return==1">
+            <img src="images/noSeven.jpg" alt="" ng-if="goodsDetail.goods.seven_days_return==0">
         </div>
     </div>
     <div class="chose_box_container">

@@ -82,6 +82,7 @@ yx_mallApp
                 // console.log(value);
                 // 商品赋值
                 $scope.goodsDetail.goods = value.data.data;
+
                 // 商品颜色分类
                 $scope.goodsDetail.goods_color=value.data.data.specification;
                 //商品的尺寸分类

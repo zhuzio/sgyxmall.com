@@ -1,10 +1,27 @@
 //我的页面--苏格时代商城用户 控制器
 yx_mallApp
     .controller("myOldController",["$scope","appService","$state","$window",function ($scope,appService,$state,$window) {
+        document.title='我的';
+
         if(!localStorage.getItem("userInfo")){
             $state.go("login");
-        }
-        document.title='苏格严选商城--我的';
+        };
+
+       /* var u = navigator.userAgent;
+        var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        var session = window.sessionStorage.getItem('data');
+        if (isIOS && session == undefined) {
+            window.sessionStorage.setItem('data', '1');
+            window.location.reload();
+        };
+        $scope.$on('$destroy',function (event) {
+            window.sessionStorage.removeItem('data');
+        });*/
+
+
+
+
+
         $scope.myOld={
             //用户名称
             username:"张三",
@@ -50,70 +67,71 @@ yx_mallApp
             registerQRCode:"",
 
         };
-
         $scope.myOld.userInfo = JSON.parse(localStorage.getItem("userInfo"));
-        //请求用户信息
-        var oldUserInfo=appService._postData(URL+"index.php?s=api/User/userinfo",{
-            token:$scope.myOld.userInfo.token,
-            // way:$scope.myOld.userInfo.way
-        });
+        if (localStorage.getItem("Info")){
+            // $window.location.reload();
+            var _info = JSON.parse(localStorage.getItem("Info"));
+            console.log(_info);
+            $scope.myOld.roleType = _info.type;
+            $scope.myOld.deg = _info.type_sn;
+            $scope.myOld.registerQRCode = _info.QR;
+            if (_info.portrait == null || _info.portrait == undefined){
+                $scope.myOld.userHeadImg = "images/head.png";
+            }else {
+                $scope.myOld.userHeadImg =_info.portrait;
+            }
+
+            var typeNum= parseInt(_info.type);
+            /*
+            * 1 代表会员
+            * 2 代表商家
+            *
+            * 4 代表区域代理
+            * 5 代表县区代理
+            * 6 代表市区代理
+            * 7 代表省级代理
+            * 88 代表财务人员
+            * 99 代表管理人员
+            *
+            * */
+            switch (typeNum){
+                case 1:
+                    $scope.myOld.upGrade = true;
+                    $(".mot_function >li").css("width","33.33%");
+                    break;
+                case 2:
+                    $scope.myOld.func.merchantOrder = true;
+                    $scope.myOld.service.collection = true;
+                    $scope.myOld.service.buyIntegral = true;
+                    $scope.myOld.service.sendIntegral = true;
+                    $scope.myOld.service.payment = true;
+                    $scope.myOld.service.shopSet = true;
+                    $(".mot_function >li").css("width","25%");
+                    break;
+                case 4:
+                    $(".mot_function >li").css("width","33.33%");
+                    break;
+                case 5:
+                    $scope.myOld.func.orderAudit = true;
+                    $scope.myOld.func.merchantAudit = true;
+                    $(".mot_function >li").css("width","20%");
+                    break;
+            };
+        }else {
+            //请求用户信息
+            var oldUserInfo=appService._postData(URL+"index.php?s=api/User/userinfo",{
+                token:$scope.myOld.userInfo.token,
+                // way:$scope.myOld.userInfo.way
+            });
             oldUserInfo.then(function (e) {
-                // console.log(e);
-                $scope.myOld.roleType = e.data.data.type;
-                $scope.myOld.deg = e.data.data.type_sn;
-                $scope.myOld.registerQRCode = e.data.data.QR
-                if (e.data.data.portrait == null || e.data.data.portrait == undefined){
-                    $scope.myOld.userHeadImg = "images/head.png";
-                }else {
-                    $scope.myOld.userHeadImg = e.data.data.portrait;
+                console.log(e);
+                if (e.data.ret == "ok"){
+                    localStorage.setItem("Info",JSON.stringify(e.data.data));
+                    $window.location.reload();
                 }
-
-                var typeNum= parseInt(e.data.data.type);
-                /*
-                * 1 代表会员
-                * 2 代表商家
-                *
-                * 4 代表区域代理
-                * 5 代表县区代理
-                * 6 代表市区代理
-                * 7 代表省级代理
-                * 88 代表财务人员
-                * 99 代表管理人员
-                *
-                * */
-                switch (typeNum){
-                    case 1:
-                        $scope.myOld.upGrade = true;
-                        $(".mot_function >li").css("width","33.33%");
-                        break;
-                    case 2:
-                        $scope.myOld.func.merchantOrder = true;
-                        $scope.myOld.service.collection = true;
-                        $scope.myOld.service.buyIntegral = true;
-                        $scope.myOld.service.sendIntegral = true;
-                        $scope.myOld.service.payment = true;
-                        $scope.myOld.service.shopSet = true;
-                        $(".mot_function >li").css("width","25%");
-                        break;
-                    case 4:
-                        $(".mot_function >li").css("width","33.33%");
-                        break;
-                    case 5:
-                        $scope.myOld.func.orderAudit = true;
-                        $scope.myOld.func.merchantAudit = true;
-                        $(".mot_function >li").css("width","20%");
-                        break;
-                }
-
-
             },function (reason) {
                 console.log(reason)
             });
-
-        //退出登录
-        $scope.quitLogin=function () {
-            localStorage.clear();
-            $state.go("login")
         };
         //放大二维码
         $scope.bigQRcode=function () {
@@ -129,7 +147,6 @@ yx_mallApp
                     $scope.myOld.merchantQR = false;
                     break;
             }
-
         };
         //选择升级
         $scope.choseUp=function () {
@@ -215,7 +232,7 @@ yx_mallApp
             },function (reason) {
                 console.log(reason)
             });
-            $scope.wxScrn=function () {
+            $scope.wxScrn=function ()  {
             wx.scanQRCode({
                 needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
                 scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
@@ -279,9 +296,7 @@ yx_mallApp
         // 物流查询
         $scope.logisticsSelect=function () {
             $window.location.href = "https://m.kuaidi100.com/";
-        }
-
-
+        };
 
 
 

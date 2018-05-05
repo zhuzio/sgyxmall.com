@@ -416,8 +416,10 @@ yx_mallApp.constant('RouterList_Config',[
         name:"set",
         url:"/_set",
         templateUrl:"net/set.html",
-        controller:"",
-        files:[]
+        controller:"setController",
+        files:[
+            './js/setCtrl.js'
+        ]
     },{
         name:"manageBandCard",
         url:"/_manageBandCard?id",
@@ -571,12 +573,21 @@ yx_mallApp.constant('RouterList_Config',[
         ]
     },
     {
-        name:"integralReceive",//会员升级
+        name:"integralReceive",//积分迁入
         url:"/_integralReceive",
         templateUrl:"net/integralReceive.html",
         controller:"integralReceiveController",
         files:[
             './js/integralReceiveCtrl.js'
+        ]
+    },
+    {
+        name:"commentsAndFeedback",//意见与反馈
+        url:"/_commentsAndFeedback",
+        templateUrl:"net/commentsAndFeedback.html",
+        controller:"commentsAndFeedbackController",
+        files:[
+            './js/commentsAndFeedbackCtrl.js'
         ]
     }
 

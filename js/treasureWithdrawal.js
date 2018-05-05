@@ -13,9 +13,9 @@ yx_mallApp
         zf_no:false,//密码错误警告
         tq_money:'',
     };
-	if(!localStorage.getItem("tokens")){
+	if(!localStorage.getItem("userInfo")){
 	    $state.go("login");
-    }
+    };
         // console.log($stateParams);
 	var  uesr=appService._postData(URL+"index.php?s=/Api/wealth/member_deposit",{
         token: JSON.parse(localStorage.getItem("userInfo")).token,
@@ -32,13 +32,11 @@ yx_mallApp
             $scope.Withdrawal.bank_num=e.data.data.default_card.bank_num;
         }else{
             //用户选择的卡号
-            var   len= $stateParams.num.length;
+            var len= $stateParams.num.length;
             $scope.Withdrawal.bank_id=$stateParams.id;
             $scope.Withdrawal.bank_name=$stateParams.name;
             $scope.Withdrawal.bank_num=$stateParams.num.substring(len-4,len);
-
         }
-
 
     },function (e) {
         console.log(e);
@@ -52,8 +50,6 @@ $scope.maxMoney=function (e) {
 };
           //监测输入提现的金额
         $scope.inp=function () {
-
-
             $(".tx").addClass("bg2").removeClass("bg1");
             if($("#moneyt").val().length==0){
                 $(".tx").addClass("bg1").removeClass("bg2");
@@ -64,11 +60,7 @@ $scope.maxMoney=function (e) {
             if(parseInt($("#moneyt").val()) >$scope.Withdrawal.money){
                 $(".tx").addClass("bg1").removeClass("bg2");
             }
-
-
-
         };
-///////////支付密码
         $scope.maNo=function () {
             $scope.Withdrawal.password=false;
             $scope.Withdrawal. zf_password=[];
@@ -76,27 +68,19 @@ $scope.maxMoney=function (e) {
         };
          //提现监测
          angular.element(".tx").on("click",function () {
-
           if(parseFloat($("#moneyt").val())!=Math.floor(parseFloat($("#moneyt").val()))){
-
               appService.artTxt("提现金额必须是整数且100的倍数！").then(function () {
                   return false;
               });
               return false;
           }
-
              if(parseFloat($("#moneyt").val())%100){
-
                  appService.artTxt("提现金额必须是整数且100的倍数！").then(function () {
-
                  });
                  return false;
              }
-
              if(parseInt($("#moneyt").val())<200){
-
                  appService.artTxt("提现金额不能低于200！").then(function () {
-
                  });
                  return false;
              }
@@ -104,10 +88,7 @@ $scope.maxMoney=function (e) {
                  // if(parseInt($("#moneyt").val()) <$scope.Withdrawal.money){ }
                      $scope.Withdrawal.password=true;
                      $scope.$apply();
-
              }
-
-
          });
         //删除
         $scope.del=function () {
@@ -121,9 +102,6 @@ $scope.maxMoney=function (e) {
             // console.log($scope.Withdrawal.zf_password);
             if($scope.Withdrawal.zf_password.length==6){
                 var pw=$scope.Withdrawal.zf_password.join("");
-
-
-
                 var Withdrawal=appService._postData(URL+"index.php?s=/Api/wealth/user_deposit",{
                     token: JSON.parse(localStorage.getItem("userInfo")).token,
                     // way:localStorage.getItem("way"),
@@ -133,9 +111,7 @@ $scope.maxMoney=function (e) {
                 });
 
                 Withdrawal.then(function (e) {
-                  
                     //成功后处理
-
                     if(e.data.ret=="err"){ //  密码错误
                         $scope.Withdrawal.zf_no=true;
                         $timeout(function () {
@@ -148,8 +124,6 @@ $scope.maxMoney=function (e) {
                            $state.go("treasureWithdrawalDetail");
                         });
                     }
-
-
                 },function (e) {
                     console.log(e);
                 })

@@ -1,5 +1,6 @@
 yx_mallApp
     .controller("upToMerchantController",["$scope","appService","$state","$interval","$stateParams",function ($scope,appService,$state,$interval,$stateParams) {
+        document.title = "升级为商家";
         $scope.upToMerchant={
             // 用户信息
             userInfo:[],
@@ -56,7 +57,7 @@ yx_mallApp
         };
         //获取短信验证码
         $scope.getUpMessageCode=function () {
-            var z_tel= /^1(3|4|5|7|8|9)\d{9}$/;
+            var z_tel= /^1(3|4|5|6|7|8|9)\d{9}$/;
             if ($scope.upToMerchant.merchantsTel == ""){
                 appService.artTxt("请输入电话号码！！！");
                 return false;
@@ -410,12 +411,15 @@ yx_mallApp
                     $scope.upToMerchant.isSub = true;
                     return false;
                 };
+                console.log($scope.upToMerchant.modifyTel)
+
                 if ($stateParams.type == 2 || $scope.upToMerchant.modifyTel == false){
-                    if (!$scope.upToMerchant.ZCode){
+                   /* if (!$scope.upToMerchant.ZCode){
                         appService.artTxt("验证码不能为空！！！");
                         $scope.upToMerchant.isSub = true;
                         return false;
-                    };
+                    };*/
+                    $scope.upToMerchant.ZCode = "wXQXi9@UKdRq&^MDX%h9";
                 }else if($stateParams.type == 1){
                     if (!$scope.upToMerchant.ZCode){
                         appService.artTxt("验证码不能为空！！！");
@@ -513,6 +517,7 @@ yx_mallApp
             $scope.upToMerchant.modify = true;
             $scope.upToMerchant.modifyTel = false;
             $scope.upToMerchant.titleTxt = "店铺设置" ;
+            document.title = "店铺设置";
 
             var modifyShop=appService._postData(URL+"index.php?s=Api/Collection/getShopInfo",{
                 token:$scope.upToMerchant.userInfo.token,
@@ -537,14 +542,19 @@ yx_mallApp
                 $scope.upToMerchant.singleWay3 = value.data.data.image_3
                 $scope.upToMerchant.mProduct = value.data.data.description;
                 $scope.upToMerchant.mActive = value.data.data.activity;
-                $scope.showZCode=function () {
+                $scope.area.proNum = value.data.data.province;
+                $scope.area.cityNum = value.data.data.city;
+                $scope.area.disNum = value.data.data.area;
+                $scope.upToMerchant.merchantClassNum = value.data.data.cate.cate_id;
+                $scope.upToMerchant.merchantArea = "";
+                /*$scope.showZCode=function () {
                     // console.log();
                     if ($scope.upToMerchant.merchantsTel == value.data.data.tel){
                         $scope.upToMerchant.modifyTel = false;
                     }else {
                         $scope.upToMerchant.modifyTel = true;
                     };
-                };
+                };*/
             });
         };
 

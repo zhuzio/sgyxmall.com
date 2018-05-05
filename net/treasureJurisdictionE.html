@@ -40,7 +40,11 @@
 		
 	   <div class="treCon_one_show"  ng-repeat="v in arr.mouth "> <!--ng-repeat="v in user"-->
 			<div class="treCon_one_top"  ng-click="change($index,v.times)"> <!--ng-click="change($index)"-->
-				{{v.times|datatimes}} 总计：{{v.money}}积分<span class="treCon_imgSp0" ng-if="!v.is_clearing">&nbsp;</span> <span ng-if="v.is_clearing" class="treCon_imgSp1">&nbsp;</span> <span ng-if="$index!=arr.selected" class="treCon_imgSp2">&nbsp;</span><span ng-if="$index==arr.selected"  class="treCon_imgSp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				{{v.times|datatimes}} 总计：{{v.money}}积分
+				<span class="treCon_imgSp0" ng-if="v.is_clearing==0">&nbsp;</span>
+				<span ng-if="v.is_clearing==1" class="treCon_imgSp1">&nbsp;</span>
+				<span ng-if="$index!=arr.selected" class="treCon_imgSp2">&nbsp;</span>
+				<span ng-if="$index==arr.selected"  class="treCon_imgSp3"></span>
 			</div>
 			<div ng-if="$index==arr.selected" >
 				<div class="treCon_one_bot"  ng-repeat="x in arr.dayDetail " > 

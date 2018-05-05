@@ -15,7 +15,7 @@ yx_mallApp
 
         var $bool=true;
         var $bool1=true;
-        var z_tel=/^1[3|5|7|8|9]\d{9}$/;
+        var z_tel=/^1[3|4|5|6|7|8|9]\d{9}$/;
 
         $scope.jianCe=function (e) {
 

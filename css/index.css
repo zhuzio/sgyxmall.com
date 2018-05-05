@@ -397,6 +397,7 @@ li{
     font-size: .24rem;
     color: #fb6400;
     padding-left: .2rem;
+    margin-top: .1rem;
 }
 .each_du_price_strict{
     font-size: .2rem;
@@ -434,7 +435,7 @@ li{
     position: fixed;
     bottom: 0;
     background-color: #fff;
-    /*border-top: 1px solid #efeff4;*/
+    border-top: 1px solid #efeff4;
 }
 .footer div{
     float: left;

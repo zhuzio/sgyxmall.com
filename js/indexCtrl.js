@@ -1,6 +1,6 @@
 yx_mallApp
     .controller("indexController",["$scope","appService",function ($scope,appService) {
-        document.title='苏格严选商城';
+        document.title='苏格优品商城';
         $scope.index={
             //首页轮播图
             swipers:[],
@@ -40,7 +40,7 @@ yx_mallApp
                 for (var i =0; i<each_pr.length; i++){
                     arr.push(parseInt($(each_pr[i]).css("width")))
                 };
-                $(parent).find(".pr_center").css("width",(parseFloat(eval(arr.join("+"))/58)+(each_pr.length*0.15)+2)+"rem");
+                $(parent).find(".pr_center").css("width",(parseFloat(eval(arr.join("+"))/54)+(each_pr.length*0.35)+2)+"rem");
             },0)
         };
         //生成随机色
@@ -191,5 +191,9 @@ yx_mallApp
             }
         }
         $(window).bind("scroll",scrollFn);	//绑定滚动事件
+
+        $scope.$on("$destroy", function () {
+            $cache.remove("classifyDetail")
+        });
 
     }])

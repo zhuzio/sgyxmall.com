@@ -13,6 +13,7 @@
     position: fixed;
     top:0;
     left: 0;
+    background: white;
 }
 .search_jump{
     width: 80%;
@@ -28,8 +29,12 @@
 .classify_center{
     width: 100%;
     height: auto;
-    margin-top: .9rem;
+    background: white;
+    /*margin-top: .9rem;*/
     border-top: 1px solid #e5e5e5;
+    position: fixed;
+    top: .9rem;
+    left: 0;
 }
 .classify_left{
     width: 20%;
@@ -42,6 +47,9 @@
     width: 80%;
     height: 100%;
     overflow-y: scroll;
+}
+.classify_right >div{
+    margin-bottom: .25rem;
 }
 .classify_left::-webkit-scrollbar,
 .classify_right::-webkit-scrollbar{
@@ -66,7 +74,7 @@
 .each_classify_list{
     /*width: 90%;*/
     overflow: hidden;
-    margin: .2rem auto 0;
+    margin: .2rem auto .25rem;
 }
 .each_classify_list >li{
     width: 1.4rem;

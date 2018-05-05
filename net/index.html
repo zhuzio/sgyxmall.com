@@ -8,7 +8,7 @@
             <input type="search" placeholder="搜索商品" ui-sref="search" ng-readonly="true">
         </div>
         <div class="header_news">
-                <a href="newscentre.html"></a>
+                <a></a>
         </div>
     </header>
     <!--产品分类-->
@@ -40,7 +40,7 @@
         <p class="pr_title">人气推荐·好物精选</p>
         <div class="pr_center_container pr_center_container1">
             <ul class="pr_center">
-                <p class="pr_more">显示更多</p>
+                <p class="pr_more" ui-sref="tabs.classify">显示更多</p>
                 <li class="each_pr" ng-repeat="pr in index.pr" ui-sref="detail({goodsId:pr.goods_id})">
                     <img ng-src="http://www.sgyxmall.com/{{pr.default_img}}" alt="{{pr.goods_name}}">
                     <p class="each_pr_name">{{pr.goods_name}}</p>
@@ -60,7 +60,7 @@
         <!--这是女装-->
         <div class="pr_center_container pr_center_container2">
             <ul class="pr_center">
-                <p class="pr_more">显示更多</p>
+                <p class="pr_more" ui-sref="tabs.classify">显示更多</p>
                 <li class="each_pr" ng-repeat="female in index.female" ui-sref="detail({goodsId:female.goods_id})">
                     <img ng-src="http://www.sgyxmall.com/{{female.default_img}}" alt="{{female.goods_name}}">
                     <p class="each_pr_name">{{female.goods_name}}</p>

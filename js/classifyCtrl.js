@@ -1,6 +1,6 @@
 //分类页面 控制器
 yx_mallApp.controller("classifyController", ["$scope", "$stateParams", "appService", function ($scope, $stateParams, appService) {
-    document.title = "苏格严选商城--商品分类";
+    document.title = "商品分类";
     $scope.classify = {
         classList: [],
         idx: 0,
@@ -21,8 +21,10 @@ yx_mallApp.controller("classifyController", ["$scope", "$stateParams", "appServi
         $cache.setCache("classifyIndex", index)
     };
     // 获取可是高度
-    var viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
-    $(".classify_center").css("height", parseInt(viewportHeight / 58) - 1.54 + "rem");
+    // var viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
+    // console.log(document.documentElement.clientHeight /58)
+    // $(".classify_center").css("height", parseFloat(viewportHeight / 58)-2 + "rem");
+    $(".classify_center").css("height",83+"%");
     //分类名称 数据请求
     var classList = appService._getData(URL + "index.php?s=/Api/Classify/classList");
     classList.then(function (e) {

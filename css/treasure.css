@@ -28,13 +28,15 @@
     background-size: 100% 100%;
     
 }
-.tre_top .tre_span2{
-	margin-top: .281rem;
-	float: right;
-	width: 0.3333rem;
-    margin-right:  0.2564rem;
+.tre_span2{
+	width: 0.35rem!important;
+	height: 0.35rem !important;
+	border: none!important;
     background: url("../images/myOld/news.png") no-repeat;
     background-size: 100% 100%;
+	position: absolute;
+	right: 0.1rem;
+	top: 0.25rem;
 }
 .tre_middle{
 	margin-top: .2rem;
@@ -100,20 +102,24 @@
 
 /*非会员两部分页面*/
 .tre_sel{
-	display: inline-block;
-	height: 100%;
-	width: 3rem;
+	height: auto;
+	width: 100%;
+	text-align: center;
+	padding-top: .2rem;
+	position: relative;
 }
 .tre_sel span{
-	display: inline-block;
 	line-height:0.547rem;
-	padding: 0 .1rem;
-	/*height: 100%;*/
-	width: 1.2rem;
-	border:  0.0085rem solid rgba(255, 255, 255, 0.48);
-	float: left;
-	margin-top: .2rem;
-	
+	padding: .12rem .1rem;
+	width: 1.5rem;
+	border:  1px solid rgba(255, 255, 255, 0.48);
+	box-sizing: border-box;
+}
+.tre_span3{
+	border-radius: .1rem 0 0 .1rem;
+}
+.tre_span4{
+	border-radius:0 .1rem .1rem 0;
 }
 .tre_ba{
 	background: #FFFFFF;
@@ -150,3 +156,11 @@
 	width: 49%;
 	
 }
+
+
+
+
+
+
+
+

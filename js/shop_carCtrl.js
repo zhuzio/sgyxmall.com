@@ -4,7 +4,7 @@ yx_mallApp
         if(!localStorage.getItem("userInfo")){
             $state.go("login");
         };
-        document.title='苏格严选商城--购物车';
+        document.title='购物车';
         $scope.totalPrice = 0;
         $scope.totalStock = 0;
         $scope.selectGoodsAll = false;

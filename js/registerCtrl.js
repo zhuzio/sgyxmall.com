@@ -41,7 +41,7 @@ yx_mallApp
 
         //获取短信验证码
         $scope.getMessageCode=function () {
-            var z_tel= /^1(3|4|5|7|8|9)\d{9}$/;
+            var z_tel= /^1[3|4|5|6|7|8|9]\d{9}$/;
             if ($scope.reg.regTel == ""){
                 appService.artTxt("请输入电话号码！！！");
                 return false;

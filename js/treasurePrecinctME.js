@@ -36,6 +36,7 @@ yx_mallApp
             // way:localStorage.getItem("way"),
         type:7 }) ;
 	conversion_record.then(function(e){
+	    console.log(e)
 		$scope.arr.mouth=e.data.data;
         $scope.arr.total=e.data.arr;
 

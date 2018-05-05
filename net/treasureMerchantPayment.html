@@ -39,7 +39,7 @@
 	<div class="treCon_enquiries">
 		<div class="treCon_cha">
 			
-			<input type="number"  id="cha"  placeholder="请输入手机号"  ng-model="phone" >
+			<input type="number"  id="cha"  placeholder="请输入手机号"  ng-model="dan.phone" >
 		</div>
 		<div class="treCon_start">
 			  <input  type="text" readonly=""  placeholder="起始日期"  class="plate_time right" lay-key="1" id="appDateTime1" name="appDateTime1" >
@@ -79,7 +79,7 @@
 			</div>
 			  <div class="treCon_one_bg"></div>
 		</div>
-		<p class="more" ng-click="more()">点击加载更多</p>
+		<p class="more" ng-click="more()" ng-if="dan.is_more">点击加载更多</p>
 
 		<!--<div style="width: 100%;text-align: center;font-size: .25rem;margin-top: .2rem;">暂无更多</div>-->
 	</div>

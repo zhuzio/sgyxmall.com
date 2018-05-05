@@ -37,6 +37,7 @@ yx_mallApp
             // way:localStorage.getItem("way"),
         type:5 });
 	conversion_record.then(function(e){
+	    console.log(e)
 		$scope.arr.mouth=e.data.data;
         $scope.arr.total=e.data.arr;
         if(!e.data.data[0]){
@@ -81,7 +82,7 @@ yx_mallApp
 					     conversion_record.then(function(e){
 						$scope.arr.dayDetail=e.data.data;
 						
-						// console.log(e);
+						console.log(e);
 					},function(e){
 						console.log(e);
 					})

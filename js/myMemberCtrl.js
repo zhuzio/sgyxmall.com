@@ -102,7 +102,13 @@ yx_mallApp
 
                     break;
                 case 4:
-                    $scope.member.memberType = 4;
+                    // $scope.member.memberType = 4;
+                    if($scope.member.roleType == 4){
+                        $scope.member.memberType=4;
+                    };
+                    if ($scope.member.roleType == 5){
+                        $scope.member.memberType=5;
+                    };
                     $scope.member.memberTypeState = 1;
 
                     $scope.member.memberMo = false;
@@ -115,7 +121,13 @@ yx_mallApp
 
                     break;
                 case 5:
-                    $scope.member.memberType = 5;
+                    // $scope.member.memberType = 5;
+                    if($scope.member.roleType == 4){
+                        $scope.member.memberType=4;
+                    };
+                    if ($scope.member.roleType == 5){
+                        $scope.member.memberType=5;
+                    };
                     $scope.member.memberTypeState = 2;
 
                     $scope.member.memberMo = false;
@@ -152,6 +164,8 @@ yx_mallApp
         // 获得全部会员信息
 
         /*
+            type:为本人的角色代号：1会员商家
+
         *   type :1查看推荐人是本人的（所有角色）【会员和商家】 or 4 社区下所有的人【区域代理】 5辖区下所有人【县代】
          *  type_state:区分身份键名 (1-5^3)
          *

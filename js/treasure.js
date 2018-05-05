@@ -7,13 +7,13 @@
 //  console.log($scope.random);
       //    用户财产信息
       $scope.tre={
-          level:1, //   身份
-          happiness:125,  //幸福积分
-          money:124,//可用积分
-          point:1,//结余积分
-          point_peac:12,//当前权
-          earnings:13,//可提
-          total:12,
+          level:0, //   身份
+          happiness:0,  //幸福积分
+          money:0,//可用积分
+          point:0,//结余积分
+          point_peac:0,//当前权
+          earnings:0,//可提
+          total:0,
           userInfo:[],
           user:[],//用户信息
           status_gw:true,//购物页面
@@ -25,6 +25,7 @@
           BalanceIntegral_layer:false, //结余积分提示弹出层
           strictIntegral_layer:false ,//严选积分弹出层
       };
+
       //   权限等级
       $scope.tre.userInfo=JSON.parse(localStorage.getItem("userInfo"));
 
@@ -40,7 +41,7 @@
 
       userData.then(function(e){
           //     	成功状态
-          // console.log(e)
+          console.log(e)
 
           $scope.tre.level=e.data.data.type;
           $scope.tre.happiness=e.data.data.happiness;
@@ -137,11 +138,8 @@
           if(!$scope.tre.withdrawal_layer){
               $scope.tre.withdrawal_layer1 = true;//没有绑定银行卡
           }else{
-
               $state.go("treasureWithdrawal",{id:"1",name:"1",num:"1"});//绑定了银行卡
           }
-
-
       };
       //收起弹出层
       $scope.txNo=function () {
@@ -163,14 +161,7 @@
       $scope.yxNo=function () {
           $scope.tre.strictIntegral_layer = false;
       };
-
-
-
-
       //非会员   两个页面的操作
-
-
-
 
   }]);
     
