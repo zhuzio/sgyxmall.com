@@ -244,8 +244,14 @@ yx_mallApp
                             scan.then(function (value) {
                                 $scope.myOld.returnTxt = value;
                                 if(value.data.ret == "ok"){
-                                    localStorage.setItem("weChatScan",JSON.stringify(value.data.data));
-                                    $state.go("scanApply");
+                                    if (value.data.data.way == "sgyp"){
+                                        localStorage.setItem("weChatScan",JSON.stringify(value.data.data));
+                                        $state.go("scanApply");
+                                    }else {
+                                        alert("请扫描SG优品商城的二维码！！！");
+                                        return false;
+                                    }
+
                                 }else {
                                     alert(value.data.msg);
                                     return false;

@@ -156,6 +156,7 @@ $scope.maxMoney=function (e) {
                 });
 
                 Withdrawal.then(function (e) {
+                    console.log(e)
 
                     //成功后处理
 
@@ -164,13 +165,16 @@ $scope.maxMoney=function (e) {
                            $state.go("myWithdrawalDetail");
                         });
                     }else { //  密码错误
+                        appService.artTxt(e.data.msg).then(function (value) {
 
-                        $scope.Withdrawal.zf_no=true;
-                        $timeout(function () {
                             $scope.Withdrawal. zf_password=[];
                             $scope.Withdrawal. zf_ok=[];
                             $scope.Withdrawal.zf_no=false;
-                        },1500);
+                            $scope.Withdrawal.password=false;
+                        });
+
+
+
                     }
 
 

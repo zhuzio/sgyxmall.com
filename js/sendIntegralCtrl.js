@@ -43,7 +43,7 @@ yx_mallApp
         };
         //去确认订单
         $scope.goConformSendOrder=function () {
-            var z_tel=/^1[34578]\d{9}$/;
+            var z_tel=/^1[3456789]\d{9}$/;
             if ($scope.sendInfo.buyerName == "" || z_tel.test($scope.sendInfo.buyerName) == false){
                 appService.artTxt("买家账号不能为空或格式错误！！！");
                 return false;

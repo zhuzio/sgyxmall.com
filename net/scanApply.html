@@ -76,7 +76,29 @@
         line-height: .9rem;
         border-radius: .2rem;
         font-size: .3rem;
-
+    }
+    .choseApplyTypeContainer{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.38);
+    }
+    .choseApplyType{
+        position: absolute;
+        width: 100%;
+        height: 2rem;
+        bottom: 0;
+        left: 0;
+        background: white;
+    }
+    .choseApplyType p{
+        width: 100%;
+        height: 1rem;
+        line-height: 1rem;
+        font-size: .3rem;
+        text-align: center;
     }
 </style>
 <div class="module_head">
@@ -105,3 +127,10 @@
     <img src="images/loadings.gif" alt="">
 </div>
 <!--<div>{{scan.res}}</div>-->
+<!--商家选择支付方式-->
+<div class="choseApplyTypeContainer" ng-if="scan.choseApplyType">
+    <div class="choseApplyType">
+        <p ng-click="applyFunction(1)">货款支付</p>
+        <p ng-click="applyFunction(2)">购物积分支付</p>
+    </div>
+</div>
