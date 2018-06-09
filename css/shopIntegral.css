@@ -1,0 +1,83 @@
+.sigListHead{
+    width: 100%;
+    height: .8rem;
+    background: white;
+    border: 1px #e5e5e5 solid;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    position: fixed;
+    top: .8rem;
+    left: 0;
+}
+.sigListHead::-webkit-scrollbar{
+    display: none;
+}
+.sigListHead p{
+    font-size: .23rem;
+    line-height: .765rem;
+    text-align: center;
+    float: left;
+    box-sizing: border-box;
+}
+.sigListHead p.tabOn {
+    background: #e79e56;
+    color: white;
+}
+.sigGoodsContainer{
+    width: 94%;
+    padding: .2rem 3%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.8rem;
+    flex-wrap: wrap;
+}
+.eachGoods{
+    width: 49.5%;
+    height: auto;
+    margin-bottom: .2rem;
+}
+.sigImgBox img{
+    display: block;
+    width: 98%;
+    height: auto;
+    margin: 0 auto;
+    /*max-height: 2.45rem;*/
+    /*min-height: 2.45rem;*/
+    border-radius: .15rem;
+}
+.sigName{
+    /*width: 94%;*/
+    padding-left: .1rem;
+    margin: 0.2rem auto;
+    font-size: .25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+}
+.sigCatch{
+    font-size: .24rem;
+    color: #fb6400;
+    /*padding-left: .2rem;*/
+    margin-top: .1rem;
+    padding-left: .1rem;
+}
+.sigCatch span{
+    font-size: .27rem;
+    padding-left: .1rem;
+}
+.sigIntegral{
+    color: #999;
+    font-size: .23rem;
+    padding-left: .1rem;
+}
+.sigIntegral i{
+    font-style: normal;
+    /*margin-left: .1rem;*/
+    /*font-size: .3rem;*/
+    /*color: #e79e56;*/
+    /*font-weight: bolder;*/
+}

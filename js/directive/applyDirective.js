@@ -15,8 +15,11 @@ yx_mallApp
                     currentInputIndex:-1
                 };
                 $scope.initPasswordGroup=function(){
-                    $scope.applyObject.currentInputIndex--;
+                    console.log( $scope.applyObject.currentInputIndex)
+                    $scope.applyObject.currentInputIndex = -1;
+
                     $scope.applyObject.passwordGroup=[];
+
                     for(var i=0;i<6;i++){
                         $scope.applyObject.passwordGroup.push({
                             value:null
@@ -27,8 +30,8 @@ yx_mallApp
                 $scope.inputPsd=function (num) {
                     switch (num){
                         case '取消':
-
                             $scope.$emit('cancelApply');
+
                             $scope.initPasswordGroup();
                             break;
                         case '删除':
@@ -42,6 +45,7 @@ yx_mallApp
                         default:
                             $scope.applyObject.currentInputIndex++;
                             $scope.applyObject.passwordGroup[$scope.applyObject.currentInputIndex].value=num;
+                            console.log($scope.applyObject.passwordGroup)
                             break;
                     }
                 };

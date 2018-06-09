@@ -56,9 +56,11 @@ yx_mallApp
                     $scope.applyApi($scope.apply.spd);*/
                     break;
                 case 2:
-                    $scope.apply.payment = "allpoint";
+                    appService.artTxt("暂不支持积分购买，请选择其他支付方式")
+                    return false;
+                   /* $scope.apply.payment = "allpoint";
                     $scope.apply.payment_way = "";
-                    $scope.secondPsd();
+                    $scope.secondPsd();*/
                     break;
                 case 3:
                     $scope.apply.payment = "cashandpoint";
@@ -111,7 +113,7 @@ yx_mallApp
                 }else {
 
                     appService.artTxt(e.data.msg).then(function (value) {
-                        $window.location.reload()
+                        // $window.location.reload()
                     });
 
                 }

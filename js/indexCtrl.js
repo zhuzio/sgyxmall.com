@@ -18,6 +18,8 @@ yx_mallApp
             guessLike:[],
             //今日首发·天天新款
             dayUpdate:[],
+            // 购物积分专区
+            shopIntegral:[],
             //页数
             page:1,
             more:true,
@@ -30,6 +32,7 @@ yx_mallApp
             arr2:[],
             arr3:[],
             arr4:[],
+            arr5: [],
             arrColor:[]
         };
         $scope.index.userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -99,7 +102,15 @@ yx_mallApp
             },function (e) {
                 console.log(e)
             });
-
+        // 购物积分专区 数据请求
+        var shopIntergral =appService._getData(URL+'index.php?s=/Api/Goods/moneyGoodsIndex');
+        shopIntergral.then(function (value) {
+            console.log(value.data.data)
+           $scope.index.shopIntegral = value.data.data
+            $scope.changeWidth($(".pr_center_container3"),$scope.arr.arr5);
+        },function (reason) {
+            console.log(reason)
+        })
 
 
 
@@ -107,7 +118,7 @@ yx_mallApp
         //人气推荐·好物精选 数据请求
         var pr=appService._getData(URL+"index.php?s=/Api/Index/recommend");
             pr.then(function (e) {
-                console.log(e)
+                // console.log(e)
                 $scope.index.pr=e.data;
                 $scope.changeWidth($(".pr_center_container1"),$scope.arr.arr1);
             },function (e) {

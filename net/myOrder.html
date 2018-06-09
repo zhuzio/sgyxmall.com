@@ -118,15 +118,15 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{eg.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{eg.goods_types}}</p>
-                    <p class="eol_enc">¥ {{eg.goods_price}} + 严选积分{{eg.goods_happy}} 或</p>
-                    <p class="eol_prices">¥ <span class="eol_price">{{eg.total_money}}</span></p>
+                    <p class="eol_enc" ng-if="eg.payment_id != 21">¥ {{eg.goods_price}} + 严选积分{{eg.goods_happy}} 或</p>
+                    <p class="eol_prices" ng-if="eg.payment_id != 21">¥ <span class="eol_price">{{eg.total_money}}</span></p>
+                    <p class="eol_prices" ng-if="eg.payment_id == 21">¥ {{eg.goods_price}}<span class="eol_price"> + 购物积分 {{eg.goods_happy}} <i>（购物积分专区商品）</i></span></p>
                 </div>
                 <span>X {{eg.goods_count}}</span>
             </div>
             <div class="myOrderInfo">
                 <p><span>订单编号：{{eg.order_sn}}</span></p>
                 <p><span>下单时间：{{eg.add_time}}</span></p>
-                <!--<p ng-if="eg.is_happiness ==1"><span>支付合计：{{eg.expense_price}}元+{{eg.expense_point}}积分</span></p>-->
                 <p ng-if="eg.order_status!=11"><span>支付合计：<i>{{eg.expense_price}}元+{{eg.expense_point}}积分</i></span></p>
                 <p ng-if="eg.order_status!=11"><span>支付方式：{{eg.payment_name}}</span></p>
                 <p ng-if="eg.waybill_sn"><span>快递单号：<input id="txt{{eg.waybill_sn}}" value="{{eg.waybill_sn}}" readonly></span><i ng-click="copyTxt(eg.waybill_sn)"ng-if="eg.order_status==30">一键复制</i></p>
@@ -162,8 +162,9 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{ega.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{ega.goods_types}}</p>
-                    <p class="eol_enc">¥ {{ega.goods_price}} + 严选积分{{ega.goods_happy}} 或</p>
-                    <p class="eol_prices">¥ <span class="eol_price">{{ega.total_money}}</span></p>
+                    <p class="eol_enc" ng-if="ega.payment_id != 21">¥ {{ega.goods_price}} + 严选积分{{ega.goods_happy}} 或</p>
+                    <p class="eol_prices" ng-if="ega.payment_id != 21">¥ <span class="eol_price">{{ega.total_money}}</span></p>
+                    <p class="eol_prices" ng-if="ega.payment_id == 21">¥ {{ega.goods_price}}<span class="eol_price"> + 购物积分 {{ega.goods_happy}} <i>（购物积分专区商品）</i></span></p>
                 </div>
                 <span>X {{ega.goods_count}}</span>
             </div>
@@ -198,8 +199,9 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{egs.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{egs.goods_types}}</p>
-                    <p class="eol_enc">¥ {{egs.goods_price}} + 严选积分{{egs.goods_happy}} 或</p>
-                    <p class="eol_prices">¥ <span class="eol_price">{{egs.total_money}}</span></p>
+                    <p class="eol_enc" ng-if="egs.payment_id != 21">¥ {{egs.goods_price}} + 严选积分{{egs.goods_happy}} 或</p>
+                    <p class="eol_prices" ng-if="egs.payment_id != 21">¥ <span class="eol_price">{{egs.total_money}}</span></p>
+                    <p class="eol_prices" ng-if="egs.payment_id == 21">¥ {{egs.goods_price}}<span class="eol_price"> + 购物积分 {{egs.goods_happy}} <i>（购物积分专区商品）</i></span></p>
                 </div>
                 <span>X {{egs.goods_count}}</span>
             </div>
@@ -235,8 +237,9 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{egr.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{egr.goods_types}}</p>
-                    <p class="eol_enc">¥ {{egr.goods_price}} + 严选积分{{egr.goods_happy}} 或</p>
-                    <p class="eol_prices">¥ <span class="eol_price">{{egr.total_money}}</span></p>
+                    <p class="eol_enc" ng-if="egr.payment_id != 21">¥ {{egr.goods_price}} + 严选积分{{egr.goods_happy}} 或</p>
+                    <p class="eol_prices" ng-if="egr.payment_id != 21">¥ <span class="eol_price">{{egr.total_money}}</span></p>
+                    <p class="eol_prices" ng-if="egr.payment_id == 21">¥ {{egr.goods_price}}<span class="eol_price"> + 购物积分 {{egr.goods_happy}} <i>（购物积分专区商品）</i></span></p>
                 </div>
                 <span>X {{egr.goods_count}}</span>
             </div>
@@ -274,8 +277,9 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{ego.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{ego.goods_types}}</p>
-                    <p class="eol_enc">¥ {{ego.goods_price}} + 严选积分{{ego.goods_happy}} 或</p>
-                    <p class="eol_prices">¥ <span class="eol_price">{{ego.total_money}}</span></p>
+                    <p class="eol_enc" ng-if="ego.payment_id != 21">¥ {{ego.goods_price}} + 严选积分{{ego.goods_happy}} 或</p>
+                    <p class="eol_prices" ng-if="ego.payment_id != 21">¥ <span class="eol_price">{{ego.total_money}}</span></p>
+                    <p class="eol_prices" ng-if="ego.payment_id == 21">¥ {{ego.goods_price}}<span class="eol_price"> + 购物积分 {{ego.goods_happy}} <i>（购物积分专区商品）</i></span></p>
                 </div>
                 <span>X {{ego.goods_count}}</span>
             </div>
@@ -311,8 +315,9 @@
                 <div class="eol_info fl">
                     <p class="eol_name">{{ege.goods_name}}</p>
                     <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{ege.goods_types}}</p>
-                    <p class="eol_enc">¥ {{ege.goods_price}} + 严选积分{{ege.goods_happy}} 或</p>
-                    <p class="eol_prices">¥ <span class="eol_price">{{ege.total_money}}</span></p>
+                    <p class="eol_enc" ng-if="ege.payment_id != 21">¥ {{ege.goods_price}} + 严选积分{{ege.goods_happy}} 或</p>
+                    <p class="eol_prices" ng-if="ege.payment_id != 21">¥ <span class="eol_price">{{ege.total_money}}</span></p>
+                    <p class="eol_prices" ng-if="ege.payment_id == 21">¥ {{ege.goods_price}}<span class="eol_price"> + 购物积分 {{ege.goods_happy}} <i>（购物积分专区商品）</i></span></p>
                 </div>
                 <span>X {{ege.goods_count}}</span>
             </div>

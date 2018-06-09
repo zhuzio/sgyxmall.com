@@ -17,6 +17,7 @@ yx_mallApp
             shopId:[],
             goodsDefault:"",
             userInfo:[],
+            comeWay: $stateParams.way
         };
         $scope.clear.userInfo = JSON.parse(localStorage.getItem("userInfo"));
         // console.log(JSON.parse($scope.clear.dataArr))
@@ -35,8 +36,15 @@ yx_mallApp
             $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元 + "+JSON.parse($scope.clear.dataArr).totalPoint+" 积分";
         };*/
 
-        $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元 ";
-        $scope.clear.total1 ="或 ¥"+JSON.parse($scope.clear.dataArr).totalPriceStrict+" + 积分"+JSON.parse($scope.clear.dataArr).totalPoint+""
+        if ( $stateParams.way == 1){
+            $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPriceStrict+" 元 ";
+            $scope.clear.total1 =" + 购物积分"+JSON.parse($scope.clear.dataArr).totalPoint+""
+        }else {
+            $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元 ";
+            $scope.clear.total1 ="或 ¥"+JSON.parse($scope.clear.dataArr).totalPriceStrict+" + 积分"+JSON.parse($scope.clear.dataArr).totalPoint+""
+        }
+
+
         for (var i in $scope.clear.goods){
             //获得数量
             var num=($scope.clear.goods)[i].goods_count;
@@ -76,34 +84,50 @@ yx_mallApp
 
         //去支付
         $scope.goApply=function () {
-            var order=appService._postData(URL+"index.php?s=/Api/order/addOrder",{
-                token:$scope.clear.userInfo.token,
-                // way:localStorage.getItem("way"),
-                goodsInfo:JSON.parse($scope.clear.dataArr).goodsInfo,
-                buy_name:$scope.clear.user_name,
-                address:$scope.clear.address,
-                phone_tell:$scope.clear.user_phone,
-                sc_id:$scope.clear.shopId,
-            });
-            order.then(function (e) {
-                // console.log(e)
-                if(e.data.ret == "ok"){
-                    $state.go("applyWay",{
-                        OrderID:[e.data.data],
-                        num:$('.each_order_list').length,
-                        price:JSON.parse($scope.clear.dataArr).totalPrice,
-                        point:JSON.parse($scope.clear.dataArr).totalPoint,
-                        sc_id:$scope.clear.shopId,
-                        isY:JSON.parse($scope.clear.dataArr).goodsDefault
-                    });
-                }else {
-                    appService.artTxt(e.data.ret );
-                    return false;
-                }
-            },function (e) {
-                console.log(e)
-            });
-
+            if ($scope.clear.comeWay == 1) {
+                var orders=appService._postData(URL+"index.php?s=/Api/Order/moneyGoodsOrder",{
+                    token:$scope.clear.userInfo.token,
+                    goodsInfo:JSON.parse($scope.clear.dataArr).goodsInfo,
+                    buy_name:$scope.clear.user_name,
+                    address:$scope.clear.address,
+                    phone_tell:$scope.clear.user_phone,
+                    // sc_id:$scope.clear.shopId,
+                });
+                orders.then(function (value) {
+                    console.log(value)
+                    /*if () {}*/
+                    window.location.href='http://www.sgyxmall.com/payment/weixinPay/money_goods_pay.php?cz_money='+value.data.cz_money+'&dingdan='+value.data.dingdan+'&site_url='+value.data.site_url+''
+                },function (reason) {
+                    console.log(reason)
+                })
+            }else {
+                var order=appService._postData(URL+"index.php?s=/Api/order/addOrder",{
+                    token:$scope.clear.userInfo.token,
+                    // way:localStorage.getItem("way"),
+                    goodsInfo:JSON.parse($scope.clear.dataArr).goodsInfo,
+                    buy_name:$scope.clear.user_name,
+                    address:$scope.clear.address,
+                    phone_tell:$scope.clear.user_phone,
+                    sc_id:$scope.clear.shopId,
+                });
+                order.then(function (e) {
+                    // console.log(e)
+                    if(e.data.ret == "ok"){
+                        $state.go("applyWay",{
+                            OrderID:[e.data.data],
+                            num:$('.each_order_list').length,
+                            price:JSON.parse($scope.clear.dataArr).totalPrice,
+                            point:JSON.parse($scope.clear.dataArr).totalPoint,
+                            sc_id:$scope.clear.shopId,
+                            isY:JSON.parse($scope.clear.dataArr).goodsDefault
+                        });
+                    }else {
+                        appService.artTxt(e.data.ret );
+                        return false;
+                    }
+                },function (e) {
+                    console.log(e)
+                });
+            }
         }
-
     }])

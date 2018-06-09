@@ -66,13 +66,13 @@
                     </div>
                     <div class="ct_type">
                         <div class="ct_color" ng-if="goodsDetail.isColor">
-                            <p class="ct_type_title">颜色分类</p>
+                            <p class="ct_type_title">{{goodsDetail.specName1}}</p>
                             <div class="each_ct">
                                 <span ng-repeat="color in goodsDetail.goods_color" ng-click="choseColor($index,color.spec_desc1)" ng-class={'type_on':goodsDetail.colorIdx==$index}>{{color.spec_desc1}}</span>
                             </div>
                         </div>
                         <div class="ct_size">
-                            <p class="ct_type_title">尺寸规格</p>
+                            <p class="ct_type_title">{{goodsDetail.specName2}}</p>
                             <div class="each_ct">
                                 <span ng-repeat="size in goodsDetail.goods_size track by $index" ng-click="choseSize($index,size)" ng-class={'type_on':goodsDetail.sizeIdx==$index}>{{size}}</span>
                                 <!--<span ng-repeat="sizes in goodsDetail.goods_size"></span>-->

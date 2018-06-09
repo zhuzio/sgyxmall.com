@@ -55,6 +55,9 @@ yx_mallApp
             chosePrice:0,
             chosePoint:0,
             chosePriceStrict:0,
+            // 规格名字
+            specName1:"",
+            specName2:""
         };
         $scope.goodsDetail.userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
@@ -80,6 +83,9 @@ yx_mallApp
         var goods=appService._postData(URL+"index.php?s=/Api/Classify/goodsInfo",{goods_id:$stateParams.goodsId});
             goods.then(function (value) {
                 // console.log(value);
+
+                $scope.goodsDetail.specName1 = value.data.data.spec_name_1;
+                $scope.goodsDetail.specName2 = value.data.data.spec_name_2;
                 // 商品赋值
                 $scope.goodsDetail.goods = value.data.data;
 
@@ -336,7 +342,7 @@ yx_mallApp
                 };
                 // console.log(dataArr);
                 localStorage.setItem("datas",JSON.stringify(dataArr));
-                $state.go("clearing");
+                $state.go("clearing",{way:0});
             }
         };
     }]);

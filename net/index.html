@@ -37,6 +37,25 @@
     <div class="popularity_recommend_container">
         <div class="pr_main_img"><a href="{{index.fe_male_img[1].ad_link}}"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[1].ad_logo}}" alt="{{index.fe_male_img[1].ad_name}}" class="male_img"></a></div>
 
+        <p class="pr_title" style="color: #ff853e" ui-sref="shopIntegral">购物积分专区</p>
+        <div class="pr_center_container pr_center_container3">
+            <ul class="pr_center">
+                <p class="pr_more" ui-sref="shopIntegral">显示更多</p>
+                <li class="each_pr" ng-repeat="pr in index.shopIntegral" ui-sref="detail({goodsId:pr.goods_id})">
+                    <img ng-src="http://www.sgyxmall.com/{{pr.default_img}}" alt="{{pr.goods_name}}">
+                    <p class="each_pr_name">{{pr.goods_name}}</p>
+                    <div class="sold_price">
+                        <div class="sold_price_strict">¥{{pr.default_ready}}+ 严选积分{{pr.default_point}} 或</div>
+                        <p>结算价：¥<span>{{pr.total_ready}}</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--严选精品·物美价优-->
+    <div class="strict_filter_container">
+        <div class="pr_main_img"><a href="{{index.fe_male_img[0].ad_link}}"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[0].ad_logo}}" alt="{{index.fe_male_img[0].ad_name}}" class="female_img"></a></div>
+
         <p class="pr_title">人气推荐·好物精选</p>
         <div class="pr_center_container pr_center_container1">
             <ul class="pr_center">
@@ -51,10 +70,6 @@
                 </li>
             </ul>
         </div>
-    </div>
-    <!--严选精品·物美价优-->
-    <div class="strict_filter_container">
-        <div class="pr_main_img"><a href="{{index.fe_male_img[0].ad_link}}"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[0].ad_logo}}" alt="{{index.fe_male_img[0].ad_name}}" class="female_img"></a></div>
 
         <p class="pr_title">严选精品·物美价优</p>
         <!--这是女装-->

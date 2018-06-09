@@ -1,0 +1,27 @@
+<style>
+    .module_head{
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    购物积分专区
+</div>
+<!--顶部tab切换-->
+<div class="sigListHead">
+    <div>
+        <p ng-repeat="tabs in sig.className" ng-class={'tabOn':sig.Idx==$index} ng-click="changeSigTab(tabs,$index)">{{tabs.cate_name}}</p>
+    </div>
+</div>
+<div class="sigGoodsContainer">
+    <div class="eachGoods" ng-repeat="goods in sig.goodsList" ui-sref="shopIntegralGoodsDetail({goodsId:goods.goods_id})">
+        <div class="sigImgBox">
+            <img ng-src="http://www.sgyxmall.com/{{goods.default_img}}" alt="">
+        </div>
+        <p class="sigName">{{goods.goods_name}}</p>
+        <p class="sigIntegral">购物积分：<span>{{goods.default_point}}</span><i class="">+</i></p>
+        <p class="sigCatch"> ¥<span>{{goods.default_ready}}</span></p>
+    </div>
+</div>

@@ -589,6 +589,24 @@ yx_mallApp.constant('RouterList_Config',[
         files:[
             './js/commentsAndFeedbackCtrl.js'
         ]
+    },
+    {
+        name:"shopIntegral",//购物积分专区
+        url:"/_shopIntegral",
+        templateUrl:"net/shopIntegral.html",
+        controller:"shopIntegralController",
+        files:[
+            './js/shopIntegralCtrl.js'
+        ]
+    },
+    {
+        name:"shopIntegralGoodsDetail",//购物积分专区
+        url:"/_shopIntegralGoodsDetail?goodsId",
+        templateUrl:"net/shopIntegralGoodsDetail.html",
+        controller:"shopIntegralGoodsDetailController",
+        files:[
+            './js/shopIntegralGoodsDetailCtrl.js'
+        ]
     }
 
 ]);

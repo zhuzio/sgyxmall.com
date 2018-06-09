@@ -124,6 +124,17 @@
     padding-left: .2rem;
     color: #e79e56;
 }
+.eol_prices >span{
+    font-size: .22rem;
+    color: #555;
+}
+.eol_prices >span i{
+    font-size: .2rem;
+    color: #555;
+    font-style: normal;
+    transform: scale(0.1);
+    color: #e79e56;
+}
 .eol_enc{
     padding-left: .2rem;
     font-size: .2rem;
