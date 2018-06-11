@@ -206,5 +206,7 @@ yx_mallApp
         $scope.$on("$destroy", function () {
             $cache.remove("classifyDetail")
         });
-
+        $scope.$on("$destroy", function () {
+            $cache.remove("sigDetail")
+        })
     }])

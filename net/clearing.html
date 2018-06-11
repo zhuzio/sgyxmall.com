@@ -21,7 +21,7 @@
                 <p class="eol_name">{{goods.goods_name}}</p>
                 <p class="eol_type" style="width: 4.2rem;height: .3rem;overflow: hidden">{{goods.goods_types}}</p>
                 <p class="eol_prices" ng-if="clear.comeWay != 1">¥ {{goods. total_ready}}</p>
-                <p class="eol_enc" ng-if="clear.comeWay != 1">或<span class="eol_price">{{goods.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point" >积分{{goods.goods_point}}</span></p>
+                <p class="eol_enc" ng-if="clear.comeWay != 1">或<span class="eol_price"> ¥ {{goods.goods_price}}</span><span class="eol_and"> + </span><span class="eol_point" >购物积分{{goods.goods_point}}</span></p>
                 <p class="eol_prices" ng-if="clear.comeWay == 1">¥ {{goods. goods_price}} <span>+ 购物积分 {{goods.goods_point}}</span>   </p>
             </div>
             <span>X {{goods.goods_count}}</span>

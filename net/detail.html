@@ -20,7 +20,7 @@
         <p class="gdi_name">{{goodsDetail.goods.goods_name}}</p>
         <p class="gdi_price">
             <span class="rmb">结算价：</span>¥
-            <span class="esc_rmb">{{goodsDetail.goods.total_ready}} <i>或 ¥{{goodsDetail.goods.default_ready}}+严选积分 {{goodsDetail.goods.default_point}}</i></span>
+            <span class="esc_rmb">{{goodsDetail.goods.total_ready}} <i>或 ¥{{goodsDetail.goods.default_ready}}+购物积分 {{goodsDetail.goods.default_point}}</i></span>
         </p>
 
     </div>
@@ -59,7 +59,7 @@
                                 <!--<span class="cti_adds">+</span>
                                 <span class="cti_int">{{goodsDetail.t_integral}}</span>-->
                             </p>
-                            <p class="cti_strict"><span>严选价：</span> ¥{{goodsDetail.t_priceStrict}}+严选积分 {{goodsDetail.t_integral}}</p>
+                            <p class="cti_strict"><span>严选价：</span> ¥{{goodsDetail.t_priceStrict}}+购物积分 {{goodsDetail.t_integral}}</p>
                             <p class="cti_ku">库存：<span>{{goodsDetail.stock}}</span></p>
                         </div>
                         <div class="cti_close" ng-click="colseAlerts()"></div>

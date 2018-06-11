@@ -21,8 +21,23 @@
         <div class="swiper-pagination"></div>
     </div>
     <!--轮播图结束-->
+
     <!--好物甄选-->
     <div class="excellent_goods_chose_container">
+        <p class="pr_title" style="color: #ff853e" ui-sref="shopIntegral">购物积分优惠专区</p>
+        <div class="pr_center_container pr_center_container3">
+            <ul class="pr_center">
+                <p class="pr_more" ui-sref="shopIntegral">显示更多</p>
+                <li class="each_pr" ng-repeat="pr in index.shopIntegral" ui-sref="shopIntegralGoodsDetail({goodsId:pr.goods_id})">
+                    <img ng-src="http://www.sgyxmall.com/{{pr.default_img}}" alt="{{pr.goods_name}}">
+                    <p class="each_pr_name">{{pr.goods_name}}</p>
+                    <div class="sold_price">
+                        <!-- <div class="sold_price_strict">+ 严选积分 或</div> -->
+                        <p>购物积分<span>{{pr.default_point}}</span> + <i>¥{{pr.default_ready}}</i></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
         <p class="egc_title"><span><a href="">好物甄选</a></span></p>
         <div class="egc_goods">
@@ -36,26 +51,6 @@
     <!--人气推荐·好物精选-->
     <div class="popularity_recommend_container">
         <div class="pr_main_img"><a href="{{index.fe_male_img[1].ad_link}}"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[1].ad_logo}}" alt="{{index.fe_male_img[1].ad_name}}" class="male_img"></a></div>
-
-        <p class="pr_title" style="color: #ff853e" ui-sref="shopIntegral">购物积分专区</p>
-        <div class="pr_center_container pr_center_container3">
-            <ul class="pr_center">
-                <p class="pr_more" ui-sref="shopIntegral">显示更多</p>
-                <li class="each_pr" ng-repeat="pr in index.shopIntegral" ui-sref="detail({goodsId:pr.goods_id})">
-                    <img ng-src="http://www.sgyxmall.com/{{pr.default_img}}" alt="{{pr.goods_name}}">
-                    <p class="each_pr_name">{{pr.goods_name}}</p>
-                    <div class="sold_price">
-                        <div class="sold_price_strict">¥{{pr.default_ready}}+ 严选积分{{pr.default_point}} 或</div>
-                        <p>结算价：¥<span>{{pr.total_ready}}</span></p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!--严选精品·物美价优-->
-    <div class="strict_filter_container">
-        <div class="pr_main_img"><a href="{{index.fe_male_img[0].ad_link}}"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[0].ad_logo}}" alt="{{index.fe_male_img[0].ad_name}}" class="female_img"></a></div>
-
         <p class="pr_title">人气推荐·好物精选</p>
         <div class="pr_center_container pr_center_container1">
             <ul class="pr_center">
@@ -64,12 +59,19 @@
                     <img ng-src="http://www.sgyxmall.com/{{pr.default_img}}" alt="{{pr.goods_name}}">
                     <p class="each_pr_name">{{pr.goods_name}}</p>
                     <div class="sold_price">
-                        <div class="sold_price_strict">¥{{pr.default_ready}}+ 严选积分{{pr.default_point}} 或</div>
+                        <div class="sold_price_strict">¥{{pr.default_ready}}+ 购物积分{{pr.default_point}} 或</div>
                         <p>结算价：¥<span>{{pr.total_ready}}</span></p>
                     </div>
                 </li>
             </ul>
         </div>
+        
+    </div>
+    <!--严选精品·物美价优-->
+    <div class="strict_filter_container">
+        <div class="pr_main_img"><a href="{{index.fe_male_img[0].ad_link}}"><img ng-src="http://www.sgyxmall.com/{{index.fe_male_img[0].ad_logo}}" alt="{{index.fe_male_img[0].ad_name}}" class="female_img"></a></div>
+
+        
 
         <p class="pr_title">严选精品·物美价优</p>
         <!--这是女装-->
@@ -80,7 +82,7 @@
                     <img ng-src="http://www.sgyxmall.com/{{female.default_img}}" alt="{{female.goods_name}}">
                     <p class="each_pr_name">{{female.goods_name}}</p>
                     <div class="sold_price">
-                        <div class="sold_price_strict">¥{{female.default_ready}}+ 严选积分{{female.default_point}} 或 </div>
+                        <div class="sold_price_strict">¥{{female.default_ready}}+ 购物积分{{female.default_point}} 或 </div>
                         <p>¥<span>{{female.total_ready}}</span></p>
                     </div>
                 </li>
@@ -94,7 +96,7 @@
                     <img ng-src="http://www.sgyxmall.com/{{male.default_img}}" alt="{{male.goods_name}}">
                     <p class="each_pr_name">{{male.goods_name}}</p>
                     <div class="sold_price">
-                        <div class="sold_price_strict"> ¥{{male.default_ready}}+ 严选积分{{male.default_point}} 或</div>
+                        <div class="sold_price_strict"> ¥{{male.default_ready}}+ 购物积分{{male.default_point}} 或</div>
                         <p>¥<span>{{male.total_ready}}</span></p>
                     </div>
                 </li>
@@ -112,7 +114,7 @@
                     </div>
                     <div class="each_gf_right">
                         <p class="each_gf_name">{{guessLike.goods_name}}</p>
-                        <div class="each_gf_price_strict">¥{{guessLike.default_ready}}+ 严选积分{{guessLike.default_point}} 或 </div>
+                        <div class="each_gf_price_strict">¥{{guessLike.default_ready}}+ 购物积分{{guessLike.default_point}} 或 </div>
                         <p class="each_gf_price">¥<span>{{guessLike.total_ready}}</span></p>
                     </div>
                 </div>
@@ -126,7 +128,7 @@
             <div class="each_du" ng-repeat="dayUpdata in index.dayUpdate" ui-sref="detail({goodsId:dayUpdata.goods_id})">
                 <img ng-src="http://www.sgyxmall.com/{{dayUpdata.default_img}}" alt="{{dayUpdata.goods_name}}">
                 <p class="each_du_name">{{dayUpdata.goods_name}}</p>
-                <p class="each_du_price_strict"> ¥{{dayUpdata.default_ready}}+ 严选积分{{dayUpdata.default_point}} 或</p>
+                <p class="each_du_price_strict"> ¥{{dayUpdata.default_ready}}+ 购物积分{{dayUpdata.default_point}} 或</p>
                 <p class="each_du_price">¥<span>{{dayUpdata.total_ready}}</span></p>
             </div>
         </div>

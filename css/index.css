@@ -232,6 +232,11 @@ li{
     padding-left: .05rem;
     font-weight: bolder;
 }
+.sold_price >p >i{
+    font-style: normal;
+    font-size: .2rem;
+    color: #555;
+}
 .pr_more{
     /*writing-mode: tb-rl;*/
     float: right;

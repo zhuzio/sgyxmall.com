@@ -41,7 +41,7 @@ yx_mallApp
             $scope.clear.total1 =" + 购物积分"+JSON.parse($scope.clear.dataArr).totalPoint+""
         }else {
             $scope.clear.total=JSON.parse($scope.clear.dataArr).totalPrice+" 元 ";
-            $scope.clear.total1 ="或 ¥"+JSON.parse($scope.clear.dataArr).totalPriceStrict+" + 积分"+JSON.parse($scope.clear.dataArr).totalPoint+""
+            $scope.clear.total1 ="或 ¥"+JSON.parse($scope.clear.dataArr).totalPriceStrict+" + 购物积分"+JSON.parse($scope.clear.dataArr).totalPoint+""
         }
 
 
