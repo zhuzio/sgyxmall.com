@@ -1,0 +1,204 @@
+<style type="text/css">
+    .mcContainer{
+        width: 100%;
+        height: auto;
+    }
+    .module_head{
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .headTab{
+        width: 100%;
+        height: .7rem;
+        line-height: .7rem;
+        background-color: #fff;
+        position: fixed;
+        top: .8rem;
+        left: 0;
+        border-top: 1px #E5E5E5 solid;
+    }
+    .headTab span{
+        display: block;
+        width: 33.3333%;
+        float: left;
+        height: .65rem;
+        text-align: center;
+        font-size: .26rem;
+    }
+    .headTab span.tan_on{
+        border-bottom: .05rem #ef8b27 solid;
+    }
+    .couponsContainer{
+        margin-top: 1.5rem;
+        padding-top: .2rem;
+    }
+    .couponsContainer >img{
+        display: block;
+        width: 75%;
+        height: auto;
+        margin: 1rem auto;
+    }
+    .noUse .cpCenter{
+        background: url("images/image/noUse.png") no-repeat center;
+        background-size: 100% auto;
+    }
+    .noUse .c_have{
+        display: none;
+    }
+    .haveUse .c_no{
+        display: none;
+    }
+    .haveUse .cpCenter{
+        background: url("images/image/haveuse.png") no-repeat center;
+        background-size: 100% auto;
+        color: #a3a3a3 !important;
+    }
+    .haveUse .cpTop,
+    .failUse .cpTop{
+        color: #a3a3a3 !important;
+    }
+    .haveUse .cpiR,
+    .failUse .cpiR{
+        color: #a3a3a3 !important;
+    }
+    .haveUse .cpiU span,
+    .failUse .cpiU span{
+        color: #a3a3a3 !important;
+        border: 1px #a3a3a3 solid;
+    }
+
+    .failUse .cpCenter{
+        background: url("images/image/fail.png") no-repeat center;
+        background-size: 100% auto;
+        color: #a3a3a3 !important;
+    }
+    .eachCoupons{
+        background: white;
+        margin-bottom: .2rem;
+        padding-top: .2rem;
+    }
+    .storeInfo{
+        overflow: hidden;
+        height: 1.6rem;
+        padding-bottom: .2rem;
+        border-bottom: 1px #E5E5E5 solid;
+    }
+    .storeImg{
+        float: left;
+        width: 32%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-left: 3%;
+    }
+    .storeImg img{
+        display: block;
+        width: auto;
+        max-width: 94%;
+        height: auto;
+        max-height: 100%;
+    }
+    .storeDis{
+        float: right;
+        width: 65%;
+        height: 100%;
+    }
+    .storeDis p{
+        line-height: .4rem;
+        margin-left: .15rem;
+        font-size: .25rem;
+        width: 96%;
+    }
+    .storeName{
+        font-weight: bolder;
+    }
+    .storeName span{
+        margin-right: .15rem;
+    }
+    .couponsInfo{
+        width: 100%;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cpCenter{
+        width: 92%;
+        height: 1.6rem;
+        background: #385476;
+    }
+    .cpTop{
+        height: .9rem;
+        line-height: .9rem;
+        border-bottom: 1px #E5E5E5 dotted;
+        color: #FB8906;
+        overflow: hidden;
+    }
+    .cpBtm{
+        height: .7rem;
+        line-height: .7rem;
+    }
+    .cpiT{
+        text-indent: 1em;
+        font-size: .24rem;
+    }
+    .cpi{
+        float: left;
+    }
+    .cpiF{
+        font-size: .26rem;
+        margin-left: .2rem;
+    }
+    .cpiM{
+        font-size: .45rem;
+        padding-left: .08rem;
+    }
+    .cpiR{
+        color: black;
+        font-size: .24rem;
+        padding-left: .2rem;
+    }
+    .cpiU{
+        float: right;
+        margin-right: .25rem;
+    }
+    .cpiU span{
+        border: 1px #FB8906 solid;
+        border-radius: .1rem;
+        padding: .07rem .12rem;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    我的优惠券 <span ui-sref="sendCoupons" ng-if="mcc.userType == 2">去发布</span>
+</div>
+<div class="headTab">
+    <span ng-repeat="tab in mcc.tabList" ng-class="{'tan_on':mcc.tabIdx == $index}" ng-click="getMyCouponsType($index)">{{tab}}</span>
+</div>
+<div class="couponsContainer" ng-class="mcc.className">
+    <div class='eachCoupons' ng-repeat="mc in mcc.mccList">
+         <div class='storeInfo'>
+             <div class='storeImg'><img ng-src='http://www.sgyxmall.com/{{mc.main_img}}' alt=''></div>
+             <div class='storeDis'>
+                 <p class='storeName'>{{mc.store_name}}</p>
+                 <p class='storePosition'>地址：{{mc.area}}{{mc.address}}</p>
+                 <p class='storeTel'>电话：{{mc.phone}}</p>
+                 </div>
+             </div>
+         <div class='couponsInfo'>
+             <div class='cpCenter'>
+                 <div class='cpTop'>
+                     <p class='cpi'><span class='cpiF'>¥</span><span class='cpiM'>{{mc.money}}</span><span class='cpiR'>{{mc.term}}</span></p>
+                     <p class='cpiU'><span class='getCoupons' ng-click="useIt(mc)" ng-if="mc.status == 0">立即使用</span></p></div>
+                 <div class='cpBtm'>
+                     <p class='cpiT c_no' ng-if="mc.status == 0">优惠时间：{{mc.start_time}} ~ {{mc.end_time}}</p>
+                     <p class='cpiT c_have' ng-if="mc.status == 1">使用时间：{{mc.use_time}}</p>
+                     <p class='cpiT c_have' ng-if="mc.status == 2">优惠时间：{{mc.start_time}} ~ {{mc.end_time}}</p>
+                     </div>
+                 </div>
+             </div>
+     </div>
+    <img src="images/image/nodata.png" alt="" ng-if="mcc.noData">
+</div>

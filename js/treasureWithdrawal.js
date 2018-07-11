@@ -11,6 +11,7 @@ yx_mallApp
         zf_password:[],//密码收集
         zf_ok:[],//密码位数
         zf_no:false,//密码错误警告
+        zf_noTxt:"",
         tq_money:'',
     };
 	if(!localStorage.getItem("userInfo")){
@@ -114,6 +115,7 @@ $scope.maxMoney=function (e) {
                     //成功后处理
                     if(e.data.ret=="err"){ //  密码错误
                         $scope.Withdrawal.zf_no=true;
+                        $scope.Withdrawal.zf_noTxt = e.data.msg
                         $timeout(function () {
                             $scope.Withdrawal. zf_password=[];
                             $scope.Withdrawal. zf_ok=[];

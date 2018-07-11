@@ -591,6 +591,51 @@ yx_mallApp.constant('RouterList_Config',[
         ]
     },
     {
+        name:"cashIntegral",// 现金积分
+        url:"/_cashIntegral",
+        templateUrl:"net/cashIntegral.html",
+        controller:"cashIntegralController",
+        files:[
+            './js/cashIntegralCtrl.js'
+        ]
+    },
+    {
+        name:"cashIntegralChangeRecord",//现金积分转化记录
+        url:"/_cashIntegralChangeRecord",
+        templateUrl:"net/cashIntegralChangeRecord.html",
+        controller:"cashIntegralChangeRecordController",
+        files:[
+            './js/cashIntegralChangeRecordCtrl.js'
+        ]
+    },
+    {
+        name:"cashIntegralConsumptionRecord",// 现金积分消费积分
+        url:"/_cashIntegralConsumptionRecord",
+        templateUrl:"net/cashIntegralConsumptionRecord.html",
+        controller:"cashIntegralConsumptionRecordController",
+        files:[
+            './js/cashIntegralConsumptionRecordCtrl.js'
+        ]
+    },
+    {
+        name:"cashIntegralWithdrawal",// 现金积分提现
+        url:"/_cashIntegralWithdrawal",
+        templateUrl:"net/cashIntegralWithdrawal.html",
+        controller:"cashIntegralWithdrawalController",
+        files:[
+            './js/cashIntegralWithdrawalCtrl.js'
+        ]
+    },
+    {
+        name:"cashIntegralWithdrawalRecord",// 现金积分提现记录
+        url:"/_cashIntegralWithdrawalRecord",
+        templateUrl:"net/cashIntegralWithdrawalRecord.html",
+        controller:"cashIntegralWithdrawalRecordController",
+        files:[
+            './js/cashIntegralWithdrawalRecordCtrl.js'
+        ]
+    },
+    {
         name:"shopIntegral",//购物积分专区
         url:"/_shopIntegral",
         templateUrl:"net/shopIntegral.html",
@@ -606,6 +651,42 @@ yx_mallApp.constant('RouterList_Config',[
         controller:"shopIntegralGoodsDetailController",
         files:[
             './js/shopIntegralGoodsDetailCtrl.js'
+        ]
+    },
+    {
+        name:"coupons",// 优惠券
+        url:"/_coupons",
+        templateUrl:"net/coupons.html",
+        controller:"couponsController",
+        files:[
+            './js/couponsCtrl.js'
+        ]
+    },
+    {
+        name:"myCoupons",// 我的优惠券
+        url:"/_myCoupons",
+        templateUrl:"net/myCoupons.html",
+        controller:"myCouponsController",
+        files:[
+            './js/myCouponsCtrl.js'
+        ]
+    },
+    {
+        name:"sendCoupons",// 我的优惠券
+        url:"/_sendCoupons",
+        templateUrl:"net/sendCoupons.html",
+        controller:"sendCouponsController",
+        files:[
+            './js/sendCouponsCtrl.js'
+        ]
+    },
+    {
+        name:"haveSendCoupons",// 已发送优惠券
+        url:"/_haveSendCoupons",
+        templateUrl:"net/haveSendCoupons.html",
+        controller:"haveSendCouponsController",
+        files:[
+            './js/haveSendCouponsCtrl.js'
         ]
     }
 

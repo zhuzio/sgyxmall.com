@@ -24,7 +24,7 @@
 
     <!--好物甄选-->
     <div class="excellent_goods_chose_container">
-        <p class="pr_title" style="color: #ff853e" ui-sref="shopIntegral">购物积分优惠专区</p>
+        <p class="pr_title" ui-sref="shopIntegral">购物积分优惠专区</p>
         <div class="pr_center_container pr_center_container3">
             <ul class="pr_center">
                 <p class="pr_more" ui-sref="shopIntegral">显示更多</p>
@@ -37,15 +37,6 @@
                     </div>
                 </li>
             </ul>
-        </div>
-
-        <p class="egc_title"><span><a href="">好物甄选</a></span></p>
-        <div class="egc_goods">
-            <div ng-repeat="egoods in index.egoods">
-                <a href="{{egoods.ad_link}}" >
-                    <img ng-src="http://www.sgyxmall.com/{{egoods.ad_logo}}" alt="{{egoods.ad_name}}">
-                </a>
-            </div>
         </div>
     </div>
     <!--人气推荐·好物精选-->
@@ -135,4 +126,8 @@
     </div>
     <!--加载更多-->
     <p class="addMore"><img ng-src="images/Loading9.gif"/></p>
+    <!--优惠券入口-->
+    <div class="couponsEnter" ui-sref="coupons">
+        <p>优惠券</p>
+    </div>
 </div>

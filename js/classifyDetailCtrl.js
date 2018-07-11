@@ -1,6 +1,6 @@
 //分类详情页面 控制器
 yx_mallApp.controller("classifyDetailController", ["$scope", "$stateParams", "appService", function ($scope, $stateParams, appService) {
-    document.title = "苏格严选商城--分类详情";
+    document.title = "苏格优品商城--分类详情";
     $scope.classifyDetail = {
         detail: [],
         page: 1,

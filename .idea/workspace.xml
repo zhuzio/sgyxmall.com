@@ -2,22 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4098880-7252-49a2-9b4c-76289c7503b3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/sgyxmall.com.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/sgyxmall.iml" afterPath="" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/backWhite.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/couponsEnter.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/image/fail.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/image/haveuse.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/image/noUse.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/image/nodata.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/image/right.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/image/shangchaun.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/myOld/coupons.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/myWealth/cashIntegral.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/xjjf.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/cashIntegralChangeRecordCtrl.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/cashIntegralConsumptionRecordCtrl.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/cashIntegralCtrl.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/cashIntegralWithdrawalCtrl.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/cashIntegralWithdrawalRecordCtrl.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/couponsCtrl.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/haveSendCouponsCtrl.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/myCouponsCtrl.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/sendCouponsCtrl.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/net/cashIntegral.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/net/cashIntegralChangeRecord.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/net/cashIntegralConsumptionRecord.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/net/cashIntegralWithdrawal.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/net/cashIntegralWithdrawalRecord.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/net/coupons.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/net/haveSendCoupons.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/net/myCoupons.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/net/sendCoupons.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/css/applyWay.css" afterPath="$PROJECT_DIR$/css/applyWay.css" />
+      <change beforePath="$PROJECT_DIR$/css/bass.css" afterPath="$PROJECT_DIR$/css/bass.css" />
       <change beforePath="$PROJECT_DIR$/css/index.css" afterPath="$PROJECT_DIR$/css/index.css" />
+      <change beforePath="$PROJECT_DIR$/js/addBandCard.js" afterPath="$PROJECT_DIR$/js/addBandCard.js" />
+      <change beforePath="$PROJECT_DIR$/js/classifyDetailCtrl.js" afterPath="$PROJECT_DIR$/js/classifyDetailCtrl.js" />
       <change beforePath="$PROJECT_DIR$/js/clearCtrl.js" afterPath="$PROJECT_DIR$/js/clearCtrl.js" />
-      <change beforePath="$PROJECT_DIR$/js/indexCtrl.js" afterPath="$PROJECT_DIR$/js/indexCtrl.js" />
-      <change beforePath="$PROJECT_DIR$/js/shopIntegralCtrl.js" afterPath="$PROJECT_DIR$/js/shopIntegralCtrl.js" />
+      <change beforePath="$PROJECT_DIR$/js/manageBandCardCtrl.js" afterPath="$PROJECT_DIR$/js/manageBandCardCtrl.js" />
+      <change beforePath="$PROJECT_DIR$/js/routerList.js" afterPath="$PROJECT_DIR$/js/routerList.js" />
+      <change beforePath="$PROJECT_DIR$/js/shopIntegralGoodsDetailCtrl.js" afterPath="$PROJECT_DIR$/js/shopIntegralGoodsDetailCtrl.js" />
+      <change beforePath="$PROJECT_DIR$/js/treasureWithdrawal.js" afterPath="$PROJECT_DIR$/js/treasureWithdrawal.js" />
+      <change beforePath="$PROJECT_DIR$/lib/area.json" afterPath="$PROJECT_DIR$/lib/area.json" />
       <change beforePath="$PROJECT_DIR$/net/applyWay.html" afterPath="$PROJECT_DIR$/net/applyWay.html" />
-      <change beforePath="$PROJECT_DIR$/net/classifyDetail.html" afterPath="$PROJECT_DIR$/net/classifyDetail.html" />
-      <change beforePath="$PROJECT_DIR$/net/clearing.html" afterPath="$PROJECT_DIR$/net/clearing.html" />
-      <change beforePath="$PROJECT_DIR$/net/detail.html" afterPath="$PROJECT_DIR$/net/detail.html" />
       <change beforePath="$PROJECT_DIR$/net/index.html" afterPath="$PROJECT_DIR$/net/index.html" />
+      <change beforePath="$PROJECT_DIR$/net/manageBandCard.html" afterPath="$PROJECT_DIR$/net/manageBandCard.html" />
+      <change beforePath="$PROJECT_DIR$/net/my_suge.html" afterPath="$PROJECT_DIR$/net/my_suge.html" />
       <change beforePath="$PROJECT_DIR$/net/shopIntegral.html" afterPath="$PROJECT_DIR$/net/shopIntegral.html" />
       <change beforePath="$PROJECT_DIR$/net/shopIntegralGoodsDetail.html" afterPath="$PROJECT_DIR$/net/shopIntegralGoodsDetail.html" />
+      <change beforePath="$PROJECT_DIR$/net/treasure.html" afterPath="$PROJECT_DIR$/net/treasure.html" />
+      <change beforePath="$PROJECT_DIR$/net/treasureWithdrawal.html" afterPath="$PROJECT_DIR$/net/treasureWithdrawal.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,12 +63,54 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="couponsCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/couponsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="484">
+              <caret line="105" column="19" lean-forward="true" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="19" />
+              <folding>
+                <element signature="e#880#1163#0" expanded="false" />
+                <element signature="e#918#1005#0" expanded="false" />
+                <element signature="e#1064#1151#0" expanded="false" />
+                <element signature="e#1182#1225#0" expanded="false" />
+                <element signature="e#1355#1681#0" expanded="false" />
+                <element signature="e#1700#1743#0" expanded="false" />
+                <element signature="e#1785#2497#0" expanded="false" />
+                <element signature="e#4822#5727#0" expanded="false" />
+                <element signature="e#5776#8671#0" expanded="false" />
+                <element signature="e#8726#10847#0" expanded="false" />
+                <element signature="e#10900#12224#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coupons.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/coupons.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="259" column="153" lean-forward="true" selection-start-line="259" selection-start-column="153" selection-end-line="259" selection-end-column="153" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myCoupons.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/myCoupons.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3938">
+              <caret line="179" column="42" lean-forward="false" selection-start-line="179" selection-start-column="42" selection-end-line="179" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myCouponsCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/myCouponsCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1188">
+              <caret line="54" column="10" lean-forward="true" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -44,92 +119,99 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/net/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="34" column="66" lean-forward="false" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="66" />
+            <state relative-caret-position="484">
+              <caret line="129" column="22" lean-forward="false" selection-start-line="129" selection-start-column="22" selection-end-line="129" selection-end-column="22" />
+              <folding>
+                <element signature="n#header#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#div#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3872">
+              <caret line="176" column="15" lean-forward="false" selection-start-line="176" selection-start-column="15" selection-end-line="176" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/net/detail.html">
+      <file leaf-file-name="addAddressCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/addAddressCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-127">
-              <caret line="61" column="103" lean-forward="false" selection-start-line="61" selection-start-column="103" selection-end-line="61" selection-end-column="103" />
+            <state relative-caret-position="1386">
+              <caret line="67" column="8" lean-forward="false" selection-start-line="67" selection-start-column="8" selection-end-line="153" selection-end-column="10" />
+              <folding>
+                <element signature="e#852#945#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendCoupons.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/net/sendCoupons.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3190">
+              <caret line="145" column="76" lean-forward="false" selection-start-line="145" selection-start-column="76" selection-end-line="145" selection-end-column="76" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classifyDetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/net/classifyDetail.html">
+      <file leaf-file-name="sendCouponsCtrl.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/sendCouponsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clearing.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/net/clearing.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="23" column="88" lean-forward="false" selection-start-line="23" selection-start-column="88" selection-end-line="23" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shopIntegralCtrl.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/shopIntegralCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clearCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/clearCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="48" column="16" lean-forward="true" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applyWay.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/net/applyWay.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applyWay.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/applyWay.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="92" column="38" lean-forward="false" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
-              <folding />
+            <state relative-caret-position="-11">
+              <caret line="200" column="23" lean-forward="true" selection-start-line="200" selection-start-column="23" selection-end-line="200" selection-end-column="23" />
+              <folding>
+                <element signature="e#1449#1514#0" expanded="false" />
+                <element signature="e#1533#1576#0" expanded="false" />
+                <element signature="e#1691#1745#0" expanded="false" />
+                <element signature="e#2451#2502#0" expanded="false" />
+                <element signature="e#2540#2939#0" expanded="false" />
+                <element signature="e#2976#3413#0" expanded="false" />
+                <element signature="e#3451#4059#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>积分</find>
       <find>严选积分</find>
+      <find>fullMoney</find>
+      <find>ciwrList</find>
+      <find>zf_no</find>
+      <find>alert</find>
+      <find>storeType</find>
+      <find>&quot;</find>
+      <find>couponsType</find>
+      <find>.storeName_index</find>
+      <find>shopMoney</find>
     </findStrings>
     <replaceStrings>
       <replace>购物积分</replace>
+      <replace>appService.artTxt</replace>
+      <replace />
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -138,14 +220,55 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/net/applyWay.html" />
-        <option value="$PROJECT_DIR$/net/index.html" />
         <option value="$PROJECT_DIR$/net/detail.html" />
         <option value="$PROJECT_DIR$/net/classifyDetail.html" />
-        <option value="$PROJECT_DIR$/js/clearCtrl.js" />
-        <option value="$PROJECT_DIR$/css/applyWay.css" />
         <option value="$PROJECT_DIR$/net/clearing.html" />
         <option value="$PROJECT_DIR$/js/shopIntegralCtrl.js" />
+        <option value="$PROJECT_DIR$/js/clearCtrl.js" />
+        <option value="$PROJECT_DIR$/js/classifyDetailCtrl.js" />
+        <option value="$PROJECT_DIR$/net/shopIntegralGoodsDetail.html" />
+        <option value="$PROJECT_DIR$/net/shopIntegral.html" />
+        <option value="$PROJECT_DIR$/js/shopIntegralGoodsDetailCtrl.js" />
+        <option value="$PROJECT_DIR$/js/cashIntegralCtrl.js" />
+        <option value="$PROJECT_DIR$/js/cashIntegralChangeRecord.js" />
+        <option value="$PROJECT_DIR$/net/cashIntegralChangeRecord.html" />
+        <option value="$PROJECT_DIR$/js/cashIntegralChangeRecordCtrl.js" />
+        <option value="$PROJECT_DIR$/js/cashIntegralConsumptionRecordCtrl.js" />
+        <option value="$PROJECT_DIR$/net/cashIntegralConsumptionRecord.html" />
+        <option value="$PROJECT_DIR$/net/treasure.html" />
+        <option value="$PROJECT_DIR$/net/cashIntegralWithdeawal.html" />
+        <option value="$PROJECT_DIR$/js/cashIntegralWithdeawalCtrl.js" />
+        <option value="$PROJECT_DIR$/net/cashIntegral.html" />
+        <option value="$PROJECT_DIR$/net/manageBandCard.html" />
+        <option value="$PROJECT_DIR$/js/addBandCard.js" />
+        <option value="$PROJECT_DIR$/js/manageBandCardCtrl.js" />
+        <option value="$PROJECT_DIR$/js/upToMerchantCtrl.js" />
+        <option value="$PROJECT_DIR$/net/cashIntegralWithdrawal.html" />
+        <option value="$PROJECT_DIR$/js/cashIntegralWithdrawalCtrl.js" />
+        <option value="$PROJECT_DIR$/net/cashIntegralWithdrawalRecord.html" />
+        <option value="$PROJECT_DIR$/js/cashIntegralWithdrawalRecordCtrl.js" />
+        <option value="$PROJECT_DIR$/net/applyWay.html" />
+        <option value="$PROJECT_DIR$/css/applyWay.css" />
+        <option value="$PROJECT_DIR$/js/applyWayCtrl.js" />
+        <option value="$PROJECT_DIR$/js/treasureWithdrawal.js" />
+        <option value="$PROJECT_DIR$/net/treasureWithdrawal.html" />
+        <option value="$PROJECT_DIR$/coupons/js/couponsCtrl.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/myCoupons.js" />
+        <option value="$PROJECT_DIR$/css/bass.css" />
+        <option value="$PROJECT_DIR$/js/routerList.js" />
+        <option value="$PROJECT_DIR$/js/haveSendCouponsCtrl.js" />
+        <option value="$PROJECT_DIR$/net/my_suge.html" />
+        <option value="$PROJECT_DIR$/net/haveSendCoupons.html" />
+        <option value="$PROJECT_DIR$/net/sendCoupons.html" />
+        <option value="$PROJECT_DIR$/lib/area.json" />
+        <option value="$PROJECT_DIR$/js/myCouponsCtrl.js" />
+        <option value="$PROJECT_DIR$/net/index.html" />
+        <option value="$PROJECT_DIR$/css/index.css" />
+        <option value="$PROJECT_DIR$/net/myCoupons.html" />
+        <option value="$PROJECT_DIR$/net/coupons.html" />
+        <option value="$PROJECT_DIR$/js/sendCouponsCtrl.js" />
+        <option value="$PROJECT_DIR$/js/couponsCtrl.js" />
       </list>
     </option>
   </component>
@@ -160,6 +283,9 @@
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -176,8 +302,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,7 +314,12 @@
             <path>
               <item name="sgyxWap" type="b2602c69:ProjectViewProjectNode" />
               <item name="sgyxWap" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sgyxWap" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sgyxWap" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sgyxWap" type="b2602c69:ProjectViewProjectNode" />
@@ -204,6 +335,22 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\sgyxWap\images\myOld" />
+      <recent name="D:\project\sgyxWap\images\image" />
+      <recent name="D:\project\sgyxWap\images" />
+      <recent name="D:\project\sgyxWap\net" />
+      <recent name="D:\project\sgyxWap\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\sgyxWap\images" />
+      <recent name="D:\project\sgyxWap" />
+      <recent name="D:\project\sgyxWap\images\myWealth" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -216,6 +363,29 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="coupons.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/sgyxWap/net/coupons.html" />
+    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/sgyxWap/index.html" />
+    <configuration name="login.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/sgyxWap/net/login.html" />
+    <configuration name="myCoupons.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/sgyxWap/net/myCoupons.html" />
+    <configuration name="sendCoupons.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/sgyxWap/net/sendCoupons.html" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.sendCoupons.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.coupons.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.myCoupons.html" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.myCoupons.html" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.coupons.html" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.sendCoupons.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -230,33 +400,52 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528696145167</updated>
-      <workItem from="1528696153409" duration="4636000" />
+      <workItem from="1528696153409" duration="9453000" />
+      <workItem from="1528764949396" duration="4461000" />
+      <workItem from="1528854434264" duration="3894000" />
+      <workItem from="1529025931944" duration="9304000" />
+      <workItem from="1529141798701" duration="3320000" />
+      <workItem from="1529195754694" duration="8326000" />
+      <workItem from="1529369531587" duration="7878000" />
+      <workItem from="1529456747462" duration="777000" />
+      <workItem from="1529458641297" duration="10172000" />
+      <workItem from="1529569083768" duration="5856000" />
+      <workItem from="1529627547699" duration="13154000" />
+      <workItem from="1529726076554" duration="2183000" />
+      <workItem from="1529804185039" duration="2392000" />
+      <workItem from="1530005165940" duration="635000" />
+      <workItem from="1530061890362" duration="638000" />
+      <workItem from="1530427362703" duration="13476000" />
+      <workItem from="1530491643944" duration="26153000" />
+      <workItem from="1530935387004" duration="8936000" />
+      <workItem from="1531012329620" duration="13139000" />
+      <workItem from="1531204543882" duration="5514000" />
+      <workItem from="1531295142142" duration="5869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4636000" />
+    <option name="totallyTimeSpent" value="155530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1264489" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12012645" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -267,79 +456,403 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/buyAndSendIntegralDetailCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="164" column="23" lean-forward="true" selection-start-line="164" selection-start-column="23" selection-end-line="164" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/cashIntegralChangeRecord.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/cashIntegralConsumptionRecord.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="66" column="6" lean-forward="false" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/treasure.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1521">
+          <caret line="189" column="17" lean-forward="false" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cashIntegralConsumptionRecordCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" column="46" lean-forward="false" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cashIntegralChangeRecordCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="76" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/cashIntegral.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2112">
+          <caret line="96" column="130" lean-forward="false" selection-start-line="96" selection-start-column="130" selection-end-line="96" selection-end-column="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cashIntegralCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/addBandCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/manageBandCard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="99" column="6" lean-forward="true" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/directive/applyDirective.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="33" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/upToMerchantCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="325" column="15" lean-forward="false" selection-start-line="325" selection-start-column="15" selection-end-line="325" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/upToMerchant.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="131" column="10" lean-forward="true" selection-start-line="131" selection-start-column="10" selection-end-line="131" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/cashIntegralWithdrawal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/shopCar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/buyAndSendIntegralDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="180" column="50" lean-forward="false" selection-start-line="180" selection-start-column="50" selection-end-line="180" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/manageBandCardCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="88" column="45" lean-forward="false" selection-start-line="88" selection-start-column="38" selection-end-line="88" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cashIntegralWithdrawalCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/cashIntegralWithdrawalRecord.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cashIntegralWithdrawalRecordCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/applyWay.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1848">
+          <caret line="84" column="35" lean-forward="false" selection-start-line="84" selection-start-column="35" selection-end-line="84" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/applyWay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1210">
+          <caret line="55" column="56" lean-forward="false" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/applyWayCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1694">
+          <caret line="77" column="18" lean-forward="false" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/treasureWithdrawal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3366">
+          <caret line="153" column="16" lean-forward="false" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/directive/applyDirective.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/treasureWithdrawal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2310">
+          <caret line="105" column="57" lean-forward="true" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bass.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6094">
+          <caret line="277" column="1" lean-forward="false" selection-start-line="277" selection-start-column="1" selection-end-line="277" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/myOrderCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-374">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/myOrder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="100" column="73" lean-forward="true" selection-start-line="100" selection-start-column="73" selection-end-line="100" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/routerList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="683" column="37" lean-forward="false" selection-start-line="683" selection-start-column="37" selection-end-line="683" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/shop_carCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="199" column="62" lean-forward="false" selection-start-line="199" selection-start-column="45" selection-end-line="199" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/haveSendCouponsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="50" lean-forward="false" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/backWhite.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/xjjf.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/my_suge.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="42" column="60" lean-forward="false" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/haveSendCoupons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="197" column="6" lean-forward="false" selection-start-line="197" selection-start-column="6" selection-end-line="197" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/address.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="70" lean-forward="false" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/addAddress.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="64" lean-forward="false" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/area.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="5001" column="12" lean-forward="true" selection-start-line="5001" selection-start-column="12" selection-end-line="5001" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/addAddressCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="67" column="8" lean-forward="false" selection-start-line="67" selection-start-column="8" selection-end-line="153" selection-end-column="10" />
+          <folding>
+            <element signature="e#852#945#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/sendCoupons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3190">
+          <caret line="145" column="76" lean-forward="false" selection-start-line="145" selection-start-column="76" selection-end-line="145" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3872">
+          <caret line="176" column="15" lean-forward="false" selection-start-line="176" selection-start-column="15" selection-end-line="176" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/net/myCoupons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3938">
+          <caret line="179" column="42" lean-forward="false" selection-start-line="179" selection-start-column="42" selection-end-line="179" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="36" column="67" lean-forward="true" selection-start-line="36" selection-start-column="67" selection-end-line="36" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/net/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="34" column="66" lean-forward="false" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="66" />
+        <state relative-caret-position="484">
+          <caret line="129" column="22" lean-forward="false" selection-start-line="129" selection-start-column="22" selection-end-line="129" selection-end-column="22" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/myCouponsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="54" column="10" lean-forward="true" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/net/detail.html">
+    <entry file="file://$PROJECT_DIR$/net/coupons.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
-          <caret line="61" column="103" lean-forward="false" selection-start-line="61" selection-start-column="103" selection-end-line="61" selection-end-column="103" />
+        <state relative-caret-position="311">
+          <caret line="259" column="153" lean-forward="true" selection-start-line="259" selection-start-column="153" selection-end-line="259" selection-end-column="153" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/net/classifyDetail.html">
+    <entry file="file://$PROJECT_DIR$/js/couponsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="484">
+          <caret line="105" column="19" lean-forward="true" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="19" />
+          <folding>
+            <element signature="e#880#1163#0" expanded="false" />
+            <element signature="e#918#1005#0" expanded="false" />
+            <element signature="e#1064#1151#0" expanded="false" />
+            <element signature="e#1182#1225#0" expanded="false" />
+            <element signature="e#1355#1681#0" expanded="false" />
+            <element signature="e#1700#1743#0" expanded="false" />
+            <element signature="e#1785#2497#0" expanded="false" />
+            <element signature="e#4822#5727#0" expanded="false" />
+            <element signature="e#5776#8671#0" expanded="false" />
+            <element signature="e#8726#10847#0" expanded="false" />
+            <element signature="e#10900#12224#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/applyWay.css">
+    <entry file="file://$PROJECT_DIR$/js/sendCouponsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="92" column="38" lean-forward="false" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/clearCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="48" column="16" lean-forward="true" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/net/applyWay.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/net/clearing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="88" lean-forward="false" selection-start-line="23" selection-start-column="88" selection-end-line="23" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/shopIntegralCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="-11">
+          <caret line="200" column="23" lean-forward="true" selection-start-line="200" selection-start-column="23" selection-end-line="200" selection-end-column="23" />
+          <folding>
+            <element signature="e#1449#1514#0" expanded="false" />
+            <element signature="e#1533#1576#0" expanded="false" />
+            <element signature="e#1691#1745#0" expanded="false" />
+            <element signature="e#2451#2502#0" expanded="false" />
+            <element signature="e#2540#2939#0" expanded="false" />
+            <element signature="e#2976#3413#0" expanded="false" />
+            <element signature="e#3451#4059#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

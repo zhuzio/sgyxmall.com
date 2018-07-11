@@ -270,6 +270,12 @@ button {
     background: url("../images/back.png") no-repeat center;
     background-size: auto .4rem;
 }
+.module_head >span {
+    position: absolute;
+    right: 0.2rem;
+    font-size: .2rem;
+    color: #555555;
+}
 /*
     黑色弹出层
 */

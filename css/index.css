@@ -172,6 +172,28 @@ li{
     font-size: .28rem;
     padding: .15rem 0;
 }
+.couponsEnter{
+    position: fixed;
+    bottom: 2.5rem;
+    right: 0rem;
+    width: 1.2rem;
+    height: 0.65rem;
+    border:1px #e59547 solid;
+    z-index: 999999999999;
+    border-radius: .45rem 0 0 .45rem;
+    background:rgb(252,149,1) url("../images/couponsEnter.png") no-repeat .15rem center;
+    background-size: .3rem auto;
+    border-right: none;
+
+}
+.couponsEnter p{
+    text-align: right;
+    line-height: .65rem;
+    font-size: .21rem;
+    float: right;
+    color: white;
+    padding-right: .05rem;
+}
 .pr_center{
     overflow: hidden;
     /*background: #ededed;*/
@@ -196,7 +218,7 @@ li{
     border-radius: .15rem;
 }
 .each_pr_name{
-    font-size: .24rem;
+    font-size: .22rem;
     padding-top: .2rem;
     width: 95%;
     margin: 0 auto .1rem;
@@ -225,12 +247,18 @@ li{
     color: #fb6400;
     display: inline-block;
 }
+.sold_price >p{
+    font-size: .24rem;
+}
 .sold_price >p >span,
 .member_price >p >span{
     font-size: .28rem;
     color: #fb6400;
     padding-left: .05rem;
     font-weight: bolder;
+}
+.sold_price >p >span{
+    font-size: .22rem;
 }
 .sold_price >p >i{
     font-style: normal;

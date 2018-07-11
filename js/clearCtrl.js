@@ -94,9 +94,23 @@ yx_mallApp
                     // sc_id:$scope.clear.shopId,
                 });
                 orders.then(function (value) {
-                    console.log(value)
+                    // 获取用户可用购物积分
+                    var canUseIntegral = appService._postData(URL+'index.php?s=/Api/Order/surplus_point',{
+                        token:$scope.clear.userInfo.token
+                    });
+                        canUseIntegral.then(function (value2) {
+                            console.log(value2)
+                            if (parseFloat(value2.data.data.money)<JSON.parse($scope.clear.dataArr).totalPoint){
+                                appService.artTxt('您的购物积分不足，暂时不能购买此商品');
+                                return false
+                            }else {
+                                window.location.href='http://www.sgyxmall.com/payment/weixinPay/money_goods_pay.php?cz_money='+value.data.cz_money+'&dingdan='+value.data.dingdan+'&site_url='+value.data.site_url+''
+                            }
+                        },function (reason) {
+                            console.log(reason)
+                        })
+                    // console.log(value)
                     /*if () {}*/
-                    window.location.href='http://www.sgyxmall.com/payment/weixinPay/money_goods_pay.php?cz_money='+value.data.cz_money+'&dingdan='+value.data.dingdan+'&site_url='+value.data.site_url+''
                 },function (reason) {
                     console.log(reason)
                 })

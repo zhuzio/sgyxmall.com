@@ -83,6 +83,11 @@ yx_mallApp
                 }else {
                     $state.go("treasureWithdrawal",{id:a,name:b,num:c});
                 }
+            }else if ($stateParams.id == 2){
+                var defBand = [] ;
+                    defBand.push({id:a,name:b,num:c});
+                localStorage.setItem("defCard",JSON.stringify(defBand));
+                $window.history.go(-1);
             }else {
                 return false;
             };

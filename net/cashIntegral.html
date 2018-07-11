@@ -1,0 +1,127 @@
+<style type="text/css">
+    .ciContainer{
+        width: 100%;
+        height: auto;
+    }
+    .ciHead{
+        width:100% ;
+        height: 3.5rem;
+        background: linear-gradient(#519dff, #74d1ff);
+        position: relative;
+    }
+    .ciHead >h3{
+        text-align: center;
+        font-weight: normal;
+        font-size: .3rem;
+        color: white;
+        height: .8rem;
+        line-height: .8rem;
+    }
+    .ciHead >h3 >span{
+        font-size: .23rem;
+        margin-right: .2rem;
+    }
+    .ciBack{
+        display: block;
+        width: .8rem;
+        height: .8rem;
+        background: url("images/backWhite.png") no-repeat center;
+        background-size: auto .4rem;
+    }
+    .ciHead >p{
+        margin-top: .3rem;
+        text-indent: 1em;
+        font-size: .27rem;
+        color: rgba(255, 255, 255, 0.68);
+    }
+    .ciHead >h2{
+        text-align: center;
+        font-weight: normal;
+        font-size: .4rem;
+        color: white;
+        margin-top: .3rem;
+    }
+    .ciShow{
+        width: 5.5rem;
+        height: 1.5rem;
+        background-color: #ffffff;
+        -webkit-box-shadow: 0.01rem 0.01rem 0.25rem 0rem rgba(0, 0, 0, 0.26);
+        box-shadow: 0.01rem 0.01rem 0.25rem 0rem rgba(0, 0, 0, 0.26);
+        border-radius: 0.2rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: .45rem auto 0;
+    }
+    .ciShow >div{
+        float: left;
+        width: 33.333%;
+        height: 100%;
+        text-align: center;
+     }
+    .ciShow >div >p{
+        width: 100%;
+        height: .75rem;
+    }
+    .ciShow >div >p:nth-child(1){
+        line-height: 1rem;
+        font-size: .32rem;
+    }
+    .ciShow >div >p:nth-child(2){
+        font-size: .2rem;
+        line-height: .5rem;
+        color: #333;
+    }
+    .ciLink{
+        width: 94%;
+        height: auto;
+        padding: .2rem 3%;
+        background: white;
+        margin-top: 1rem;
+    }
+    .ciLink >div{
+        width: 100%;
+        height: .8rem;
+        line-height: .8rem;
+        border-bottom: 1px #e5e5e5 solid;
+        background: url("images/right.png") no-repeat 98% center;
+        background-size: auto .3rem;
+    }
+    .ciLink >div p{
+        text-indent: 2em;
+        font-size: .28rem;
+    }
+</style>
+<div class="ciContainer">
+    <div class="ciHead">
+        <h3><a class="ciBack fl" href="javascript:window.history.go(-1)"></a>现金积分 <span class="fr" ui-sref="cashIntegralWithdrawal">提现</span></h3>
+        <p>当前可用现金积分：</p>
+        <h2>{{ci.info.available}}</h2>
+        <div class="ciShow">
+            <div>
+                <p>{{ci.info.balance}}</p>
+                <p>结余现金积分</p>
+            </div>
+            <div>
+                <p>{{ci.info.converted}}</p>
+                <p>已转化</p>
+            </div>
+            <div>
+                <p>{{ci.info.unconverted}}</p>
+                <p>待转化</p>
+            </div>
+        </div>
+    </div>
+    <div class="ciLink">
+        <div ui-sref="cashIntegralChangeRecord">
+            <p>转化记录</p>
+        </div>
+        <div ui-sref="cashIntegralConsumptionRecord">
+            <p>消费记录</p>
+        </div>
+        <div ui-sref="cashIntegralWithdrawalRecord">
+            <p>提现记录</p>
+        </div>
+    </div>
+
+</div>

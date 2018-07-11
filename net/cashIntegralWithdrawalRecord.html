@@ -1,0 +1,80 @@
+<style type="text/css">
+    .module_head{
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .ciwrContainer{
+        width: 100%;
+        height: auto;
+        padding: .2rem 0 0;
+        margin-top: .8rem;
+    }
+    .ciwrContainer >img{
+        display: block;
+        width: 60%;
+        margin: 4rem auto 0;
+    }
+    .eachRec{
+        width: 94%;
+        height: auto;
+        padding: 0rem 3%;
+        border-bottom: 1px #e5e5e5 solid;
+        margin-bottom: .15rem;
+    }
+    .eachRec p{
+        font-size: .26rem;
+        height: .7rem;
+        line-height: .7rem;
+        padding-left: .4rem;
+    }
+    .w_m{
+        background: url("images/wealthAll/qiandai.png") no-repeat left center;
+        background-size: .32rem auto;
+    }
+    .w_t{
+        background: url("images/wealthAll/Time.png") no-repeat left center;
+        background-size: .32rem auto;
+    }
+    .w_c{
+        background: url("images/wealthAll/w_tcard.png") no-repeat left center;
+        background-size: .32rem auto;
+    }
+    .w_o{
+        background: url("images/wealthAll/Time.png") no-repeat left center;
+        background-size: .32rem auto;
+    }
+    .wait{
+        background:white url("images/merchantIntegral/Audit.png") no-repeat 90% center;
+        background-size: 1.2rem auto;
+    }
+    .pass{
+        background:white url("images/merchantIntegral/Adoption.png") no-repeat 90% center;
+        background-size: 1.2rem auto;
+    }
+    .reject{
+        background:white url("images/merchantIntegral/Rejected.png") no-repeat 90% center;
+        background-size: 1.2rem auto;
+    }
+    .addMores{
+        text-align: center;
+        width: 100%;
+        font-size: .27rem;
+        color: #b4b4b4;
+        padding-bottom: .2rem;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    现金积分提现记录
+</div>
+<div class="ciwrContainer">
+    <div class="eachRec" ng-repeat="rec in ciwr.ciwrList"  ng-class="rec.classNames">
+        <p class="w_m">提现金额：<span>{{rec.money}}</span></p>
+        <p class="w_t">申请时间：<span>{{rec.createtime}}</span></p>
+        <p class="w_c">到账卡号：<span>{{rec.bank_code}}</span></p>
+        <p class="w_o" ng-show="rec.ispay != 0">处理日期：<span>{{rec.operatortime}}</span></p>
+    </div>
+    <img src="images/nodata.png" alt="" ng-if="ciwr.NoData">
+</div>
+<p class="addMores" ng-if="ciwr.addMore" ng-click="addMoreRec()">点击加载更多</p>

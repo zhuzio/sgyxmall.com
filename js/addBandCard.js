@@ -1,5 +1,5 @@
 yx_mallApp
-    .controller("addBandCardController",["$scope","appService","$state",function ($scope,appService,$state) {
+    .controller("addBandCardController",["$scope","appService","$state","$window",function ($scope,appService,$state,$window) {
         document.title="添加银行卡";
         $scope.Adc={
             userInfo:{},
@@ -182,7 +182,7 @@ yx_mallApp
                 addBankCardSub.then(function (value) {
                     if (value.data.ret == "success"){
                         appService.artTxt(value.data.msg).then(function (value2) {
-                            $state.go("manageBandCard");
+                            $window.history.go(-1);
                         });
 
                     }else {

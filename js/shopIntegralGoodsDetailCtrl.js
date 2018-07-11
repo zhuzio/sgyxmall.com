@@ -55,7 +55,8 @@ yx_mallApp
             chosePriceStrict:0,
             // 规格名字
             specName1:"",
-            specName2:""
+            specName2:"",
+            saleNumber:0
         };
         $scope.sigd.userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
@@ -81,6 +82,8 @@ yx_mallApp
         var sigDD =appService._getData(URL+'index.php?s=/Api/Goods/moneyGoodsInfo/goods_id/'+$stateParams.goodsId+'');
             sigDD.then(function (value) {
                 console.log(value.data.data)
+                $scope.sigd.saleNumber =  value.data.data.number_sales;
+                console.log($scope.sigd.saleNumber)
                 $scope.sigd.specName1 = value.data.data.spec_name_1;
                 $scope.sigd.specName2 = value.data.data.spec_name_2;
                 // 商品赋值
@@ -277,8 +280,9 @@ yx_mallApp
                 appService.artTxt("登录超时或未登录，请重新登录！！！");
             }else if($scope.sigd.finalColor == "" || $scope.sigd.finalSize == ""){
                 appService.artTxt("请选择颜色或尺寸");
-            }else{
-
+            }else if (parseInt($scope.sigd.saleNumber) > parseInt($scope.sigd.finalNum)){
+                appService.artTxt("此商品最低 "+$scope.sigd.saleNumber+" 件起售");
+            }else {
                 var dataArr={
                     token:$scope.sigd.userInfo.token,
                     goodsInfo:$scope.finalData(),
@@ -286,6 +290,7 @@ yx_mallApp
                     totalPoint:$scope.sigd.finalPoint,
                     totalPriceStrict:$scope.sigd.finalPriceStrict,
                 };
+
                 localStorage.setItem("datas",JSON.stringify(dataArr));
                 $state.go("clearing",{way:1});
             }

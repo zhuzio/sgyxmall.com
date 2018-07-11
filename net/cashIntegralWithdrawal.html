@@ -1,0 +1,72 @@
+<style type="text/css">
+    .ciwContainer{
+        width: 94%;
+        height: auto;
+        padding: .2rem 3%;
+        background: white;
+        margin-top: .2rem;
+    }
+    .ciwContainer >div{
+        width: 100%;
+        height: .8rem;
+        line-height: .8rem;
+    }
+    .nowInt{
+        font-size: .26rem;
+    }
+    .nowInt span{
+        font-size: .35rem;
+    }
+    .withdrawalTotal{
+        font-size: .26rem;
+    }
+    .withdrawalTotal span{
+        font-size: .35rem;
+        font-weight: bolder;
+    }
+    .withdrawalTotal input {
+        border: none;
+        font-size: .25rem;
+        margin-left: .25rem;
+        border-bottom: 1px #e5e5e5 solid;
+        padding-left: .15rem;
+    }
+    .ciwContainer button{
+        display: block;
+        width: 85%;
+        height: .8rem;
+        margin: .6rem auto .3rem;
+        font-size: .27rem;
+        color: white;
+        border: none;
+        border-radius: .1rem;
+        background: #e79e56;
+    }
+    .wdCard{
+        font-size: .26rem;
+        background: url("images/right.png") no-repeat 90% center;
+        background-size: auto.22rem;
+    }
+    .wdCard span{
+        color: #83b7f7;
+        font-size: .27rem;
+    }
+</style>
+<div class="module_head">
+    <a href="javascript:window.history.go(-1)"></a>
+    现金积分提现
+</div>
+<div class="ciwContainer">
+    <div class="nowInt">当前提现现金积分：<span>{{ciw.intInfo}}</span></div>
+    <div class="wdCard" ui-sref="manageBandCard({id:2})">到账卡号：<span>{{ciw.defCard}}</span></div>
+    <div class="withdrawalTotal">提现额度：<span>¥</span><input type="number" placeholder="请输入提现额度" ng-model="ciw.wdMoney"></div>
+    <button ng-click="wd()">确认提现</button>
+</div>
+<!--二级密码支付盘-->
+<div class="input_psd_container">
+    <div pay-keyboard full-money="{{ciw.wdMoney}}"></div>
+</div>
+<!--支付过程加载层-->
+<div class="input_process_loading">
+    <img src="images/loadings.gif" alt="">
+</div>

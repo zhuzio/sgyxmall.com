@@ -35,9 +35,7 @@
                 </form>
             </div>
 
-            <!--<div class="integral_apply" ng-click="UserApply(2)" >
-                <p>积分支付</p>
-            </div>-->
+
 
 
             <div class="weChat_integral_apply" ng-if="apply.yx_money">
@@ -55,7 +53,9 @@
                 </form>
             </div>
 
-
+            <div class="integral_apply" ng-click="UserApply(2)" >
+                <p>现金积分支付</p>
+            </div>
         </div>
     </div>
 
@@ -85,7 +85,9 @@
 
         </div>
     </div>-->
+    <!--// 用户购物积分-->
     <input type="text" value="{{apply.userStrictIntegral}}" hidden id="userStrictIntegral">
+    <!--商品购物积分-->
     <input type="text" value="{{apply.goodsStrictIntegral}}" hidden id="goodsStrictIntegral">
 </div>
 <!--二级密码支付盘-->
@@ -103,7 +105,7 @@
         console.log(parseFloat($("#userStrictIntegral").val()) < parseFloat($("#goodsStrictIntegral").val()))
          return false;*/
         if (parseFloat($("#userStrictIntegral").val()) < parseFloat($("#goodsStrictIntegral").val())){
-            alert("您的严选积分不足，请选择其他支付方式");
+            alert("您的购物积分不足，请选择其他支付方式");
             return false;
         };
 
